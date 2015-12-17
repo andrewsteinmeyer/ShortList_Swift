@@ -2,7 +2,18 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </mutableArray>
+        <mutableArray key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -21,6 +32,162 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="358" y="439"/>
+        </scene>
+        <!--Sign In View Controller-->
+        <scene sceneID="3zs-eg-OQS">
+            <objects>
+                <viewController storyboardIdentifier="SignInViewController" id="9r5-U3-Ygi" customClass="SignInViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1EY-I6-K1x"/>
+                        <viewControllerLayoutGuide type="bottom" id="eF6-JC-MT6"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" alpha="0.5" contentMode="scaleToFill" id="X1u-Cv-vLk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oZa-sZ-BGD">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="607"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="OHV-bK-d8k">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="607"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="frp-gE-SKA" customClass="DesignableTextField" customModule="ShortList" customModuleProvider="target">
+                                            <rect key="frame" x="164" y="179" width="273" height="30"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <attributedString key="attributedText"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                    <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                    <real key="value" value="4"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </textField>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sXT-Yb-dQW" customClass="DesignableTextField" customModule="ShortList" customModuleProvider="target">
+                                            <rect key="frame" x="164" y="210" width="273" height="30"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <attributedString key="attributedText"/>
+                                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                    <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                    <real key="value" value="4"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </textField>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shortlist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="til-DW-vRR">
+                                            <rect key="frame" x="231" y="98" width="139" height="45"/>
+                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="37"/>
+                                            <color key="textColor" red="1" green="0.84313725490000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7H7-0K-Akh" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
+                                            <rect key="frame" x="164" y="307" width="273" height="45"/>
+                                            <color key="backgroundColor" red="1" green="0.84313725490000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="45" id="Q88-ti-fVz"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="21"/>
+                                            <state key="normal" title="Sign In">
+                                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="1" green="0.84313725490000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="2"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="actionButtonPressed:" destination="9r5-U3-Ygi" eventType="touchUpInside" id="pku-pb-epK"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVm-LI-qFX">
+                                            <rect key="frame" x="164" y="154" width="273" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="OWr-4l-Kxi"/>
+                                                <constraint firstAttribute="width" constant="273" id="ZDZ-Kw-PD1"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWf-B0-5Fk">
+                                            <rect key="frame" x="274" y="360" width="54" height="30"/>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                            <state key="normal" title="Register">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="toggleScreenButtonPressed:" destination="9r5-U3-Ygi" eventType="touchUpInside" id="W3C-B6-PTZ"/>
+                                            </connections>
+                                        </button>
+                                        <textField opaque="NO" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Password Confirmation" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lQo-1x-42j" customClass="DesignableTextField" customModule="ShortList" customModuleProvider="target">
+                                            <rect key="frame" x="164" y="241" width="273" height="30"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <attributedString key="attributedText"/>
+                                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                    <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                    <real key="value" value="4"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </textField>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="lQo-1x-42j" firstAttribute="top" secondItem="sXT-Yb-dQW" secondAttribute="bottom" constant="1" id="35t-OC-9qC"/>
+                                        <constraint firstItem="til-DW-vRR" firstAttribute="centerX" secondItem="oVm-LI-qFX" secondAttribute="centerX" id="6qC-fw-bOP"/>
+                                        <constraint firstItem="oVm-LI-qFX" firstAttribute="trailing" secondItem="frp-gE-SKA" secondAttribute="trailing" id="70Y-6g-5W0"/>
+                                        <constraint firstItem="sXT-Yb-dQW" firstAttribute="leading" secondItem="lQo-1x-42j" secondAttribute="leading" id="CpJ-wy-1ub"/>
+                                        <constraint firstItem="7H7-0K-Akh" firstAttribute="trailing" secondItem="lQo-1x-42j" secondAttribute="trailing" id="EdR-Ct-btj"/>
+                                        <constraint firstItem="frp-gE-SKA" firstAttribute="top" secondItem="oVm-LI-qFX" secondAttribute="bottom" constant="4" id="GDR-Cb-Tny"/>
+                                        <constraint firstItem="oVm-LI-qFX" firstAttribute="top" secondItem="til-DW-vRR" secondAttribute="bottom" constant="11" id="RlJ-P1-UNI"/>
+                                        <constraint firstItem="til-DW-vRR" firstAttribute="top" secondItem="OHV-bK-d8k" secondAttribute="top" constant="98" id="SaP-F9-a62"/>
+                                        <constraint firstItem="lQo-1x-42j" firstAttribute="leading" secondItem="7H7-0K-Akh" secondAttribute="leading" id="YRx-8v-hlj"/>
+                                        <constraint firstItem="sXT-Yb-dQW" firstAttribute="trailing" secondItem="frp-gE-SKA" secondAttribute="trailing" id="Z9t-kq-bZz"/>
+                                        <constraint firstItem="sXT-Yb-dQW" firstAttribute="leading" secondItem="frp-gE-SKA" secondAttribute="leading" id="crX-mL-Oza"/>
+                                        <constraint firstItem="7H7-0K-Akh" firstAttribute="top" secondItem="lQo-1x-42j" secondAttribute="bottom" constant="36" id="eg8-Yd-11V"/>
+                                        <constraint firstItem="sXT-Yb-dQW" firstAttribute="top" secondItem="frp-gE-SKA" secondAttribute="bottom" constant="1" id="ijO-Wq-9n9"/>
+                                        <constraint firstItem="kWf-B0-5Fk" firstAttribute="top" secondItem="7H7-0K-Akh" secondAttribute="bottom" constant="8" symbolic="YES" id="iuQ-6f-7fM"/>
+                                        <constraint firstItem="7H7-0K-Akh" firstAttribute="centerX" secondItem="OHV-bK-d8k" secondAttribute="centerX" id="mJJ-6t-y19"/>
+                                        <constraint firstItem="frp-gE-SKA" firstAttribute="leading" secondItem="oVm-LI-qFX" secondAttribute="leading" id="nAr-1z-QFu"/>
+                                        <constraint firstItem="kWf-B0-5Fk" firstAttribute="centerX" secondItem="7H7-0K-Akh" secondAttribute="centerX" id="qr6-h7-aBA"/>
+                                        <constraint firstItem="sXT-Yb-dQW" firstAttribute="trailing" secondItem="lQo-1x-42j" secondAttribute="trailing" id="t0A-oN-PLo"/>
+                                    </constraints>
+                                </view>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oZa-sZ-BGD" firstAttribute="top" secondItem="X1u-Cv-vLk" secondAttribute="top" id="KO7-nB-FQg"/>
+                            <constraint firstAttribute="trailing" secondItem="oZa-sZ-BGD" secondAttribute="trailing" id="aiF-bq-0YU"/>
+                            <constraint firstItem="oZa-sZ-BGD" firstAttribute="leading" secondItem="X1u-Cv-vLk" secondAttribute="leading" id="cVY-kI-agI"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="oZa-sZ-BGD" secondAttribute="bottom" constant="-7" id="iy9-0N-cXg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="actionButton" destination="7H7-0K-Akh" id="4ao-dT-oYa"/>
+                        <outlet property="emailField" destination="frp-gE-SKA" id="z6q-Qf-rNX"/>
+                        <outlet property="errorMessageLabel" destination="oVm-LI-qFX" id="8YU-8u-lkB"/>
+                        <outlet property="passwordConfirmationField" destination="lQo-1x-42j" id="hV7-ud-8jk"/>
+                        <outlet property="passwordField" destination="sXT-Yb-dQW" id="ad7-FY-ZrC"/>
+                        <outlet property="toggleScreenButton" destination="kWf-B0-5Fk" id="rHA-0i-xoz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sQU-no-tcX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="358" y="-917"/>
         </scene>
         <!--Left View Controller-->
         <scene sceneID="b2a-w4-6Ib">
@@ -110,7 +277,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G8U-jj-736" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1055" y="-546"/>
+            <point key="canvasLocation" x="1007" y="-246"/>
         </scene>
     </scenes>
     <resources>

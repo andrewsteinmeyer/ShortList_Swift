@@ -15,7 +15,7 @@
 		4E6312791C1FA7D500EB78F9 /* ShortListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6312781C1FA7D500EB78F9 /* ShortListTests.swift */; };
 		4E6312841C1FA7D500EB78F9 /* ShortListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6312831C1FA7D500EB78F9 /* ShortListUITests.swift */; };
 		4E6312921C1FAC0000EB78F9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6312911C1FAC0000EB78F9 /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		4E6312951C1FAD2100EB78F9 /* ExSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6312941C1FAD2100EB78F9 /* ExSlideMenuController.swift */; settings = {ASSET_TAGS = (); }; };
+		4E6312951C1FAD2100EB78F9 /* SLSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6312941C1FAD2100EB78F9 /* SLSlideMenuController.swift */; settings = {ASSET_TAGS = (); }; };
 		4E63129E1C1FAF2D00EB78F9 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6312961C1FAF2D00EB78F9 /* UIImageView.swift */; settings = {ASSET_TAGS = (); }; };
 		4E6312A01C1FAF2D00EB78F9 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6312981C1FAF2D00EB78F9 /* UITableViewExtension.swift */; settings = {ASSET_TAGS = (); }; };
 		4E6312A11C1FAF2D00EB78F9 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6312991C1FAF2D00EB78F9 /* UIApplication.swift */; settings = {ASSET_TAGS = (); }; };
@@ -101,6 +101,7 @@
 		4E6313501C1FBB3300EB78F9 /* ListContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E63134F1C1FBB3300EB78F9 /* ListContactsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4E6313541C20E24C00EB78F9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6313531C20E24C00EB78F9 /* Colors.swift */; settings = {ASSET_TAGS = (); }; };
 		4EA365261C20F2A000C90249 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA365251C20F2A000C90249 /* MenuTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		4EA3652A1C2224B500C90249 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA365291C2224B500C90249 /* SignInViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		EDC38BDC8C7C0EF0ABD622BE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A2DD5B22DC715FCEC00F2E /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -136,7 +137,7 @@
 		4E6312831C1FA7D500EB78F9 /* ShortListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortListUITests.swift; sourceTree = "<group>"; };
 		4E6312851C1FA7D500EB78F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E6312911C1FAC0000EB78F9 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		4E6312941C1FAD2100EB78F9 /* ExSlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExSlideMenuController.swift; sourceTree = "<group>"; };
+		4E6312941C1FAD2100EB78F9 /* SLSlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLSlideMenuController.swift; sourceTree = "<group>"; };
 		4E6312961C1FAF2D00EB78F9 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		4E6312981C1FAF2D00EB78F9 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		4E6312991C1FAF2D00EB78F9 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
@@ -228,6 +229,7 @@
 		4E63134F1C1FBB3300EB78F9 /* ListContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListContactsViewController.swift; sourceTree = "<group>"; };
 		4E6313531C20E24C00EB78F9 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		4EA365251C20F2A000C90249 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
+		4EA365291C2224B500C90249 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		90A2DD5B22DC715FCEC00F2E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D95D466AA0CD1F1DA86F9F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FAC3F16DBC599F9FC99408F7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -327,11 +329,12 @@
 		4E6312931C1FAD0300EB78F9 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4EA365291C2224B500C90249 /* SignInViewController.swift */,
 				4E6312911C1FAC0000EB78F9 /* HomeViewController.swift */,
 				4E6312651C1FA7D500EB78F9 /* LeftViewController.swift */,
 				4E63134D1C1FBAED00EB78F9 /* ListsViewController.swift */,
 				4E63134F1C1FBB3300EB78F9 /* ListContactsViewController.swift */,
-				4E6312941C1FAD2100EB78F9 /* ExSlideMenuController.swift */,
+				4E6312941C1FAD2100EB78F9 /* SLSlideMenuController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -723,6 +726,7 @@
 				4E6312FA1C1FB28000EB78F9 /* DesignableLabel.swift in Sources */,
 				4E6313051C1FB28000EB78F9 /* SoundPlayer.swift in Sources */,
 				4E6313011C1FB28000EB78F9 /* KeyboardLayoutConstraint.swift in Sources */,
+				4EA3652A1C2224B500C90249 /* SignInViewController.swift in Sources */,
 				4E6313091C1FB28000EB78F9 /* SpringImageView.swift in Sources */,
 				4E6313121C1FB28000EB78F9 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				4E6312A11C1FAF2D00EB78F9 /* UIApplication.swift in Sources */,
@@ -758,7 +762,7 @@
 				4E63130F1C1FB28000EB78F9 /* TransitionZoom.swift in Sources */,
 				4E6313491C1FB60A00EB78F9 /* FunctionalAdditions.swift in Sources */,
 				4E63129E1C1FAF2D00EB78F9 /* UIImageView.swift in Sources */,
-				4E6312951C1FAD2100EB78F9 /* ExSlideMenuController.swift in Sources */,
+				4E6312951C1FAD2100EB78F9 /* SLSlideMenuController.swift in Sources */,
 				4E63134E1C1FBAED00EB78F9 /* ListsViewController.swift in Sources */,
 				4E6313141C1FB28000EB78F9 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				4E6312641C1FA7D500EB78F9 /* AppDelegate.swift in Sources */,

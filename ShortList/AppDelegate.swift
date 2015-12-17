@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     leftViewController.homeViewController = nvc
     
-    let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController)
+    let slideMenuController = SLSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController)
     slideMenuController.automaticallyAdjustsScrollViewInsets = true
     self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
     self.window?.rootViewController = slideMenuController
@@ -39,18 +39,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   private func setAppearance() {
-    UINavigationBar.appearance().tintColor = UIColor.blackColor()
+    UINavigationBar.appearance().tintColor = UIColor.textColor()
     UINavigationBar.appearance().backgroundColor = UIColor.primaryColor()
   }
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     
+
+    
     self.setAppearance()
+    
     self.createMenuView()
     
     // establish connection
     Meteor.connect()
     NSUserDefaults.standardUserDefaults().setBool(true, forKey: "METShouldLogDDPMessages")
+    
+    SignInViewController.presentSignInViewController() { success in
+      if success {
+        //self.tabBarController.selectedViewController = viewController
+      }
+    }
     
     return true
   }
@@ -84,6 +93,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   // MARK: Helpers
+  
+
   
   func showMessage(message: String) {
     let alertController = UIAlertController(title: "Shortlist", message: message, preferredStyle: UIAlertControllerStyle.Alert)

@@ -271,7 +271,7 @@ public class SlideMenuController: UIViewController, UIGestureRecognizerDelegate 
         }
     }
     
-    public func isTagetViewController() -> Bool {
+    public func isTargetViewController() -> Bool {
         // Function to determine the target ViewController
         // Please to override it if necessary
         return true
@@ -291,7 +291,7 @@ public class SlideMenuController: UIViewController, UIGestureRecognizerDelegate 
     
     func handleLeftPanGesture(panGesture: UIPanGestureRecognizer) {
         
-        if !isTagetViewController() {
+        if !isTargetViewController() {
             return
         }
         
@@ -353,7 +353,7 @@ public class SlideMenuController: UIViewController, UIGestureRecognizerDelegate 
     
     func handleRightPanGesture(panGesture: UIPanGestureRecognizer) {
         
-        if !isTagetViewController() {
+        if !isTargetViewController() {
             return
         }
         

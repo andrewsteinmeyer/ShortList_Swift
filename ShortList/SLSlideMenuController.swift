@@ -1,5 +1,5 @@
 //
-//  ExSlideMenuController.swift
+//  SLSlideMenuController.swift
 //  SlideMenuControllerSwift
 //
 //  Created by Andrew Steinmeyer on 12/14/15.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ExSlideMenuController : SlideMenuController {
+class SLSlideMenuController : SlideMenuController {
 
-  override func isTagetViewController() -> Bool {
+  override func isTargetViewController() -> Bool {
     if let vc = UIApplication.topViewController() {
       if vc is HomeViewController ||
         vc is ListsViewController {
