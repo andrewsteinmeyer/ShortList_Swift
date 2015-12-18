@@ -11,7 +11,7 @@ import Meteor
 let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "ws://localhost:3000/websocket")!)
 //let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "wss://shortlist.meteor.com/websocket")!)
 
-final class AccountManager {
+class AccountManager: NSObject {
   static func setUpDefaultAccountManager(accountManager: AccountManager) {
     defaultAccountManager = accountManager
   }
@@ -19,9 +19,17 @@ final class AccountManager {
   static var defaultAccountManager: AccountManager!
   private var managedObjectContext: NSManagedObjectContext!
   
-  init() {
+  override init() {
     Meteor.connect()
     managedObjectContext = Meteor.mainQueueManagedObjectContext
+    
+    super.init()
+    
+    addObservers()
+  }
+  
+  deinit {
+    removeObservers()
   }
   
   var isUserLoggedIn: Bool {
@@ -46,6 +54,8 @@ final class AccountManager {
     }
   }
   
+  // Mark: Sign in and out
+  
   func loginWithEmail(email: String, password: String, completionHandler: METLogInCompletionHandler?) {
     Meteor.loginWithEmail(email, password: password, completionHandler: completionHandler)
   }
@@ -54,6 +64,11 @@ final class AccountManager {
     Meteor.signUpWithEmail(email, password: password, completionHandler: completionHandler)
   }
   
+  func accountDidChange() {
+    if Meteor.userID == nil {
+      self.signOut()
+    }
+  }
   
   func signOut() {
     guard Meteor.userID != nil else {
@@ -64,12 +79,23 @@ final class AccountManager {
       error in
       
       if error != nil {
+        self.currentUser = nil
+        
         dispatch_async(dispatch_get_main_queue()) {
-          self.currentUser = nil
           SignInViewController.presentSignInViewController()
         }
       }
     }
+  }
+  
+  // MARK: Notification observers
+  
+  private func addObservers() {
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "accountDidChange", name: METDDPClientDidChangeAccountNotification, object: Meteor)
+  }
+  
+  private func removeObservers() {
+    NSNotificationCenter.defaultCenter().removeObserver(self, name: "accountDidChange", object: Meteor)
   }
 
 }
