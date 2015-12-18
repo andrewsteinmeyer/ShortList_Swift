@@ -10,9 +10,6 @@ import UIKit
 import Meteor
 import Contacts
 
-let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "ws://localhost:3000/websocket")!)
-//let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "wss://shortlist.meteor.com/websocket")!)
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
@@ -44,22 +41,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    
-
-    
+    // setup appearance and menu
     self.setAppearance()
-    
     self.createMenuView()
     
     // establish connection
-    Meteor.connect()
+    AccountManager.setUpDefaultAccountManager(AccountManager())
     NSUserDefaults.standardUserDefaults().setBool(true, forKey: "METShouldLogDDPMessages")
     
-    SignInViewController.presentSignInViewController() { success in
-      if success {
-        //self.tabBarController.selectedViewController = viewController
-      }
+    guard !AccountManager.defaultAccountManager.isUserLoggedIn else {
+      return true
     }
+    
+    // present sign in if no user is logged in
+    SignInViewController.presentSignInViewController()
     
     return true
   }
@@ -90,6 +85,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   class func getAppDelegate() -> AppDelegate {
     return UIApplication.sharedApplication().delegate as! AppDelegate
+  }
+  
+  class func getRootViewController() -> UIViewController? {
+    return getAppDelegate().window?.rootViewController
   }
   
   // MARK: Helpers

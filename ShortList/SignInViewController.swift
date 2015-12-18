@@ -82,7 +82,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
   func textFieldShouldReturn(textField: UITextField) -> Bool {
     switch currentScreen {
     case .SignIn:
-      print("oh")
       if textField == emailField {
         passwordField.becomeFirstResponder()
       } else if textField == passwordField {
@@ -127,12 +126,14 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         return
     }
     
-    Meteor.loginWithEmail(email, password: password) { (error) -> Void in
-      if let error = error {
-        let errorMessage = error.localizedFailureReason
-        self.displayError(errorMessage!)
-      } else {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    AccountManager.defaultAccountManager.loginWithEmail(email, password: password) { (error) -> Void in
+      dispatch_async(dispatch_get_main_queue()) {
+        if let error = error {
+          let errorMessage = error.localizedFailureReason
+          self.displayError(errorMessage!)
+        } else {
+          self.dismissViewControllerAnimated(true, completion: nil)
+        }
       }
     }
   }
@@ -164,17 +165,19 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
       return
     }
     
-    Meteor.signUpWithEmail(email, password: password) { (error) -> Void in
-      if let error = error {
-        let errorMessage = error.localizedFailureReason
-        self.displayError(errorMessage!)
-      } else {
-        self.toggleScreen()
+    AccountManager.defaultAccountManager.signUpWithEmail(email, password: password) { (error) -> Void in
+      dispatch_async(dispatch_get_main_queue()) {
+        if let error = error {
+          let errorMessage = error.localizedFailureReason
+          self.displayError(errorMessage!)
+        } else {
+          self.toggleScreen()
+        }
       }
     }
   }
   
-  static func presentSignInViewController(withCompletion completion: (Bool -> ())) {
+  static func presentSignInViewController() {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     
     let signInViewController = storyboard.instantiateViewControllerWithIdentifier("SignInViewController") as! SignInViewController
@@ -184,7 +187,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     signInViewController.modalTransitionStyle = .CrossDissolve
     
     // Present the sign in view controller.
-    AppDelegate.getAppDelegate().window?.rootViewController?.presentViewController(signInViewController, animated: true, completion: nil)
+    AppDelegate.getRootViewController()?.presentViewController(signInViewController, animated: true, completion: nil)
   }
 }
 

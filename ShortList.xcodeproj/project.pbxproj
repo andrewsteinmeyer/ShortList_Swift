@@ -102,6 +102,7 @@
 		4E6313541C20E24C00EB78F9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6313531C20E24C00EB78F9 /* Colors.swift */; settings = {ASSET_TAGS = (); }; };
 		4EA365261C20F2A000C90249 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA365251C20F2A000C90249 /* MenuTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		4EA3652A1C2224B500C90249 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA365291C2224B500C90249 /* SignInViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4EA365301C2380BD00C90249 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA3652F1C2380BD00C90249 /* AccountManager.swift */; settings = {ASSET_TAGS = (); }; };
 		EDC38BDC8C7C0EF0ABD622BE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A2DD5B22DC715FCEC00F2E /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -230,6 +231,7 @@
 		4E6313531C20E24C00EB78F9 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		4EA365251C20F2A000C90249 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
 		4EA365291C2224B500C90249 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		4EA3652F1C2380BD00C90249 /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		90A2DD5B22DC715FCEC00F2E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D95D466AA0CD1F1DA86F9F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FAC3F16DBC599F9FC99408F7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 			children = (
 				4E6312671C1FA7D500EB78F9 /* Main.storyboard */,
 				4E6312631C1FA7D500EB78F9 /* AppDelegate.swift */,
+				4EA3652F1C2380BD00C90249 /* AccountManager.swift */,
 				4E63132F1C1FB2E500EB78F9 /* Model */,
 				4E6312AB1C1FAFA500EB78F9 /* View */,
 				4E6312931C1FAD0300EB78F9 /* ViewController */,
@@ -330,8 +333,8 @@
 			isa = PBXGroup;
 			children = (
 				4EA365291C2224B500C90249 /* SignInViewController.swift */,
-				4E6312911C1FAC0000EB78F9 /* HomeViewController.swift */,
 				4E6312651C1FA7D500EB78F9 /* LeftViewController.swift */,
+				4E6312911C1FAC0000EB78F9 /* HomeViewController.swift */,
 				4E63134D1C1FBAED00EB78F9 /* ListsViewController.swift */,
 				4E63134F1C1FBB3300EB78F9 /* ListContactsViewController.swift */,
 				4E6312941C1FAD2100EB78F9 /* SLSlideMenuController.swift */,
@@ -749,6 +752,7 @@
 				4E6312FB1C1FB28000EB78F9 /* DesignableTabBarController.swift in Sources */,
 				4E6312A51C1FAF2D00EB78F9 /* UIView.swift in Sources */,
 				4E63132B1C1FB2DE00EB78F9 /* User.swift in Sources */,
+				4EA365301C2380BD00C90249 /* AccountManager.swift in Sources */,
 				4E6312B11C1FAFC400EB78F9 /* MenuTableViewCell.swift in Sources */,
 				4E63130E1C1FB28000EB78F9 /* TransitionManager.swift in Sources */,
 				4E63132C1C1FB2DE00EB78F9 /* List.swift in Sources */,
