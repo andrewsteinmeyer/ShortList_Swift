@@ -351,8 +351,8 @@
 				4E63134D1C1FBAED00EB78F9 /* ListsViewController.swift */,
 				4EA365311C23AFCA00C90249 /* ContactsViewController.swift */,
 				4E3288C41C24B99C00F936DF /* CreateContactViewController.swift */,
-				4E63134F1C1FBB3300EB78F9 /* ListContactsViewController.swift */,
 				4E6312941C1FAD2100EB78F9 /* SLSlideMenuController.swift */,
+				4E63134F1C1FBB3300EB78F9 /* ListContactsViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
