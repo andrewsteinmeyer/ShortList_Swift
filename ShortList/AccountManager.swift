@@ -8,8 +8,8 @@
 
 import Meteor
 
-let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "ws://localhost:3000/websocket")!)
-//let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "wss://shortlist.meteor.com/websocket")!)
+//let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "ws://localhost:3000/websocket")!)
+let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "ws://shortlist.meteor.com/websocket")!)
 
 class AccountManager: NSObject {
   static func setUpDefaultAccountManager(accountManager: AccountManager) {
@@ -25,10 +25,12 @@ class AccountManager: NSObject {
     
     super.init()
     
+    // listen for notifications
     addObservers()
   }
   
   deinit {
+    // remove listeners
     removeObservers()
   }
   

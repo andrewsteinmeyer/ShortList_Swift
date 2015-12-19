@@ -32,7 +32,7 @@ class ContactsTableViewCell : BaseTableViewCell {
     // add a line to the bottom of the section header
     let lineLayer = CALayer()
     lineLayer.frame = CGRectMake(0, self.bounds.height - 1, self.bounds.width, 0.5)
-    lineLayer.backgroundColor = UIColor.textColor().CGColor
+    lineLayer.backgroundColor = UIColor.lightGrayColor().CGColor
     self.layer.addSublayer(lineLayer)
   }
   

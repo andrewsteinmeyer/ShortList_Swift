@@ -19,6 +19,8 @@ class CreateContactViewController: UIViewController, UITextFieldDelegate {
     super.viewWillAppear(animated)
     
     clearErrors()
+    
+    nameTextField.becomeFirstResponder()
   }
   
   
@@ -28,7 +30,7 @@ class CreateContactViewController: UIViewController, UITextFieldDelegate {
     if textField == nameTextField {
       phoneTextField.becomeFirstResponder()
     } else if textField == phoneTextField {
-      emailTextField.resignFirstResponder()
+      emailTextField.becomeFirstResponder()
     } else if textField == emailTextField {
       emailTextField.resignFirstResponder()
       createContact()
