@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="14F1021" minimumToolsVersion="Xcode 7.0">
+    <entity name="Contact" representedClassName="ShortList.Contact" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="insertedOn" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="source" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Event" representedClassName="ShortList.Event" syncable="YES">
         <attribute name="insertedOn" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="list" optional="YES" attributeType="String" syncable="YES"/>
@@ -29,9 +37,10 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Event" positionX="0" positionY="135" width="128" height="135"/>
         <element name="List" positionX="-54" positionY="36" width="128" height="120"/>
         <element name="User" positionX="-36" positionY="54" width="128" height="135"/>
         <element name="Venue" positionX="-18" positionY="99" width="128" height="90"/>
-        <element name="Event" positionX="0" positionY="135" width="128" height="135"/>
+        <element name="Contact" positionX="-18" positionY="144" width="128" height="135"/>
     </elements>
 </model>

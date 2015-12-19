@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E3288C11C24B19A00F936DF /* UIMaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3288C01C24B19A00F936DF /* UIMaterialTextField.swift */; settings = {ASSET_TAGS = (); }; };
+		4E3288C51C24B99C00F936DF /* CreateContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3288C41C24B99C00F936DF /* CreateContactViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4E3288C71C24CCE500F936DF /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E3288C61C24CCE500F936DF /* MenuTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		4E3288C91C24CD4600F936DF /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3288C81C24CD4600F936DF /* ContactsTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		4E6312641C1FA7D500EB78F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6312631C1FA7D500EB78F9 /* AppDelegate.swift */; };
 		4E6312661C1FA7D500EB78F9 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6312651C1FA7D500EB78F9 /* LeftViewController.swift */; };
 		4E6312691C1FA7D500EB78F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E6312671C1FA7D500EB78F9 /* Main.storyboard */; };
@@ -100,9 +104,11 @@
 		4E63134E1C1FBAED00EB78F9 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E63134D1C1FBAED00EB78F9 /* ListsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4E6313501C1FBB3300EB78F9 /* ListContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E63134F1C1FBB3300EB78F9 /* ListContactsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4E6313541C20E24C00EB78F9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6313531C20E24C00EB78F9 /* Colors.swift */; settings = {ASSET_TAGS = (); }; };
-		4EA365261C20F2A000C90249 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA365251C20F2A000C90249 /* MenuTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		4EA3652A1C2224B500C90249 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA365291C2224B500C90249 /* SignInViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4EA365301C2380BD00C90249 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA3652F1C2380BD00C90249 /* AccountManager.swift */; settings = {ASSET_TAGS = (); }; };
+		4EA365321C23AFCA00C90249 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA365311C23AFCA00C90249 /* ContactsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4EA365341C23B4D300C90249 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA365331C23B4D300C90249 /* Contact.swift */; settings = {ASSET_TAGS = (); }; };
+		4EA365361C23C44A00C90249 /* MeteorContactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA365351C23C44A00C90249 /* MeteorContactService.swift */; settings = {ASSET_TAGS = (); }; };
 		EDC38BDC8C7C0EF0ABD622BE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A2DD5B22DC715FCEC00F2E /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +130,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E3288C01C24B19A00F936DF /* UIMaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMaterialTextField.swift; sourceTree = "<group>"; };
+		4E3288C41C24B99C00F936DF /* CreateContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateContactViewController.swift; sourceTree = "<group>"; };
+		4E3288C61C24CCE500F936DF /* MenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
+		4E3288C81C24CD4600F936DF /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
 		4E6312601C1FA7D500EB78F9 /* ShortList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShortList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E6312631C1FA7D500EB78F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E6312651C1FA7D500EB78F9 /* LeftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
@@ -229,9 +239,11 @@
 		4E63134D1C1FBAED00EB78F9 /* ListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
 		4E63134F1C1FBB3300EB78F9 /* ListContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListContactsViewController.swift; sourceTree = "<group>"; };
 		4E6313531C20E24C00EB78F9 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		4EA365251C20F2A000C90249 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
 		4EA365291C2224B500C90249 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		4EA3652F1C2380BD00C90249 /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		4EA365311C23AFCA00C90249 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		4EA365331C23B4D300C90249 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		4EA365351C23C44A00C90249 /* MeteorContactService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorContactService.swift; sourceTree = "<group>"; };
 		90A2DD5B22DC715FCEC00F2E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D95D466AA0CD1F1DA86F9F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FAC3F16DBC599F9FC99408F7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -306,6 +318,7 @@
 				4E6312A61C1FAF3400EB78F9 /* Extensions */,
 				4E63134C1C1FB61200EB78F9 /* MeteorUI */,
 				4E6313361C1FB5DE00EB78F9 /* MeteorService.swift */,
+				4EA365351C23C44A00C90249 /* MeteorContactService.swift */,
 				4E6313351C1FB59600EB78F9 /* Supporting Files */,
 			);
 			path = ShortList;
@@ -336,8 +349,10 @@
 				4E6312651C1FA7D500EB78F9 /* LeftViewController.swift */,
 				4E6312911C1FAC0000EB78F9 /* HomeViewController.swift */,
 				4E63134D1C1FBAED00EB78F9 /* ListsViewController.swift */,
-				4E63134F1C1FBB3300EB78F9 /* ListContactsViewController.swift */,
+				4EA365311C23AFCA00C90249 /* ContactsViewController.swift */,
+				4E3288C41C24B99C00F936DF /* CreateContactViewController.swift */,
 				4E6312941C1FAD2100EB78F9 /* SLSlideMenuController.swift */,
+				4E63134F1C1FBB3300EB78F9 /* ListContactsViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -359,6 +374,7 @@
 		4E6312AB1C1FAFA500EB78F9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4E3288C61C24CCE500F936DF /* MenuTableViewCell.xib */,
 				4E6312A91C1FAFA000EB78F9 /* ImageHeaderView.swift */,
 				4E6312A71C1FAF9400EB78F9 /* ImageHeaderView.xib */,
 				4E6312B21C1FAFCA00EB78F9 /* TableCellView */,
@@ -369,9 +385,9 @@
 		4E6312B21C1FAFCA00EB78F9 /* TableCellView */ = {
 			isa = PBXGroup;
 			children = (
-				4EA365251C20F2A000C90249 /* MenuTableViewCell.xib */,
 				4E6312AD1C1FAFC400EB78F9 /* BaseTableViewCell.swift */,
 				4E6312AE1C1FAFC400EB78F9 /* MenuTableViewCell.swift */,
+				4E3288C81C24CD4600F936DF /* ContactsTableViewCell.swift */,
 			);
 			name = TableCellView;
 			sourceTree = "<group>";
@@ -467,6 +483,7 @@
 			isa = PBXGroup;
 			children = (
 				4E6313271C1FB2DE00EB78F9 /* User.swift */,
+				4EA365331C23B4D300C90249 /* Contact.swift */,
 				4E6313281C1FB2DE00EB78F9 /* List.swift */,
 				4E6313291C1FB2DE00EB78F9 /* Event.swift */,
 				4E63132A1C1FB2DE00EB78F9 /* Venue.swift */,
@@ -478,6 +495,7 @@
 		4E6313351C1FB59600EB78F9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4E3288C01C24B19A00F936DF /* UIMaterialTextField.swift */,
 				4E63126A1C1FA7D500EB78F9 /* Assets.xcassets */,
 				4E63126C1C1FA7D500EB78F9 /* LaunchScreen.storyboard */,
 				4E63126F1C1FA7D500EB78F9 /* Info.plist */,
@@ -623,7 +641,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EA365261C20F2A000C90249 /* MenuTableViewCell.xib in Resources */,
 				4E63131C1C1FB28000EB78F9 /* Lato-HeavyItalic.ttf in Resources */,
 				4E63131D1C1FB28000EB78F9 /* Lato-Italic.ttf in Resources */,
 				4E63131B1C1FB28000EB78F9 /* Lato-Heavy.ttf in Resources */,
@@ -632,6 +649,7 @@
 				4E6313241C1FB28000EB78F9 /* Lato-SemiboldItalic.ttf in Resources */,
 				4E6313201C1FB28000EB78F9 /* Lato-Medium.ttf in Resources */,
 				4E6313171C1FB28000EB78F9 /* Lato-Bold.ttf in Resources */,
+				4E3288C71C24CCE500F936DF /* MenuTableViewCell.xib in Resources */,
 				4E6313231C1FB28000EB78F9 /* Lato-Semibold.ttf in Resources */,
 				4E6313151C1FB28000EB78F9 /* Lato-Black.ttf in Resources */,
 				4E6313261C1FB28000EB78F9 /* Lato-ThinItalic.ttf in Resources */,
@@ -728,6 +746,7 @@
 				4E6313071C1FB28000EB78F9 /* SpringAnimation.swift in Sources */,
 				4E6312FA1C1FB28000EB78F9 /* DesignableLabel.swift in Sources */,
 				4E6313051C1FB28000EB78F9 /* SoundPlayer.swift in Sources */,
+				4EA365361C23C44A00C90249 /* MeteorContactService.swift in Sources */,
 				4E6313011C1FB28000EB78F9 /* KeyboardLayoutConstraint.swift in Sources */,
 				4EA3652A1C2224B500C90249 /* SignInViewController.swift in Sources */,
 				4E6313091C1FB28000EB78F9 /* SpringImageView.swift in Sources */,
@@ -742,6 +761,7 @@
 				4E6313371C1FB5DE00EB78F9 /* MeteorService.swift in Sources */,
 				4E63130A1C1FB28000EB78F9 /* SpringLabel.swift in Sources */,
 				4E6312F41C1FB28000EB78F9 /* AsyncButton.swift in Sources */,
+				4E3288C91C24CD4600F936DF /* ContactsTableViewCell.swift in Sources */,
 				4E6312A41C1FAF2D00EB78F9 /* String.swift in Sources */,
 				4E6312A31C1FAF2D00EB78F9 /* UIImage.swift in Sources */,
 				4E6312F51C1FB28000EB78F9 /* AsyncImageView.swift in Sources */,
@@ -759,6 +779,7 @@
 				4E63132D1C1FB2DE00EB78F9 /* Event.swift in Sources */,
 				4E6312FF1C1FB28000EB78F9 /* ImageLoader.swift in Sources */,
 				4E6312A21C1FAF2D00EB78F9 /* UIViewController.swift in Sources */,
+				4E3288C51C24B99C00F936DF /* CreateContactViewController.swift in Sources */,
 				4E6312F91C1FB28000EB78F9 /* DesignableImageView.swift in Sources */,
 				4E6312F61C1FB28000EB78F9 /* AutoTextView.swift in Sources */,
 				4E6313111C1FB28000EB78F9 /* TPKeyboardAvoidingCollectionView.m in Sources */,
@@ -768,6 +789,7 @@
 				4E63129E1C1FAF2D00EB78F9 /* UIImageView.swift in Sources */,
 				4E6312951C1FAD2100EB78F9 /* SLSlideMenuController.swift in Sources */,
 				4E63134E1C1FBAED00EB78F9 /* ListsViewController.swift in Sources */,
+				4EA365321C23AFCA00C90249 /* ContactsViewController.swift in Sources */,
 				4E6313141C1FB28000EB78F9 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				4E6312641C1FA7D500EB78F9 /* AppDelegate.swift in Sources */,
 				4E6313021C1FB28000EB78F9 /* LoadingView.swift in Sources */,
@@ -777,11 +799,13 @@
 				4E6312F71C1FB28000EB78F9 /* BlurView.swift in Sources */,
 				4E63130B1C1FB28000EB78F9 /* SpringTextField.swift in Sources */,
 				4E6313101C1FB28000EB78F9 /* UnwindSegue.swift in Sources */,
+				4E3288C11C24B19A00F936DF /* UIMaterialTextField.swift in Sources */,
 				4E63130C1C1FB28000EB78F9 /* SpringTextView.swift in Sources */,
 				4E6312FD1C1FB28000EB78F9 /* DesignableTextView.swift in Sources */,
 				4E6313321C1FB30400EB78F9 /* ShortList.xcdatamodeld in Sources */,
 				4E6313431C1FB60A00EB78F9 /* FetchedResultsDataSource.swift in Sources */,
 				4E6313061C1FB28000EB78F9 /* Spring.swift in Sources */,
+				4EA365341C23B4D300C90249 /* Contact.swift in Sources */,
 				4E6312B81C1FB17200EB78F9 /* SlideMenuController.swift in Sources */,
 				4E6313501C1FBB3300EB78F9 /* ListContactsViewController.swift in Sources */,
 				4E6313421C1FB60A00EB78F9 /* FetchedResultsTableViewController.swift in Sources */,

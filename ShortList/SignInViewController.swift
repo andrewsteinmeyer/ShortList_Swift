@@ -45,7 +45,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
-    emailField.becomeFirstResponder()
+    //emailField.becomeFirstResponder()
   }
   
   private func toggleScreen() {
@@ -71,10 +71,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
       toggleScreenButton.setTitle("Register", forState: .Normal)
     }
   
-  }
-  
-  private func clearErrors() {
-    errorMessageLabel.text = nil
   }
   
   // MARK: UITextFieldDelegate
@@ -114,8 +110,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     case .Register:
       signUp()
     }
-    
   }
+  
+  //MARK: - Sign In and Sign Up
   
   private func signIn() {
     guard let email = emailField.text where !email.isEmpty,
@@ -135,18 +132,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
           self.dismissViewControllerAnimated(true, completion: nil)
         }
       }
-    }
-  }
-  
-  private func displayError(message: String) {
-    // clear out previous errors
-    clearErrors()
-    
-    errorMessageLabel.text = message
-    errorMessageLabel.alpha = 1
-    
-    UIView.animateWithDuration(5) {
-      self.errorMessageLabel.alpha = 0
     }
   }
   
@@ -176,6 +161,24 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
       }
     }
   }
+  
+  private func displayError(message: String) {
+    // clear out previous errors
+    clearErrors()
+    
+    errorMessageLabel.text = message
+    errorMessageLabel.alpha = 1
+    
+    UIView.animateWithDuration(5) {
+      self.errorMessageLabel.alpha = 0
+    }
+  }
+  
+  private func clearErrors() {
+    errorMessageLabel.text = nil
+  }
+  
+  //MARK: - Static methods
   
   static func presentSignInViewController() {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)

@@ -23,17 +23,8 @@ class ListsViewController: FetchedResultsTableViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
+    
     self.setNavigationBarItem()
-    
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "accountDidChange", name: METDDPClientDidChangeAccountNotification, object: Meteor)
-    
-    updateUserBarButtonItem()
-  }
-  
-  override func viewWillDisappear(animated: Bool) {
-    super.viewWillDisappear(animated)
-    
-    NSNotificationCenter.defaultCenter().removeObserver(self, name: "accountDidChange", object: Meteor)
   }
   
   // MARK: - Content Loading
@@ -56,6 +47,7 @@ class ListsViewController: FetchedResultsTableViewController {
       cell.textLabel!.text = list.name
     }
   }
+  
   
   func dataSource(dataSource: FetchedResultsTableViewDataSource, deleteObject object: NSManagedObject, atIndexPath indexPath: NSIndexPath) {
     guard object is List else {
@@ -117,54 +109,6 @@ class ListsViewController: FetchedResultsTableViewController {
     presentViewController(alertController, animated: true, completion: nil)
   }
 
-  // MARK: - Signing In and Out
-  
-  func accountDidChange() {
-    dispatch_async(dispatch_get_main_queue()) {
-      self.updateUserBarButtonItem()
-    }
-  }
-  
-  func updateUserBarButtonItem() {
-    if Meteor.userID == nil {
-      //userBarButtonItem.image = UIImage(named: "user_icon")
-      //userAddButtonItem.enabled = false
-    } else {
-      //userBarButtonItem.image = UIImage(named: "user_icon_selected")
-      //userAddButtonItem.enabled = true
-    }
-  }
-  
-  /*
-  @IBAction func userButtonPressed(sender: AnyObject) {
-    if Meteor.userID == nil {
-      performSegueWithIdentifier("SignIn", sender: nil)
-    } else {
-      showUserAlertSheet()
-    }
-  }
-*/
-  
-  func showUserAlertSheet() {
-    let currentUser = self.currentUser
-    
-    let username = currentUser?.username
-    let message = username != nil ? "Signed in as \(username!)." : "Signed in."
-    
-    let alertController = UIAlertController(title: nil, message: message, preferredStyle: .ActionSheet)
-    
-    let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
-    }
-    alertController.addAction(cancelAction)
-    
-    let signOutAction = UIAlertAction(title: "Sign Out", style: .Destructive) { (action) in
-      Meteor.logoutWithCompletionHandler(nil)
-    }
-    alertController.addAction(signOutAction)
-    
-    presentViewController(alertController, animated: true, completion: nil)
-  }
-  
   // MARK: - Segues
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

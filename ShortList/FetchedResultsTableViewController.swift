@@ -161,16 +161,6 @@ class FetchedResultsTableViewController: UITableViewController, ContentLoading, 
     }
   }
   
-  // MARK: - User
-  
-  var currentUser: User? {
-    if let userID = Meteor.userID {
-      let userObjectID = Meteor.objectIDForDocumentKey(METDocumentKey(collectionName: "users", documentID: userID))
-      return (try? managedObjectContext.existingObjectWithID(userObjectID)) as? User
-    }
-    return nil;
-  }
-  
   // MARK: - Placeholder View
   
   private var placeholderView: PlaceholderView?
