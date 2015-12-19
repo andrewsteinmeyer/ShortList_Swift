@@ -61,7 +61,7 @@ class UIMaterialTextField: UITextField, UITextFieldDelegate {
     private var _initialPlaceHolderAlpha: CGFloat = 0.5
     // Private variable used to store the value of initialPlaceHolderAlpha property
     
-    private var _activeTitleColor = UIColor.blueColor()
+    private var _activeTitleColor = UIColor.lightGrayColor()
     // Private variable used to store the value of activeTitleColor property
     
     private var _inactiveTitleColor = UIColor.darkGrayColor()
