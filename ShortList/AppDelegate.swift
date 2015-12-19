@@ -10,6 +10,7 @@ import UIKit
 import Meteor
 import Contacts
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
@@ -45,17 +46,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     self.setAppearance()
     self.createMenuView()
     
-    // establish connection
+    // set up account manager and establish connection to Meteor
     AccountManager.setUpDefaultAccountManager(AccountManager())
     NSUserDefaults.standardUserDefaults().setBool(true, forKey: "METShouldLogDDPMessages")
     
-    guard !AccountManager.defaultAccountManager.isUserLoggedIn else {
-      return true
+    if !AccountManager.defaultAccountManager.isUserLoggedIn {
+      SignInViewController.presentSignInViewController()
     }
-    
-    // present sign in if no user is logged in
-    SignInViewController.presentSignInViewController()
-    
+      
     return true
   }
 
