@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateContactViewController: UIViewController, UITextFieldDelegate {
+class CreateContactViewController: UIViewController, UIMaterialTextFieldDelegate {
 
   @IBOutlet weak var errorMessageLabel: UILabel!
   @IBOutlet weak var nameTextField: UIMaterialTextField!
@@ -18,15 +18,24 @@ class CreateContactViewController: UIViewController, UITextFieldDelegate {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
+    setup()
     clearErrors()
+  }
+  
+  func setup() {
+    // set delegate
+    nameTextField.materialDelegate = self
+    phoneTextField.materialDelegate = self
+    emailTextField.materialDelegate = self
     
+    // assign first responder
     nameTextField.becomeFirstResponder()
   }
   
   
-  // MARK: UITextFieldDelegate
+  // MARK: UIMaterialTextFieldDelegate
   
-  func textFieldShouldReturn(textField: UITextField) -> Bool {
+  func materialTextFieldShouldReturn(textField: UITextField) -> Bool {
     if textField == nameTextField {
       phoneTextField.becomeFirstResponder()
     } else if textField == phoneTextField {
@@ -38,8 +47,14 @@ class CreateContactViewController: UIViewController, UITextFieldDelegate {
   
     return false
   }
+  
+  @IBAction func createContactDidCancel(sender: AnyObject) {
+    self.view.endEditing(true)
+    self.dismissViewControllerAnimated(true, completion: nil)
+  }
 
   @IBAction func createContactButtonPressed() {
+    self.view.endEditing(true)
     createContact()
   }
   
@@ -61,7 +76,7 @@ class CreateContactViewController: UIViewController, UITextFieldDelegate {
           let errorMessage = error.localizedFailureReason
           self.displayError(errorMessage!)
         } else {
-          self.navigationController?.popViewControllerAnimated(true)
+          self.dismissViewControllerAnimated(true, completion: nil)
         }
       }
     }

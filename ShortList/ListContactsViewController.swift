@@ -6,6 +6,10 @@
 //  Copyright © 2015 Andrew Steinmeyer. All rights reserved.
 //
 
+//TODO: Keeping for reference for now
+
+/*
+
 import UIKit
 import CoreData
 import Meteor
@@ -262,3 +266,4 @@ extension ListContactsViewController: CNContactPickerDelegate {
 
   
 }
+*/

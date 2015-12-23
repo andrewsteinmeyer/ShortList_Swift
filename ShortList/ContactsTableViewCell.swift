@@ -26,6 +26,8 @@ class ContactsTableViewCell : BaseTableViewCell {
   @IBOutlet weak var emailLabel: UILabel!
   @IBOutlet weak var phoneLabel: UILabel!
   
+  var highlight = false
+  
   override func layoutSubviews() {
     super.layoutSubviews()
     
@@ -43,5 +45,11 @@ class ContactsTableViewCell : BaseTableViewCell {
       self.phoneLabel.text = data.phone
       self.emailLabel.text = data.email
     }
+  }
+  
+  func toggleHighlight() {
+    highlight = !highlight
+    
+    self.contentView.backgroundColor = highlight ? UIColor.primaryColorLight() : UIColor.whiteColor()
   }
 }

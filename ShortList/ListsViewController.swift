@@ -5,6 +5,7 @@
 //  Copyright © 2015 Andrew Steinmeyer. All rights reserved.
 //
 
+
 import UIKit
 import CoreData
 import Meteor
@@ -24,6 +25,7 @@ class ListsViewController: FetchedResultsTableViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
+    // needed for slide menu
     self.setNavigationBarItem()
   }
   
@@ -55,69 +57,15 @@ class ListsViewController: FetchedResultsTableViewController {
     }
     
     // grab documentID
-    let documentID = Meteor.persistentStore.documentKeyForObjectID(object.objectID).documentID
-    
-    let parameters = [documentID]
+    let documentID = Meteor.documentKeyForObjectID(object.objectID).documentID
    
-    MeteorService.deleteList(parameters) {
+    MeteorListService.sharedInstance.delete([documentID]) {
       result, error in
       
       if error != nil {
         print("error: \(error?.localizedDescription)")
       } else {
         print("hooray!")
-      }
-    }
-  }
-  
-  // MARK: - Adding List
-  
-  @IBAction func addList(sender: AnyObject) {
-    let alertController = UIAlertController(title: nil, message: "Add List", preferredStyle: .Alert)
-    
-    let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
-    }
-    alertController.addAction(cancelAction)
-    
-    let addAction = UIAlertAction(title: "Add", style: .Default) { (action) in
-      guard let nameTextField = alertController.textFields?[0],
-        let name = nameTextField.text where !name.isEmpty else {
-        return
-      }
-      
-      let parameters = [name]
-      
-      MeteorService.createList(parameters) {
-        result, error in
-        
-        if error != nil {
-          print("error: \(error?.localizedDescription)")
-        } else {
-          print("hooray!")
-        }
-      }
-    }
-    alertController.addAction(addAction)
-    
-    alertController.addTextFieldWithConfigurationHandler { (textField) in
-      textField.placeholder = "Name"
-      textField.autocapitalizationType = .Words
-      textField.returnKeyType = .Done
-      textField.enablesReturnKeyAutomatically = true
-    }
-    
-    presentViewController(alertController, animated: true, completion: nil)
-  }
-
-  // MARK: - Segues
-  
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "showDetail" {
-      if let selectedList = dataSource.selectedObject as? List {
-        if let contactsViewcontroller = segue.destinationViewController as? ListContactsViewController {
-          contactsViewcontroller.managedObjectContext = managedObjectContext
-          contactsViewcontroller.listID = selectedList.objectID
-        }
       }
     }
   }

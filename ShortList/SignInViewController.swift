@@ -129,6 +129,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
           let errorMessage = error.localizedFailureReason
           self.displayError(errorMessage!)
         } else {
+          self.view.endEditing(true)
           self.dismissViewControllerAnimated(true, completion: nil)
         }
       }

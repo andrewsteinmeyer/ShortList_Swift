@@ -1,29 +1,28 @@
 //
-//  MeteorContactService.swift
+//  MeteorListService.swift
 //  ShortList
 //
-//  Created by Andrew Steinmeyer on 12/17/15.
+//  Created by Andrew Steinmeyer on 12/21/15.
 //  Copyright © 2015 Andrew Steinmeyer. All rights reserved.
 //
 
 import Meteor
 
-final class MeteorContactService {
-  static let sharedInstance = MeteorContactService()
+final class MeteorListService {
+  static let sharedInstance = MeteorListService()
   
-  private let modelName = "Contact"
+  private let modelName = "List"
   private let source = "iPhone"
   
   private let managedObjectContext = Meteor.mainQueueManagedObjectContext
   
   private enum Message: String {
-    case ImportContacts = "importContacts"
-    case CreateContact = "createContact"
-    case DeleteContact = "deleteContact"
+    case CreateList = "createList"
+    case DeleteList = "deleteList"
   }
   
   init() {
-    defineStubMethods()
+    //defineStubMethods()
   }
   
   func saveManagedObjectContext() {
@@ -42,23 +41,20 @@ final class MeteorContactService {
     // add source
     parameters?.append(self.source)
     
-    Meteor.callMethodWithName(Message.CreateContact.rawValue, parameters: parameters, completionHandler: completionHandler)
+    Meteor.callMethodWithName(Message.CreateList.rawValue, parameters: parameters, completionHandler: completionHandler)
   }
   
   func delete(parameters: [AnyObject]?, completionHandler: METMethodCompletionHandler?) {
-    Meteor.callMethodWithName(Message.DeleteContact.rawValue, parameters: parameters, completionHandler: completionHandler)
+    Meteor.callMethodWithName(Message.DeleteList.rawValue, parameters: parameters, completionHandler: completionHandler)
   }
   
-  func importContacts(parameters: [AnyObject]?, completionHandler: METMethodCompletionHandler?) {
-    Meteor.callMethodWithName(Message.ImportContacts.rawValue, parameters: parameters, completionHandler: completionHandler)
-  }
   
   //MARK: - Stub Methods for Client
   
   func defineStubMethods() {
     
     // Create Contact stub
-    Meteor.defineStubForMethodWithName(Message.CreateContact.rawValue) {
+    Meteor.defineStubForMethodWithName(Message.CreateList.rawValue) {
       parameters in
       
       let name = parameters[0] as? String ?? nil
@@ -68,8 +64,8 @@ final class MeteorContactService {
       guard name != nil
         && phone != nil
         && email != nil
-      else {
-        return nil
+        else {
+          return nil
       }
       
       let contact = NSEntityDescription.insertNewObjectForEntityForName(self.modelName, inManagedObjectContext: self.managedObjectContext) as! Contact
@@ -83,10 +79,8 @@ final class MeteorContactService {
       
       return nil
     }
-  
+    
   }
   
+  
 }
-
-
-

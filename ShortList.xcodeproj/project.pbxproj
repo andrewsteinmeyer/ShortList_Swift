@@ -11,6 +11,7 @@
 		4E3288C51C24B99C00F936DF /* CreateContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3288C41C24B99C00F936DF /* CreateContactViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4E3288C71C24CCE500F936DF /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E3288C61C24CCE500F936DF /* MenuTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		4E3288C91C24CD4600F936DF /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3288C81C24CD4600F936DF /* ContactsTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		4E57A78D1C28EEB50070AEB3 /* MeteorListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E57A78C1C28EEB50070AEB3 /* MeteorListService.swift */; settings = {ASSET_TAGS = (); }; };
 		4E6312641C1FA7D500EB78F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6312631C1FA7D500EB78F9 /* AppDelegate.swift */; };
 		4E6312661C1FA7D500EB78F9 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6312651C1FA7D500EB78F9 /* LeftViewController.swift */; };
 		4E6312691C1FA7D500EB78F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E6312671C1FA7D500EB78F9 /* Main.storyboard */; };
@@ -90,7 +91,6 @@
 		4E63132E1C1FB2DE00EB78F9 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E63132A1C1FB2DE00EB78F9 /* Venue.swift */; settings = {ASSET_TAGS = (); }; };
 		4E6313321C1FB30400EB78F9 /* ShortList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E6313301C1FB30400EB78F9 /* ShortList.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
 		4E6313341C1FB56D00EB78F9 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6313331C1FB56D00EB78F9 /* SwiftyJSON.swift */; settings = {ASSET_TAGS = (); }; };
-		4E6313371C1FB5DE00EB78F9 /* MeteorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6313361C1FB5DE00EB78F9 /* MeteorService.swift */; settings = {ASSET_TAGS = (); }; };
 		4E6313421C1FB60A00EB78F9 /* FetchedResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6313381C1FB60A00EB78F9 /* FetchedResultsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4E6313431C1FB60A00EB78F9 /* FetchedResultsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6313391C1FB60A00EB78F9 /* FetchedResultsDataSource.swift */; settings = {ASSET_TAGS = (); }; };
 		4E6313441C1FB60A00EB78F9 /* FetchedResultsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E63133A1C1FB60A00EB78F9 /* FetchedResultsTableViewDataSource.swift */; settings = {ASSET_TAGS = (); }; };
@@ -109,6 +109,9 @@
 		4EA365321C23AFCA00C90249 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA365311C23AFCA00C90249 /* ContactsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4EA365341C23B4D300C90249 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA365331C23B4D300C90249 /* Contact.swift */; settings = {ASSET_TAGS = (); }; };
 		4EA365361C23C44A00C90249 /* MeteorContactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA365351C23C44A00C90249 /* MeteorContactService.swift */; settings = {ASSET_TAGS = (); }; };
+		4EA89FB71C25E0F200163C57 /* ListsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA89FB61C25E0F200163C57 /* ListsTabBarController.swift */; settings = {ASSET_TAGS = (); }; };
+		4EA89FBB1C261AD800163C57 /* CreateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA89FBA1C261AD800163C57 /* CreateListViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4EA89FBD1C27097900163C57 /* SelectContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA89FBC1C27097900163C57 /* SelectContactsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		EDC38BDC8C7C0EF0ABD622BE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A2DD5B22DC715FCEC00F2E /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -134,6 +137,7 @@
 		4E3288C41C24B99C00F936DF /* CreateContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateContactViewController.swift; sourceTree = "<group>"; };
 		4E3288C61C24CCE500F936DF /* MenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
 		4E3288C81C24CD4600F936DF /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
+		4E57A78C1C28EEB50070AEB3 /* MeteorListService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorListService.swift; sourceTree = "<group>"; };
 		4E6312601C1FA7D500EB78F9 /* ShortList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShortList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E6312631C1FA7D500EB78F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E6312651C1FA7D500EB78F9 /* LeftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
@@ -225,7 +229,6 @@
 		4E63132A1C1FB2DE00EB78F9 /* Venue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		4E6313311C1FB30400EB78F9 /* ShortList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShortList.xcdatamodel; sourceTree = "<group>"; };
 		4E6313331C1FB56D00EB78F9 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		4E6313361C1FB5DE00EB78F9 /* MeteorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorService.swift; sourceTree = "<group>"; };
 		4E6313381C1FB60A00EB78F9 /* FetchedResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsTableViewController.swift; sourceTree = "<group>"; };
 		4E6313391C1FB60A00EB78F9 /* FetchedResultsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsDataSource.swift; sourceTree = "<group>"; };
 		4E63133A1C1FB60A00EB78F9 /* FetchedResultsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -244,6 +247,9 @@
 		4EA365311C23AFCA00C90249 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		4EA365331C23B4D300C90249 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		4EA365351C23C44A00C90249 /* MeteorContactService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorContactService.swift; sourceTree = "<group>"; };
+		4EA89FB61C25E0F200163C57 /* ListsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsTabBarController.swift; sourceTree = "<group>"; };
+		4EA89FBA1C261AD800163C57 /* CreateListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateListViewController.swift; sourceTree = "<group>"; };
+		4EA89FBC1C27097900163C57 /* SelectContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectContactsViewController.swift; sourceTree = "<group>"; };
 		90A2DD5B22DC715FCEC00F2E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D95D466AA0CD1F1DA86F9F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FAC3F16DBC599F9FC99408F7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -317,8 +323,8 @@
 				4E6312931C1FAD0300EB78F9 /* ViewController */,
 				4E6312A61C1FAF3400EB78F9 /* Extensions */,
 				4E63134C1C1FB61200EB78F9 /* MeteorUI */,
-				4E6313361C1FB5DE00EB78F9 /* MeteorService.swift */,
 				4EA365351C23C44A00C90249 /* MeteorContactService.swift */,
+				4E57A78C1C28EEB50070AEB3 /* MeteorListService.swift */,
 				4E6313351C1FB59600EB78F9 /* Supporting Files */,
 			);
 			path = ShortList;
@@ -346,12 +352,10 @@
 			isa = PBXGroup;
 			children = (
 				4EA365291C2224B500C90249 /* SignInViewController.swift */,
-				4E6312651C1FA7D500EB78F9 /* LeftViewController.swift */,
-				4E6312911C1FAC0000EB78F9 /* HomeViewController.swift */,
-				4E63134D1C1FBAED00EB78F9 /* ListsViewController.swift */,
-				4EA365311C23AFCA00C90249 /* ContactsViewController.swift */,
-				4E3288C41C24B99C00F936DF /* CreateContactViewController.swift */,
-				4E6312941C1FAD2100EB78F9 /* SLSlideMenuController.swift */,
+				4EA89FC11C2709DF00163C57 /* Menu */,
+				4EA89FBE1C27099F00163C57 /* Home */,
+				4EA89FBF1C2709B200163C57 /* List */,
+				4EA89FC01C2709CF00163C57 /* Contact */,
 				4E63134F1C1FBB3300EB78F9 /* ListContactsViewController.swift */,
 			);
 			name = ViewController;
@@ -524,6 +528,43 @@
 				4E6313411C1FB60A00EB78F9 /* FoundationExtensions.swift */,
 			);
 			name = MeteorUI;
+			sourceTree = "<group>";
+		};
+		4EA89FBE1C27099F00163C57 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4E6312911C1FAC0000EB78F9 /* HomeViewController.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		4EA89FBF1C2709B200163C57 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				4EA89FB61C25E0F200163C57 /* ListsTabBarController.swift */,
+				4E63134D1C1FBAED00EB78F9 /* ListsViewController.swift */,
+				4EA89FBA1C261AD800163C57 /* CreateListViewController.swift */,
+				4EA89FBC1C27097900163C57 /* SelectContactsViewController.swift */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
+		4EA89FC01C2709CF00163C57 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				4EA365311C23AFCA00C90249 /* ContactsViewController.swift */,
+				4E3288C41C24B99C00F936DF /* CreateContactViewController.swift */,
+			);
+			name = Contact;
+			sourceTree = "<group>";
+		};
+		4EA89FC11C2709DF00163C57 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				4E6312651C1FA7D500EB78F9 /* LeftViewController.swift */,
+				4E6312941C1FAD2100EB78F9 /* SLSlideMenuController.swift */,
+			);
+			name = Menu;
 			sourceTree = "<group>";
 		};
 		C410E71E5849E54A69911C63 /* Frameworks */ = {
@@ -739,6 +780,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E57A78D1C28EEB50070AEB3 /* MeteorListService.swift in Sources */,
 				4E6313041C1FB28000EB78F9 /* Misc.swift in Sources */,
 				4E6313541C20E24C00EB78F9 /* Colors.swift in Sources */,
 				4E6313341C1FB56D00EB78F9 /* SwiftyJSON.swift in Sources */,
@@ -756,9 +798,9 @@
 				4E6312FC1C1FB28000EB78F9 /* DesignableTextField.swift in Sources */,
 				4E6313451C1FB60A00EB78F9 /* PlaceholderView.swift in Sources */,
 				4E6312AA1C1FAFA000EB78F9 /* ImageHeaderView.swift in Sources */,
+				4EA89FBD1C27097900163C57 /* SelectContactsViewController.swift in Sources */,
 				4E6312F81C1FB28000EB78F9 /* DesignableButton.swift in Sources */,
 				4E63134A1C1FB60A00EB78F9 /* MeteorExtensions.swift in Sources */,
-				4E6313371C1FB5DE00EB78F9 /* MeteorService.swift in Sources */,
 				4E63130A1C1FB28000EB78F9 /* SpringLabel.swift in Sources */,
 				4E6312F41C1FB28000EB78F9 /* AsyncButton.swift in Sources */,
 				4E3288C91C24CD4600F936DF /* ContactsTableViewCell.swift in Sources */,
@@ -767,11 +809,13 @@
 				4E6312F51C1FB28000EB78F9 /* AsyncImageView.swift in Sources */,
 				4E6312B01C1FAFC400EB78F9 /* BaseTableViewCell.swift in Sources */,
 				4E6313481C1FB60A00EB78F9 /* ContentLoading.swift in Sources */,
+				4EA89FBB1C261AD800163C57 /* CreateListViewController.swift in Sources */,
 				4E6312661C1FA7D500EB78F9 /* LeftViewController.swift in Sources */,
 				4E6313471C1FB60A00EB78F9 /* SubscriptionLoader.swift in Sources */,
 				4E6312FB1C1FB28000EB78F9 /* DesignableTabBarController.swift in Sources */,
 				4E6312A51C1FAF2D00EB78F9 /* UIView.swift in Sources */,
 				4E63132B1C1FB2DE00EB78F9 /* User.swift in Sources */,
+				4EA89FB71C25E0F200163C57 /* ListsTabBarController.swift in Sources */,
 				4EA365301C2380BD00C90249 /* AccountManager.swift in Sources */,
 				4E6312B11C1FAFC400EB78F9 /* MenuTableViewCell.swift in Sources */,
 				4E63130E1C1FB28000EB78F9 /* TransitionManager.swift in Sources */,

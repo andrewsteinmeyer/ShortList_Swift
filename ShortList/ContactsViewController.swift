@@ -18,9 +18,6 @@ class ContactsViewController: FetchedResultsTableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.tableView.separatorStyle = .SingleLine
-    self.tableView.separatorColor = UIColor.lightGrayColor()
-    
     self.managedObjectContext = Meteor.mainQueueManagedObjectContext
     
   }
@@ -28,6 +25,7 @@ class ContactsViewController: FetchedResultsTableViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
+    // needed for slide menu
     self.setNavigationBarItem()
   }
   

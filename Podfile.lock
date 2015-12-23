@@ -1,4 +1,7 @@
 PODS:
+  - Groot (1.2):
+    - Groot/Swift (= 1.2)
+  - Groot/Swift (1.2)
   - InflectorKit (0.0.1)
   - Meteor (0.1.4):
     - InflectorKit
@@ -8,9 +11,11 @@ PODS:
   - SimpleKeychain (0.6.1)
 
 DEPENDENCIES:
+  - Groot
   - Meteor
 
 SPEC CHECKSUMS:
+  Groot: 86c2c820d619f18586b2d1dcfd90e908339f00bc
   InflectorKit: 64497199e6764f4d8337cab7f700a77b13d76a73
   Meteor: 6bb446c8f5837f9a0b40dbae2957ea8f6d0b0ebf
   PocketSocket: eee7ef375f55b98e7ca79e097d9c61fd688e9494

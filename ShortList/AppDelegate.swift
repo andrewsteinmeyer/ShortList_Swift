@@ -39,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   private func setAppearance() {
     UINavigationBar.appearance().tintColor = UIColor.textColor()
     UINavigationBar.appearance().backgroundColor = UIColor.primaryColor()
+    
   }
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
