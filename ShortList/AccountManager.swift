@@ -21,12 +21,12 @@ class AccountManager: NSObject {
   private var managedObjectContext: NSManagedObjectContext!
   
   override init() {
+    super.init()
+    
     Meteor.connect()
     managedObjectContext = Meteor.mainQueueManagedObjectContext
     
-    super.init()
-    
-    // listen for notifications
+    // register observers
     addObservers()
   }
   

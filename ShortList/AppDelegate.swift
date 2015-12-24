@@ -19,9 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   private func createMenuView() {
     
-    // create viewController code...
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     
+    // setup slide menu
     let mainViewController = storyboard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
     let leftViewController = storyboard.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
     
@@ -46,9 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // setup appearance and menu
     self.setAppearance()
     self.createMenuView()
-    
-    //let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-    //print(paths[0])
     
     // set up account manager and establish connection to Meteor
     AccountManager.setUpDefaultAccountManager(AccountManager())

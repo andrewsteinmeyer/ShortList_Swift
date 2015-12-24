@@ -29,6 +29,17 @@ class ListsViewController: FetchedResultsTableViewController {
     self.setNavigationBarItem()
   }
   
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "showListDetail" {
+      if let selectedList = dataSource.selectedObject as? List {
+        if let listDetailViewController = segue.destinationViewController as? ListDetailViewController {
+          listDetailViewController.navigationItem.title = selectedList.name
+          listDetailViewController.list = selectedList
+        }
+      }
+    }
+  }
+  
   // MARK: - Content Loading
   
   override func configureSubscriptionLoader(subscriptionLoader: SubscriptionLoader) {

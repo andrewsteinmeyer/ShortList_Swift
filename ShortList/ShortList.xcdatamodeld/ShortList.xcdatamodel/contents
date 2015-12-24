@@ -11,7 +11,11 @@
                 <entry key="JSONKeyPath" value="insertedOn"/>
             </userInfo>
         </attribute>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="JSONKeyPath" value="name"/>
+            </userInfo>
+        </attribute>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES">
             <userInfo>
                 <entry key="JSONKeyPath" value="phone"/>
@@ -27,9 +31,6 @@
                 <entry key="JSONKeyPath" value="userId"/>
             </userInfo>
         </attribute>
-        <userInfo>
-            <entry key="JSONKeyPath" value="name"/>
-        </userInfo>
     </entity>
     <entity name="Event" representedClassName="ShortList.Event" syncable="YES">
         <attribute name="insertedOn" optional="YES" attributeType="Date" syncable="YES"/>
