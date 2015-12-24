@@ -1,14 +1,14 @@
 //
-//  HomeViewController.swift
+//  ContactsNavigationViewController.swift
 //  ShortList
 //
-//  Created by Andrew Steinmeyer on 12/14/15.
+//  Created by Andrew Steinmeyer on 12/24/15.
 //  Copyright © 2015 Andrew Steinmeyer. All rights reserved.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class ContactsNavigationViewController: UINavigationController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -16,15 +16,10 @@ class HomeViewController: UIViewController {
     // Do any additional setup after loading the view.
   }
   
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
-    self.setNavigationBarItem()
-  }
-  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
   
-  
+
 }

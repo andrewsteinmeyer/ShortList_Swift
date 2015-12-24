@@ -14,6 +14,7 @@
 		4E57A78D1C28EEB50070AEB3 /* MeteorListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E57A78C1C28EEB50070AEB3 /* MeteorListService.swift */; };
 		4E57A7911C2B38D30070AEB3 /* ImportContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E57A7901C2B38D30070AEB3 /* ImportContacts.swift */; };
 		4E57A7931C2B3F2A0070AEB3 /* ListsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E57A7921C2B3F2A0070AEB3 /* ListsTableViewCell.swift */; };
+		4E60A0D11C2C2E8300D66A9A /* ContactsNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E60A0D01C2C2E8300D66A9A /* ContactsNavigationViewController.swift */; };
 		4E6312641C1FA7D500EB78F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6312631C1FA7D500EB78F9 /* AppDelegate.swift */; };
 		4E6312661C1FA7D500EB78F9 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6312651C1FA7D500EB78F9 /* LeftViewController.swift */; };
 		4E6312691C1FA7D500EB78F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E6312671C1FA7D500EB78F9 /* Main.storyboard */; };
@@ -142,6 +143,7 @@
 		4E57A78C1C28EEB50070AEB3 /* MeteorListService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorListService.swift; sourceTree = "<group>"; };
 		4E57A7901C2B38D30070AEB3 /* ImportContacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportContacts.swift; sourceTree = "<group>"; };
 		4E57A7921C2B3F2A0070AEB3 /* ListsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsTableViewCell.swift; sourceTree = "<group>"; };
+		4E60A0D01C2C2E8300D66A9A /* ContactsNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsNavigationViewController.swift; sourceTree = "<group>"; };
 		4E6312601C1FA7D500EB78F9 /* ShortList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShortList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E6312631C1FA7D500EB78F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E6312651C1FA7D500EB78F9 /* LeftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
@@ -557,6 +559,7 @@
 		4EA89FC01C2709CF00163C57 /* Contact */ = {
 			isa = PBXGroup;
 			children = (
+				4E60A0D01C2C2E8300D66A9A /* ContactsNavigationViewController.swift */,
 				4EA365311C23AFCA00C90249 /* ContactsViewController.swift */,
 				4E3288C41C24B99C00F936DF /* CreateContactViewController.swift */,
 				4E57A7901C2B38D30070AEB3 /* ImportContacts.swift */,
@@ -849,6 +852,7 @@
 				4E6312F71C1FB28000EB78F9 /* BlurView.swift in Sources */,
 				4E63130B1C1FB28000EB78F9 /* SpringTextField.swift in Sources */,
 				4E6313101C1FB28000EB78F9 /* UnwindSegue.swift in Sources */,
+				4E60A0D11C2C2E8300D66A9A /* ContactsNavigationViewController.swift in Sources */,
 				4E3288C11C24B19A00F936DF /* UIMaterialTextField.swift in Sources */,
 				4E63130C1C1FB28000EB78F9 /* SpringTextView.swift in Sources */,
 				4E6312FD1C1FB28000EB78F9 /* DesignableTextView.swift in Sources */,

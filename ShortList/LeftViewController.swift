@@ -47,8 +47,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     //self.listsTabBarController = UINavigationController(rootViewController: listsTabBarController)
     self.listsTabBarController = listsTabBarController
     
-    let contactsViewController = storyboard.instantiateViewControllerWithIdentifier("ContactsViewController") as! ContactsViewController
-    self.contactsViewController = UINavigationController(rootViewController: contactsViewController)
+    let contactsNavigationViewController = storyboard.instantiateViewControllerWithIdentifier("ContactsNavigationViewController") as! ContactsNavigationViewController
+    self.contactsViewController = contactsNavigationViewController
     
     
     self.imageHeaderView = ImageHeaderView.loadNib()
