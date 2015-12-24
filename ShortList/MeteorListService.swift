@@ -37,10 +37,7 @@ final class MeteorListService {
   
   //MARK: - Meteor server calls
   
-  func create(var parameters: [AnyObject]?, completionHandler: METMethodCompletionHandler?) {
-    // add source
-    parameters?.append(self.source)
-    
+  func create(parameters: [AnyObject]?, completionHandler: METMethodCompletionHandler?) {
     Meteor.callMethodWithName(Message.CreateList.rawValue, parameters: parameters, completionHandler: completionHandler)
   }
   
