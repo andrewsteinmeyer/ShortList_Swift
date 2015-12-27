@@ -6,4 +6,13 @@
 //  Copyright © 2015 Andrew Steinmeyer. All rights reserved.
 //
 
-import Foundation
+import CoreData
+
+class Location: NSManagedObject {
+  @NSManaged var name: String?
+  @NSManaged var address: String?
+  
+  @NSManaged var latitude: NSNumber?
+  @NSManaged var longitude: NSNumber?
+  
+}

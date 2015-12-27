@@ -1,5 +1,5 @@
 //
-//  VenueNavigationViewController.swift
+//  VenuesNavigationViewController.swift
 //  ShortList
 //
 //  Created by Andrew Steinmeyer on 12/24/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VenueNavigationViewController: UINavigationController {
+class VenuesNavigationViewController: UINavigationController {
 
   override func viewDidLoad() {
     super.viewDidLoad()

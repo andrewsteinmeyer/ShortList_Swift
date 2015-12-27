@@ -1,5 +1,5 @@
 //
-//  VenueViewController.swift
+//  VenuesViewController.swift
 //  ShortList
 //
 //  Created by Andrew Steinmeyer on 12/24/15.
@@ -12,7 +12,7 @@ import UIKit
 import CoreData
 import Meteor
 
-class VenueViewController: FetchedResultsTableViewController {
+class VenuesViewController: FetchedResultsTableViewController {
   
   private let listSubscriptionName = "PrivateVenues"
   private let modelName = "Venue"
@@ -47,23 +47,23 @@ class VenueViewController: FetchedResultsTableViewController {
   // MARK: - FetchedResultsTableViewDataSourceDelegate
   
   func dataSource(dataSource: FetchedResultsTableViewDataSource, configureCell cell: UITableViewCell, forObject object: NSManagedObject, atIndexPath indexPath: NSIndexPath) {
-    if let contact = object as? Contact {
-      if let cell = cell as? ContactsTableViewCell {
-        let data = ContactsTableViewCellData(name: contact.name, phone: contact.phone, email: contact.email)
+    if let venue = object as? Venue {
+      if let cell = cell as? VenuesTableViewCell {
+        let data = VenuesTableViewCellData(name: venue.name)
         cell.setData(data)
       }
     }
   }
   
   func dataSource(dataSource: FetchedResultsTableViewDataSource, deleteObject object: NSManagedObject, atIndexPath indexPath: NSIndexPath) {
-    guard let contact = object as? Contact else {
+    guard let venue = object as? Venue else {
       return
     }
     
-    // get documentID for contact
-    let documentID = Meteor.documentKeyForObjectID(contact.objectID).documentID
+    // get documentID for venue
+    let documentID = Meteor.documentKeyForObjectID(venue.objectID).documentID
     
-    // delete contact
+    // delete venue
     MeteorContactService.sharedInstance.delete([documentID]) {
       result, error in
       

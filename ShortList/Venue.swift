@@ -12,6 +12,6 @@ class Venue: NSManagedObject {
   @NSManaged var name: String?
   @NSManaged var insertedOn: NSDate?
   
-  @NSManaged var location: String?
+  @NSManaged var location: NSSet!
   
 }

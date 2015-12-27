@@ -33,6 +33,7 @@
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -754,7 +755,6 @@
         <!--Navigation Controller-->
         <scene sceneID="frz-ns-JvC">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mqz-fN-ear" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OtC-u3-dJi" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="owq-dC-K4t">
@@ -766,6 +766,7 @@
                         <segue destination="P4E-LF-fLh" kind="relationship" relationship="rootViewController" id="I0N-Ja-TOh"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mqz-fN-ear" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3268" y="-587"/>
         </scene>
@@ -886,6 +887,81 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i9o-LJ-zXw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2571" y="812"/>
+        </scene>
+        <!--Venues View Controller-->
+        <scene sceneID="SOm-8T-Tfd">
+            <objects>
+                <tableViewController storyboardIdentifier="VenuesViewController" title="Venues View Controller" clearsSelectionOnViewWillAppear="NO" id="ZUe-pY-4lL" customClass="VenuesViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="iDH-Me-B3u">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="60" id="M4C-bZ-K6Z" userLabel="ContactsTableViewCell" customClass="VenuesTableViewCell" customModule="ShortList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="86" width="600" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M4C-bZ-K6Z" id="eCY-rR-AV6">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venue Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pc6-f2-GpD">
+                                            <rect key="frame" x="26" y="20" width="262" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="262" id="CWW-ku-4ix"/>
+                                                <constraint firstAttribute="height" constant="21" id="n8Y-UQ-wQN"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Pc6-f2-GpD" firstAttribute="leading" secondItem="eCY-rR-AV6" secondAttribute="leadingMargin" constant="18" id="r50-Ll-X1j"/>
+                                        <constraint firstItem="Pc6-f2-GpD" firstAttribute="centerY" secondItem="eCY-rR-AV6" secondAttribute="centerY" constant="0.5" id="wS0-SK-CL3"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="nameLabel" destination="Pc6-f2-GpD" id="16W-Bm-TGz"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="ZUe-pY-4lL" id="rnj-st-co4"/>
+                            <outlet property="delegate" destination="ZUe-pY-4lL" id="R8m-iC-cCK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Venues" id="dU4-HW-yCZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="B4c-q5-c7d" userLabel="Add Button">
+                            <connections>
+                                <action selector="showContactMenu:" destination="ZUe-pY-4lL" id="yWd-f4-X5R"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="usZ-75-xbT" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1850" y="1590"/>
+        </scene>
+        <!--Venues Navigation View Controller-->
+        <scene sceneID="X5w-8v-vNb">
+            <objects>
+                <navigationController storyboardIdentifier="VenuesNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="4mv-1w-EfG" customClass="VenuesNavigationViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fam-bF-B4L">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZUe-pY-4lL" kind="relationship" relationship="rootViewController" id="f5n-4d-Rja"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Hq-8t-dyS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1030" y="1590"/>
         </scene>
     </scenes>
     <resources>

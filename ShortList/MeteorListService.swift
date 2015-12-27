@@ -12,7 +12,6 @@ final class MeteorListService {
   static let sharedInstance = MeteorListService()
   
   private let modelName = "List"
-  private let source = "iPhone"
   
   private let managedObjectContext = Meteor.mainQueueManagedObjectContext
   
@@ -22,6 +21,7 @@ final class MeteorListService {
   }
   
   init() {
+    // TODO: create stub method for client local save before server save (see contact service)
     //defineStubMethods()
   }
   
@@ -50,7 +50,7 @@ final class MeteorListService {
   
   func defineStubMethods() {
     
-    // Create Contact stub
+    // Create List stub
     Meteor.defineStubForMethodWithName(Message.CreateList.rawValue) {
       parameters in
       
@@ -70,7 +70,6 @@ final class MeteorListService {
       contact.name = name
       contact.phone = phone
       contact.email = email
-      contact.source = self.source
       
       self.saveManagedObjectContext()
       
