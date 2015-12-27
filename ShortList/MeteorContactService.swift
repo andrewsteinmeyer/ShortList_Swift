@@ -49,11 +49,12 @@ final class MeteorContactService {
     Meteor.callMethodWithName(Message.DeleteContact.rawValue, parameters: parameters, completionHandler: completionHandler)
   }
   
+  //TODO: Implement import method
   func importContacts(parameters: [AnyObject]?, completionHandler: METMethodCompletionHandler?) {
     Meteor.callMethodWithName(Message.ImportContacts.rawValue, parameters: parameters, completionHandler: completionHandler)
   }
   
-  //MARK: - Stub Methods for Client
+  //MARK: - Stub Methods for client persistence
   
   func defineStubMethods() {
     
@@ -79,6 +80,7 @@ final class MeteorContactService {
       contact.email = email
       contact.source = self.source
       
+      // save local
       self.saveManagedObjectContext()
       
       return nil
