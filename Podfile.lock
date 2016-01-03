@@ -1,4 +1,5 @@
 PODS:
+  - GoogleMaps (1.11.1)
   - Groot (1.2):
     - Groot/Swift (= 1.2)
   - Groot/Swift (1.2)
@@ -7,17 +8,22 @@ PODS:
     - InflectorKit
     - PocketSocket
     - SimpleKeychain
+  - ObjectMapper (1.0.1)
   - PocketSocket (0.6.4)
   - SimpleKeychain (0.6.1)
 
 DEPENDENCIES:
+  - GoogleMaps
   - Groot
   - Meteor
+  - ObjectMapper
 
 SPEC CHECKSUMS:
+  GoogleMaps: c947160008f414c66707a5ea60f35e92055c7670
   Groot: 86c2c820d619f18586b2d1dcfd90e908339f00bc
   InflectorKit: 64497199e6764f4d8337cab7f700a77b13d76a73
   Meteor: 6bb446c8f5837f9a0b40dbae2957ea8f6d0b0ebf
+  ObjectMapper: 98524bac0dca46c6b3d5ee02cd410fc700ec6ce2
   PocketSocket: eee7ef375f55b98e7ca79e097d9c61fd688e9494
   SimpleKeychain: 150d76f3b9200de58f033228f6e976c6241a221c
 

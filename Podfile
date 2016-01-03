@@ -1,6 +1,8 @@
 use_frameworks!
 pod 'Meteor'
 pod 'Groot'
+pod 'GoogleMaps'
+pod 'ObjectMapper'
 
 post_install do |installer|
     `rm -rf Pods/Headers/Private`

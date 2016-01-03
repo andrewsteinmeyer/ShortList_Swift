@@ -46,28 +46,6 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Location" representedClassName="ShortList.Location" syncable="YES">
-        <attribute name="address" optional="YES" attributeType="String" syncable="YES">
-            <userInfo>
-                <entry key="JSONKeyPath" value="address"/>
-            </userInfo>
-        </attribute>
-        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES">
-            <userInfo>
-                <entry key="JSONKeyPath" value="latitude"/>
-            </userInfo>
-        </attribute>
-        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES">
-            <userInfo>
-                <entry key="JSONKeyPath" value="longitude"/>
-            </userInfo>
-        </attribute>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES">
-            <userInfo>
-                <entry key="JSONKeyPath" value="name"/>
-            </userInfo>
-        </attribute>
-    </entity>
     <entity name="User" representedClassName="ShortList.User" syncable="YES">
         <attribute name="creationDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="emailAddresses" optional="YES" attributeType="Transformable" syncable="YES"/>
@@ -86,6 +64,5 @@
         <element name="List" positionX="-54" positionY="36" width="128" height="105"/>
         <element name="User" positionX="-36" positionY="54" width="128" height="120"/>
         <element name="Venue" positionX="-18" positionY="99" width="128" height="90"/>
-        <element name="Location" positionX="-27" positionY="135" width="128" height="105"/>
     </elements>
 </model>

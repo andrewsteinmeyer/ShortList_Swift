@@ -51,6 +51,7 @@ final class MeteorVenueService {
   func defineStubMethods() {
     
     // Create Venue stub
+    // TODO: create stub method for client local save before server save (see contact service)
     Meteor.defineStubForMethodWithName(Message.CreateVenue.rawValue) {
       parameters in
       

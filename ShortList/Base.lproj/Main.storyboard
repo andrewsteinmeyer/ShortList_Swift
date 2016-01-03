@@ -34,6 +34,10 @@
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -503,7 +507,7 @@
                                     <constraint firstAttribute="height" constant="45" id="wCZ-ue-G6j"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
-                                <state key="normal" title="Create">
+                                <state key="normal" title="Create Contact">
                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -936,7 +940,7 @@
                     <navigationItem key="navigationItem" title="Venues" id="dU4-HW-yCZ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="B4c-q5-c7d" userLabel="Add Button">
                             <connections>
-                                <action selector="showContactMenu:" destination="ZUe-pY-4lL" id="yWd-f4-X5R"/>
+                                <segue destination="7Sf-2R-wyG" kind="presentation" id="Y9v-gy-3bC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -944,6 +948,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="usZ-75-xbT" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1850" y="1590"/>
+        </scene>
+        <!--Place Picker View Controller-->
+        <scene sceneID="5oh-yP-OKG">
+            <objects>
+                <viewController id="4ry-QC-zxz" customClass="PlacePickerViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Yb9-ft-j4N"/>
+                        <viewControllerLayoutGuide type="bottom" id="j9m-C1-gEa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QND-iP-DXB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yOW-Tr-II7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3960" y="1590"/>
         </scene>
         <!--Venues Navigation View Controller-->
         <scene sceneID="X5w-8v-vNb">
@@ -962,6 +984,125 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Hq-8t-dyS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1030" y="1590"/>
+        </scene>
+        <!--New Venue-->
+        <scene sceneID="vMG-BR-RtH">
+            <objects>
+                <viewController id="67e-WQ-jdZ" customClass="CreateVenueViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yAL-hV-0kZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="DB8-Sm-vJl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6qM-t1-qUb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YLQ-sg-Pzx" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                <rect key="frame" x="20" y="117" width="560" height="40"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="KYv-Ha-mK6"/>
+                                </constraints>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location (Optional)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hks-mD-E8P" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                <rect key="frame" x="20" y="171" width="560" height="40"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="euV-Cp-JC8"/>
+                                </constraints>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="locationTextFieldPressed:" destination="67e-WQ-jdZ" eventType="touchDown" id="bWK-EM-6yR"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qxk-tU-MLx">
+                                <rect key="frame" x="20" y="87" width="560" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="veg-9X-jmL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <color key="textColor" red="0.91756308080000004" green="0.33028072120000002" blue="0.34021648760000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUm-ca-jgA" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
+                                <rect key="frame" x="193" y="313" width="202" height="45"/>
+                                <color key="backgroundColor" red="1" green="0.84313725490000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="202" id="ifp-WV-MF6"/>
+                                    <constraint firstAttribute="height" constant="45" id="yOo-hi-Pmg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                                <state key="normal" title="Create Venue">
+                                    <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="1" green="0.84313725490000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="createVenueButtonPressed:" destination="67e-WQ-jdZ" eventType="touchDown" id="dPa-gG-3e6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YLQ-sg-Pzx" firstAttribute="leading" secondItem="6qM-t1-qUb" secondAttribute="leadingMargin" id="Cbi-XD-En0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YLQ-sg-Pzx" secondAttribute="trailing" id="EQk-J1-r4t"/>
+                            <constraint firstItem="yUm-ca-jgA" firstAttribute="centerX" secondItem="6qM-t1-qUb" secondAttribute="centerX" constant="-6" id="Ez5-ks-9l8"/>
+                            <constraint firstItem="Hks-mD-E8P" firstAttribute="top" secondItem="YLQ-sg-Pzx" secondAttribute="bottom" constant="14" id="FnJ-lB-M19"/>
+                            <constraint firstItem="Qxk-tU-MLx" firstAttribute="leading" secondItem="6qM-t1-qUb" secondAttribute="leadingMargin" id="NRR-3J-mdM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Hks-mD-E8P" secondAttribute="trailing" id="TzY-im-11n"/>
+                            <constraint firstItem="YLQ-sg-Pzx" firstAttribute="top" secondItem="yAL-hV-0kZ" secondAttribute="bottom" constant="53" id="WKt-CK-0lp"/>
+                            <constraint firstItem="DB8-Sm-vJl" firstAttribute="top" secondItem="yUm-ca-jgA" secondAttribute="bottom" constant="242" id="dBX-p1-Cn2"/>
+                            <constraint firstItem="Qxk-tU-MLx" firstAttribute="top" secondItem="yAL-hV-0kZ" secondAttribute="bottom" constant="23" id="hOT-xk-v8c"/>
+                            <constraint firstItem="Qxk-tU-MLx" firstAttribute="centerX" secondItem="6qM-t1-qUb" secondAttribute="centerX" id="mY5-X9-1JG"/>
+                            <constraint firstItem="Hks-mD-E8P" firstAttribute="leading" secondItem="6qM-t1-qUb" secondAttribute="leadingMargin" id="vIp-O6-1S4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Venue" id="UqT-Xh-VK8">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="9KF-KP-C0h">
+                            <connections>
+                                <action selector="createVenueDidCancel:" destination="67e-WQ-jdZ" id="4Ds-Su-PU5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="errorMessageLabel" destination="Qxk-tU-MLx" id="L4j-rK-Zag"/>
+                        <outlet property="locationTextField" destination="Hks-mD-E8P" id="uHT-Lr-CeP"/>
+                        <outlet property="nameTextField" destination="YLQ-sg-Pzx" id="z1k-Xj-Evl"/>
+                        <segue destination="4ry-QC-zxz" kind="show" identifier="showPlacePicker" id="DaE-hS-RUE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iEI-YB-aO8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3268" y="1590"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ABJ-GO-2Tz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Sf-2R-wyG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UHV-Bo-kZz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="67e-WQ-jdZ" kind="relationship" relationship="rootViewController" id="kCN-TT-Tk0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3YZ-FO-vKi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2562" y="1590"/>
         </scene>
     </scenes>
     <resources>

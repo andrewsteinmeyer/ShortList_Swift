@@ -13,7 +13,8 @@ class SLSlideMenuController : SlideMenuController {
   override func isTargetViewController() -> Bool {
     if let vc = UIApplication.topViewController() {
       if vc is HomeViewController ||
-        vc is ListsViewController {
+        vc is ListsViewController ||
+        vc is VenuesViewController {
           return true
       }
     }

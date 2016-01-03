@@ -9,16 +9,21 @@
 import UIKit
 import Meteor
 import Contacts
+import GoogleMaps
 
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   
+  // for importing contacts
   var contactStore = CNContactStore()
   
+  // location picker
+  let googleMapsApiKey = "AIzaSyBk_737O6cJZiVdOlMhlaCWCyETfCcaQxc"
+  
   private func createMenuView() {
-    
+    // main storyboard
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     
     // setup slide menu
@@ -46,6 +51,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // setup appearance and menu
     self.setAppearance()
     self.createMenuView()
+    
+    GMSServices.provideAPIKey(googleMapsApiKey)
     
     // set up account manager and establish connection to Meteor
     AccountManager.setUpDefaultAccountManager(AccountManager())
@@ -94,7 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   // MARK: Helpers
   
   func showMessage(message: String) {
-    let alertController = UIAlertController(title: "Shortlist", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+    let alertController = UIAlertController(title: "ShortList", message: message, preferredStyle: UIAlertControllerStyle.Alert)
     let dismissAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action) -> Void in
     }
     

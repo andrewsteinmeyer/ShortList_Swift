@@ -6,13 +6,26 @@
 //  Copyright © 2015 Andrew Steinmeyer. All rights reserved.
 //
 
-import CoreData
+import ObjectMapper
 
-class Location: NSManagedObject {
-  @NSManaged var name: String?
-  @NSManaged var address: String?
+class Location: Mappable {
+  var name: String?
+  var address: String?
+  var latitude: Double?
+  var longitude: Double?
   
-  @NSManaged var latitude: NSNumber?
-  @NSManaged var longitude: NSNumber?
+  required init?() {
+  }
   
+  required init?(_ map: Map) {
+    mapping(map)
+  }
+  
+  // Mappable
+  func mapping(map: Map) {
+    name        <- map["name"]
+    address     <- map["address"]
+    latitude    <- map["latitude"]
+    longitude   <- map["longitude"]
+  }
 }

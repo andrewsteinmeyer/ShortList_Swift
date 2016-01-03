@@ -20,6 +20,8 @@
 		4E60A0D81C2F1C7800D66A9A /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E60A0D71C2F1C7800D66A9A /* Location.swift */; };
 		4E60A0DA1C2F1E7100D66A9A /* VenuesTableViewCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E60A0D91C2F1E7100D66A9A /* VenuesTableViewCellData.swift */; };
 		4E60A0DC1C30750300D66A9A /* MeteorVenueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E60A0DB1C30750300D66A9A /* MeteorVenueService.swift */; };
+		4E60A0DE1C30851900D66A9A /* PlacePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E60A0DD1C30851900D66A9A /* PlacePickerViewController.swift */; };
+		4E60A0E01C35A6FA00D66A9A /* CreateVenueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E60A0DF1C35A6FA00D66A9A /* CreateVenueViewController.swift */; };
 		4E6312641C1FA7D500EB78F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6312631C1FA7D500EB78F9 /* AppDelegate.swift */; };
 		4E6312661C1FA7D500EB78F9 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6312651C1FA7D500EB78F9 /* LeftViewController.swift */; };
 		4E6312691C1FA7D500EB78F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E6312671C1FA7D500EB78F9 /* Main.storyboard */; };
@@ -154,6 +156,8 @@
 		4E60A0D71C2F1C7800D66A9A /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		4E60A0D91C2F1E7100D66A9A /* VenuesTableViewCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenuesTableViewCellData.swift; sourceTree = "<group>"; };
 		4E60A0DB1C30750300D66A9A /* MeteorVenueService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorVenueService.swift; sourceTree = "<group>"; };
+		4E60A0DD1C30851900D66A9A /* PlacePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacePickerViewController.swift; sourceTree = "<group>"; };
+		4E60A0DF1C35A6FA00D66A9A /* CreateVenueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateVenueViewController.swift; sourceTree = "<group>"; };
 		4E6312601C1FA7D500EB78F9 /* ShortList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShortList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E6312631C1FA7D500EB78F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E6312651C1FA7D500EB78F9 /* LeftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
@@ -311,6 +315,8 @@
 			children = (
 				4E60A0D21C2C6D7F00D66A9A /* VenuesNavigationViewController.swift */,
 				4E60A0D41C2C6DA400D66A9A /* VenuesViewController.swift */,
+				4E60A0DF1C35A6FA00D66A9A /* CreateVenueViewController.swift */,
+				4E60A0DD1C30851900D66A9A /* PlacePickerViewController.swift */,
 			);
 			name = Venue;
 			sourceTree = "<group>";
@@ -344,13 +350,11 @@
 				4E6312631C1FA7D500EB78F9 /* AppDelegate.swift */,
 				4EA3652F1C2380BD00C90249 /* AccountManager.swift */,
 				4E63132F1C1FB2E500EB78F9 /* Model */,
+				4E7C607D1C39D3380042CE4F /* Service */,
 				4E6312AB1C1FAFA500EB78F9 /* View */,
 				4E6312931C1FAD0300EB78F9 /* ViewController */,
 				4E6312A61C1FAF3400EB78F9 /* Extensions */,
 				4E63134C1C1FB61200EB78F9 /* MeteorUI */,
-				4EA365351C23C44A00C90249 /* MeteorContactService.swift */,
-				4E57A78C1C28EEB50070AEB3 /* MeteorListService.swift */,
-				4E60A0DB1C30750300D66A9A /* MeteorVenueService.swift */,
 				4E6313351C1FB59600EB78F9 /* Supporting Files */,
 			);
 			path = ShortList;
@@ -557,6 +561,16 @@
 				4E6313411C1FB60A00EB78F9 /* FoundationExtensions.swift */,
 			);
 			name = MeteorUI;
+			sourceTree = "<group>";
+		};
+		4E7C607D1C39D3380042CE4F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4EA365351C23C44A00C90249 /* MeteorContactService.swift */,
+				4E57A78C1C28EEB50070AEB3 /* MeteorListService.swift */,
+				4E60A0DB1C30750300D66A9A /* MeteorVenueService.swift */,
+			);
+			name = Service;
 			sourceTree = "<group>";
 		};
 		4EA89FBE1C27099F00163C57 /* Home */ = {
@@ -878,6 +892,7 @@
 				4E6313081C1FB28000EB78F9 /* SpringButton.swift in Sources */,
 				4E6313461C1FB60A00EB78F9 /* ManagedObjectObserver.swift in Sources */,
 				4E6312F71C1FB28000EB78F9 /* BlurView.swift in Sources */,
+				4E60A0E01C35A6FA00D66A9A /* CreateVenueViewController.swift in Sources */,
 				4E63130B1C1FB28000EB78F9 /* SpringTextField.swift in Sources */,
 				4E6313101C1FB28000EB78F9 /* UnwindSegue.swift in Sources */,
 				4E60A0D11C2C2E8300D66A9A /* ContactsNavigationViewController.swift in Sources */,
@@ -888,6 +903,7 @@
 				4E6313431C1FB60A00EB78F9 /* FetchedResultsDataSource.swift in Sources */,
 				4E6313061C1FB28000EB78F9 /* Spring.swift in Sources */,
 				4EA365341C23B4D300C90249 /* Contact.swift in Sources */,
+				4E60A0DE1C30851900D66A9A /* PlacePickerViewController.swift in Sources */,
 				4E6312B81C1FB17200EB78F9 /* SlideMenuController.swift in Sources */,
 				4E57A7931C2B3F2A0070AEB3 /* ListsTableViewCell.swift in Sources */,
 				4E6313501C1FBB3300EB78F9 /* ListDetailViewController.swift in Sources */,

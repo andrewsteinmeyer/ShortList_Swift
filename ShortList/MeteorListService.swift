@@ -51,6 +51,7 @@ final class MeteorListService {
   func defineStubMethods() {
     
     // Create List stub
+    // TODO: create stub method for client local save before server save (see contact service)
     Meteor.defineStubForMethodWithName(Message.CreateList.rawValue) {
       parameters in
       
