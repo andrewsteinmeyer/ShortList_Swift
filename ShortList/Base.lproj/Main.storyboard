@@ -38,6 +38,7 @@
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -96,24 +97,6 @@
                                                 <outlet property="delegate" destination="9r5-U3-Ygi" id="K4b-FO-hqd"/>
                                             </connections>
                                         </textField>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sXT-Yb-dQW" customClass="DesignableTextField" customModule="ShortList" customModuleProvider="target">
-                                            <rect key="frame" x="164" y="280" width="273" height="30"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                                    <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                                                    <real key="value" value="4"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                            <connections>
-                                                <outlet property="delegate" destination="9r5-U3-Ygi" id="bX4-rj-aPG"/>
-                                            </connections>
-                                        </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shortlist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="til-DW-vRR">
                                             <rect key="frame" x="225" y="150" width="150" height="48"/>
                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="40"/>
@@ -153,8 +136,8 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWf-B0-5Fk">
-                                            <rect key="frame" x="274" y="430" width="54" height="30"/>
-                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                            <rect key="frame" x="272" y="429" width="58" height="32"/>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                             <state key="normal" title="Register">
                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             </state>
@@ -162,10 +145,11 @@
                                                 <action selector="toggleScreenButtonPressed:" destination="9r5-U3-Ygi" eventType="touchUpInside" id="W3C-B6-PTZ"/>
                                             </connections>
                                         </button>
-                                        <textField opaque="NO" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Password Confirmation" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lQo-1x-42j" customClass="DesignableTextField" customModule="ShortList" customModuleProvider="target">
+                                        <textField opaque="NO" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password Confirmation" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lQo-1x-42j" customClass="DesignableTextField" customModule="ShortList" customModuleProvider="target">
                                             <rect key="frame" x="164" y="311" width="273" height="30"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                            <attributedString key="attributedText"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
@@ -177,6 +161,24 @@
                                             </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <outlet property="delegate" destination="9r5-U3-Ygi" id="8tq-lr-jKe"/>
+                                            </connections>
+                                        </textField>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sXT-Yb-dQW" customClass="DesignableTextField" customModule="ShortList" customModuleProvider="target">
+                                            <rect key="frame" x="164" y="280" width="273" height="30"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                    <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                    <real key="value" value="4"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <outlet property="delegate" destination="9r5-U3-Ygi" id="bX4-rj-aPG"/>
                                             </connections>
                                         </textField>
                                     </subviews>
@@ -193,7 +195,7 @@
                                         <constraint firstItem="sXT-Yb-dQW" firstAttribute="leading" secondItem="frp-gE-SKA" secondAttribute="leading" id="crX-mL-Oza"/>
                                         <constraint firstItem="7H7-0K-Akh" firstAttribute="top" secondItem="lQo-1x-42j" secondAttribute="bottom" constant="36" id="eg8-Yd-11V"/>
                                         <constraint firstItem="sXT-Yb-dQW" firstAttribute="top" secondItem="frp-gE-SKA" secondAttribute="bottom" constant="1" id="ijO-Wq-9n9"/>
-                                        <constraint firstItem="kWf-B0-5Fk" firstAttribute="top" secondItem="7H7-0K-Akh" secondAttribute="bottom" constant="8" symbolic="YES" id="iuQ-6f-7fM"/>
+                                        <constraint firstItem="kWf-B0-5Fk" firstAttribute="top" secondItem="7H7-0K-Akh" secondAttribute="bottom" constant="7" id="iuQ-6f-7fM"/>
                                         <constraint firstItem="frp-gE-SKA" firstAttribute="top" secondItem="oVm-LI-qFX" secondAttribute="bottom" constant="9" id="kc0-T3-Vf4"/>
                                         <constraint firstItem="7H7-0K-Akh" firstAttribute="centerX" secondItem="OHV-bK-d8k" secondAttribute="centerX" id="mJJ-6t-y19"/>
                                         <constraint firstItem="oVm-LI-qFX" firstAttribute="leading" secondItem="frp-gE-SKA" secondAttribute="leading" id="prj-7V-gdk"/>
