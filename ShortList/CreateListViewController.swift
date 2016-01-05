@@ -71,11 +71,10 @@ class CreateListViewController: UIViewController, UIMaterialTextFieldDelegate {
         return
     }
     
+    // convert to JSON to save to Meteor
     let JSONContacts = selectedContacts.map { contact in JSONDictionaryFromObject(contact) }
     
-    print(JSONContacts)
-    
-    MeteorListService.sharedInstance.create( [name, JSONContacts] ) {
+    MeteorListService.sharedInstance.create( [name, "public", JSONContacts] ) {
       result, error in
       
       dispatch_async(dispatch_get_main_queue()) {
