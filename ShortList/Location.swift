@@ -14,7 +14,7 @@ class Location: Mappable {
   var latitude: Double?
   var longitude: Double?
   
-  required init?() {
+  required init() {
   }
   
   required init?(_ map: Map) {

@@ -17,10 +17,10 @@ class ListDetailViewController: UITableViewController {
   var list: List? {
     didSet {
       if let listContacts = list?.valueForKey("contacts") {
-        let data = JSON(listContacts)
+        let JSONContacts = JSON(listContacts)
         
-        for (_,contact):(String, JSON) in data {
-          //Do something you want
+        for (_,contact):(String, JSON) in JSONContacts {
+          
           let name = contact["name"].string ?? ""
           let email = contact["email"].string ?? ""
           let phone = contact["phone"].string ?? ""

@@ -36,7 +36,41 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   @IBOutlet weak var minGuestTextField: UIMaterialTextField!
   @IBOutlet weak var maxGuestTextField: UIMaterialTextField!
   
-  private var location: Location?
+  private var location: Location? {
+    didSet {
+      guard isViewLoaded() else {
+        return
+      }
+      
+      // set location name
+      // use name if we have one, otherwise use address
+      locationTextField.text = (location?.name != nil ? location?.name : location?.address)
+    }
+    
+  }
+  
+  private var venue: Venue? {
+    didSet {
+      guard isViewLoaded() else {
+        return
+      }
+      
+      // set venue name
+      venueTextField.text = venue?.name
+      
+      if let venueLocation = venue?.valueForKey("location") {
+        let JSONLocation = JSON(venueLocation)
+        
+        let location = Location()
+        location.name = JSONLocation["name"].string ?? ""
+        location.address = JSONLocation["address"].string ?? ""
+        location.latitude = JSONLocation["latitude"].double ?? 0.0
+        location.longitude = JSONLocation["longitude"].double ?? 0.0
+        
+        self.location = location
+      }
+    }
+  }
   
   private var popDatePicker: PopDatePicker?
   private var selectedDate: NSDate? {
@@ -47,7 +81,6 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
       
       dateTextField.text = dateFormatter.stringFromDate(date) as String
       timeTextField.text = timeFormatter.stringFromDate(date) as String
-      
     }
   }
   
@@ -78,6 +111,11 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
       if identifier == "showPlacePicker" {
         let placePickerViewController = segue.destinationViewController as! PlacePickerViewController
         placePickerViewController.delegate = self
+      }
+      else if identifier == "selectVenue" {
+        let selectVenueViewController = segue.destinationViewController as! SelectVenueViewController
+        selectVenueViewController.delegate = self
+        selectVenueViewController.selectedVenue = venue
       }
     }
   }
@@ -141,6 +179,10 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
     showPlacePicker()
   }
   
+  @IBAction func venueTextFieldPressed(sender: AnyObject) {
+    performSegueWithIdentifier("selectVenue", sender: nil)
+  }
+  
   // MARK: Private methods
   
   private func showPlacePicker() {
@@ -190,11 +232,18 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   
 }
 
+extension CreateEventViewController: SelectVenueViewControllerDelegate {
+  
+  func selectVenueViewControllerDidSelectVenue(venue: Venue) {
+    self.venue = venue
+  }
+  
+}
+
 extension CreateEventViewController: PlacePickerViewControllerDelegate {
   
   func placePickerDidSelectLocation(location: Location) {
     self.location = location
-    self.locationTextField.text = location.address
     
   }
   

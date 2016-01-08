@@ -20,6 +20,8 @@ class VenuesTableViewCell : BaseTableViewCell {
   
   @IBOutlet weak var nameLabel: UILabel!
   
+  var highlight = false
+  
   override func layoutSubviews() {
     super.layoutSubviews()
     
@@ -34,6 +36,12 @@ class VenuesTableViewCell : BaseTableViewCell {
     if let data = data as? VenuesTableViewCellData {
       self.nameLabel.text = data.name
     }
+  }
+  
+  func toggleHighlight() {
+    highlight = !highlight
+    
+    self.contentView.backgroundColor = highlight ? UIColor.primaryColorLight() : UIColor.whiteColor()
   }
   
 }

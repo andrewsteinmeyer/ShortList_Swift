@@ -41,12 +41,12 @@ class PlacePickerViewController: UIViewController {
         
         if let place = place {
           let location = Location()
-          location?.name = place.name
-          location?.address = place.formattedAddress
-          location?.latitude = place.coordinate.latitude
-          location?.longitude = place.coordinate.longitude
+          location.name = place.name
+          location.address = place.formattedAddress
+          location.latitude = place.coordinate.latitude
+          location.longitude = place.coordinate.longitude
           
-          self.delegate?.placePickerDidSelectLocation(location!)
+          self.delegate?.placePickerDidSelectLocation(location)
           self.navigationController?.popViewControllerAnimated(true)
           
           
