@@ -64,7 +64,7 @@ class VenuesViewController: FetchedResultsTableViewController {
     let documentID = Meteor.documentKeyForObjectID(venue.objectID).documentID
     
     // delete venue
-    MeteorContactService.sharedInstance.delete([documentID]) {
+    MeteorVenueService.sharedInstance.delete([documentID]) {
       result, error in
       
       if error != nil {
