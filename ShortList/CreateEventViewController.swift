@@ -11,7 +11,7 @@ import ObjectMapper
 
 private let dateFormatter: NSDateFormatter = {
   let formatter = NSDateFormatter()
-  formatter.dateFormat = "EEE, MMM d"
+  formatter.dateFormat = "EEE, MMM d" // ie. Thu, Jun 8
     
   return formatter
 }()
@@ -19,7 +19,7 @@ private let dateFormatter: NSDateFormatter = {
 private let timeFormatter: NSDateFormatter = {
   let formatter = NSDateFormatter()
   formatter.dateStyle = .NoStyle
-  formatter.timeStyle = .ShortStyle
+  formatter.timeStyle = .ShortStyle // ie. 11:10 PM
   
   return formatter
 }()
@@ -36,15 +36,25 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   @IBOutlet weak var minGuestTextField: UIMaterialTextField!
   @IBOutlet weak var maxGuestTextField: UIMaterialTextField!
   
+  private var list: List? {
+    didSet {
+      guard isViewLoaded() else {
+        return
+      }
+      
+      // set list name
+      listTextField.text = list?.name
+    }
+  }
+  
   private var location: Location? {
     didSet {
       guard isViewLoaded() else {
         return
       }
       
-      // set location name
-      // use name if we have one, otherwise use address
-      locationTextField.text = (location?.name != nil ? location?.name : location?.address)
+      // set location with address
+      locationTextField.text = location?.address
     }
     
   }
@@ -79,6 +89,7 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
         return
       }
       
+      // set date and time text
       dateTextField.text = dateFormatter.stringFromDate(date) as String
       timeTextField.text = timeFormatter.stringFromDate(date) as String
     }
@@ -115,7 +126,12 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
       else if identifier == "selectVenue" {
         let selectVenueViewController = segue.destinationViewController as! SelectVenueViewController
         selectVenueViewController.delegate = self
-        selectVenueViewController.selectedVenue = venue
+        selectVenueViewController.selectedVenue = self.venue
+      }
+      else if identifier == "selectList" {
+        let selectListViewController = segue.destinationViewController as! SelectListViewController
+        selectListViewController.delegate = self
+        selectListViewController.selectedList = self.list
       }
     }
   }
@@ -175,6 +191,10 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
     createEvent()
   }
   
+  @IBAction func listTextFieldPressed(sender: AnyObject) {
+    performSegueWithIdentifier("selectList", sender: nil)
+  }
+  
   @IBAction func locationTextFieldPressed(sender: AnyObject) {
     showPlacePicker()
   }
@@ -232,13 +252,28 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   
 }
 
+
+//MARK: - SelectListViewControllerDelegate
+
+extension CreateEventViewController: SelectListViewControllerDelegate {
+  
+  func selectListViewControllerDidSelectList(list: List) {
+    self.list = list
+  }
+}
+
+
+//MARK: - SelectVenueViewControllerDelegate
+
 extension CreateEventViewController: SelectVenueViewControllerDelegate {
   
   func selectVenueViewControllerDidSelectVenue(venue: Venue) {
     self.venue = venue
   }
-  
 }
+
+
+//MARK: - PlacePickerViewControllerDelegate
 
 extension CreateEventViewController: PlacePickerViewControllerDelegate {
   

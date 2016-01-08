@@ -20,6 +20,8 @@ class ListsTableViewCell : BaseTableViewCell {
   
   @IBOutlet weak var nameLabel: UILabel!
   
+  var highlight = false
+  
   override func layoutSubviews() {
     super.layoutSubviews()
     
@@ -34,6 +36,12 @@ class ListsTableViewCell : BaseTableViewCell {
     if let data = data as? ListsTableViewCellData {
       self.nameLabel.text = data.name
     }
+  }
+  
+  func toggleHighlight() {
+    highlight = !highlight
+    
+    self.contentView.backgroundColor = highlight ? UIColor.primaryColorLight() : UIColor.whiteColor()
   }
   
 }
