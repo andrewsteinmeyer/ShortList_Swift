@@ -58,7 +58,7 @@ class AccountManager: NSObject {
     }
   }
   
-  // Mark: Sign in and out
+  // Mark: Sign In and Out
   
   func loginWithEmail(email: String, password: String, completionHandler: METLogInCompletionHandler?) {
     Meteor.loginWithEmail(email, password: password, completionHandler: completionHandler)
