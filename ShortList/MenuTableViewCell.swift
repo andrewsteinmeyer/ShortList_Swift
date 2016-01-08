@@ -1,9 +1,9 @@
 //
-//  DataTableViewCell.swift
-//  SlideMenuControllerSwift
+//  MenuTableViewCell.swift
+//  Shortlist
 //
-//  Created by Yuji Hato on 11/8/15.
-//  Copyright © 2015 Yuji Hato. All rights reserved.
+//  Created by Andrew Steinmeyer on 12/15/15.
+//  Copyright (c) 2015 Andrew Steinmeyer. All rights reserved.
 //
 
 import UIKit
@@ -11,8 +11,8 @@ import UIKit
 struct MenuTableViewCellData {
     
     init(imageUrl: String, text: String) {
-        self.imageUrl = imageUrl
-        self.text = text
+      self.imageUrl = imageUrl
+      self.text = text
     }
     var imageUrl: String
     var text: String

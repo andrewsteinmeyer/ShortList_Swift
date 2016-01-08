@@ -15,7 +15,8 @@ class SLSlideMenuController : SlideMenuController {
       if vc is HomeViewController ||
         vc is ContactsViewController ||
         vc is ListsViewController ||
-        vc is VenuesViewController {
+        vc is VenuesViewController ||
+        vc is EventsViewController {
           return true
       }
     }

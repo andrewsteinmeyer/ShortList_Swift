@@ -38,7 +38,6 @@ class ContactsTableViewCell : BaseTableViewCell {
     self.layer.addSublayer(lineLayer)
   }
   
-  
   override func setData(data: Any?) {
     if let data = data as? ContactsTableViewCellData {
       self.nameLabel.text = data.name

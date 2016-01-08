@@ -20,8 +20,6 @@ class ListsTableViewCell : BaseTableViewCell {
   
   @IBOutlet weak var nameLabel: UILabel!
   
-  var highlight = false
-  
   override func layoutSubviews() {
     super.layoutSubviews()
     
@@ -31,7 +29,6 @@ class ListsTableViewCell : BaseTableViewCell {
     lineLayer.backgroundColor = UIColor.lightGrayColor().CGColor
     self.layer.addSublayer(lineLayer)
   }
-  
   
   override func setData(data: Any?) {
     if let data = data as? ListsTableViewCellData {

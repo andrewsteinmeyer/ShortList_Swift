@@ -29,6 +29,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
   var listsTabBarController: UIViewController!
   var contactsViewController: UIViewController!
   var venuesViewController: UIViewController!
+  var eventsViewController: UIViewController!
   var imageHeaderView: ImageHeaderView!
   
   required init?(coder aDecoder: NSCoder) {
@@ -53,6 +54,9 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     let venuesNavigationViewController = storyboard.instantiateViewControllerWithIdentifier("VenuesNavigationViewController") as! VenuesNavigationViewController
     self.venuesViewController = venuesNavigationViewController
     
+    let eventsNavigationViewController = storyboard.instantiateViewControllerWithIdentifier("EventsNavigationViewController") as! EventsNavigationViewController
+    self.eventsViewController = eventsNavigationViewController
+    
     
     self.imageHeaderView = ImageHeaderView.loadNib()
     self.view.addSubview(self.imageHeaderView)
@@ -74,7 +78,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
       self.slideMenuController()?.changeMainViewController(self.contactsViewController, close: true)
     case .Venues:
       self.slideMenuController()?.changeMainViewController(self.venuesViewController, close: true)
-    default: ()
+    case .Events:
+      self.slideMenuController()?.changeMainViewController(self.eventsViewController, close: true)
     }
   }
 }

@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopDateViewController" customModule="PopDatePickerApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopDateViewController" customModule="ShortList" customModuleProvider="target">
             <connections>
                 <outlet property="datePicker" destination="ubp-Ey-HyI" id="XPh-Od-1dL"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Jqk-T2-UHf"/>

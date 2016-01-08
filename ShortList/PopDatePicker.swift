@@ -8,7 +8,8 @@
 
 import UIKit
 
-public class PopDatePicker : NSObject, UIPopoverPresentationControllerDelegate, DataPickerViewControllerDelegate {
+
+public class PopDatePicker : NSObject, UIPopoverPresentationControllerDelegate, DatePickerViewControllerDelegate {
     
     public typealias PopDatePickerCallback = (newDate : NSDate, forTextField : UITextField)->()
     
@@ -39,9 +40,9 @@ public class PopDatePicker : NSObject, UIPopoverPresentationControllerDelegate, 
         
         popover = datePickerVC.popoverPresentationController
         if let _popover = popover {
-            
             _popover.sourceView = textField
             _popover.sourceRect = CGRectMake(self.offset,textField.bounds.size.height,0,0)
+            _popover.permittedArrowDirections = .Up
             _popover.delegate = self
             self.dataChanged = dataChanged
             inViewController.presentViewController(datePickerVC, animated: true, completion: nil)
@@ -50,18 +51,13 @@ public class PopDatePicker : NSObject, UIPopoverPresentationControllerDelegate, 
     }
     
     public func adaptivePresentationStyleForPresentationController(PC: UIPresentationController) -> UIModalPresentationStyle {
-        
         return .None
     }
     
     func datePickerVCDismissed(date : NSDate?) {
-        
         if let _dataChanged = dataChanged {
-            
             if let _date = date {
-            
                 _dataChanged(newDate: _date, forTextField: textField)
-        
             }
         }
         presented = false

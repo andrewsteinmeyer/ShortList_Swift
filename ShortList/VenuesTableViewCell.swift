@@ -1,5 +1,5 @@
 //
-//  VenuesTableViewCellData.swift
+//  VenuesTableViewCell.swift
 //  ShortList
 //
 //  Created by Andrew Steinmeyer on 12/26/15.
@@ -20,8 +20,6 @@ class VenuesTableViewCell : BaseTableViewCell {
   
   @IBOutlet weak var nameLabel: UILabel!
   
-  var highlight = false
-  
   override func layoutSubviews() {
     super.layoutSubviews()
     
@@ -31,7 +29,6 @@ class VenuesTableViewCell : BaseTableViewCell {
     lineLayer.backgroundColor = UIColor.lightGrayColor().CGColor
     self.layer.addSublayer(lineLayer)
   }
-  
   
   override func setData(data: Any?) {
     if let data = data as? VenuesTableViewCellData {
