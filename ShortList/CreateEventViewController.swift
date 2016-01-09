@@ -8,6 +8,7 @@
 
 import UIKit
 import ObjectMapper
+import Groot
 
 private let dateFormatter: NSDateFormatter = {
   let formatter = NSDateFormatter()
@@ -107,13 +108,17 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
     nameTextField.materialDelegate = self
     dateTextField.materialDelegate = self
     timeTextField.materialDelegate = self
+    listTextField.materialDelegate = self
+    venueTextField.materialDelegate = self
     locationTextField.materialDelegate = self
+    minGuestTextField.materialDelegate = self
+    maxGuestTextField.materialDelegate = self
     
     // setup popup date picker
     popDatePicker = PopDatePicker(forTextField: dateTextField)
     
     // assign first responder
-    //nameTextField.becomeFirstResponder()
+    nameTextField.becomeFirstResponder()
   }
   
   
@@ -151,34 +156,35 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   
   func materialTextFieldShouldReturn(textField: UITextField) -> Bool {
     if textField == nameTextField {
-      locationTextField.becomeFirstResponder()
-      showPlacePicker()
-    } else if textField == locationTextField {
+      dateTextField.becomeFirstResponder()
+      showDatePicker()
+    }
+    else if textField == minGuestTextField {
+      maxGuestTextField.becomeFirstResponder()
+    }
+    else if textField == maxGuestTextField {
+      maxGuestTextField.resignFirstResponder()
       createEvent()
     }
     
     return false
   }
   
+  func materialTextFieldDidEndEditing(textField: UITextField) {
+    if textField == maxGuestTextField {
+      maxGuestTextField.resignFirstResponder()
+    }
+  }
+  
   // MARK: IBAction methods
   
+  // TODO: temporary until we add TPKeyboardAvoiding
+  @IBAction func doneButtonDidPress(sender: AnyObject) {
+    self.view.endEditing(true)
+  }
+  
   @IBAction func dateTextFieldDidPress(sender: AnyObject) {
-    dateTextField.resignFirstResponder()
-    
-    let selectedDate : NSDate? = dateFormatter.dateFromString(dateTextField.text!)
-    let initDate = (selectedDate ?? NSDate())
-    
-    let dataChangedCallback : PopDatePicker.PopDatePickerCallback = { [weak self]
-      (newDate : NSDate, forTextField : UITextField) -> () in
-      
-      if let strongSelf = self {
-        strongSelf.selectedDate = newDate
-      }
-      
-      forTextField.text = (dateFormatter.stringFromDate(newDate) ?? "?") as String
-    }
-    
-    popDatePicker!.pick(self, initDate: initDate, dataChanged: dataChangedCallback)
+    showDatePicker()
   }
   
   @IBAction func createEventDidCancel(sender: AnyObject) {
@@ -205,22 +211,61 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   
   // MARK: Private methods
   
+  private func showDatePicker() {
+    dateTextField.resignFirstResponder()
+    
+    let selectedDate : NSDate? = dateFormatter.dateFromString(dateTextField.text!)
+    let initDate = (selectedDate ?? NSDate())
+    
+    let dataChangedCallback : PopDatePicker.PopDatePickerCallback = { [weak self]
+      (newDate : NSDate, forTextField : UITextField) -> () in
+      
+      if let strongSelf = self {
+        strongSelf.selectedDate = newDate
+      }
+      
+      forTextField.text = (dateFormatter.stringFromDate(newDate) ?? "?") as String
+    }
+    
+    popDatePicker!.pick(self, initDate: initDate, dataChanged: dataChangedCallback)
+  }
+  
   private func showPlacePicker() {
     performSegueWithIdentifier("showPlacePicker", sender: nil)
   }
   
   private func createEvent() {
     guard let name = nameTextField.text where !name.isEmpty,
+      let date = selectedDate,
+      let list = list,
+      let venue = venue,
       let location = location else {
-        let errorMessage = "Both fields are required to create venue"
+        let errorMessage = "All fields are required to create event"
         displayError(errorMessage)
         
         return
     }
     
-    let JSONLocation = Mapper().toJSON(location)
+    // setup event configuration
+    let eventConfiguration = EventConfiguration()
+    if let minGuests = minGuestTextField.text {
+      eventConfiguration.minimumGuests = Int(minGuests)
+    }
+    if let maxGuests = maxGuestTextField.text {
+      eventConfiguration.maximumGuests = Int(maxGuests)
+    }
     
-    MeteorVenueService.sharedInstance.create( [name, JSONLocation] ) {
+    
+    // use Groot for core location objects
+    let JSONList = JSONDictionaryFromObject(list)
+    let JSONVenue = JSONDictionaryFromObject(venue)
+    
+    // use ObjectMapper for regular models
+    let JSONLocation = Mapper().toJSON(location)
+    let JSONEventConfiguration = Mapper().toJSON(eventConfiguration)
+    
+    
+    MeteorEventService.sharedInstance.create([ name, date.timeInMilliseconds(), JSONList, JSONVenue, JSONLocation, JSONEventConfiguration ]) {
       result, error in
       
       dispatch_async(dispatch_get_main_queue()) {

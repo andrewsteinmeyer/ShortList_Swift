@@ -1166,8 +1166,8 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="addressLabel" destination="Ars-PQ-BRv" id="jgL-Ga-4mQ"/>
-                                    <outlet property="nameLabel" destination="yac-gA-sTS" id="Tah-j6-Ig7"/>
+                                    <outlet property="addressLabel" destination="Ars-PQ-BRv" id="UxO-nf-z7j"/>
+                                    <outlet property="nameLabel" destination="yac-gA-sTS" id="Pm5-yE-uH6"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1250,7 +1250,7 @@
                                 </constraints>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="listTextFieldPressed:" destination="5r5-oQ-tbG" eventType="touchDown" id="Ns1-f6-gsm"/>
                                 </connections>
@@ -1265,10 +1265,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPK-uc-xg3" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
-                                <rect key="frame" x="199" y="491" width="202" height="45"/>
+                                <rect key="frame" x="162" y="491" width="277" height="45"/>
                                 <color key="backgroundColor" red="1" green="0.84313725490000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="202" id="HOs-3a-dyF"/>
+                                    <constraint firstAttribute="width" constant="277" id="HOs-3a-dyF"/>
                                     <constraint firstAttribute="height" constant="45" id="HXy-RI-vvy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
@@ -1295,7 +1295,7 @@
                                 </constraints>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="venueTextFieldPressed:" destination="5r5-oQ-tbG" eventType="touchDown" id="myY-M6-htB"/>
                                 </connections>
@@ -1308,7 +1308,7 @@
                                 </constraints>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="locationTextFieldPressed:" destination="5r5-oQ-tbG" eventType="touchDown" id="pAF-bi-Gky"/>
                                 </connections>
@@ -1321,7 +1321,7 @@
                                 </constraints>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Max. Guests" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="egZ-O7-H9x" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
                                 <rect key="frame" x="302" y="387" width="278" height="40"/>
@@ -1383,6 +1383,11 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Myc-eL-uc9">
                             <connections>
                                 <action selector="createEventDidCancel:" destination="5r5-oQ-tbG" id="xJ7-bW-Gyz"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="kBO-k5-IWF">
+                            <connections>
+                                <action selector="doneButtonDidPress:" destination="5r5-oQ-tbG" id="xU2-LC-SUA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -41,10 +41,26 @@
         <attribute name="venue" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="List" representedClassName="ShortList.List" syncable="YES">
-        <attribute name="contacts" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="insertedOn" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contacts" optional="YES" attributeType="Transformable" syncable="YES">
+            <userInfo>
+                <entry key="JSONKeyPath" value="contacts"/>
+            </userInfo>
+        </attribute>
+        <attribute name="insertedOn" optional="YES" attributeType="Date" syncable="YES">
+            <userInfo>
+                <entry key="JSONKeyPath" value="insertedOn"/>
+            </userInfo>
+        </attribute>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="JSONKeyPath" value="name"/>
+            </userInfo>
+        </attribute>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="JSONKeyPath" value="userId"/>
+            </userInfo>
+        </attribute>
     </entity>
     <entity name="User" representedClassName="ShortList.User" syncable="YES">
         <attribute name="creationDate" optional="YES" attributeType="Date" syncable="YES"/>
@@ -54,9 +70,21 @@
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Venue" representedClassName="ShortList.Venue" syncable="YES">
-        <attribute name="insertedOn" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="location" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="insertedOn" optional="YES" attributeType="Date" syncable="YES">
+            <userInfo>
+                <entry key="JSONKeyPath" value="insertedOn"/>
+            </userInfo>
+        </attribute>
+        <attribute name="location" optional="YES" attributeType="Transformable" syncable="YES">
+            <userInfo>
+                <entry key="JSONKeyPath" value="location"/>
+            </userInfo>
+        </attribute>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="JSONKeyPath" value="name"/>
+            </userInfo>
+        </attribute>
     </entity>
     <elements>
         <element name="Contact" positionX="-18" positionY="144" width="128" height="135"/>

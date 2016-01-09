@@ -10,9 +10,11 @@ import UIKit
 
 struct EventsTableViewCellData {
   
-  init(name: String?, location: String?) {
+  init(name: String?) {
     self.name = name ?? ""
-    self.location = location ?? ""
+    self.location = ""
+    
+    //TODO: Extract location from Event and add address
   }
   var name: String?
   var location: String?
@@ -36,6 +38,7 @@ class EventsTableViewCell : BaseTableViewCell {
   override func setData(data: Any?) {
     if let data = data as? EventsTableViewCellData {
       self.nameLabel.text = data.name
+      self.addressLabel.text = data.location
     }
   }
   

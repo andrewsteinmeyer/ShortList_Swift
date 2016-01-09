@@ -47,7 +47,7 @@ class EventsViewController: FetchedResultsTableViewController {
   func dataSource(dataSource: FetchedResultsTableViewDataSource, configureCell cell: UITableViewCell, forObject object: NSManagedObject, atIndexPath indexPath: NSIndexPath) {
     if let event = object as? Event {
       if let cell = cell as? EventsTableViewCell {
-        let data = EventsTableViewCellData(name: event.name, location: event.location)
+        let data = EventsTableViewCellData(name: event.name)
         cell.setData(data)
       }
     }
