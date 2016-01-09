@@ -21,10 +21,10 @@ final class MeteorEventService {
   }
   
   init() {
-    // TODO: create stub method for client local save before server save (see contact service)
-    //defineStubMethods()
+    defineStubMethods()
   }
   
+  // save locally to core data
   func saveManagedObjectContext() {
     var error: NSError?
     do {
@@ -46,32 +46,39 @@ final class MeteorEventService {
   }
   
   
-  //MARK: - Stub Methods for Event
+  //MARK: - Stub methods to save locally before save to server
   
   func defineStubMethods() {
     
-    // Create Event stub
-    // TODO: create stub method for client local save before server save (see contact service)
     Meteor.defineStubForMethodWithName(Message.CreateEvent.rawValue) {
       parameters in
       
       let name = parameters[0] as? String ?? nil
-      let phone = parameters[1] as? String ?? nil
-      let email = parameters[2] as? String ?? nil
+      let date = parameters[1] as? Double ?? nil
+      let list = parameters[3] as? [String:AnyObject] ?? nil
+      let venue = parameters[4] as? [String:AnyObject] ?? nil
+      let location = parameters[5] as? [String:AnyObject] ?? nil
+      
+      //TODO: Add Event Configuration.  It is passed in, just add it to save below
+      //let eventConfiguration = parameters[6] as? [String:AnyObject] ?? nil
       
       guard name != nil
-        && phone != nil
-        && email != nil
+        && list != nil
+        && venue != nil
+        && location != nil
         else {
           return nil
       }
       
-      let contact = NSEntityDescription.insertNewObjectForEntityForName(self.modelName, inManagedObjectContext: self.managedObjectContext) as! Contact
-      contact.userId = AccountManager.defaultAccountManager.currentUserId
-      contact.name = name
-      contact.phone = phone
-      contact.email = email
+      let event = NSEntityDescription.insertNewObjectForEntityForName(self.modelName, inManagedObjectContext: self.managedObjectContext) as! Event
+      event.userId = AccountManager.defaultAccountManager.currentUserId
+      event.name = name
+      event.insertedOn = NSDate(timeIntervalSince1970: ( date! / 1000)) //interpolate from milliseconds
+      event.list = list
+      event.venue = venue
+      event.location = location
       
+      // save locally
       self.saveManagedObjectContext()
       
       return nil

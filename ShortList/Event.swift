@@ -9,10 +9,14 @@
 import CoreData
 
 class Event: NSManagedObject {
+  typealias NamedValues = [String:AnyObject]
+  
   @NSManaged var name: String?
   @NSManaged var userId: String?
-  @NSManaged var list: String?
-  @NSManaged var venue: String?
-  @NSManaged var location: String?
+  @NSManaged var list: NamedValues?
+  @NSManaged var venue: NamedValues?
+  @NSManaged var location: NamedValues?
   @NSManaged var insertedOn: NSDate?
+  
+  //TODO: Add event configuration as property
 }
