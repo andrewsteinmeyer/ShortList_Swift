@@ -21,10 +21,10 @@ final class MeteorListService {
   }
   
   init() {
-    // TODO: create stub method for client local save before server save (see contact service)
-    //defineStubMethods()
+    defineStubMethods()
   }
   
+  // save locally to core data
   func saveManagedObjectContext() {
     var error: NSError?
     do {
@@ -46,32 +46,32 @@ final class MeteorListService {
   }
   
   
-  //MARK: - Stub Methods for Client
+  //MARK: - Stub methods to save locally before save to server
   
   func defineStubMethods() {
     
-    // Create List stub
-    // TODO: create stub method for client local save before server save (see contact service)
     Meteor.defineStubForMethodWithName(Message.CreateList.rawValue) {
       parameters in
       
       let name = parameters[0] as? String ?? nil
-      let phone = parameters[1] as? String ?? nil
-      let email = parameters[2] as? String ?? nil
+      let security = parameters[1] as? String ?? nil
+      let contacts = parameters[2] as? NSSet ?? nil
       
       guard name != nil
-        && phone != nil
-        && email != nil
+        && security != nil
+        && contacts != nil
         else {
           return nil
       }
       
-      let contact = NSEntityDescription.insertNewObjectForEntityForName(self.modelName, inManagedObjectContext: self.managedObjectContext) as! Contact
-      contact.userId = AccountManager.defaultAccountManager.currentUserId
-      contact.name = name
-      contact.phone = phone
-      contact.email = email
+      let list = NSEntityDescription.insertNewObjectForEntityForName(self.modelName, inManagedObjectContext: self.managedObjectContext) as! List
+      list.userId = AccountManager.defaultAccountManager.currentUserId
+      list.name = name
+      list.security = security
+      list.insertedOn = NSDate()
+      list.contacts = contacts
       
+      // save locally
       self.saveManagedObjectContext()
       
       return nil

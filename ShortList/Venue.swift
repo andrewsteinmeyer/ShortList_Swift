@@ -9,9 +9,11 @@
 import CoreData
 
 class Venue: NSManagedObject {
+  typealias NamedValues = [String:AnyObject]
+  
   @NSManaged var name: String?
   @NSManaged var insertedOn: NSDate?
   
-  @NSManaged var location: NSSet!
+  @NSManaged var location: NamedValues?
   
 }
