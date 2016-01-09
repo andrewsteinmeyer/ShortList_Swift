@@ -18,5 +18,6 @@ class Event: NSManagedObject {
   @NSManaged var location: NamedValues?
   @NSManaged var insertedOn: NSDate?
   
-  //TODO: Add event configuration as property
+  @NSManaged var eventConfiguration: NamedValues?
+  
 }

@@ -58,9 +58,7 @@ final class MeteorEventService {
       let list = parameters[3] as? [String:AnyObject] ?? nil
       let venue = parameters[4] as? [String:AnyObject] ?? nil
       let location = parameters[5] as? [String:AnyObject] ?? nil
-      
-      //TODO: Add Event Configuration.  It is passed in, just add it to save below
-      //let eventConfiguration = parameters[6] as? [String:AnyObject] ?? nil
+      let eventConfiguration = parameters[6] as? [String:AnyObject] ?? nil
       
       guard name != nil
         && list != nil
@@ -77,6 +75,11 @@ final class MeteorEventService {
       event.list = list
       event.venue = venue
       event.location = location
+      
+      // add config if present
+      if let config = eventConfiguration {
+        event.eventConfiguration = config
+      }
       
       // save locally
       self.saveManagedObjectContext()

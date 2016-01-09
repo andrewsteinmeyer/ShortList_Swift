@@ -21,10 +21,10 @@ final class MeteorVenueService {
   }
   
   init() {
-    // TODO: create stub method for client local save before server save (see contact service)
-    //defineStubMethods()
+    defineStubMethods()
   }
   
+  // save locally to core data
   func saveManagedObjectContext() {
     var error: NSError?
     do {
@@ -46,32 +46,28 @@ final class MeteorVenueService {
   }
   
   
-  //MARK: - Stub Methods for Client
+  //MARK: - Stub methods to save locally before save to server
   
   func defineStubMethods() {
     
-    // Create Venue stub
-    // TODO: create stub method for client local save before server save (see contact service)
     Meteor.defineStubForMethodWithName(Message.CreateVenue.rawValue) {
       parameters in
       
       let name = parameters[0] as? String ?? nil
-      let phone = parameters[1] as? String ?? nil
-      let email = parameters[2] as? String ?? nil
+      let location = parameters[1] as? [String:AnyObject] ?? nil
       
       guard name != nil
-        && phone != nil
-        && email != nil
+        && location != nil
         else {
           return nil
       }
       
-      let contact = NSEntityDescription.insertNewObjectForEntityForName(self.modelName, inManagedObjectContext: self.managedObjectContext) as! Contact
-      contact.userId = AccountManager.defaultAccountManager.currentUserId
-      contact.name = name
-      contact.phone = phone
-      contact.email = email
+      let venue = NSEntityDescription.insertNewObjectForEntityForName(self.modelName, inManagedObjectContext: self.managedObjectContext) as! Venue
+      venue.name = name
+      venue.insertedOn = NSDate()
+      venue.location = location
       
+      // save locally
       self.saveManagedObjectContext()
       
       return nil
