@@ -34,11 +34,11 @@
     </entity>
     <entity name="Event" representedClassName="ShortList.Event" syncable="YES">
         <attribute name="insertedOn" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="list" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="list" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="venue" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="venue" optional="YES" attributeType="Transformable" syncable="YES"/>
     </entity>
     <entity name="List" representedClassName="ShortList.List" syncable="YES">
         <attribute name="contacts" optional="YES" attributeType="Transformable" syncable="YES">
@@ -54,6 +54,11 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES">
             <userInfo>
                 <entry key="JSONKeyPath" value="name"/>
+            </userInfo>
+        </attribute>
+        <attribute name="security" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="JSONKeyPath" value="security"/>
             </userInfo>
         </attribute>
         <attribute name="userId" optional="YES" attributeType="String" syncable="YES">
@@ -89,7 +94,7 @@
     <elements>
         <element name="Contact" positionX="-18" positionY="144" width="128" height="135"/>
         <element name="Event" positionX="0" positionY="135" width="128" height="135"/>
-        <element name="List" positionX="-54" positionY="36" width="128" height="105"/>
+        <element name="List" positionX="-54" positionY="36" width="128" height="120"/>
         <element name="User" positionX="-36" positionY="54" width="128" height="120"/>
         <element name="Venue" positionX="-18" positionY="99" width="128" height="90"/>
     </elements>
