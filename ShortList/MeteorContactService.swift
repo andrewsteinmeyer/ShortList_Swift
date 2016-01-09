@@ -26,6 +26,7 @@ final class MeteorContactService {
     defineStubMethods()
   }
   
+  // save locally to core data
   func saveManagedObjectContext() {
     var error: NSError?
     do {
@@ -54,11 +55,10 @@ final class MeteorContactService {
     Meteor.callMethodWithName(Message.ImportContacts.rawValue, parameters: parameters, completionHandler: completionHandler)
   }
   
-  //MARK: - Stub Methods for client persistence
+  //MARK: - Stub methods to save locally before save to server
   
   func defineStubMethods() {
     
-    // Create Contact stub
     Meteor.defineStubForMethodWithName(Message.CreateContact.rawValue) {
       parameters in
       
@@ -80,7 +80,7 @@ final class MeteorContactService {
       contact.email = email
       contact.source = self.source
       
-      // save local
+      // save locally
       self.saveManagedObjectContext()
       
       return nil
