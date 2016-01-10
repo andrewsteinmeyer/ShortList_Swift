@@ -12,8 +12,10 @@ import Meteor
 
 class EventsViewController: FetchedResultsTableViewController {
   
-  private let listSubscriptionName = "PrivateEvents"
+  private let subscriptionName = "PrivateEvents"
   private let modelName = "Event"
+  
+  private var selectedEvent: Event?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -29,10 +31,21 @@ class EventsViewController: FetchedResultsTableViewController {
     self.setNavigationBarItem()
   }
   
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "showEventDetail" {
+      if let selectedEvent = dataSource.selectedObject as? Event {
+        if let eventDetailViewController = segue.destinationViewController as? EventDetailViewController {
+          eventDetailViewController.navigationItem.title = selectedEvent.name
+          eventDetailViewController.event = selectedEvent
+        }
+      }
+    }
+  }
+  
   // MARK: - Content Loading
   
   override func configureSubscriptionLoader(subscriptionLoader: SubscriptionLoader) {
-    subscriptionLoader.addSubscriptionWithName(listSubscriptionName)
+    subscriptionLoader.addSubscriptionWithName(subscriptionName)
   }
   
   override func createFetchedResultsController() -> NSFetchedResultsController? {
@@ -72,5 +85,9 @@ class EventsViewController: FetchedResultsTableViewController {
       }
     }
   }
+  
+  
+    
+  
   
 }

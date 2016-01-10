@@ -39,10 +39,6 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   
   private var list: List? {
     didSet {
-      guard isViewLoaded() else {
-        return
-      }
-      
       // set list name
       listTextField.text = list?.name
     }
@@ -50,10 +46,6 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   
   private var location: Location? {
     didSet {
-      guard isViewLoaded() else {
-        return
-      }
-      
       // set location with address
       locationTextField.text = location?.address
     }
@@ -62,10 +54,6 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   
   private var venue: Venue? {
     didSet {
-      guard isViewLoaded() else {
-        return
-      }
-      
       // set venue name
       venueTextField.text = venue?.name
       
@@ -86,7 +74,7 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   private var popDatePicker: PopDatePicker?
   private var selectedDate: NSDate? {
     didSet {
-      guard isViewLoaded(), let date = selectedDate else {
+      guard let date = selectedDate else {
         return
       }
       

@@ -56,6 +56,14 @@
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -519,10 +527,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6V2-Bx-I1b" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
-                                <rect key="frame" x="193" y="313" width="202" height="45"/>
+                                <rect key="frame" x="162" y="314" width="277" height="45"/>
                                 <color key="backgroundColor" red="1" green="0.84313725490000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="202" id="gDS-ak-6Fd"/>
+                                    <constraint firstAttribute="width" constant="277" id="gDS-ak-6Fd"/>
                                     <constraint firstAttribute="height" constant="45" id="wCZ-ue-G6j"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
@@ -546,11 +554,11 @@
                         <constraints>
                             <constraint firstItem="Kip-br-bEU" firstAttribute="leading" secondItem="gr6-98-gPC" secondAttribute="leadingMargin" id="6cd-ud-U7D"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0tw-wp-EgB" secondAttribute="trailing" id="AY1-6q-wIx"/>
-                            <constraint firstItem="Vrr-A8-cJs" firstAttribute="top" secondItem="6V2-Bx-I1b" secondAttribute="bottom" constant="242" id="DhE-dP-fuN"/>
+                            <constraint firstItem="Vrr-A8-cJs" firstAttribute="top" secondItem="6V2-Bx-I1b" secondAttribute="bottom" constant="241" id="DhE-dP-fuN"/>
                             <constraint firstItem="qeT-P3-nZf" firstAttribute="leading" secondItem="gr6-98-gPC" secondAttribute="leadingMargin" id="DvQ-n8-Wnf"/>
                             <constraint firstItem="0tw-wp-EgB" firstAttribute="leading" secondItem="gr6-98-gPC" secondAttribute="leadingMargin" id="ESe-vG-cbg"/>
                             <constraint firstItem="0tw-wp-EgB" firstAttribute="top" secondItem="Qfe-O4-MvU" secondAttribute="bottom" constant="14" id="KNU-za-Glg"/>
-                            <constraint firstItem="6V2-Bx-I1b" firstAttribute="centerX" secondItem="gr6-98-gPC" secondAttribute="centerX" constant="-6" id="VBm-ZP-lVb"/>
+                            <constraint firstItem="6V2-Bx-I1b" firstAttribute="centerX" secondItem="gr6-98-gPC" secondAttribute="centerX" constant="0.5" id="VBm-ZP-lVb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Qfe-O4-MvU" secondAttribute="trailing" id="fal-m2-1Oz"/>
                             <constraint firstItem="Qfe-O4-MvU" firstAttribute="leading" secondItem="gr6-98-gPC" secondAttribute="leadingMargin" id="l2O-EA-llf"/>
                             <constraint firstItem="Kip-br-bEU" firstAttribute="top" secondItem="0tw-wp-EgB" secondAttribute="bottom" constant="14" id="nI1-i3-2fy"/>
@@ -1060,10 +1068,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUm-ca-jgA" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
-                                <rect key="frame" x="193" y="313" width="202" height="45"/>
+                                <rect key="frame" x="162" y="312" width="277" height="45"/>
                                 <color key="backgroundColor" red="1" green="0.84313725490000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="202" id="ifp-WV-MF6"/>
+                                    <constraint firstAttribute="width" constant="277" id="ifp-WV-MF6"/>
                                     <constraint firstAttribute="height" constant="45" id="yOo-hi-Pmg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
@@ -1087,12 +1095,12 @@
                         <constraints>
                             <constraint firstItem="YLQ-sg-Pzx" firstAttribute="leading" secondItem="6qM-t1-qUb" secondAttribute="leadingMargin" id="Cbi-XD-En0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YLQ-sg-Pzx" secondAttribute="trailing" id="EQk-J1-r4t"/>
-                            <constraint firstItem="yUm-ca-jgA" firstAttribute="centerX" secondItem="6qM-t1-qUb" secondAttribute="centerX" constant="-6" id="Ez5-ks-9l8"/>
+                            <constraint firstItem="yUm-ca-jgA" firstAttribute="centerX" secondItem="6qM-t1-qUb" secondAttribute="centerX" constant="0.5" id="Ez5-ks-9l8"/>
                             <constraint firstItem="Hks-mD-E8P" firstAttribute="top" secondItem="YLQ-sg-Pzx" secondAttribute="bottom" constant="14" id="FnJ-lB-M19"/>
                             <constraint firstItem="Qxk-tU-MLx" firstAttribute="leading" secondItem="6qM-t1-qUb" secondAttribute="leadingMargin" id="NRR-3J-mdM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Hks-mD-E8P" secondAttribute="trailing" id="TzY-im-11n"/>
                             <constraint firstItem="YLQ-sg-Pzx" firstAttribute="top" secondItem="yAL-hV-0kZ" secondAttribute="bottom" constant="53" id="WKt-CK-0lp"/>
-                            <constraint firstItem="DB8-Sm-vJl" firstAttribute="top" secondItem="yUm-ca-jgA" secondAttribute="bottom" constant="242" id="dBX-p1-Cn2"/>
+                            <constraint firstItem="DB8-Sm-vJl" firstAttribute="top" secondItem="yUm-ca-jgA" secondAttribute="bottom" constant="243" id="dBX-p1-Cn2"/>
                             <constraint firstItem="Qxk-tU-MLx" firstAttribute="top" secondItem="yAL-hV-0kZ" secondAttribute="bottom" constant="23" id="hOT-xk-v8c"/>
                             <constraint firstItem="Qxk-tU-MLx" firstAttribute="centerX" secondItem="6qM-t1-qUb" secondAttribute="centerX" id="mY5-X9-1JG"/>
                             <constraint firstItem="Hks-mD-E8P" firstAttribute="leading" secondItem="6qM-t1-qUb" secondAttribute="leadingMargin" id="vIp-O6-1S4"/>
@@ -1181,6 +1189,7 @@
                                 <connections>
                                     <outlet property="addressLabel" destination="Ars-PQ-BRv" id="UxO-nf-z7j"/>
                                     <outlet property="nameLabel" destination="yac-gA-sTS" id="Pm5-yE-uH6"/>
+                                    <segue destination="QRK-is-fZi" kind="show" identifier="showEventDetail" id="tbn-Ep-sdM"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1571,6 +1580,163 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QfF-hx-1uA" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4005" y="2306"/>
+        </scene>
+        <!--Event Detail View Controller-->
+        <scene sceneID="Q9R-Gm-aUE">
+            <objects>
+                <viewController storyboardIdentifier="EventDetailViewController" title="Event Detail View Controller" id="QRK-is-fZi" customClass="EventDetailViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RA2-8e-I1D"/>
+                        <viewControllerLayoutGuide type="bottom" id="0kS-MO-Mzm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OFm-od-WbX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iEB-kK-iv9" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                <rect key="frame" x="20" y="117" width="560" height="40"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Vh7-PW-Xyq"/>
+                                </constraints>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nu3-BZ-Wze" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                <rect key="frame" x="20" y="171" width="331" height="40"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Ksd-9W-viT"/>
+                                </constraints>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="dateTextFieldDidPress:" destination="QRK-is-fZi" eventType="touchDown" id="qte-kR-O0n"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="List" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6qU-SX-zs7" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                <rect key="frame" x="20" y="225" width="560" height="40"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Bhp-w9-fe7"/>
+                                </constraints>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="listTextFieldPressed:" destination="QRK-is-fZi" eventType="touchDown" id="NPw-60-wkL"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Venue" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="56t-WA-e9v" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                <rect key="frame" x="20" y="279" width="560" height="40"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="cdW-vY-90I"/>
+                                </constraints>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="venueTextFieldPressed:" destination="QRK-is-fZi" eventType="touchDown" id="5td-1t-0Kk"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xdZ-mx-bTw" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                <rect key="frame" x="20" y="333" width="560" height="40"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="dX0-GN-Ozi"/>
+                                </constraints>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="locationTextFieldPressed:" destination="QRK-is-fZi" eventType="touchDown" id="hEj-zA-sx7"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Min. Guests" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a6H-Q9-bD8" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                <rect key="frame" x="20" y="387" width="279" height="40"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="L9T-rJ-efd"/>
+                                </constraints>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Max. Guests" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aJL-6J-nCj" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                <rect key="frame" x="302" y="387" width="278" height="40"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Hzy-5d-Oh7"/>
+                                </constraints>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cPU-5k-RuO" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                <rect key="frame" x="359" y="171" width="221" height="40"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="oVf-cj-dNr"/>
+                                </constraints>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iEB-kK-iv9" firstAttribute="top" secondItem="RA2-8e-I1D" secondAttribute="bottom" constant="53" id="3ji-77-IFi"/>
+                            <constraint firstItem="cPU-5k-RuO" firstAttribute="top" secondItem="iEB-kK-iv9" secondAttribute="bottom" constant="14" id="4nP-Dd-Jp2"/>
+                            <constraint firstItem="cPU-5k-RuO" firstAttribute="leading" secondItem="Nu3-BZ-Wze" secondAttribute="trailing" constant="8" id="5Og-ao-e0G"/>
+                            <constraint firstItem="aJL-6J-nCj" firstAttribute="leading" secondItem="a6H-Q9-bD8" secondAttribute="trailing" constant="3" id="7cv-kl-MkT"/>
+                            <constraint firstItem="aJL-6J-nCj" firstAttribute="width" secondItem="a6H-Q9-bD8" secondAttribute="width" multiplier="1:1" id="9Ix-4m-xhD"/>
+                            <constraint firstItem="a6H-Q9-bD8" firstAttribute="top" secondItem="xdZ-mx-bTw" secondAttribute="bottom" constant="14" id="FnC-Ie-Bm0"/>
+                            <constraint firstItem="56t-WA-e9v" firstAttribute="top" secondItem="6qU-SX-zs7" secondAttribute="bottom" constant="14" id="IJ7-qz-2ku"/>
+                            <constraint firstItem="a6H-Q9-bD8" firstAttribute="leading" secondItem="OFm-od-WbX" secondAttribute="leadingMargin" id="IXL-3b-m7n"/>
+                            <constraint firstItem="iEB-kK-iv9" firstAttribute="trailing" secondItem="OFm-od-WbX" secondAttribute="trailingMargin" id="Jh0-tI-5Xg"/>
+                            <constraint firstItem="Nu3-BZ-Wze" firstAttribute="top" secondItem="iEB-kK-iv9" secondAttribute="bottom" constant="14" id="NhW-1L-ZG0"/>
+                            <constraint firstItem="aJL-6J-nCj" firstAttribute="top" secondItem="xdZ-mx-bTw" secondAttribute="bottom" constant="14" id="P33-qw-x7B"/>
+                            <constraint firstItem="cPU-5k-RuO" firstAttribute="trailing" secondItem="OFm-od-WbX" secondAttribute="trailingMargin" id="RJU-dP-aI2"/>
+                            <constraint firstItem="xdZ-mx-bTw" firstAttribute="trailing" secondItem="OFm-od-WbX" secondAttribute="trailingMargin" id="UrI-7w-hNy"/>
+                            <constraint firstItem="56t-WA-e9v" firstAttribute="trailing" secondItem="OFm-od-WbX" secondAttribute="trailingMargin" id="W6I-ra-tyn"/>
+                            <constraint firstItem="aJL-6J-nCj" firstAttribute="trailing" secondItem="OFm-od-WbX" secondAttribute="trailingMargin" id="Y4Y-px-xNO"/>
+                            <constraint firstItem="6qU-SX-zs7" firstAttribute="leading" secondItem="OFm-od-WbX" secondAttribute="leadingMargin" id="cAJ-sT-ojF"/>
+                            <constraint firstItem="xdZ-mx-bTw" firstAttribute="leading" secondItem="OFm-od-WbX" secondAttribute="leadingMargin" id="fIt-gD-ez8"/>
+                            <constraint firstItem="xdZ-mx-bTw" firstAttribute="top" secondItem="56t-WA-e9v" secondAttribute="bottom" constant="14" id="gRO-mL-Pf5"/>
+                            <constraint firstItem="56t-WA-e9v" firstAttribute="leading" secondItem="OFm-od-WbX" secondAttribute="leadingMargin" id="gpY-Oj-3mW"/>
+                            <constraint firstItem="cPU-5k-RuO" firstAttribute="width" secondItem="Nu3-BZ-Wze" secondAttribute="width" multiplier="1:1.5" id="m7A-If-AJI"/>
+                            <constraint firstItem="6qU-SX-zs7" firstAttribute="trailing" secondItem="OFm-od-WbX" secondAttribute="trailingMargin" id="p1v-3J-3ZT"/>
+                            <constraint firstItem="6qU-SX-zs7" firstAttribute="trailing" secondItem="OFm-od-WbX" secondAttribute="trailingMargin" id="qSe-mV-Jc2"/>
+                            <constraint firstItem="iEB-kK-iv9" firstAttribute="leading" secondItem="OFm-od-WbX" secondAttribute="leadingMargin" id="sD3-wY-tNS"/>
+                            <constraint firstItem="Nu3-BZ-Wze" firstAttribute="leading" secondItem="OFm-od-WbX" secondAttribute="leadingMargin" id="seg-gO-Uyv"/>
+                            <constraint firstItem="6qU-SX-zs7" firstAttribute="top" secondItem="cPU-5k-RuO" secondAttribute="bottom" constant="14" id="shK-bw-XI6"/>
+                            <constraint firstItem="6qU-SX-zs7" firstAttribute="leading" secondItem="OFm-od-WbX" secondAttribute="leadingMargin" id="vod-Io-HRe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Event Detail" id="Z7w-wX-Pdr">
+                        <barButtonItem key="rightBarButtonItem" title="Invite" id="qSR-dP-HUq">
+                            <connections>
+                                <action selector="showInviteMenu:" destination="QRK-is-fZi" id="S7L-pn-4v3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dateTextField" destination="Nu3-BZ-Wze" id="P2x-0H-sYK"/>
+                        <outlet property="listTextField" destination="6qU-SX-zs7" id="fK2-oD-pwG"/>
+                        <outlet property="locationTextField" destination="xdZ-mx-bTw" id="8dV-IE-C1d"/>
+                        <outlet property="maxGuestTextField" destination="aJL-6J-nCj" id="Zdt-P2-wP1"/>
+                        <outlet property="minGuestTextField" destination="a6H-Q9-bD8" id="rnB-Zd-ZFj"/>
+                        <outlet property="nameTextField" destination="iEB-kK-iv9" id="tBE-eF-GFp"/>
+                        <outlet property="timeTextField" destination="cPU-5k-RuO" id="PNu-KX-IhJ"/>
+                        <outlet property="venueTextField" destination="56t-WA-e9v" id="ySH-3c-4Yv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jCE-YP-fZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1850" y="3066"/>
         </scene>
     </scenes>
     <resources>

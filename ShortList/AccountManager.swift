@@ -9,8 +9,8 @@
 import Meteor
 
 //let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "ws://localhost:3000/websocket")!)
-//let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "ws://10.0.0.3:3000/websocket")!)
-let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "ws://shortlist.meteor.com/websocket")!)
+let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "ws://10.0.0.3:3000/websocket")!)
+//let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "ws://shortlist.meteor.com/websocket")!)
 
 
 class AccountManager: NSObject {

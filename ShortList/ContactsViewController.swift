@@ -12,7 +12,7 @@ import Meteor
 
 class ContactsViewController: FetchedResultsTableViewController {
   
-  private let listSubscriptionName = "PrivateContacts"
+  private let subscriptionName = "PrivateContacts"
   private let modelName = "Contact"
   
   override func viewDidLoad() {
@@ -32,7 +32,7 @@ class ContactsViewController: FetchedResultsTableViewController {
   // MARK: - Content Loading
   
   override func configureSubscriptionLoader(subscriptionLoader: SubscriptionLoader) {
-    subscriptionLoader.addSubscriptionWithName(listSubscriptionName)
+    subscriptionLoader.addSubscriptionWithName(subscriptionName)
   }
   
   override func createFetchedResultsController() -> NSFetchedResultsController? {

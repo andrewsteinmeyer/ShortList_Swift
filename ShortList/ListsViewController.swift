@@ -12,7 +12,7 @@ import Meteor
 
 class ListsViewController: FetchedResultsTableViewController {
   
-  private let listSubscriptionName = "PrivateLists"
+  private let subscriptionName = "PrivateLists"
   private let modelName = "List"
   
   override func viewDidLoad() {
@@ -43,7 +43,7 @@ class ListsViewController: FetchedResultsTableViewController {
   // MARK: - Content Loading
   
   override func configureSubscriptionLoader(subscriptionLoader: SubscriptionLoader) {
-    subscriptionLoader.addSubscriptionWithName(listSubscriptionName)
+    subscriptionLoader.addSubscriptionWithName(subscriptionName)
   }
   
   override func createFetchedResultsController() -> NSFetchedResultsController? {

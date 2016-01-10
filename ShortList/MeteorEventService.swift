@@ -18,6 +18,7 @@ final class MeteorEventService {
   private enum Message: String {
     case CreateEvent = "createEvent"
     case DeleteEvent = "deleteEvent"
+    case InviteEvent = "inviteEvent"
   }
   
   init() {
@@ -43,6 +44,10 @@ final class MeteorEventService {
   
   func delete(parameters: [AnyObject]?, completionHandler: METMethodCompletionHandler?) {
     Meteor.callMethodWithName(Message.DeleteEvent.rawValue, parameters: parameters, completionHandler: completionHandler)
+  }
+  
+  func invite(parameters: [AnyObject]?, completionHandler: METMethodCompletionHandler?) {
+    Meteor.callMethodWithName(Message.InviteEvent.rawValue, parameters: parameters, completionHandler: completionHandler)
   }
   
   
@@ -71,10 +76,13 @@ final class MeteorEventService {
       let event = NSEntityDescription.insertNewObjectForEntityForName(self.modelName, inManagedObjectContext: self.managedObjectContext) as! Event
       event.userId = AccountManager.defaultAccountManager.currentUserId
       event.name = name
-      event.insertedOn = NSDate(timeIntervalSince1970: ( date! / 1000)) //interpolate from milliseconds
+      event.date = date
       event.list = list
       event.venue = venue
       event.location = location
+      event.accepted = []
+      event.declined = []
+      event.timeout = []
       
       // add config if present
       if let config = eventConfiguration {

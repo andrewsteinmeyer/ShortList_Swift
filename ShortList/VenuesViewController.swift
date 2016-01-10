@@ -14,7 +14,7 @@ import Meteor
 
 class VenuesViewController: FetchedResultsTableViewController {
   
-  private let listSubscriptionName = "PrivateVenues"
+  private let subscriptionName = "PrivateVenues"
   private let modelName = "Venue"
   
   override func viewDidLoad() {
@@ -34,7 +34,7 @@ class VenuesViewController: FetchedResultsTableViewController {
   // MARK: - Content Loading
   
   override func configureSubscriptionLoader(subscriptionLoader: SubscriptionLoader) {
-    subscriptionLoader.addSubscriptionWithName(listSubscriptionName)
+    subscriptionLoader.addSubscriptionWithName(subscriptionName)
   }
   
   override func createFetchedResultsController() -> NSFetchedResultsController? {
