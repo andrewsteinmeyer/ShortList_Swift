@@ -9,16 +9,27 @@
 import UIKit
 
 struct VenuesTableViewCellData {
+  typealias NamedValues = [String:AnyObject]
   
-  init(name: String?) {
+  init(name: String?, location: NamedValues?) {
     self.name = name ?? ""
+    self.location = location ?? nil
+    
+    if let location = self.location {
+      let JSONLocation = JSON(location)
+      
+      self.address = JSONLocation["address"].string ?? ""
+    }
   }
   var name: String?
+  var location: NamedValues?
+  var address: String?
 }
 
 class VenuesTableViewCell : BaseTableViewCell {
   
   @IBOutlet weak var nameLabel: UILabel!
+  @IBOutlet weak var addressLabel: UILabel!
   
   var highlight = false
   
@@ -35,6 +46,7 @@ class VenuesTableViewCell : BaseTableViewCell {
   override func setData(data: Any?) {
     if let data = data as? VenuesTableViewCellData {
       self.nameLabel.text = data.name
+      self.addressLabel.text = data.address
     }
   }
   

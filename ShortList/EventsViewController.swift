@@ -68,7 +68,7 @@ class EventsViewController: FetchedResultsTableViewController {
       if error != nil {
         print("error: \(error?.localizedDescription)")
       } else {
-        print("success: contact deleted")
+        print("success: event deleted")
       }
     }
   }

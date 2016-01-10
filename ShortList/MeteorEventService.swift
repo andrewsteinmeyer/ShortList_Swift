@@ -55,10 +55,10 @@ final class MeteorEventService {
       
       let name = parameters[0] as? String ?? nil
       let date = parameters[1] as? Double ?? nil
-      let list = parameters[3] as? [String:AnyObject] ?? nil
-      let venue = parameters[4] as? [String:AnyObject] ?? nil
-      let location = parameters[5] as? [String:AnyObject] ?? nil
-      let eventConfiguration = parameters[6] as? [String:AnyObject] ?? nil
+      let list = parameters[2] as? [String:AnyObject] ?? nil
+      let venue = parameters[3] as? [String:AnyObject] ?? nil
+      let location = parameters[4] as? [String:AnyObject] ?? nil
+      let eventConfiguration = parameters[5] as? [String:AnyObject] ?? nil
       
       guard name != nil
         && list != nil

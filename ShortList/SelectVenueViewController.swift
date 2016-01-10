@@ -50,7 +50,7 @@ class SelectVenueViewController: FetchedResultsTableViewController {
   func dataSource(dataSource: FetchedResultsTableViewDataSource, configureCell cell: UITableViewCell, forObject object: NSManagedObject, atIndexPath indexPath: NSIndexPath) {
     if let venue = object as? Venue {
       if let cell = cell as? VenuesTableViewCell {
-        let data = VenuesTableViewCellData(name: venue.name)
+        let data = VenuesTableViewCellData(name: venue.name, location: venue.location)
         cell.setData(data)
         
         // highlight venue if one is already selected

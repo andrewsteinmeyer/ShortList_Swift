@@ -76,7 +76,7 @@ class ListsViewController: FetchedResultsTableViewController {
       if error != nil {
         print("error: \(error?.localizedDescription)")
       } else {
-        print("hooray!")
+        print("success: list deleted")
       }
     }
   }
