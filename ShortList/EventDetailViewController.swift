@@ -51,9 +51,9 @@ class EventDetailViewController: UIViewController {
     nameTextField.text = event.name
   
     // set date and time
-    if let date = event.insertedOn {
-      //dateTextField.text = dateFormatter.stringFromDate(date) as String
-      //timeTextField.text = timeFormatter.stringFromDate(date) as String
+    if let date = event.date {
+      dateTextField.text = dateFormatter.stringFromDate(date) as String
+      timeTextField.text = timeFormatter.stringFromDate(date) as String
     }
     
     // set list name

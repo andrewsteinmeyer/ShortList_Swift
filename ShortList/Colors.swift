@@ -57,6 +57,11 @@ extension UIColor {
   class func textColor() -> UIColor {
     return rgba(51, green: 51, blue: 51, alpha: 1)
   }
+  
+  class func tabBarButtonColor() -> UIColor {
+    return rgba(121, green: 135, blue: 223, alpha: 1)
+    //return rgba(144, green: 156, blue: 217, alpha: 1)
+  }
 
 }
 

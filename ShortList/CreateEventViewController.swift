@@ -202,8 +202,7 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   private func showDatePicker() {
     dateTextField.resignFirstResponder()
     
-    let selectedDate : NSDate? = dateFormatter.dateFromString(dateTextField.text!)
-    let initDate = (selectedDate ?? NSDate())
+    let initDate = ( selectedDate != nil ? selectedDate : NSDate() )
     
     let dataChangedCallback : PopDatePicker.PopDatePickerCallback = { [weak self]
       (newDate : NSDate, forTextField : UITextField) -> () in
@@ -212,7 +211,6 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
         strongSelf.selectedDate = newDate
       }
       
-      forTextField.text = (dateFormatter.stringFromDate(newDate) ?? "?") as String
     }
     
     popDatePicker!.pick(self, initDate: initDate, dataChanged: dataChangedCallback)
@@ -253,7 +251,7 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
     let JSONEventConfiguration = Mapper().toJSON(eventConfiguration)
     
     
-    MeteorEventService.sharedInstance.create([ name, date.timeInMilliseconds(), JSONList, JSONVenue, JSONLocation, JSONEventConfiguration ]) {
+    MeteorEventService.sharedInstance.create([ name, date, JSONList, JSONVenue, JSONLocation, JSONEventConfiguration ]) {
       result, error in
       
       dispatch_async(dispatch_get_main_queue()) {
