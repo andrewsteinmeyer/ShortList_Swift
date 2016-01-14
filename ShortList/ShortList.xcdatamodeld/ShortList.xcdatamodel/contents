@@ -72,13 +72,6 @@
             </userInfo>
         </attribute>
     </entity>
-    <entity name="User" representedClassName="ShortList.User" syncable="YES">
-        <attribute name="creationDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="emailAddresses" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="profile" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="services" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
     <entity name="Venue" representedClassName="ShortList.Venue" syncable="YES">
         <attribute name="insertedOn" optional="YES" attributeType="Date" syncable="YES">
             <userInfo>
@@ -100,7 +93,6 @@
         <element name="Contact" positionX="-18" positionY="144" width="128" height="135"/>
         <element name="Event" positionX="0" positionY="135" width="128" height="210"/>
         <element name="List" positionX="-54" positionY="36" width="128" height="120"/>
-        <element name="User" positionX="-36" positionY="54" width="128" height="120"/>
         <element name="Venue" positionX="-18" positionY="99" width="128" height="90"/>
     </elements>
 </model>

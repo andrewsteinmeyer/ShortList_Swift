@@ -18,6 +18,7 @@ final class MeteorListService {
   private enum Message: String {
     case CreateList = "createList"
     case DeleteList = "deleteList"
+    case RemoveContactFromList = "removeContactFromList"
   }
   
   init() {
@@ -43,6 +44,10 @@ final class MeteorListService {
   
   func delete(parameters: [AnyObject]?, completionHandler: METMethodCompletionHandler?) {
     Meteor.callMethodWithName(Message.DeleteList.rawValue, parameters: parameters, completionHandler: completionHandler)
+  }
+  
+  func removeContactFromList(parameters: [AnyObject]?, completionHandler: METMethodCompletionHandler?) {
+    Meteor.callMethodWithName(Message.RemoveContactFromList.rawValue, parameters: parameters, completionHandler: completionHandler)
   }
   
   

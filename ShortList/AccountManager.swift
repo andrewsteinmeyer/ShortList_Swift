@@ -9,17 +9,21 @@
 import Meteor
 
 //let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "ws://localhost:3000/websocket")!)
-let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "ws://10.0.0.3:3000/websocket")!)
-//let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "ws://shortlist.meteor.com/websocket")!)
+//let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "ws://10.0.0.3:3000/websocket")!)
+let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "ws://shortlist.meteor.com/websocket")!)
 
 
-class AccountManager: NSObject {
+final class AccountManager: NSObject {
   static func setUpDefaultAccountManager(accountManager: AccountManager) {
     defaultAccountManager = accountManager
   }
   
   static var defaultAccountManager: AccountManager!
   private var managedObjectContext: NSManagedObjectContext!
+  
+  private enum Message: String {
+    case FindCurrentUser = "findCurrentUser"
+  }
   
   override init() {
     super.init()
@@ -44,21 +48,22 @@ class AccountManager: NSObject {
     return Meteor.userID
   }
   
-  var currentUser: User? {
-    get {
-      if let userID = Meteor.userID {
-        let userObjectID = Meteor.objectIDForDocumentKey(METDocumentKey(collectionName: "users", documentID: userID))
-        return (try? managedObjectContext.existingObjectWithID(userObjectID)) as? User
-      }
-      return nil
+  var currentUser: User?
+  
+  // Mark: User account events
+  
+  func accountDidChange() {
+    // user logged out of Meteor
+    if Meteor.userID == nil {
+      self.signOut()
     }
-    set(user) {
-      self.currentUser = user
-      
+    // user logged in, request user info from meteor and save locally
+    else {
+      findCurrentUser()
     }
   }
   
-  // Mark: Sign In and Out
+  // Mark: Meteor server calls
   
   func loginWithEmail(email: String, password: String, completionHandler: METLogInCompletionHandler?) {
     Meteor.loginWithEmail(email, password: password, completionHandler: completionHandler)
@@ -68,23 +73,30 @@ class AccountManager: NSObject {
     Meteor.signUpWithEmail(email, password: password, completionHandler: completionHandler)
   }
   
-  func accountDidChange() {
-    if Meteor.userID == nil {
-      self.signOut()
+  func findCurrentUser() {
+    Meteor.callMethodWithName(Message.FindCurrentUser.rawValue, parameters: nil) {
+      userInfo, error in
+      
+      if userInfo != nil {
+        let JSONUser = JSON(userInfo!)
+        
+        let user = User()
+        user.emailAddress = JSONUser["email"].string
+        
+        self.currentUser = user
+      }
     }
   }
   
   func signOut() {
-    guard Meteor.userID != nil else {
-      return
-    }
-    
     Meteor.logoutWithCompletionHandler() {
       error in
       
       if error != nil {
-        self.currentUser = nil
-        
+        print("Error logging out: \(error?.localizedDescription)")
+      }
+      else {
+        // succesfully logged out, present sign in
         dispatch_async(dispatch_get_main_queue()) {
           SignInViewController.presentSignInViewController()
         }

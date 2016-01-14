@@ -1,8 +1,9 @@
-//  ListsViewController.swift
-//  Shortlist
 //
-//  Created by Andrew Steinmeyer on 12/6/15.
-//  Copyright © 2015 Andrew Steinmeyer. All rights reserved.
+//  JoinedListsViewController.swift
+//  ShortList
+//
+//  Created by Andrew Steinmeyer on 1/12/16.
+//  Copyright © 2016 Andrew Steinmeyer. All rights reserved.
 //
 
 
@@ -10,7 +11,7 @@ import UIKit
 import CoreData
 import Meteor
 
-class ListsViewController: FetchedResultsTableViewController {
+class JoinedListsViewController: FetchedResultsTableViewController {
   
   private let subscriptionName = "PrivateLists"
   private let modelName = "List"
@@ -48,10 +49,17 @@ class ListsViewController: FetchedResultsTableViewController {
   
   override func createFetchedResultsController() -> NSFetchedResultsController? {
     let fetchRequest = NSFetchRequest(entityName: modelName)
-    fetchRequest.predicate = NSPredicate(format: "userId == %@", AccountManager.defaultAccountManager.currentUserId!)
+    fetchRequest.predicate = NSPredicate(format: "userId != %@", AccountManager.defaultAccountManager.currentUserId!)
     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "insertedOn", ascending: false)]
     
     return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+  }
+  
+  // MARK: - UITableViewDelegate
+  
+  // chage "Delete" button to "Leave"
+  override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String? {
+    return "Leave"
   }
   
   // MARK: - FetchedResultsTableViewDataSourceDelegate
@@ -62,15 +70,14 @@ class ListsViewController: FetchedResultsTableViewController {
     }
   }
   
-  
   func dataSource(dataSource: FetchedResultsTableViewDataSource, deleteObject object: NSManagedObject, atIndexPath indexPath: NSIndexPath) {
     guard object is List else {
       return
     }
     
-    // grab list documentID
+    // grab joined list documentID
     let documentID = Meteor.documentKeyForObjectID(object.objectID).documentID
-   
+    
     MeteorListService.sharedInstance.delete([documentID]) {
       result, error in
       

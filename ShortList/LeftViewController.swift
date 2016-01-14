@@ -14,6 +14,7 @@ enum LeftMenu: Int {
   case Venues
   case Events
   case Contacts
+  case SignOut
 }
 
 protocol LeftMenuProtocol : class {
@@ -23,8 +24,8 @@ protocol LeftMenuProtocol : class {
 class LeftViewController : UIViewController, LeftMenuProtocol {
   
   @IBOutlet weak var tableView: UITableView!
-  var menus = ["Home", "Lists", "Venues", "Events", "Contacts"]
-  var icons = ["ic_home", "ic_lists", "ic_venues", "ic_events", "ic_contacts"]
+  var menus = ["Home", "Lists", "Venues", "Events", "Contacts", "Signout"]
+  var icons = ["ic_home", "ic_lists", "ic_venues", "ic_events", "ic_contacts", "user_icon"]
   var homeViewController: UIViewController!
   var listsTabBarController: UIViewController!
   var contactsViewController: UIViewController!
@@ -32,8 +33,14 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
   var eventsViewController: UIViewController!
   var imageHeaderView: ImageHeaderView!
   
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    if let user = AccountManager.defaultAccountManager.currentUser {
+      imageHeaderView.emailLabel.text = user.emailAddress
+    }
+    
+    
   }
   
   override func viewDidLoad() {
@@ -80,15 +87,24 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
       self.slideMenuController()?.changeMainViewController(self.venuesViewController, close: true)
     case .Events:
       self.slideMenuController()?.changeMainViewController(self.eventsViewController, close: true)
+    case .SignOut:
+      closeLeft()
+      signOut()
     }
   }
+  
+  func signOut() {
+    AccountManager.defaultAccountManager.signOut()
+  }
+  
+  
 }
 
 extension LeftViewController : UITableViewDelegate {
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     if let menu = LeftMenu(rawValue: indexPath.item) {
       switch menu {
-      case .Home, .Lists, .Venues, .Events, .Contacts:
+      case .Home, .Lists, .Venues, .Events, .Contacts, .SignOut:
         return MenuTableViewCell.height()
       }
     }
@@ -106,7 +122,7 @@ extension LeftViewController : UITableViewDataSource {
     
     if let menu = LeftMenu(rawValue: indexPath.item) {
       switch menu {
-      case .Home, .Lists, .Venues, .Events, .Contacts:
+      case .Home, .Lists, .Venues, .Events, .Contacts, .SignOut:
         let cell = self.tableView.dequeueReusableCellWithIdentifier(MenuTableViewCell.identifier) as! MenuTableViewCell
         let data = MenuTableViewCellData(imageUrl: icons[indexPath.row], text: menus[indexPath.row])
         cell.setData(data)
@@ -124,7 +140,6 @@ extension LeftViewController : UITableViewDataSource {
 }
 
 extension LeftViewController: UIScrollViewDelegate {
-  
   
   func scrollViewDidScroll(scrollView: UIScrollView) {
     if self.tableView == scrollView {

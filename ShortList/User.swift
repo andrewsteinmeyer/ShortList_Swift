@@ -8,17 +8,8 @@
 
 import CoreData
 
-class User: NSManagedObject {
-  typealias NamedValues = [String:AnyObject]
+class User {
   
-  @NSManaged var creationDate: NSDate?
-  @NSManaged var username: String?
-  
-  @NSManaged var emailAddresses: [NamedValues]?
-  var emailAddress: String? {
-    return emailAddresses?.first?["address"] as? String
-  }
-  
-  @NSManaged var profile: NamedValues?
-  @NSManaged var services: NamedValues?
+  var username: String?
+  var emailAddress: String?
 }
