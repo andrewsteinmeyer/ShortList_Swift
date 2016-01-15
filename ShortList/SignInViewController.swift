@@ -192,6 +192,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     
     // Present the sign in view controller.
     AppDelegate.getRootViewController()?.presentViewController(signInViewController, animated: true, completion: nil)
+    
   }
 }
 

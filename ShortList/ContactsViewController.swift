@@ -19,7 +19,6 @@ class ContactsViewController: FetchedResultsTableViewController {
     super.viewDidLoad()
     
     self.managedObjectContext = Meteor.mainQueueManagedObjectContext
-    
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -78,8 +77,9 @@ class ContactsViewController: FetchedResultsTableViewController {
   }
   
   func importContacts() {
-    
+    displayContactsController()
   }
+  
   
   // MARK: - IBAction methods
   

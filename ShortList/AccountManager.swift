@@ -96,7 +96,7 @@ final class AccountManager: NSObject {
         print("Error logging out: \(error?.localizedDescription)")
       }
       else {
-        // succesfully logged out, present sign in
+        // successfully logged out, present sign in
         dispatch_async(dispatch_get_main_queue()) {
           SignInViewController.presentSignInViewController()
         }

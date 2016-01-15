@@ -85,8 +85,37 @@ final class MeteorContactService {
       
       return nil
     }
+    
+    
+    Meteor.defineStubForMethodWithName(Message.ImportContacts.rawValue) {
+      parameters in
+      
+      let contacts = parameters[0] as? [[String:String]] ?? nil
+      
+      guard let contactsList = contacts else {
+        return nil
+      }
+      
+      for contactInfo in contactsList {
+        
+        let contact = NSEntityDescription.insertNewObjectForEntityForName(self.modelName, inManagedObjectContext: self.managedObjectContext) as! Contact
+        contact.userId = AccountManager.defaultAccountManager.currentUserId
+        contact.name = contactInfo["name"] ?? ""
+        contact.phone = contactInfo["phone"] ?? ""
+        contact.email = contactInfo["email"] ?? ""
+        contact.source = self.source
+        
+        // save locally
+        self.saveManagedObjectContext()
+        
+      }
+      
+      return nil
+    }
   
   }
+  
+  
   
 }
 
