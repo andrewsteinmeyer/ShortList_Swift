@@ -10,6 +10,21 @@ import UIKit
 import CoreData
 import Meteor
 
+private let dateFormatter: NSDateFormatter = {
+  let formatter = NSDateFormatter()
+  formatter.dateFormat = "EEE, MMM d" // ie. Thu, Jun 8
+  
+  return formatter
+}()
+
+private let timeFormatter: NSDateFormatter = {
+  let formatter = NSDateFormatter()
+  formatter.dateStyle = .NoStyle
+  formatter.timeStyle = .ShortStyle // ie. 11:10 PM
+  
+  return formatter
+}()
+
 class EventsViewController: FetchedResultsTableViewController {
   
   private let subscriptionName = "PrivateEvents"
@@ -32,11 +47,14 @@ class EventsViewController: FetchedResultsTableViewController {
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "showEventDetail" {
+    if segue.identifier == "showInvitationActivity" {
       if let selectedEvent = dataSource.selectedObject as? Event {
-        if let eventDetailViewController = segue.destinationViewController as? EventDetailViewController {
-          eventDetailViewController.navigationItem.title = selectedEvent.name
-          eventDetailViewController.event = selectedEvent
+        if let invitationActivityViewController = segue.destinationViewController as? InvitationActivityViewController {
+          // get documentID for event
+          let documentID = Meteor.documentKeyForObjectID(selectedEvent.objectID).documentID as! String
+          
+          // load url to request
+          invitationActivityViewController.url = MeteorRouter.invitationActivityForEventID(documentID)
         }
       }
     }
@@ -60,7 +78,26 @@ class EventsViewController: FetchedResultsTableViewController {
   func dataSource(dataSource: FetchedResultsTableViewDataSource, configureCell cell: UITableViewCell, forObject object: NSManagedObject, atIndexPath indexPath: NSIndexPath) {
     if let event = object as? Event {
       if let cell = cell as? EventsTableViewCell {
-        let data = EventsTableViewCellData(name: event.name)
+        var locationName = ""
+        var eventDate = ""
+        var eventTime = ""
+        
+        // get location address
+        if let location = event.location {
+          let JSONLocation = JSON(location)
+          
+          if let name = JSONLocation["name"].string {
+            locationName = name
+          }
+        }
+        
+        // set date and time
+        if let date = event.date {
+          eventDate = dateFormatter.stringFromDate(date) as String
+          eventTime = timeFormatter.stringFromDate(date) as String
+        }
+        
+        let data = EventsTableViewCellData(name: event.name, locationName: locationName, date: eventDate, time: eventTime)
         cell.setData(data)
       }
     }
@@ -86,8 +123,18 @@ class EventsViewController: FetchedResultsTableViewController {
     }
   }
   
-  
-    
-  
+  override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+    if let selectedEvent = dataSource.objectAtIndexPath(indexPath) as? Event {
+      if let eventDetailNavController = self.storyboard?.instantiateViewControllerWithIdentifier("EventDetailNavigationController") as? UINavigationController {
+        eventDetailNavController.navigationItem.title = selectedEvent.name
+        
+        // pass event to Detail View Controller and present Nav Controller modally
+        if let eventDetailViewController = eventDetailNavController.topViewController as? EventDetailViewController {
+          eventDetailViewController.event = selectedEvent
+          presentViewController(eventDetailNavController, animated: true, completion: nil)
+        }
+      }
+    }
+  }
   
 }

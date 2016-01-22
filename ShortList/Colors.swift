@@ -65,16 +65,3 @@ extension UIColor {
 
 }
 
-/*
-<item name="android:textColorPrimary">@color/textColor</item>
-
-<item name="android:colorPrimary">@color/primaryColor</item>
-<item name="android:colorPrimaryDark">@color/primaryDarkColor</item>
-<item name="android:colorAccent">@color/accentColor</item>
-
-<item name="android:colorButtonNormal">@color/primaryColorLight</item>
-
-<item name="android:colorControlActivated">@color/accentColor</item>
-<item name="android:colorControlHighlight">@color/accentColor</item>
-*/
-  

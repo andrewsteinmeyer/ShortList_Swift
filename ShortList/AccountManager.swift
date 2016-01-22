@@ -8,10 +8,8 @@
 
 import Meteor
 
-//let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "ws://localhost:3000/websocket")!)
-//let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "ws://10.0.0.3:3000/websocket")!)
-let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "ws://shortlist.meteor.com/websocket")!)
-
+// Meteor setup
+let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: Constants.Meteor.DDPUrl)!)
 
 final class AccountManager: NSObject {
   static func setUpDefaultAccountManager(accountManager: AccountManager) {
@@ -46,6 +44,10 @@ final class AccountManager: NSObject {
   
   var currentUserId: String? {
     return Meteor.userID
+  }
+  
+  var token: String {
+    return Meteor.account.resumeToken
   }
   
   var currentUser: User?

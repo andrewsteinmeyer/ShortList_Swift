@@ -65,6 +65,9 @@
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -1134,44 +1137,91 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="60" id="4yI-Fk-0xJ" userLabel="EventsTableViewCell" customClass="EventsTableViewCell" customModule="ShortList" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="60" id="4yI-Fk-0xJ" userLabel="EventsTableViewCell" customClass="EventsTableViewCell" customModule="ShortList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="86" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4yI-Fk-0xJ" id="tga-gh-0rC">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="533" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yac-gA-sTS">
-                                            <rect key="frame" x="8" y="11" width="262" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hackathon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yac-gA-sTS">
+                                            <rect key="frame" x="44" y="10" width="353" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="SJz-XI-mS9"/>
-                                                <constraint firstAttribute="width" constant="262" id="m7N-TF-sj6"/>
+                                                <constraint firstAttribute="height" constant="21" id="SwQ-xm-0Ei"/>
+                                                <constraint firstAttribute="width" constant="353" id="W0o-lJ-S1b"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ars-PQ-BRv">
-                                            <rect key="frame" x="8" y="33" width="546" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thu, Jun 8" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P74-1z-FWT">
+                                            <rect key="frame" x="459" y="10" width="72" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="72" id="52r-yT-PNb"/>
+                                                <constraint firstAttribute="height" constant="21" id="gNY-N9-PNy"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
-                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6:30 PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISk-pK-Yka">
+                                            <rect key="frame" x="459" y="28" width="72" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="7Ef-zB-YJ2"/>
+                                                <constraint firstAttribute="width" constant="72" id="M5P-lG-8BS"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Alley" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ars-PQ-BRv">
+                                            <rect key="frame" x="44" y="29" width="353" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="gsC-Bq-x1S"/>
+                                                <constraint firstAttribute="width" constant="353" id="wuy-gQ-j9m"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                            <color key="textColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbN-4p-zDY" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="12" width="30" height="30"/>
+                                            <color key="backgroundColor" red="0.29803921568627451" green="0.58823529411764708" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="Vqk-cX-P2c"/>
+                                                <constraint firstAttribute="width" constant="30" id="iay-qZ-Fql"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                            <state key="normal" title="10">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="15"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="yac-gA-sTS" firstAttribute="leading" secondItem="tga-gh-0rC" secondAttribute="leadingMargin" id="06z-jt-i7I"/>
-                                        <constraint firstItem="Ars-PQ-BRv" firstAttribute="leading" secondItem="yac-gA-sTS" secondAttribute="leading" id="0KR-hs-kce"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Ars-PQ-BRv" secondAttribute="trailing" constant="38" id="KP1-kj-shd"/>
-                                        <constraint firstItem="yac-gA-sTS" firstAttribute="centerY" secondItem="tga-gh-0rC" secondAttribute="centerY" constant="-8.5" id="Qo6-jV-Ykf"/>
-                                        <constraint firstItem="Ars-PQ-BRv" firstAttribute="top" secondItem="tga-gh-0rC" secondAttribute="topMargin" constant="25" id="Z3S-pm-ocB"/>
-                                        <constraint firstItem="Ars-PQ-BRv" firstAttribute="bottom" secondItem="tga-gh-0rC" secondAttribute="bottomMargin" constant="2" id="unp-s2-EY2"/>
+                                        <constraint firstItem="yac-gA-sTS" firstAttribute="top" secondItem="tga-gh-0rC" secondAttribute="topMargin" constant="2" id="5bP-f9-Min"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ISk-pK-Yka" secondAttribute="trailing" constant="-6" id="C8x-El-kxM"/>
+                                        <constraint firstItem="Ars-PQ-BRv" firstAttribute="leading" secondItem="tga-gh-0rC" secondAttribute="leadingMargin" constant="36" id="DOr-vf-MeT"/>
+                                        <constraint firstItem="mbN-4p-zDY" firstAttribute="top" secondItem="tga-gh-0rC" secondAttribute="topMargin" constant="4" id="Mbt-eh-wr2"/>
+                                        <constraint firstItem="P74-1z-FWT" firstAttribute="top" secondItem="tga-gh-0rC" secondAttribute="topMargin" constant="2" id="OEl-5e-HoR"/>
+                                        <constraint firstItem="yac-gA-sTS" firstAttribute="leading" secondItem="mbN-4p-zDY" secondAttribute="trailing" constant="6" id="YKf-9x-BDY"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="P74-1z-FWT" secondAttribute="trailing" constant="-6" id="iS1-qS-NkG"/>
+                                        <constraint firstItem="Ars-PQ-BRv" firstAttribute="top" secondItem="yac-gA-sTS" secondAttribute="bottom" constant="-2" id="rre-r8-CkV"/>
+                                        <constraint firstItem="ISk-pK-Yka" firstAttribute="top" secondItem="P74-1z-FWT" secondAttribute="bottom" constant="-3" id="svl-HC-ldZ"/>
+                                        <constraint firstItem="mbN-4p-zDY" firstAttribute="leading" secondItem="tga-gh-0rC" secondAttribute="leadingMargin" id="zTy-U7-A3H"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="addressLabel" destination="Ars-PQ-BRv" id="UxO-nf-z7j"/>
+                                    <outlet property="dateLabel" destination="P74-1z-FWT" id="fcu-ug-GPi"/>
                                     <outlet property="nameLabel" destination="yac-gA-sTS" id="Pm5-yE-uH6"/>
-                                    <segue destination="QRK-is-fZi" kind="show" identifier="showEventDetail" id="tbn-Ep-sdM"/>
+                                    <outlet property="timeLabel" destination="ISk-pK-Yka" id="ESy-Aw-3rf"/>
+                                    <segue destination="vLF-At-m3x" kind="presentation" identifier="showInvitationActivity" id="fre-iJ-fdc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1191,7 +1241,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cgJ-X3-Oho" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1858" y="1986"/>
+            <point key="canvasLocation" x="1858" y="1992"/>
         </scene>
         <!--Events Navigation View Controller-->
         <scene sceneID="z03-r6-RGg">
@@ -1448,7 +1498,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qO-qg-zmu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3276" y="2809"/>
+            <point key="canvasLocation" x="3268" y="2754"/>
         </scene>
         <!--Select Venue View Controller-->
         <scene sceneID="4aF-o5-jCo">
@@ -1510,7 +1560,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IN7-wz-IOD" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3979" y="2809"/>
+            <point key="canvasLocation" x="4023" y="2754"/>
         </scene>
         <!--Select List View Controller-->
         <scene sceneID="Bz6-Zu-qGn">
@@ -1562,6 +1612,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QfF-hx-1uA" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4013" y="1986"/>
+        </scene>
+        <!--Invitation Activity View Controller-->
+        <scene sceneID="eIn-Wz-74C">
+            <objects>
+                <viewController storyboardIdentifier="InvitationActivityViewController" title="Invitation Activity View Controller" extendedLayoutIncludesOpaqueBars="YES" id="vLF-At-m3x" customClass="InvitationActivityViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tyz-jd-BQ4"/>
+                        <viewControllerLayoutGuide type="bottom" id="VY6-za-rQC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FaC-G8-N5y">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oDK-BZ-5Az" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2570" y="2676"/>
         </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="Q9R-Gm-aUE">
@@ -1699,6 +1767,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Event Detail" id="Z7w-wX-Pdr">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="nxK-Jt-ONm">
+                            <connections>
+                                <action selector="closeButtonDidPress:" destination="QRK-is-fZi" id="lMK-4m-Kgs"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Invite" id="qSR-dP-HUq">
                             <connections>
                                 <action selector="showInviteMenu:" destination="QRK-is-fZi" id="S7L-pn-4v3"/>
@@ -1718,7 +1791,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jCE-YP-fZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1858" y="2746"/>
+            <point key="canvasLocation" x="2566" y="3370"/>
         </scene>
         <!--Joined Lists View Controller-->
         <scene sceneID="ADM-U6-VWj">
@@ -1790,6 +1863,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y0E-P2-SOe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1850" y="-224"/>
+        </scene>
+        <!--Event Detail Navigation Controller-->
+        <scene sceneID="2ZA-mK-fFm">
+            <objects>
+                <navigationController storyboardIdentifier="EventDetailNavigationController" title="Event Detail Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="bMs-1u-5vs" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OgD-3q-eDu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QRK-is-fZi" kind="relationship" relationship="rootViewController" id="B9S-PN-z24"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jYv-Kt-CqV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1858" y="3370"/>
         </scene>
     </scenes>
     <resources>

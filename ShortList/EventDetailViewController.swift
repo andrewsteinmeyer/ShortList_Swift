@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ObjectMapper
 
 private let dateFormatter: NSDateFormatter = {
   let formatter = NSDateFormatter()
@@ -82,6 +83,22 @@ class EventDetailViewController: UIViewController {
         locationTextField.text = locationAddress
       }
     }
+    
+    // set event configuration
+    if let config = event.eventConfiguration {
+      
+      // build event config object from JSON
+      let eventConfiguration = Mapper<EventConfiguration>().map(config)
+      
+      // extract min and max guests
+      if let minGuests = eventConfiguration?.minimumGuests {
+        minGuestTextField.text = String(minGuests)
+      }
+      if let maxGuests = eventConfiguration?.maximumGuests {
+        maxGuestTextField.text = String(maxGuests)
+      }
+      
+    }
   }
   
   func inviteContacts() {
@@ -92,6 +109,7 @@ class EventDetailViewController: UIViewController {
     // get documentID for event
     let documentID = Meteor.documentKeyForObjectID(event.objectID).documentID
     
+    // TODO: make this not random all the time
     MeteorEventService.sharedInstance.invite([documentID, "random"]) {
       result, error in
       
@@ -118,5 +136,8 @@ class EventDetailViewController: UIViewController {
     presentViewController(alertController, animated: true, completion: nil)
   }
 
+  @IBAction func closeButtonDidPress(sender: AnyObject) {
+    self.dismissViewControllerAnimated(true, completion: nil)
+  }
   
 }

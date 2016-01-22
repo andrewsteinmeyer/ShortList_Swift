@@ -10,20 +10,25 @@ import UIKit
 
 struct EventsTableViewCellData {
   
-  init(name: String?) {
+  init(name: String?, locationName: String?, date: String?, time: String?) {
     self.name = name ?? ""
-    self.location = ""
-    
-    //TODO: Extract location from Event and add address
+    self.locationName = locationName ?? ""
+    self.date = date ?? ""
+    self.time = time ?? ""
   }
+  
   var name: String?
-  var location: String?
+  var locationName: String?
+  var date: String?
+  var time: String?
 }
 
 class EventsTableViewCell : BaseTableViewCell {
   
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var addressLabel: UILabel!
+  @IBOutlet weak var dateLabel: UILabel!
+  @IBOutlet weak var timeLabel: UILabel!
   
   override func layoutSubviews() {
     super.layoutSubviews()
@@ -38,7 +43,9 @@ class EventsTableViewCell : BaseTableViewCell {
   override func setData(data: Any?) {
     if let data = data as? EventsTableViewCellData {
       self.nameLabel.text = data.name
-      self.addressLabel.text = data.location
+      self.addressLabel.text = data.locationName
+      self.dateLabel.text = data.date
+      self.timeLabel.text = data.time
     }
   }
   
