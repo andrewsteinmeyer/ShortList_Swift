@@ -21,7 +21,9 @@ final class AccountManager: NSObject {
   
   private enum Message: String {
     case FindCurrentUser = "findCurrentUser"
+    case SetUserNotificationToken = "setUserNotificationToken"
   }
+  
   
   override init() {
     super.init()
@@ -50,6 +52,16 @@ final class AccountManager: NSObject {
     return Meteor.account.resumeToken
   }
   
+  var deviceToken: String? {
+    didSet {
+      guard let token = deviceToken else {
+        return
+      }
+      
+      setUserNotificationToken(token)
+    }
+  }
+  
   var currentUser: User?
   
   // Mark: User account events
@@ -71,8 +83,23 @@ final class AccountManager: NSObject {
     Meteor.loginWithEmail(email, password: password, completionHandler: completionHandler)
   }
   
+  func signUpWithEmail(email: String, password: String, name: String, completionHandler: METLogInCompletionHandler?) {
+    Meteor.signUpWithEmail(email, password: password, name: name, completionHandler: completionHandler)
+  }
+  
   func signUpWithEmail(email: String, password: String, completionHandler: METLogInCompletionHandler?) {
     Meteor.signUpWithEmail(email, password: password, completionHandler: completionHandler)
+  }
+  
+  func setUserNotificationToken(token: String) {
+    let params = [ "apn" : token ]
+    Meteor.callMethodWithName(Message.SetUserNotificationToken.rawValue, parameters: [params]) {
+      userInfo, error in
+      
+      if error != nil {
+        print("server succesfully received token: \(token)")
+      }
+    }
   }
   
   func findCurrentUser() {

@@ -139,6 +139,7 @@
 		4EA89FB71C25E0F200163C57 /* ListsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA89FB61C25E0F200163C57 /* ListsTabBarController.swift */; };
 		4EA89FBB1C261AD800163C57 /* CreateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA89FBA1C261AD800163C57 /* CreateListViewController.swift */; };
 		4EA89FBD1C27097900163C57 /* SelectContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA89FBC1C27097900163C57 /* SelectContactsViewController.swift */; };
+		4EE878CA1C551C3C00BABF15 /* NSData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE878C91C551C3C00BABF15 /* NSData.swift */; };
 		EDC38BDC8C7C0EF0ABD622BE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A2DD5B22DC715FCEC00F2E /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -304,6 +305,7 @@
 		4EA89FB61C25E0F200163C57 /* ListsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsTabBarController.swift; sourceTree = "<group>"; };
 		4EA89FBA1C261AD800163C57 /* CreateListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateListViewController.swift; sourceTree = "<group>"; };
 		4EA89FBC1C27097900163C57 /* SelectContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectContactsViewController.swift; sourceTree = "<group>"; };
+		4EE878C91C551C3C00BABF15 /* NSData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSData.swift; sourceTree = "<group>"; };
 		90A2DD5B22DC715FCEC00F2E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D95D466AA0CD1F1DA86F9F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FAC3F16DBC599F9FC99408F7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 				4E63129A1C1FAF2D00EB78F9 /* UIViewController.swift */,
 				4E63129B1C1FAF2D00EB78F9 /* UIImage.swift */,
 				4E6313531C20E24C00EB78F9 /* Colors.swift */,
+				4EE878C91C551C3C00BABF15 /* NSData.swift */,
 				4E719C121C4075C2009989AC /* Date.swift */,
 				4E63129C1C1FAF2D00EB78F9 /* String.swift */,
 				4E63129D1C1FAF2D00EB78F9 /* UIView.swift */,
@@ -581,11 +584,11 @@
 		4E6313351C1FB59600EB78F9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4E3288C01C24B19A00F936DF /* UIMaterialTextField.swift */,
 				4E5255A71C51CEAA00F6089D /* Constants.swift */,
 				4E63126A1C1FA7D500EB78F9 /* Assets.xcassets */,
 				4E63126C1C1FA7D500EB78F9 /* LaunchScreen.storyboard */,
 				4E63126F1C1FA7D500EB78F9 /* Info.plist */,
+				4E3288C01C24B19A00F936DF /* UIMaterialTextField.swift */,
 				4E6313331C1FB56D00EB78F9 /* SwiftyJSON.swift */,
 				4E233C901C3CBDB200FDC1B9 /* PopDatePicker */,
 				4E6312B31C1FB17200EB78F9 /* SlideMenuController */,
@@ -759,6 +762,11 @@
 					4E63125F1C1FA7D500EB78F9 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = 6S86S47ZGK;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					4E6312731C1FA7D500EB78F9 = {
 						CreatedOnToolsVersion = 7.0;
@@ -920,6 +928,7 @@
 				4E6312AA1C1FAFA000EB78F9 /* ImageHeaderView.swift in Sources */,
 				4E5AF22C1C47540300192C40 /* ContactsViewController+Import.swift in Sources */,
 				4EA89FBD1C27097900163C57 /* SelectContactsViewController.swift in Sources */,
+				4EE878CA1C551C3C00BABF15 /* NSData.swift in Sources */,
 				4E6312F81C1FB28000EB78F9 /* DesignableButton.swift in Sources */,
 				4E63134A1C1FB60A00EB78F9 /* MeteorExtensions.swift in Sources */,
 				4E63130A1C1FB28000EB78F9 /* SpringLabel.swift in Sources */,
@@ -1141,10 +1150,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ShortList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dsmlabs.ShortList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1155,10 +1166,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ShortList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dsmlabs.ShortList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

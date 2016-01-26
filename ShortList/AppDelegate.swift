@@ -16,48 +16,28 @@ import GoogleMaps
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   
-  // for importing contacts
+  // used to import contacts from phone
   var contactStore = CNContactStore()
   
-  // location picker
-  let googleMapsApiKey = "AIzaSyBk_737O6cJZiVdOlMhlaCWCyETfCcaQxc"
-  
-  private func createMenuView() {
-    // main storyboard
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    
-    // setup slide menu
-    let mainViewController = storyboard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
-    let leftViewController = storyboard.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
-    
-    let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
-    
-    leftViewController.homeViewController = nvc
-    
-    let slideMenuController = SLSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController)
-    slideMenuController.automaticallyAdjustsScrollViewInsets = true
-    self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
-    self.window?.rootViewController = slideMenuController
-    self.window?.makeKeyAndVisible()
-  }
-  
-  private func setAppearance() {
-    UINavigationBar.appearance().tintColor = UIColor.textColor()
-    UINavigationBar.appearance().backgroundColor = UIColor.primaryColor()
-    
-  }
+  // used with google location picker
+  let googleMapsApiKey = Constants.GoogleMaps.ApiKey
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // setup appearance and menu
     self.setAppearance()
     self.createMenuView()
     
+    // register for APNS
+    self.registerForPushNotifications()
+    
+    // set up google services
     GMSServices.provideAPIKey(googleMapsApiKey)
     
     // set up account manager and establish connection to Meteor
     AccountManager.setUpDefaultAccountManager(AccountManager())
     NSUserDefaults.standardUserDefaults().setBool(true, forKey: "METShouldLogDDPMessages")
     
+    // present sign in screen if user is not already logged in
     if !AccountManager.defaultAccountManager.isUserLoggedIn {
       SignInViewController.presentSignInViewController()
     }
@@ -65,6 +45,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
   
+  func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+    let deviceTokenString = deviceToken.hexString()
+    AccountManager.defaultAccountManager.deviceToken = deviceTokenString
+  }
+  
+  func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+    print("failed to register for remote notifications: \(error)")
+  }
+  
+  func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+    print("received remote notification")
+    print(userInfo)
+  }
   
   func applicationWillResignActive(application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -96,6 +89,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   class func getRootViewController() -> UIViewController? {
     return getAppDelegate().window?.rootViewController
+  }
+  
+  // MARK: Private functions
+  
+  private func createMenuView() {
+    // main storyboard
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    
+    // setup slide menu
+    let mainViewController = storyboard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
+    let leftViewController = storyboard.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
+    
+    let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
+    
+    leftViewController.homeViewController = nvc
+    
+    let slideMenuController = SLSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController)
+    slideMenuController.automaticallyAdjustsScrollViewInsets = true
+    self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
+    self.window?.rootViewController = slideMenuController
+    self.window?.makeKeyAndVisible()
+  }
+  
+  private func setAppearance() {
+    UINavigationBar.appearance().tintColor = UIColor.textColor()
+    UINavigationBar.appearance().backgroundColor = UIColor.primaryColor()
+    
+  }
+  
+  private func registerForPushNotifications() {
+    // specify what notifications we want to receive
+    let settings = UIUserNotificationSettings(forTypes: [.Sound, .Badge, .Alert], categories: nil)
+    UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+    
+    // register for the notifications from APNS
+    UIApplication.sharedApplication().registerForRemoteNotifications()
   }
   
   // MARK: Helpers

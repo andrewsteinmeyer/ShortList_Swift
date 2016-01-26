@@ -18,6 +18,7 @@ enum Screen: Int {
 
 class SignInViewController: UIViewController, UITextFieldDelegate {
   
+  @IBOutlet weak var nameField: DesignableTextField!
   @IBOutlet weak var emailField: DesignableTextField!
   @IBOutlet weak var passwordField: DesignableTextField!
   @IBOutlet weak var passwordConfirmationField: DesignableTextField!
@@ -45,7 +46,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
-    //emailField.becomeFirstResponder()
+    nameField.becomeFirstResponder()
   }
   
   private func toggleScreen() {
@@ -78,14 +79,18 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
   func textFieldShouldReturn(textField: UITextField) -> Bool {
     switch currentScreen {
     case .SignIn:
-      if textField == emailField {
+      if textField == nameField {
+        emailField.becomeFirstResponder()
+      } else if textField == emailField {
         passwordField.becomeFirstResponder()
       } else if textField == passwordField {
         passwordField.resignFirstResponder()
         signIn()
       }
     case .Register:
-      if textField == emailField {
+      if textField == nameField {
+        emailField.becomeFirstResponder()
+      } else if textField == emailField {
         passwordField.becomeFirstResponder()
       } else if textField == passwordField {
         passwordConfirmationField.becomeFirstResponder()
@@ -137,7 +142,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
   }
   
   private func signUp() {
-    guard let email = emailField.text where !email.isEmpty,
+    guard let name = nameField.text where !name.isEmpty,
+      let email = emailField.text where !email.isEmpty,
       let password = passwordField.text where !password.isEmpty,
       let passwordConfirmation = passwordConfirmationField.text where !passwordConfirmation.isEmpty else {
         let errorMessage = "All fields required to register"
@@ -151,7 +157,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
       return
     }
     
-    AccountManager.defaultAccountManager.signUpWithEmail(email, password: password) { (error) -> Void in
+    AccountManager.defaultAccountManager.signUpWithEmail(email, password: password, name: name) { (error) -> Void in
       dispatch_async(dispatch_get_main_queue()) {
         if let error = error {
           let errorMessage = error.localizedFailureReason
