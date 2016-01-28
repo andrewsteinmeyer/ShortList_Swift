@@ -80,9 +80,7 @@ final class MeteorEventService {
       event.list = list
       event.venue = venue
       event.location = location
-      event.accepted = []
-      event.declined = []
-      event.timeout = []
+      event.acceptedCount = 0
       
       // add config if present
       if let config = eventConfiguration {

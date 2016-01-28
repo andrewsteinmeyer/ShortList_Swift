@@ -54,11 +54,13 @@ final class AccountManager: NSObject {
   
   var deviceToken: String? {
     didSet {
-      guard let token = deviceToken else {
+      guard deviceToken != nil else {
         return
       }
       
-      setUserNotificationToken(token)
+      //TODO: do we need to send this everytime the user launches the app and the app registers for push notifications?
+      // might be overkill because we send the device token when the user signs up.  commenting out for now.
+      // setUserNotificationToken()
     }
   }
   
@@ -91,7 +93,11 @@ final class AccountManager: NSObject {
     Meteor.signUpWithEmail(email, password: password, completionHandler: completionHandler)
   }
   
-  func setUserNotificationToken(token: String) {
+  func setUserNotificationToken() {
+    guard let token = deviceToken else {
+      return
+    }
+    
     let params = [ "apn" : token ]
     Meteor.callMethodWithName(Message.SetUserNotificationToken.rawValue, parameters: [params]) {
       userInfo, error in

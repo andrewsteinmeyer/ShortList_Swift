@@ -163,7 +163,11 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
           let errorMessage = error.localizedFailureReason
           self.displayError(errorMessage!)
         } else {
-          self.toggleScreen()
+          // send device token to meteor for APNS
+          AccountManager.defaultAccountManager.setUserNotificationToken()
+          
+          self.view.endEditing(true)
+          self.dismissViewControllerAnimated(true, completion: nil)
         }
       }
     }

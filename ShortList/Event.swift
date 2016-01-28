@@ -17,9 +17,7 @@ class Event: NSManagedObject {
   @NSManaged var list: NamedValues?
   @NSManaged var venue: NamedValues?
   @NSManaged var location: NamedValues?
-  @NSManaged var accepted: NSSet?
-  @NSManaged var declined: NSSet?
-  @NSManaged var timeout: NSSet?
+  @NSManaged var acceptedCount: NSNumber?
   @NSManaged var eventConfiguration: NamedValues?
   @NSManaged var insertedOn: NSNumber?
 }

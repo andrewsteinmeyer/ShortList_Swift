@@ -27,15 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     self.setAppearance()
     self.createMenuView()
     
+    // set up account manager and establish connection to Meteor
+    AccountManager.setUpDefaultAccountManager(AccountManager())
+    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "METShouldLogDDPMessages")
+    
     // register for APNS
     self.registerForPushNotifications()
     
     // set up google services
     GMSServices.provideAPIKey(googleMapsApiKey)
-    
-    // set up account manager and establish connection to Meteor
-    AccountManager.setUpDefaultAccountManager(AccountManager())
-    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "METShouldLogDDPMessages")
     
     // present sign in screen if user is not already logged in
     if !AccountManager.defaultAccountManager.isUserLoggedIn {
@@ -43,20 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
       
     return true
-  }
-  
-  func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-    let deviceTokenString = deviceToken.hexString()
-    AccountManager.defaultAccountManager.deviceToken = deviceTokenString
-  }
-  
-  func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-    print("failed to register for remote notifications: \(error)")
-  }
-  
-  func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-    print("received remote notification")
-    print(userInfo)
   }
   
   func applicationWillResignActive(application: UIApplication) {
@@ -116,15 +102,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     UINavigationBar.appearance().tintColor = UIColor.textColor()
     UINavigationBar.appearance().backgroundColor = UIColor.primaryColor()
     
-  }
-  
-  private func registerForPushNotifications() {
-    // specify what notifications we want to receive
-    let settings = UIUserNotificationSettings(forTypes: [.Sound, .Badge, .Alert], categories: nil)
-    UIApplication.sharedApplication().registerUserNotificationSettings(settings)
-    
-    // register for the notifications from APNS
-    UIApplication.sharedApplication().registerForRemoteNotifications()
   }
   
   // MARK: Helpers
