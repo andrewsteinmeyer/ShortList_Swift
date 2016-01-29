@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E066E021C5AD63300003143 /* InvitationNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E066E011C5AD63300003143 /* InvitationNavigationViewController.swift */; };
 		4E1A68FA1C5082FB00E55D64 /* InvitationActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A68F91C5082FB00E55D64 /* InvitationActivityViewController.swift */; };
 		4E233C871C3CA46400FDC1B9 /* MeteorEventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E233C861C3CA46400FDC1B9 /* MeteorEventService.swift */; };
 		4E233C891C3CA61700FDC1B9 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E233C881C3CA61700FDC1B9 /* CreateEventViewController.swift */; };
@@ -162,6 +163,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E066E011C5AD63300003143 /* InvitationNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationNavigationViewController.swift; sourceTree = "<group>"; };
 		4E1A68F91C5082FB00E55D64 /* InvitationActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationActivityViewController.swift; sourceTree = "<group>"; };
 		4E233C861C3CA46400FDC1B9 /* MeteorEventService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorEventService.swift; sourceTree = "<group>"; };
 		4E233C881C3CA61700FDC1B9 /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
@@ -635,6 +637,7 @@
 			isa = PBXGroup;
 			children = (
 				4E7C60851C3B62F70042CE4F /* EventsNavigationViewController.swift */,
+				4E066E011C5AD63300003143 /* InvitationNavigationViewController.swift */,
 				4E7C60811C3B5F420042CE4F /* EventsViewController.swift */,
 				4E233C881C3CA61700FDC1B9 /* CreateEventViewController.swift */,
 				4E719C0C1C3F60C3009989AC /* SelectListViewController.swift */,
@@ -1010,6 +1013,7 @@
 				4E233C8E1C3CBDAC00FDC1B9 /* PopDatePicker.swift in Sources */,
 				4E6312FE1C1FB28000EB78F9 /* DesignableView.swift in Sources */,
 				4E6313131C1FB28000EB78F9 /* TPKeyboardAvoidingTableView.m in Sources */,
+				4E066E021C5AD63300003143 /* InvitationNavigationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

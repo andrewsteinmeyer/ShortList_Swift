@@ -19,6 +19,8 @@ final class MeteorEventService {
     case CreateEvent = "createEvent"
     case DeleteEvent = "deleteEvent"
     case InviteEvent = "inviteEvent"
+    case SetInvitationResponse = "setInvitationResponse"
+    case SendEventMessage = "sendEventMessage"
   }
   
   init() {
@@ -50,6 +52,13 @@ final class MeteorEventService {
     Meteor.callMethodWithName(Message.InviteEvent.rawValue, parameters: parameters, completionHandler: completionHandler)
   }
   
+  func setInvitationResponse(parameters: [AnyObject]?, completionHandler: METMethodCompletionHandler?) {
+    Meteor.callMethodWithName(Message.SetInvitationResponse.rawValue, parameters: parameters, completionHandler: completionHandler)
+  }
+  
+  func sendEventMessage(parameters: [AnyObject]?, completionHandler: METMethodCompletionHandler?) {
+    Meteor.callMethodWithName(Message.SendEventMessage.rawValue, parameters: parameters, completionHandler: completionHandler)
+  }
   
   //MARK: - Stub methods to save locally before save to server
   
@@ -89,6 +98,13 @@ final class MeteorEventService {
       
       // save locally
       self.saveManagedObjectContext()
+      
+      return nil
+    }
+    
+    // TODO: Implement optimistic update on client for accepted count
+    Meteor.defineStubForMethodWithName(Message.SetInvitationResponse.rawValue) {
+      parameters in
       
       return nil
     }

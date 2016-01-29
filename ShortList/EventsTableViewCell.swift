@@ -10,17 +10,19 @@ import UIKit
 
 struct EventsTableViewCellData {
   
-  init(name: String?, locationName: String?, date: String?, time: String?) {
+  init(name: String?, locationName: String?, date: String?, time: String?, acceptedCount: String?) {
     self.name = name ?? ""
     self.locationName = locationName ?? ""
     self.date = date ?? ""
     self.time = time ?? ""
+    self.acceptedCount = acceptedCount ?? ""
   }
   
   var name: String?
   var locationName: String?
   var date: String?
   var time: String?
+  var acceptedCount: String?
 }
 
 class EventsTableViewCell : BaseTableViewCell {
@@ -29,6 +31,7 @@ class EventsTableViewCell : BaseTableViewCell {
   @IBOutlet weak var addressLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var timeLabel: UILabel!
+  @IBOutlet weak var acceptedCountButton: DesignableButton!
   
   override func layoutSubviews() {
     super.layoutSubviews()
@@ -46,6 +49,7 @@ class EventsTableViewCell : BaseTableViewCell {
       self.addressLabel.text = data.locationName
       self.dateLabel.text = data.date
       self.timeLabel.text = data.time
+      self.acceptedCountButton.titleLabel?.text = data.acceptedCount
     }
   }
   

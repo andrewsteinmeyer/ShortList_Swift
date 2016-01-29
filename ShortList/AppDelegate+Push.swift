@@ -12,10 +12,14 @@ extension AppDelegate {
   
   private enum Category: String {
     case Invite = "invite"
+    case Message = "message"
   }
   
   private enum Action: String {
-    case More = "more-info"
+    case Accept = "accept"
+    case Decline = "decline"
+    case Reply = "reply"
+    case MoreInfo = "more-info"
   }
   
   //MARK: Handle notification registration
@@ -38,7 +42,7 @@ extension AppDelegate {
   }
   
   func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [NSObject : AnyObject], completionHandler: () -> Void) {
-    print("received remote notification with action")
+    print("received remote notification with action: when is this called??")
     print(identifier)
     print(userInfo)
     
@@ -51,29 +55,72 @@ extension AppDelegate {
     
     let json = JSON(userInfo)
     
-    
-    if let category = json["aps"]["category"].string {
+    if let categoryString = json["aps"]["category"].string,
+      category = Category(rawValue: categoryString),
+      ejsonString = json["ejson"].string,
+      ejsonDict = ejsonString.convertToDictionary(),
+      identifier = identifier,
+      action = Action(rawValue: identifier) {
+      
       switch category {
-      case Category.Invite.rawValue:
-        print("category: \(category)")
-        
-        let ejsonString = json["ejson"].string
-        
-        if let ejsonDict = ejsonString?.convertToDictionary(),
-          let eventId = ejsonDict["eventId"] as? String {
-          print("eventId: \(eventId)")
+      case .Invite:
+        switch action {
+        case .MoreInfo:
+          guard let eventId = ejsonDict["eventId"] as? String else {
+            break
+          }
+          
+          // navigate to events
+          if let slideMenuController = AppDelegate.getRootViewController() as? SlideMenuController,
+            leftVC = slideMenuController.leftViewController as? LeftViewController {
+              leftVC.changeViewController(.Events)
+          }
+          
+          // present invitation activity page for event
           InvitationActivityViewController.presentInvitationActivityControllerForEvent(eventId)
-          /*
-          if let slideMenuController = AppDelegate.getRootViewController() as? SlideMenuController {
-            if let leftVC = slideMenuController.leftViewController as? LeftViewController {
-              //leftVC.changeViewController(.Events)
+          
+        case .Accept:
+          guard let invitationId = ejsonDict["invitationId"] as? String else {
+            break
+          }
+          
+          // record that user accepted the invitation
+          MeteorEventService.sharedInstance.setInvitationResponse([invitationId, "accepted"]) {
+            result, error in
+            
+            if error != nil {
+              print("error: \(error?.localizedDescription)")
+            } else {
+              print("success: event invitation accepted")
             }
           }
-          */
+          
+        default: ()
         }
-        
-      default: ()
-        
+      
+      case .Message:
+        switch action {
+        case .Reply:
+          guard let eventId = ejsonDict["eventId"] as? String else {
+            break
+          }
+          
+          if let response = responseInfo[UIUserNotificationActionResponseTypedTextKey],
+            responseText = response as? String {
+              
+              MeteorEventService.sharedInstance.sendEventMessage([eventId, responseText]) {
+                result, error in
+                
+                if error != nil {
+                  print("error: \(error?.localizedDescription)")
+                } else {
+                  print("success: event message sent")
+                }
+              }
+          }
+          
+        default: ()
+        }
       }
     }
     
@@ -91,7 +138,7 @@ extension AppDelegate {
     // accept action
     let acceptAction = UIMutableUserNotificationAction()
     acceptAction.title = "Accept"
-    acceptAction.identifier = "accept"
+    acceptAction.identifier = Action.Accept.rawValue
     acceptAction.activationMode = .Background
     acceptAction.behavior = .Default
     acceptAction.authenticationRequired = false
@@ -99,7 +146,7 @@ extension AppDelegate {
     // decline action
     let declineAction = UIMutableUserNotificationAction()
     declineAction.title = "Decline"
-    declineAction.identifier = "decline"
+    declineAction.identifier = Action.Decline.rawValue
     declineAction.activationMode = .Background
     declineAction.behavior = .Default
     declineAction.authenticationRequired = false
@@ -107,14 +154,14 @@ extension AppDelegate {
     // more info action
     let moreAction = UIMutableUserNotificationAction()
     moreAction.title = "More Info"
-    moreAction.identifier = "more-info"
+    moreAction.identifier = Action.MoreInfo.rawValue
     moreAction.activationMode = .Foreground
     moreAction.behavior = .Default
     moreAction.authenticationRequired = false
     
     // invite category
     let inviteCategory = UIMutableUserNotificationCategory()
-    inviteCategory.identifier = "invite"
+    inviteCategory.identifier = Category.Invite.rawValue
     inviteCategory.setActions([acceptAction, moreAction], forContext: .Minimal)
     inviteCategory.setActions([acceptAction, moreAction, declineAction], forContext: .Default)
     
@@ -125,14 +172,14 @@ extension AppDelegate {
     // reply action
     let replyAction = UIMutableUserNotificationAction()
     replyAction.title = "Reply"
-    replyAction.identifier = "reply-identifier"
+    replyAction.identifier = Action.Reply.rawValue
     replyAction.activationMode = .Background
     replyAction.behavior = .TextInput
     replyAction.authenticationRequired = false
     
     // message category
     let messageCategory = UIMutableUserNotificationCategory()
-    messageCategory.identifier = "message"
+    messageCategory.identifier = Category.Message.rawValue
     messageCategory.setActions([replyAction], forContext: .Minimal)
     
     return messageCategory

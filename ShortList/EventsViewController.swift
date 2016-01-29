@@ -49,7 +49,8 @@ class EventsViewController: FetchedResultsTableViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "showInvitationActivity" {
       if let selectedEvent = dataSource.selectedObject as? Event {
-        if let invitationActivityViewController = segue.destinationViewController as? InvitationActivityViewController {
+        let navVC = segue.destinationViewController as? InvitationNavigationViewController
+        if let invitationActivityViewController = navVC?.topViewController as? InvitationActivityViewController {
           // get documentID for event
           let documentID = Meteor.documentKeyForObjectID(selectedEvent.objectID).documentID as! String
           
@@ -81,6 +82,7 @@ class EventsViewController: FetchedResultsTableViewController {
         var locationName = ""
         var eventDate = ""
         var eventTime = ""
+        var acceptedCount = "0"
         
         // get location address
         if let location = event.location {
@@ -97,7 +99,12 @@ class EventsViewController: FetchedResultsTableViewController {
           eventTime = timeFormatter.stringFromDate(date) as String
         }
         
-        let data = EventsTableViewCellData(name: event.name, locationName: locationName, date: eventDate, time: eventTime)
+        // set accepted count
+        if let count = event.acceptedCount {
+          acceptedCount = String(count)
+        }
+        
+        let data = EventsTableViewCellData(name: event.name, locationName: locationName, date: eventDate, time: eventTime, acceptedCount: acceptedCount)
         cell.setData(data)
       }
     }

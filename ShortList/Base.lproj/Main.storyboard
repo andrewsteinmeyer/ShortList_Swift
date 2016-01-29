@@ -1234,7 +1234,7 @@
                                                 <constraint firstAttribute="width" constant="30" id="iay-qZ-Fql"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
-                                            <state key="normal" title="10">
+                                            <state key="normal" title="0">
                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
@@ -1259,11 +1259,12 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
+                                    <outlet property="acceptedCountButton" destination="mbN-4p-zDY" id="BGT-4a-f8i"/>
                                     <outlet property="addressLabel" destination="Ars-PQ-BRv" id="UxO-nf-z7j"/>
                                     <outlet property="dateLabel" destination="P74-1z-FWT" id="fcu-ug-GPi"/>
                                     <outlet property="nameLabel" destination="yac-gA-sTS" id="Pm5-yE-uH6"/>
                                     <outlet property="timeLabel" destination="ISk-pK-Yka" id="ESy-Aw-3rf"/>
-                                    <segue destination="vLF-At-m3x" kind="presentation" identifier="showInvitationActivity" id="fre-iJ-fdc"/>
+                                    <segue destination="Bqd-Se-Ll1" kind="presentation" identifier="showInvitationActivity" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="fre-iJ-fdc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1540,7 +1541,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qO-qg-zmu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3268" y="2754"/>
+            <point key="canvasLocation" x="4080" y="2754"/>
         </scene>
         <!--Select Venue View Controller-->
         <scene sceneID="4aF-o5-jCo">
@@ -1602,7 +1603,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IN7-wz-IOD" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4023" y="2754"/>
+            <point key="canvasLocation" x="4835" y="2754"/>
         </scene>
         <!--Select List View Controller-->
         <scene sceneID="Bz6-Zu-qGn">
@@ -1668,10 +1669,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="bpZ-bh-XlV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oDK-BZ-5Az" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2570" y="2676"/>
+            <point key="canvasLocation" x="2670" y="2742"/>
         </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="Q9R-Gm-aUE">
@@ -1833,7 +1835,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jCE-YP-fZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2566" y="3370"/>
+            <point key="canvasLocation" x="3378" y="3370"/>
         </scene>
         <!--Joined Lists View Controller-->
         <scene sceneID="ADM-U6-VWj">
@@ -1922,7 +1924,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jYv-Kt-CqV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1858" y="3370"/>
+            <point key="canvasLocation" x="2670" y="3370"/>
+        </scene>
+        <!--Invitation Navigation View Controller-->
+        <scene sceneID="Ggb-Wh-cDK">
+            <objects>
+                <navigationController storyboardIdentifier="InvitationNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="Bqd-Se-Ll1" customClass="InvitationNavigationViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FtU-Ax-MqA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vLF-At-m3x" kind="relationship" relationship="rootViewController" id="cru-KS-OEn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rTf-iU-5Oc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1858" y="2742"/>
         </scene>
     </scenes>
     <resources>
