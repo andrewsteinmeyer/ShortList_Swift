@@ -201,7 +201,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     signInViewController.modalTransitionStyle = .CrossDissolve
     
     // Present the sign in view controller.
-    AppDelegate.getRootViewController()?.presentViewController(signInViewController, animated: true, completion: nil)
+    //AppDelegate.getRootViewController()?.presentViewController(signInViewController, animated: true, completion: nil)
+    UIApplication.topViewController()?.presentViewController(signInViewController, animated: true, completion: nil)
     
   }
 }

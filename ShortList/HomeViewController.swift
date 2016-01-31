@@ -10,15 +10,23 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+  @IBOutlet weak var menuButton: UIBarButtonItem!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // Do any additional setup after loading the view.
-  }
-  
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
-    self.setNavigationBarItem()
+    // present sign in screen if user is not already logged in
+    if !AccountManager.defaultAccountManager.isUserLoggedIn {
+      SignInViewController.presentSignInViewController()
+    }
+    
+    if self.revealViewController() != nil {
+      self.revealViewController().bounceBackOnOverdraw = false
+      
+      menuButton.target = self.revealViewController()
+      menuButton.action = "revealToggle:"
+      self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+    }
   }
   
   override func didReceiveMemoryWarning() {

@@ -24,7 +24,6 @@ final class AccountManager: NSObject {
     case SetUserNotificationToken = "setUserNotificationToken"
   }
   
-  
   override init() {
     super.init()
     

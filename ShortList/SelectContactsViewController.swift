@@ -32,13 +32,6 @@ class SelectContactsViewController: FetchedResultsTableViewController {
     self.managedObjectContext = Meteor.mainQueueManagedObjectContext
   }
   
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
-    
-    // needed for slide menu
-    self.setNavigationBarItem()
-  }
-  
   // MARK: - Content Loading
   
   override func configureSubscriptionLoader(subscriptionLoader: SubscriptionLoader) {

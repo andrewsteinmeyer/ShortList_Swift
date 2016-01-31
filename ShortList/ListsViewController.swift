@@ -12,6 +12,8 @@ import Meteor
 
 class ListsViewController: FetchedResultsTableViewController {
   
+  @IBOutlet weak var menuButton: UIBarButtonItem!
+  
   private let subscriptionName = "PrivateLists"
   private let modelName = "List"
   
@@ -20,13 +22,12 @@ class ListsViewController: FetchedResultsTableViewController {
     
     self.managedObjectContext = Meteor.mainQueueManagedObjectContext
     
-  }
-  
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
+    if self.revealViewController() != nil {
+      menuButton.target = self.revealViewController()
+      menuButton.action = "revealToggle:"
+      self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+    }
     
-    // needed for slide menu
-    self.setNavigationBarItem()
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

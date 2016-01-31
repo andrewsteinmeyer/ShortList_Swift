@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // setup appearance and menu
     self.setAppearance()
-    self.createMenuView()
     
     // set up account manager and establish connection to Meteor
     AccountManager.setUpDefaultAccountManager(AccountManager())
@@ -36,11 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // set up google services
     GMSServices.provideAPIKey(googleMapsApiKey)
-    
-    // present sign in screen if user is not already logged in
-    if !AccountManager.defaultAccountManager.isUserLoggedIn {
-      SignInViewController.presentSignInViewController()
-    }
       
     return true
   }
@@ -79,25 +73,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   // MARK: Private functions
   
-  private func createMenuView() {
-    // main storyboard
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    
-    // setup slide menu
-    let mainViewController = storyboard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
-    let leftViewController = storyboard.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
-    
-    let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
-    
-    leftViewController.homeViewController = nvc
-    
-    let slideMenuController = SLSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController)
-    slideMenuController.automaticallyAdjustsScrollViewInsets = true
-    self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
-    self.window?.rootViewController = slideMenuController
-    self.window?.makeKeyAndVisible()
-  }
-  
   private func setAppearance() {
     UINavigationBar.appearance().tintColor = UIColor.textColor()
     UINavigationBar.appearance().backgroundColor = UIColor.primaryColor()
@@ -113,10 +88,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     alertController.addAction(dismissAction)
     
+    /*
     let pushedViewControllers = (self.window?.rootViewController as! UINavigationController).viewControllers
     let presentedViewController = pushedViewControllers[pushedViewControllers.count - 1]
     
     presentedViewController.presentViewController(alertController, animated: true, completion: nil)
+    */
+    
+    // TODO: Think this is correct, but test when we add back the contacts picker
+    // The old code commented out above only accounted for presenting over a nav controller,
+    // but topViewController looks at all types of controllers
+    // If topViewController works, then delete the old code that is commented out above
+    UIApplication.topViewController()?.presentViewController(alertController, animated: true, completion: nil)
   }
   
   func requestForAccess(completionHandler: (accessGranted: Bool) -> Void) {

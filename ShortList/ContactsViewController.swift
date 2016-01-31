@@ -12,6 +12,8 @@ import Meteor
 
 class ContactsViewController: FetchedResultsTableViewController {
   
+  @IBOutlet weak var menuButton: UIBarButtonItem!
+  
   private let subscriptionName = "PrivateContacts"
   private let modelName = "Contact"
   
@@ -19,13 +21,12 @@ class ContactsViewController: FetchedResultsTableViewController {
     super.viewDidLoad()
     
     self.managedObjectContext = Meteor.mainQueueManagedObjectContext
-  }
-  
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
     
-    // needed for slide menu
-    self.setNavigationBarItem()
+    if self.revealViewController() != nil {
+      menuButton.target = self.revealViewController()
+      menuButton.action = "revealToggle:"
+      self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+    }
   }
   
   // MARK: - Content Loading
