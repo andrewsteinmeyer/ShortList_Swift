@@ -14,7 +14,9 @@ class ListsViewController: FetchedResultsTableViewController {
   
   @IBOutlet weak var menuButton: UIBarButtonItem!
   
-  private let subscriptionName = "PrivateLists"
+  private let PrivateListSubscriptionName = "PrivateLists"
+  private let PublicListSubscriptionName = "PublicLists"
+  private let ContactListSubscriptionName = "ContactLists"
   private let modelName = "List"
   
   override func viewDidLoad() {
@@ -44,7 +46,9 @@ class ListsViewController: FetchedResultsTableViewController {
   // MARK: - Content Loading
   
   override func configureSubscriptionLoader(subscriptionLoader: SubscriptionLoader) {
-    subscriptionLoader.addSubscriptionWithName(subscriptionName)
+    subscriptionLoader.addSubscriptionWithName(PrivateListSubscriptionName)
+    subscriptionLoader.addSubscriptionWithName(PublicListSubscriptionName)
+    subscriptionLoader.addSubscriptionWithName(ContactListSubscriptionName)
   }
   
   override func createFetchedResultsController() -> NSFetchedResultsController? {
