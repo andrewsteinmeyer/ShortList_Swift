@@ -27,14 +27,14 @@ class ContactsTableViewCell : BaseTableViewCell {
   @IBOutlet weak var phoneLabel: UILabel!
   
   var highlight = false
+  let lineLayer = CALayer()
   
   override func layoutSubviews() {
     super.layoutSubviews()
     
     // add a line to the bottom of the section header
-    let lineLayer = CALayer()
     lineLayer.frame = CGRectMake(0, self.bounds.height - 1, self.bounds.width, 0.5)
-    lineLayer.backgroundColor = UIColor.lightGrayColor().CGColor
+    lineLayer.backgroundColor = Theme.ContactsTableViewCellSeparatorColor.toUIColor().CGColor
     self.layer.addSublayer(lineLayer)
   }
   
@@ -49,8 +49,28 @@ class ContactsTableViewCell : BaseTableViewCell {
   func toggleHighlight() {
     highlight = !highlight
     
-    let selectedColor = Theme.ContactsTableViewCellSelectedColor.toUIColor()
+    if highlight {
+      let selectedColor = Theme.ContactsTableViewCellBackgroundSelectedColor.toUIColor()
+      let selectedTextColor = Theme.ContactsTableViewCellTextSelectedColor.toUIColor()
+      let selectedSeparatorColor = Theme.ContactsTableViewCellSeparatorSelectedColor.toUIColor()
+      
+      self.backgroundColor = selectedColor
+      self.nameLabel.textColor = selectedTextColor
+      self.phoneLabel.textColor = selectedTextColor
+      self.emailLabel.textColor = selectedTextColor
+      self.lineLayer.backgroundColor = selectedSeparatorColor.CGColor
+    }
+    else {
+      let textColor = Theme.ContactsTableViewCellTextColor.toUIColor()
+      let separatorColor = Theme.ContactsTableViewCellSeparatorColor.toUIColor()
+      
+      self.backgroundColor = UIColor.whiteColor()
+      self.nameLabel.textColor = textColor
+      self.phoneLabel.textColor = textColor
+      self.emailLabel.textColor = textColor
+      self.lineLayer.backgroundColor = separatorColor.CGColor
+    }
     
-    self.contentView.backgroundColor = highlight ? selectedColor : UIColor.whiteColor()
+    //self.contentView.backgroundColor = highlight ? selectedColor : UIColor.whiteColor()
   }
 }

@@ -75,7 +75,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   private func setAppearance() {
     UINavigationBar.appearance().tintColor = Theme.NavigationBarTintColor.toUIColor()
-    UINavigationBar.appearance().backgroundColor = Theme.NavigationBarBackgroundColor.toUIColor()
+    UINavigationBar.appearance().barTintColor = Theme.NavigationBarBackgroundColor.toUIColor()
+    UINavigationBar.appearance().translucent = false
   }
   
   // MARK: Helpers

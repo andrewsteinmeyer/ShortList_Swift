@@ -60,7 +60,10 @@ class MenuTableViewController: UITableViewController {
       nameLabel.text = user.name
     }
     
-    // setup highlight view for menu cells
+    // set colors on header
+    setupHeaderAppearance()
+    
+    // set colors on menu rows
     setupMenuTableViewCells()
   }
   
@@ -74,6 +77,15 @@ class MenuTableViewController: UITableViewController {
   //MARK: - Private methods
   
   private func setupMenuTableViewCells() {
+    setSelectedCellColor()
+    setInitialTextColor()
+    setInitialIconColor()
+    
+    // trigger layoutSubviews() to set the new background views to the correct size
+    view.layoutSubviews()
+  }
+  
+  private func setSelectedCellColor() {
     // create the selected color view
     let selectedColorView = UIView(frame: homeTableViewCell.bounds)
     selectedColorView.backgroundColor = Theme.MenuTableViewCellBackgroundSelectedColor.toUIColor()
@@ -85,9 +97,40 @@ class MenuTableViewController: UITableViewController {
     venuesTableViewCell.selectedBackgroundView = selectedColorView
     eventsTableViewCell.selectedBackgroundView = selectedColorView
     contactsTableViewCell.selectedBackgroundView = selectedColorView
+  }
+  
+  private func setInitialTextColor() {
+    let initialTextColor = Theme.MenuTableViewCellTextColor.toUIColor()
+    homeTitleLabel.textColor = initialTextColor
+    listsTitleLabel.textColor = initialTextColor
+    venuesTitleLabel.textColor = initialTextColor
+    eventsTitleLabel.textColor = initialTextColor
+    contactsTitleLabel.textColor = initialTextColor
+  }
+  
+  private func setInitialIconColor() {
+    let initialIconColor = Theme.MenuTableViewIconColor.toUIColor()
     
-    // trigger layoutSubviews() to set the new background views to the correct size
-    view.layoutSubviews()
+    let homeImage = homeIconImageView.image?.imageWithColor(initialIconColor)
+    homeIconImageView.image = homeImage
+    
+    let listImage = listsIconImageView.image?.imageWithColor(initialIconColor)
+    listsIconImageView.image = listImage
+    
+    let venueImage = venuesIconImageView.image?.imageWithColor(initialIconColor)
+    venuesIconImageView.image = venueImage
+    
+    let eventImage = eventsIconImageView.image?.imageWithColor(initialIconColor)
+    eventsIconImageView.image = eventImage
+    
+    let contactImage = contactsIconImageView.image?.imageWithColor(initialIconColor)
+    contactsIconImageView.image = contactImage
+  }
+  
+  private func setupHeaderAppearance() {
+    headerView.backgroundColor = Theme.MenuHeaderViewBackgroundColor.toUIColor()
+    emailLabel.textColor = Theme.MenuHeaderViewTextColor.toUIColor()
+    nameLabel.textColor = Theme.MenuHeaderViewTextColor.toUIColor()
   }
   
   private func setSelectedRow() {
@@ -157,6 +200,14 @@ class MenuTableViewController: UITableViewController {
     }
     
     return true
+  }
+  
+  override func prefersStatusBarHidden() -> Bool {
+    return true
+  }
+  
+  override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
+    return .Slide
   }
   
 

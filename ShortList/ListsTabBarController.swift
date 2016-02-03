@@ -13,7 +13,7 @@ class ListsTabBarController: UITabBarController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.tabBar.tintColor = UIColor.tabBarButtonColor()
+    self.tabBar.tintColor = Theme.TabBarButtonTintColor.toUIColor()
     self.tabBarItem.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Lato-Regular", size: 5)!], forState: .Normal)
     
   }

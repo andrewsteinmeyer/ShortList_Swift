@@ -26,14 +26,15 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
   @IBOutlet weak var toggleScreenButton: UIButton!
   @IBOutlet weak var actionButton: DesignableButton!
   
-  var currentScreen = Screen.SignIn
+  // set initial screen
+  var currentScreen: Screen = .SignIn
   
   // MARK: View Lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    toggleScreenButton.setTitleColor(UIColor.accentColor(), forState: .Highlighted)
+    setupAppearance()
   }
   
   
@@ -46,6 +47,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
+    // initially focus on name field
     nameField.becomeFirstResponder()
   }
   
@@ -187,6 +189,10 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
   
   private func clearErrors() {
     errorMessageLabel.text = nil
+  }
+  
+  private func setupAppearance() {
+    toggleScreenButton.setTitleColor(UIColor.accentColor(), forState: .Highlighted)
   }
   
   //MARK: - Static methods

@@ -13,8 +13,16 @@ class CreateListViewController: UIViewController, UIMaterialTextFieldDelegate {
   
   @IBOutlet weak var errorMessageLabel: UILabel!
   @IBOutlet weak var nameTextField: UIMaterialTextField!
+  @IBOutlet weak var selectContactsHeaderViewLabel: UILabel!
+  @IBOutlet weak var selectContactsHeaderView: UIView!
   
   var selectedContacts = [Contact]()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    setupAppearance()
+  }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
@@ -107,6 +115,11 @@ class CreateListViewController: UIViewController, UIMaterialTextFieldDelegate {
   
   private func clearErrors() {
     errorMessageLabel.text = nil
+  }
+  
+  private func setupAppearance() {
+    selectContactsHeaderView.backgroundColor = Theme.SelectContactsHeaderViewBackgroundColor.toUIColor()
+    selectContactsHeaderViewLabel.textColor = Theme.SelectContactsHeaderViewTextColor.toUIColor()
   }
   
 }

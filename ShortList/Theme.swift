@@ -10,35 +10,69 @@ import UIKit
 import ChameleonFramework
 
 enum Theme {
+  
+  private struct Palette {
+    static let headerBackgroundColor      = "F5D76E"
+    static let headerTextColor            = "333333"
+    
+    static let menuBackgroundColor        = "555555"
+    static let menuTextColor              = "FFECDB"
+    static let menuIconColor              = "FCE353"
+    //static let menuIconColor             = "FFB700"
+    
+    static let tableCellSelectedColor     = "55ABA8"
+    static let tableCellTextSelectedColor = "FFECDB"
+  }
+  
+  // Navigation
   case NavigationBarTintColor
   case NavigationBarBackgroundColor
   
+  // TabBar
+  case TabBarButtonTintColor
+  
+  // Menu
+  case MenuHeaderViewBackgroundColor
+  case MenuHeaderViewTextColor
   case MenuTableViewCellBackgroundColor
   case MenuTableViewCellBackgroundSelectedColor
-  
   case MenuTableViewCellTextColor
   case MenuTableViewCellTextSelectedColor
-  
   case MenuTableViewIconColor
   case MenuTableViewIconSelectedColor
   
-  case ContactsTableViewCellSelectedColor
+  // List
+  case ContactsTableViewCellBackgroundSelectedColor
+  case ContactsTableViewCellTextColor
+  case ContactsTableViewCellTextSelectedColor
+  case ContactsTableViewCellSeparatorColor
+  case ContactsTableViewCellSeparatorSelectedColor
+  case SelectContactsHeaderViewBackgroundColor
+  case SelectContactsHeaderViewTextColor
   
   func toUIColor() -> UIColor {
     switch self {
-    case .NavigationBarTintColor:                    return HexColor("333333")
-    case .NavigationBarBackgroundColor:              return HexColor("FFB700")
+    case .NavigationBarTintColor:                        return HexColor(Palette.headerTextColor)
+    case .NavigationBarBackgroundColor:                  return HexColor(Palette.headerBackgroundColor)
+    
+    case .TabBarButtonTintColor:                         return HexColor(Palette.headerTextColor)
       
-    case .MenuTableViewCellBackgroundColor:          return HexColor("555555")
-    case .MenuTableViewCellBackgroundSelectedColor:  return HexColor("F5D76E")
+    case .MenuHeaderViewBackgroundColor:                 return HexColor(Palette.menuBackgroundColor)
+    case .MenuHeaderViewTextColor:                       return HexColor(Palette.menuTextColor)
+    case .MenuTableViewCellBackgroundColor:              return HexColor(Palette.menuBackgroundColor)
+    case .MenuTableViewCellBackgroundSelectedColor:      return HexColor(Palette.headerBackgroundColor)
+    case .MenuTableViewCellTextColor:                    return HexColor(Palette.menuTextColor)
+    case .MenuTableViewCellTextSelectedColor:            return ContrastColorOf(Theme.MenuTableViewCellBackgroundSelectedColor.toUIColor(), returnFlat: true)
+    case .MenuTableViewIconColor:                        return HexColor(Palette.menuIconColor)
+    case .MenuTableViewIconSelectedColor:                return ContrastColorOf(Theme.MenuTableViewCellBackgroundSelectedColor.toUIColor(), returnFlat: true)
       
-    case .MenuTableViewCellTextColor:                return HexColor("FFFFFF")
-    case .MenuTableViewCellTextSelectedColor:        return ContrastColorOf(Theme.MenuTableViewCellBackgroundSelectedColor.toUIColor(), returnFlat: true)
-      
-    case .MenuTableViewIconColor:                    return HexColor("FFB700")
-    case .MenuTableViewIconSelectedColor:            return ContrastColorOf(Theme.MenuTableViewCellBackgroundSelectedColor.toUIColor(), returnFlat: true)
-      
-    case .ContactsTableViewCellSelectedColor:        return HexColor("FFC940")
+    case .ContactsTableViewCellBackgroundSelectedColor:  return HexColor(Palette.tableCellSelectedColor)
+    case .ContactsTableViewCellTextColor:                return HexColor(Palette.headerTextColor)
+    case .ContactsTableViewCellTextSelectedColor:        return HexColor(Palette.tableCellTextSelectedColor)
+    case .ContactsTableViewCellSeparatorColor:           return UIColor.lightGrayColor()
+    case .ContactsTableViewCellSeparatorSelectedColor:   return HexColor(Palette.tableCellTextSelectedColor)
+    case .SelectContactsHeaderViewBackgroundColor:       return HexColor(Palette.headerBackgroundColor)
+    case .SelectContactsHeaderViewTextColor:             return HexColor(Palette.headerTextColor)
     }
   }
 }

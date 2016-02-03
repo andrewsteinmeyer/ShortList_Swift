@@ -984,6 +984,8 @@
                     <connections>
                         <outlet property="errorMessageLabel" destination="L3U-AV-Rvg" id="7AA-lG-yoj"/>
                         <outlet property="nameTextField" destination="Ifp-VA-tsh" id="8BB-8t-4q6"/>
+                        <outlet property="selectContactsHeaderView" destination="dLd-Jh-JUI" id="pf4-KT-myN"/>
+                        <outlet property="selectContactsHeaderViewLabel" destination="F9l-pb-Kvy" id="c7c-3i-8tK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CdP-nk-cc7" userLabel="First Responder" sceneMemberID="firstResponder"/>
