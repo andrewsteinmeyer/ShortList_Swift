@@ -8,6 +8,6 @@
 
 class User {
   
-  var username: String?
+  var name: String?
   var emailAddress: String?
 }
