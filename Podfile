@@ -3,6 +3,7 @@ pod 'Meteor'
 pod 'Groot'
 pod 'GoogleMaps'
 pod 'ObjectMapper'
+pod 'ChameleonFramework/Swift'
 
 post_install do |installer|
     `rm -rf Pods/Headers/Private`

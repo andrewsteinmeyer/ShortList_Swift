@@ -7,89 +7,157 @@
 //
 
 import UIKit
+import ChameleonFramework
+
+enum Menu: Int {
+  case Home = 0
+  case Lists
+  case Venues
+  case Events
+  case Contacts
+}
 
 class MenuTableViewController: UITableViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+  // Header
+  @IBOutlet weak var headerView: UIView!
+  @IBOutlet weak var nameLabel: UILabel!
+  @IBOutlet weak var emailLabel: UILabel!
+ 
+  // Home
+  @IBOutlet weak var homeTableViewCell: UITableViewCell!
+  @IBOutlet weak var homeTitleLabel: UILabel!
+  @IBOutlet weak var homeIconImageView: UIImageView!
+  
+  // Lists
+  @IBOutlet weak var listsTableViewCell: UITableViewCell!
+  @IBOutlet weak var listsTitleLabel: UILabel!
+  @IBOutlet weak var listsIconImageView: UIImageView!
+  
+  // Venues
+  @IBOutlet weak var venuesTableViewCell: UITableViewCell!
+  @IBOutlet weak var venuesTitleLabel: UILabel!
+  @IBOutlet weak var venuesIconImageView: UIImageView!
+  
+  // Events
+  @IBOutlet weak var eventsTableViewCell: UITableViewCell!
+  @IBOutlet weak var eventsTitleLabel: UILabel!
+  @IBOutlet weak var eventsIconImageView: UIImageView!
+  
+  // Contacts
+  @IBOutlet weak var contactsTableViewCell: UITableViewCell!
+  @IBOutlet weak var contactsTitleLabel: UILabel!
+  @IBOutlet weak var contactsIconImageView: UIImageView!
+  
+  var selectedRow = 0
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    // set user details
+    if let user = AccountManager.defaultAccountManager.currentUser {
+      emailLabel.text = user.emailAddress
+      nameLabel.text = user.name
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // setup highlight view for menu cells
+    setupMenuTableViewCells()
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    // set the selected row before the view appears
+    setSelectedRow()
+  }
+  
+  //MARK: - Private methods
+  
+  private func setupMenuTableViewCells() {
+    // create the selected color view
+    let selectedColorView = UIView(frame: homeTableViewCell.bounds)
+    selectedColorView.backgroundColor = Theme.MenuTableViewCellBackgroundSelectedColor.toUIColor()
+    
+    // set the selected color view
+    // this color appears when the user selects a row
+    homeTableViewCell.selectedBackgroundView = selectedColorView
+    listsTableViewCell.selectedBackgroundView = selectedColorView
+    venuesTableViewCell.selectedBackgroundView = selectedColorView
+    eventsTableViewCell.selectedBackgroundView = selectedColorView
+    contactsTableViewCell.selectedBackgroundView = selectedColorView
+    
+    // trigger layoutSubviews() to set the new background views to the correct size
+    view.layoutSubviews()
+  }
+  
+  private func setSelectedRow() {
+    // highlight the selected row before the view appears
+    if let menuRow = Menu(rawValue: selectedRow) {
+      let imageColor = Theme.MenuTableViewIconSelectedColor.toUIColor()
+      let textColor = Theme.MenuTableViewCellTextSelectedColor.toUIColor()
+      
+      updateRow(menuRow, imageColor: imageColor, textColor: textColor, selected: true)
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+  }
+  
+  private func updateRow(menuRow: Menu, imageColor: UIColor, textColor: UIColor, selected: Bool) {
+    // update corresponding row
+    switch menuRow {
+    case .Home:
+      let image = homeIconImageView.image?.imageWithColor(imageColor)
+      homeIconImageView.image = image
+      homeTitleLabel.textColor = textColor
+      homeTableViewCell.selected = selected
+    case .Lists:
+      let image = listsIconImageView.image?.imageWithColor(imageColor)
+      listsIconImageView.image = image
+      listsTitleLabel.textColor = textColor
+      listsTableViewCell.selected = selected
+    case .Venues:
+      let image = venuesIconImageView.image?.imageWithColor(imageColor)
+      venuesIconImageView.image = image
+      venuesTitleLabel.textColor = textColor
+      venuesTableViewCell.selected = selected
+    case .Events:
+      let image = eventsIconImageView.image?.imageWithColor(imageColor)
+      eventsIconImageView.image = image
+      eventsTitleLabel.textColor = textColor
+      eventsTableViewCell.selected = selected
+    case .Contacts:
+      let image = contactsIconImageView.image?.imageWithColor(imageColor)
+      contactsIconImageView.image = image
+      contactsTitleLabel.textColor = textColor
+      contactsTableViewCell.selected = selected
     }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+  }
+  
+  //MARK: - UITableViewDelegate
+  
+  override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    // if a previous row was selected,
+    // then update its colors back to unselected
+    let previousRow = selectedRow
+    if let menuRow = Menu(rawValue: previousRow) {
+      let imageColor = Theme.MenuTableViewIconColor.toUIColor()
+      let textColor = Theme.MenuTableViewCellTextColor.toUIColor()
+      
+      updateRow(menuRow, imageColor: imageColor, textColor: textColor, selected: false)
     }
-
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    
+    // update the colors of the new selected row
+    let currentRow = indexPath.row
+    if let menuRow = Menu(rawValue: currentRow) {
+      let imageColor = Theme.MenuTableViewIconSelectedColor.toUIColor()
+      let textColor = Theme.MenuTableViewCellTextSelectedColor.toUIColor()
+      
+      updateRow(menuRow, imageColor: imageColor, textColor: textColor, selected: true)
+      
+      // store reference to the selected row
+      selectedRow = indexPath.row
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+    return true
+  }
+  
 
 }

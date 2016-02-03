@@ -484,15 +484,15 @@
             </objects>
             <point key="canvasLocation" x="-818" y="450"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Menu Table View Controller-->
         <scene sceneID="LL8-t4-dnp">
             <objects>
-                <tableViewController id="o2S-fA-yTT" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="G3k-7v-gHv">
+                <tableViewController id="o2S-fA-yTT" customClass="MenuTableViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="G3k-7v-gHv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="Wpm-Ic-AfN">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="110"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -513,9 +513,9 @@
                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <sections>
-                            <tableViewSection id="tCe-QO-KKI">
+                            <tableViewSection id="I7p-fb-ges">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="WSw-4P-QdU" customClass="MenuTableViewCell" customModule="ShortList" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="WSw-4P-QdU">
                                         <rect key="frame" x="0.0" y="110" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WSw-4P-QdU" id="bZT-cO-MaB">
@@ -530,6 +530,7 @@
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_home" translatesAutoresizingMaskIntoConstraints="NO" id="MkH-qZ-ccC">
                                                     <rect key="frame" x="19" y="4" width="32" height="32"/>
+                                                    <color key="tintColor" red="0.96862745100000003" green="0.62352941179999999" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -638,6 +639,26 @@
                             <outlet property="delegate" destination="o2S-fA-yTT" id="wPq-th-pZc"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="contactsIconImageView" destination="Yso-Iw-FKs" id="gMP-Io-dv3"/>
+                        <outlet property="contactsTableViewCell" destination="ptQ-qq-guY" id="F8s-bD-3Rh"/>
+                        <outlet property="contactsTitleLabel" destination="S7Y-AQ-uWQ" id="HLN-SS-ZlF"/>
+                        <outlet property="emailLabel" destination="4aK-bO-7xl" id="FfQ-rZ-3lf"/>
+                        <outlet property="eventsIconImageView" destination="gIQ-Ya-UVc" id="G4E-gz-gDN"/>
+                        <outlet property="eventsTableViewCell" destination="8Db-IE-Cy8" id="YRi-pw-RCS"/>
+                        <outlet property="eventsTitleLabel" destination="pWB-pt-sad" id="nsr-OM-9dZ"/>
+                        <outlet property="headerView" destination="Wpm-Ic-AfN" id="5s6-74-Jbn"/>
+                        <outlet property="homeIconImageView" destination="MkH-qZ-ccC" id="uzA-6f-VMb"/>
+                        <outlet property="homeTableViewCell" destination="WSw-4P-QdU" id="ucQ-WZ-xFd"/>
+                        <outlet property="homeTitleLabel" destination="Kaz-sb-FE5" id="Prn-US-NZk"/>
+                        <outlet property="listsIconImageView" destination="ywB-5Q-YWO" id="4tk-kM-ki4"/>
+                        <outlet property="listsTableViewCell" destination="3VH-YS-HF5" id="lNI-tq-nOP"/>
+                        <outlet property="listsTitleLabel" destination="zMB-WJ-VTM" id="MOh-0K-fst"/>
+                        <outlet property="nameLabel" destination="1tQ-5E-3zq" id="Muk-05-Sa9"/>
+                        <outlet property="venuesIconImageView" destination="v9A-sA-nWE" id="ig7-Ef-mei"/>
+                        <outlet property="venuesTableViewCell" destination="eGq-S2-VyP" id="M4z-g0-U8r"/>
+                        <outlet property="venuesTitleLabel" destination="s18-js-UAE" id="ptB-1z-Y0q"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xdc-R5-Rzq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

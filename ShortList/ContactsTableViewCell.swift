@@ -49,6 +49,8 @@ class ContactsTableViewCell : BaseTableViewCell {
   func toggleHighlight() {
     highlight = !highlight
     
-    self.contentView.backgroundColor = highlight ? UIColor.primaryColorLight() : UIColor.whiteColor()
+    let selectedColor = Theme.ContactsTableViewCellSelectedColor.toUIColor()
+    
+    self.contentView.backgroundColor = highlight ? selectedColor : UIColor.whiteColor()
   }
 }

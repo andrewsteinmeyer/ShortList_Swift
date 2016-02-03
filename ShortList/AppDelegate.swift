@@ -74,9 +74,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   // MARK: Private functions
   
   private func setAppearance() {
-    UINavigationBar.appearance().tintColor = UIColor.textColor()
-    UINavigationBar.appearance().backgroundColor = UIColor.primaryColor()
-    
+    UINavigationBar.appearance().tintColor = Theme.NavigationBarTintColor.toUIColor()
+    UINavigationBar.appearance().backgroundColor = Theme.NavigationBarBackgroundColor.toUIColor()
   }
   
   // MARK: Helpers
