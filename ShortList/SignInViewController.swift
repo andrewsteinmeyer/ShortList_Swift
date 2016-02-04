@@ -18,6 +18,7 @@ enum Screen: Int {
 
 class SignInViewController: UIViewController, UITextFieldDelegate {
   
+  @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var nameField: DesignableTextField!
   @IBOutlet weak var emailField: DesignableTextField!
   @IBOutlet weak var passwordField: DesignableTextField!
@@ -33,6 +34,12 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    // set view controller as delegate
+    nameField.delegate = self
+    emailField.delegate = self
+    passwordField.delegate = self
+    passwordConfirmationField.delegate = self
     
     setupAppearance()
   }
@@ -102,7 +109,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
       }
     }
 
-    return false
+    return true
   }
   
   // MARK: IBActions
@@ -124,7 +131,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
   private func signIn() {
     guard let email = emailField.text where !email.isEmpty,
       let password = passwordField.text where !password.isEmpty else {
-        let errorMessage = "Email and password required"
+        let errorMessage = "All fields required to sign in"
         displayError(errorMessage)
         
         return
@@ -192,7 +199,23 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
   }
   
   private func setupAppearance() {
-    toggleScreenButton.setTitleColor(UIColor.accentColor(), forState: .Highlighted)
+    // set theme color
+    let themeColor = Theme.SignInViewThemeColor.toUIColor()
+    titleLabel.textColor = themeColor
+    actionButton.backgroundColor = themeColor
+    toggleScreenButton.setTitleColor(themeColor, forState: .Highlighted)
+    
+    // set background color
+    view.backgroundColor = Theme.SignInViewBackgroundColor.toUIColor()
+    
+    // set error color
+    errorMessageLabel.textColor = Theme.SignInViewErrorColor.toUIColor()
+  }
+  
+  //MARK: Status Bar
+  
+  override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    return .LightContent
   }
   
   //MARK: - Static methods
@@ -209,8 +232,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     // Present the sign in view controller.
     //AppDelegate.getRootViewController()?.presentViewController(signInViewController, animated: true, completion: nil)
     UIApplication.topViewController()?.presentViewController(signInViewController, animated: true, completion: nil)
-    
   }
+  
 }
 
 
