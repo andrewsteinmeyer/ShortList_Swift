@@ -49,16 +49,38 @@ class MenuTableViewController: UITableViewController {
   @IBOutlet weak var contactsTitleLabel: UILabel!
   @IBOutlet weak var contactsIconImageView: UIImageView!
   
+  @IBAction func logOut(sender: AnyObject) {
+    AccountManager.defaultAccountManager.signOut()
+  }
+  
+  // initial selected row is .Home
   var selectedRow = 0
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    // setup Menu theme
+    setupMenuAppearance()
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
     
     // set user details
     if let user = AccountManager.defaultAccountManager.currentUser {
       emailLabel.text = user.emailAddress
       nameLabel.text = user.name
     }
+    
+    // set the selected row before the view appears
+    setSelectedRow()
+  }
+  
+  //MARK: - Private methods
+  
+  private func setupMenuAppearance() {
+    // set main background color
+    view.backgroundColor = Theme.MenuTableViewCellBackgroundColor.toUIColor()
     
     // set colors on header
     setupHeaderAppearance()
@@ -67,22 +89,24 @@ class MenuTableViewController: UITableViewController {
     setupMenuTableViewCells()
   }
   
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
-    
-    // set the selected row before the view appears
-    setSelectedRow()
-  }
-  
-  //MARK: - Private methods
-  
   private func setupMenuTableViewCells() {
+    setCellBackgroundColor()
     setSelectedCellColor()
     setInitialTextColor()
     setInitialIconColor()
     
     // trigger layoutSubviews() to set the new background views to the correct size
     view.layoutSubviews()
+  }
+  
+  private func setCellBackgroundColor() {
+    let backgroundColor = Theme.MenuTableViewCellBackgroundColor.toUIColor()
+  
+    homeTableViewCell.backgroundColor = backgroundColor
+    listsTableViewCell.backgroundColor = backgroundColor
+    venuesTableViewCell.backgroundColor = backgroundColor
+    eventsTableViewCell.backgroundColor = backgroundColor
+    contactsTableViewCell.backgroundColor = backgroundColor
   }
   
   private func setSelectedCellColor() {
@@ -201,6 +225,8 @@ class MenuTableViewController: UITableViewController {
     
     return true
   }
+  
+  //MARK: - Status Bar
   
   override func prefersStatusBarHidden() -> Bool {
     return true

@@ -13,14 +13,15 @@ enum Theme {
   
   private struct Palette {
     static let headerBackgroundColor      = "F5D76E"
+    //static let headerBackgroundColor      = "FFD673"
     static let headerTextColor            = "333333"
     
-    static let menuBackgroundColor        = "555555"
+    static let menuBackgroundColor        = "303E4D"
     static let menuTextColor              = "FFECDB"
-    static let menuIconColor              = "FCE353"
-    //static let menuIconColor             = "FFB700"
+    static let menuIconColor              = "F5D76E"
+    //static let menuIconColor              = "FCE353"  //brighter yellow
     
-    static let tableCellSelectedColor     = "55ABA8"
+    static let tableCellSelectedColor     = "4C9689"
     static let tableCellTextSelectedColor = "FFECDB"
   }
   
