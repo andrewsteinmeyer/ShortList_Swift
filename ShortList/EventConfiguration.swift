@@ -11,6 +11,8 @@ import ObjectMapper
 class EventConfiguration: Mappable {
   var minimumGuests: Int?
   var maximumGuests: Int?
+  var attendanceType: String?
+  var status: String?
   
   required init() {
   }
@@ -23,5 +25,7 @@ class EventConfiguration: Mappable {
   func mapping(map: Map) {
     minimumGuests  <- map["minimumGuests"]
     maximumGuests  <- map["maximumGuests"]
+    attendanceType <- map["attendanceType"]
+    status         <- map["status"]
   }
 }

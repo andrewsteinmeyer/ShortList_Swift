@@ -16,5 +16,9 @@ class Contact: NSManagedObject {
   @NSManaged var email: String?
   @NSManaged var phone: String?
   @NSManaged var source: String?
+  @NSManaged var favorite: NSNumber?
+  @NSManaged var invitationId: NSNumber?
+  @NSManaged var score: NSNumber?
+  @NSManaged var status: String?
   
 }

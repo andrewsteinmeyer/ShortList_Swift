@@ -20,16 +20,6 @@ class InvitationActivityViewController: UIViewController {
     self.view = self.webView
   }
   
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
-    
-    self.navigationController?.navigationBarHidden = true
-  }
-  
-  override func prefersStatusBarHidden() -> Bool {
-    return true
-  }
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     

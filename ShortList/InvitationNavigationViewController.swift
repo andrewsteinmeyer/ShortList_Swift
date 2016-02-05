@@ -13,16 +13,6 @@ class InvitationNavigationViewController: UINavigationController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.navigationBarHidden = true
   }
-  
-  override func prefersStatusBarHidden() -> Bool {
-    return true
-  }
-  
-  override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
-    return .None
-  }
-  
   
 }

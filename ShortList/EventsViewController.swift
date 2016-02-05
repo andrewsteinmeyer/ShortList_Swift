@@ -29,7 +29,8 @@ class EventsViewController: FetchedResultsTableViewController {
   
   @IBOutlet weak var menuButton: UIBarButtonItem!
   
-  private let subscriptionName = "PrivateEvents"
+  private let PrivateEventsSubscriptionName = "PrivateEvents"
+  private let ContactEventsSubscriptionName = "ContactEvents"
   private let modelName = "Event"
   
   private var selectedEvent: Event?
@@ -48,15 +49,28 @@ class EventsViewController: FetchedResultsTableViewController {
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    guard let indexPath = sender as? NSIndexPath,
+      selectedEvent = dataSource.objectAtIndexPath(indexPath) as? Event else {
+      return
+    }
+    
     if segue.identifier == "showInvitationActivity" {
-      if let selectedEvent = dataSource.selectedObject as? Event {
-        let navVC = segue.destinationViewController as? InvitationNavigationViewController
-        if let invitationActivityViewController = navVC?.topViewController as? InvitationActivityViewController {
-          // get documentID for event
-          let documentID = Meteor.documentKeyForObjectID(selectedEvent.objectID).documentID as! String
-          
-          // load url to request
-          invitationActivityViewController.url = MeteorRouter.invitationActivityForEventID(documentID)
+      if let invitationActivityViewController = segue.destinationViewController as? InvitationActivityViewController {
+        // get documentID for event
+        let documentID = Meteor.documentKeyForObjectID(selectedEvent.objectID).documentID as! String
+        
+        // set name of event
+        invitationActivityViewController.navigationItem.title = selectedEvent.name
+        
+        // load url to request
+        invitationActivityViewController.url = MeteorRouter.invitationActivityForEventID(documentID)
+      }
+    }
+    else if segue.identifier == "showEventDetail" {
+      if let eventDetailNavController = segue.destinationViewController as? UINavigationController {
+        // pass event to Detail View Controller
+        if let eventDetailViewController = eventDetailNavController.topViewController as? EventDetailViewController {
+          eventDetailViewController.event = selectedEvent
         }
       }
     }
@@ -65,7 +79,8 @@ class EventsViewController: FetchedResultsTableViewController {
   // MARK: - Content Loading
   
   override func configureSubscriptionLoader(subscriptionLoader: SubscriptionLoader) {
-    subscriptionLoader.addSubscriptionWithName(subscriptionName)
+    subscriptionLoader.addSubscriptionWithName(PrivateEventsSubscriptionName)
+    subscriptionLoader.addSubscriptionWithName(ContactEventsSubscriptionName)
   }
   
   override func createFetchedResultsController() -> NSFetchedResultsController? {
@@ -132,17 +147,11 @@ class EventsViewController: FetchedResultsTableViewController {
   }
   
   override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
-    if let selectedEvent = dataSource.objectAtIndexPath(indexPath) as? Event {
-      if let eventDetailNavController = self.storyboard?.instantiateViewControllerWithIdentifier("EventDetailNavigationController") as? UINavigationController {
-        eventDetailNavController.navigationItem.title = selectedEvent.name
-        
-        // pass event to Detail View Controller and present Nav Controller modally
-        if let eventDetailViewController = eventDetailNavController.topViewController as? EventDetailViewController {
-          eventDetailViewController.event = selectedEvent
-          presentViewController(eventDetailNavController, animated: true, completion: nil)
-        }
-      }
-    }
+    performSegueWithIdentifier("showEventDetail", sender: indexPath)
+  }
+  
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    performSegueWithIdentifier("showInvitationActivity", sender: indexPath)
   }
   
 }

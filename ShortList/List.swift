@@ -9,12 +9,13 @@
 import CoreData
 
 class List: NSManagedObject {
-  @NSManaged var name: String!
-  @NSManaged var userId: String!
-  @NSManaged var security: String!
-  @NSManaged var insertedOn: NSDate!
+  @NSManaged var name: String?
+  @NSManaged var userId: String?
+  @NSManaged var security: String?
+  @NSManaged var hideMembers: NSNumber?
+  @NSManaged var insertedOn: NSDate?
   
   // TODO: Leave as NSSet or make [[String: AnyObject]]??
-  @NSManaged var contacts: NSSet!
+  @NSManaged var contacts: NSSet?
   
 }

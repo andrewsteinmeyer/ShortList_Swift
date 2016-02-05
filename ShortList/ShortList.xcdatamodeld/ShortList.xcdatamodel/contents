@@ -6,9 +6,19 @@
                 <entry key="JSONKeyPath" value="email"/>
             </userInfo>
         </attribute>
+        <attribute name="favorite" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="JSONKeyPath" value="favorite"/>
+            </userInfo>
+        </attribute>
         <attribute name="insertedOn" optional="YES" attributeType="Date" syncable="YES">
             <userInfo>
                 <entry key="JSONKeyPath" value="insertedOn"/>
+            </userInfo>
+        </attribute>
+        <attribute name="invitationId" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="JSONKeyPath" value="invitationId"/>
             </userInfo>
         </attribute>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES">
@@ -21,9 +31,19 @@
                 <entry key="JSONKeyPath" value="phone"/>
             </userInfo>
         </attribute>
+        <attribute name="score" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="JSONKeyPath" value="score"/>
+            </userInfo>
+        </attribute>
         <attribute name="source" optional="YES" attributeType="String" syncable="YES">
             <userInfo>
                 <entry key="JSONKeyPath" value="source"/>
+            </userInfo>
+        </attribute>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="JSONKeyPath" value="status"/>
             </userInfo>
         </attribute>
         <attribute name="userId" optional="YES" attributeType="String" syncable="YES">
@@ -47,6 +67,11 @@
         <attribute name="contacts" optional="YES" attributeType="Transformable" syncable="YES">
             <userInfo>
                 <entry key="JSONKeyPath" value="contacts"/>
+            </userInfo>
+        </attribute>
+        <attribute name="hideMembers" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="JSONKeyPath" value="hideMembers"/>
             </userInfo>
         </attribute>
         <attribute name="insertedOn" optional="YES" attributeType="Date" syncable="YES">
@@ -86,11 +111,16 @@
                 <entry key="JSONKeyPath" value="name"/>
             </userInfo>
         </attribute>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="JSONKeyPath" value="userId"/>
+            </userInfo>
+        </attribute>
     </entity>
     <elements>
-        <element name="Contact" positionX="-18" positionY="144" width="128" height="135"/>
+        <element name="Contact" positionX="-18" positionY="144" width="128" height="195"/>
         <element name="Event" positionX="0" positionY="135" width="128" height="180"/>
-        <element name="List" positionX="-54" positionY="36" width="128" height="120"/>
-        <element name="Venue" positionX="-18" positionY="99" width="128" height="90"/>
+        <element name="List" positionX="-54" positionY="36" width="128" height="135"/>
+        <element name="Venue" positionX="-18" positionY="99" width="128" height="105"/>
     </elements>
 </model>
