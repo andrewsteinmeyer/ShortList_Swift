@@ -96,6 +96,7 @@ final class MeteorContactService {
         return nil
       }
       
+      // save each contact locally
       for contactInfo in contactsList {
         
         let contact = NSEntityDescription.insertNewObjectForEntityForName(self.modelName, inManagedObjectContext: self.managedObjectContext) as! Contact

@@ -32,6 +32,7 @@ class VenuesTableViewCell : BaseTableViewCell {
   @IBOutlet weak var addressLabel: UILabel!
   
   var highlight = false
+  let lineLayer = CALayer()
   
   override func layoutSubviews() {
     super.layoutSubviews()
@@ -53,7 +54,25 @@ class VenuesTableViewCell : BaseTableViewCell {
   func toggleHighlight() {
     highlight = !highlight
     
-    self.contentView.backgroundColor = highlight ? UIColor.primaryColorLight() : UIColor.whiteColor()
+    if highlight {
+      let selectedColor = Theme.ContactsTableViewCellBackgroundSelectedColor.toUIColor()
+      let selectedTextColor = Theme.ContactsTableViewCellTextSelectedColor.toUIColor()
+      let selectedSeparatorColor = Theme.ContactsTableViewCellSeparatorSelectedColor.toUIColor()
+      
+      self.backgroundColor = selectedColor
+      self.nameLabel.textColor = selectedTextColor
+      self.addressLabel.textColor = selectedTextColor
+      self.lineLayer.backgroundColor = selectedSeparatorColor.CGColor
+    }
+    else {
+      let textColor = Theme.ContactsTableViewCellTextColor.toUIColor()
+      let separatorColor = Theme.ContactsTableViewCellSeparatorColor.toUIColor()
+      
+      self.backgroundColor = UIColor.whiteColor()
+      self.nameLabel.textColor = textColor
+      self.addressLabel.textColor = textColor
+      self.lineLayer.backgroundColor = separatorColor.CGColor
+    }
   }
   
 }

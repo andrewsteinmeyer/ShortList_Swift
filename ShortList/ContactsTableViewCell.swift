@@ -70,7 +70,5 @@ class ContactsTableViewCell : BaseTableViewCell {
       self.emailLabel.textColor = textColor
       self.lineLayer.backgroundColor = separatorColor.CGColor
     }
-    
-    //self.contentView.backgroundColor = highlight ? selectedColor : UIColor.whiteColor()
   }
 }

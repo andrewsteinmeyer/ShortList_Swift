@@ -85,6 +85,9 @@ class CreateListViewController: UIViewController, UIMaterialTextFieldDelegate {
     // toggle for hiding members of list
     let hideMembers = false
     
+    //TODO: add support in UI for security and hideMembers
+    //      setting to "public" and false for now
+    
     MeteorListService.sharedInstance.create( [name, "public", hideMembers, JSONContacts] ) {
       result, error in
       

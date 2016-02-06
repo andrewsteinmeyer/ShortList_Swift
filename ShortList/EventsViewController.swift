@@ -101,7 +101,7 @@ class EventsViewController: FetchedResultsTableViewController {
         var acceptedCount = "0"
         
         // get location address
-        if let location = event.location {
+        if let location = event.valueForKey("location") {
           let JSONLocation = JSON(location)
           
           if let name = JSONLocation["name"].string {
@@ -110,13 +110,13 @@ class EventsViewController: FetchedResultsTableViewController {
         }
         
         // set date and time
-        if let date = event.date {
+        if let date = event.valueForKey("date") as? NSDate {
           eventDate = dateFormatter.stringFromDate(date) as String
           eventTime = timeFormatter.stringFromDate(date) as String
         }
         
         // set accepted count
-        if let count = event.acceptedCount {
+        if let count = event.valueForKey("acceptedCount") as? Int {
           acceptedCount = String(count)
         }
         

@@ -21,6 +21,7 @@ class ListsTableViewCell : BaseTableViewCell {
   @IBOutlet weak var nameLabel: UILabel!
   
   var highlight = false
+  let lineLayer = CALayer()
   
   override func layoutSubviews() {
     super.layoutSubviews()
@@ -28,7 +29,7 @@ class ListsTableViewCell : BaseTableViewCell {
     // add a line to the bottom of the section header
     let lineLayer = CALayer()
     lineLayer.frame = CGRectMake(0, self.bounds.height - 1, self.bounds.width, 0.5)
-    lineLayer.backgroundColor = UIColor.lightGrayColor().CGColor
+    lineLayer.backgroundColor = Theme.ContactsTableViewCellSeparatorColor.toUIColor().CGColor
     self.layer.addSublayer(lineLayer)
   }
   
@@ -41,7 +42,23 @@ class ListsTableViewCell : BaseTableViewCell {
   func toggleHighlight() {
     highlight = !highlight
     
-    self.contentView.backgroundColor = highlight ? UIColor.primaryColorLight() : UIColor.whiteColor()
+    if highlight {
+      let selectedColor = Theme.ContactsTableViewCellBackgroundSelectedColor.toUIColor()
+      let selectedTextColor = Theme.ContactsTableViewCellTextSelectedColor.toUIColor()
+      let selectedSeparatorColor = Theme.ContactsTableViewCellSeparatorSelectedColor.toUIColor()
+      
+      self.backgroundColor = selectedColor
+      self.nameLabel.textColor = selectedTextColor
+      self.lineLayer.backgroundColor = selectedSeparatorColor.CGColor
+    }
+    else {
+      let textColor = Theme.ContactsTableViewCellTextColor.toUIColor()
+      let separatorColor = Theme.ContactsTableViewCellSeparatorColor.toUIColor()
+      
+      self.backgroundColor = UIColor.whiteColor()
+      self.nameLabel.textColor = textColor
+      self.lineLayer.backgroundColor = separatorColor.CGColor
+    }
   }
   
 }

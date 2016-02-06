@@ -58,6 +58,10 @@ final class MeteorListService {
     Meteor.defineStubForMethodWithName(Message.CreateList.rawValue) {
       parameters in
       
+      
+      //TODO : contacts is not getting passed in with parameters[2] for some strange reason.
+      //       see METMethodInvocationCoordinator
+      
       let name = parameters[0] as? String ?? nil
       let security = parameters[1] as? String ?? nil
       let contacts = parameters[2] as? NSSet ?? nil

@@ -25,6 +25,7 @@ private let timeFormatter: NSDateFormatter = {
 }()
 
 class EventDetailViewController: UIViewController {
+  typealias NamedValues = [String:AnyObject]
   
   @IBOutlet weak var nameTextField: UIMaterialTextField!
   @IBOutlet weak var dateTextField: UIMaterialTextField!
@@ -52,13 +53,13 @@ class EventDetailViewController: UIViewController {
     nameTextField.text = event.name
   
     // set date and time
-    if let date = event.date {
+    if let date = event.valueForKey("date") as? NSDate {
       dateTextField.text = dateFormatter.stringFromDate(date) as String
       timeTextField.text = timeFormatter.stringFromDate(date) as String
     }
     
     // set list name
-    if let list = event.list {
+    if let list = event.valueForKey("list") as? NamedValues {
       let JSONList = JSON(list)
       
       if let listName = JSONList["name"].string {
@@ -66,17 +67,29 @@ class EventDetailViewController: UIViewController {
       }
     }
     
-    // set venue name
-    if let venue = event.venue {
+    // set venue name and location
+    if let venue = event.valueForKey("venue") as? NamedValues {
       let JSONVenue = JSON(venue)
       
       if let venueName = JSONVenue["name"].string {
         venueTextField.text = venueName
       }
+      
+      // set venue's address
+      if let venueAddress = JSONVenue["location"]["address"].string {
+        locationTextField.text = venueAddress
+      }
+      
+      // TODO: this is here now to unwrap address from web.  
+      // Tim stores just the address string on Web (need to store location object)
+      // Android and iOS store the entire location.
+      if let venueAddress2 = JSONVenue["location"].string {
+        locationTextField.text = venueAddress2
+      }
     }
     
     // set location address
-    if let location = event.location {
+    if let location = event.valueForKey("location") as? NamedValues {
       let JSONLocation = JSON(location)
       
       if let locationAddress = JSONLocation["address"].string {
@@ -92,12 +105,11 @@ class EventDetailViewController: UIViewController {
       
       // extract min and max guests
       if let minGuests = eventConfiguration?.minimumGuests {
-        minGuestTextField.text = String(minGuests)
+        minGuestTextField.text = minGuests
       }
       if let maxGuests = eventConfiguration?.maximumGuests {
-        maxGuestTextField.text = String(maxGuests)
+        maxGuestTextField.text = maxGuests
       }
-      
     }
   }
   

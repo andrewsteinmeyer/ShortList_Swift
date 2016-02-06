@@ -9,8 +9,8 @@
 import ObjectMapper
 
 class EventConfiguration: Mappable {
-  var minimumGuests: Int?
-  var maximumGuests: Int?
+  var minimumGuests: String?
+  var maximumGuests: String?
   var attendanceType: String?
   var status: String?
   

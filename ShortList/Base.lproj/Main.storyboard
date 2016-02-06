@@ -340,6 +340,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Lists" id="TWR-3q-zWY">
+                        <barButtonItem key="backBarButtonItem" title="Lists" id="Onj-4q-pFi"/>
                         <barButtonItem key="leftBarButtonItem" image="ic_menu_black_24dp" id="uXY-ga-6kU"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="L6V-pQ-Ppq">
                             <connections>
@@ -2083,6 +2084,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Joined Lists" id="FSb-io-Y5B">
+                        <barButtonItem key="backBarButtonItem" title="Joined" id="OxS-9n-lok"/>
                         <barButtonItem key="leftBarButtonItem" image="ic_menu_black_24dp" id="qrd-DG-PFa"/>
                     </navigationItem>
                     <connections>
@@ -2161,6 +2163,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kqc-Wa-N8f"/>
-        <segue reference="Oqt-Nw-4ib"/>
+        <segue reference="ALo-DL-w39"/>
     </inferredMetricsTieBreakers>
 </document>

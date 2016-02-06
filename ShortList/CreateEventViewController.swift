@@ -232,13 +232,16 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
         return
     }
     
+    //TODO: Add attendanceType and status to UI
+    //      Set eventConfiguration.attendanceType and eventConfiguration.status
+    
     // setup event configuration
     let eventConfiguration = EventConfiguration()
     if let minGuests = minGuestTextField.text {
-      eventConfiguration.minimumGuests = Int(minGuests)
+      eventConfiguration.minimumGuests = minGuests
     }
     if let maxGuests = maxGuestTextField.text {
-      eventConfiguration.maximumGuests = Int(maxGuests)
+      eventConfiguration.maximumGuests = maxGuests
     }
     
     

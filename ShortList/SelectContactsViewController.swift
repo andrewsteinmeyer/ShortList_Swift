@@ -50,7 +50,26 @@ class SelectContactsViewController: FetchedResultsTableViewController {
   func dataSource(dataSource: FetchedResultsTableViewDataSource, configureCell cell: UITableViewCell, forObject object: NSManagedObject, atIndexPath indexPath: NSIndexPath) {
     if let contact = object as? Contact {
       if let cell = cell as? ContactsTableViewCell {
-        let data = ContactsTableViewCellData(name: contact.name, phone: contact.phone, email: contact.email)
+        var contactName = ""
+        var contactPhone = ""
+        var contactEmail = ""
+        
+        // set name 
+        if let name = contact.valueForKey("name") as? String {
+          contactName = name
+        }
+        
+        // set phone number
+        if let number = contact.valueForKey("phone") as? String {
+          contactPhone = number
+        }
+        
+        // set email
+        if let email = contact.valueForKey("email") as? String {
+          contactEmail = email
+        }
+        
+        let data = ContactsTableViewCellData(name: contactName, phone: contactPhone, email: contactEmail)
         cell.setData(data)
       }
     }

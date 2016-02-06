@@ -14,7 +14,7 @@ class ListDetailViewController: UITableViewController {
   
   var list: List? {
     didSet {
-      if let listContacts = list?.valueForKey("contacts") {
+      if let listContacts = list?.contacts as NSSet? {
         let JSONContacts = JSON(listContacts)
         
         for (_,contact):(String, JSON) in JSONContacts {

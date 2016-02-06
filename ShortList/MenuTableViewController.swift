@@ -226,15 +226,5 @@ class MenuTableViewController: UITableViewController {
     return true
   }
   
-  //MARK: - Status Bar
-  
-  override func prefersStatusBarHidden() -> Bool {
-    return true
-  }
-  
-  override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
-    return .Slide
-  }
-  
 
 }

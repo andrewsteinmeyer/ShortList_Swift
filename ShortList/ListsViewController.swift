@@ -63,7 +63,17 @@ class ListsViewController: FetchedResultsTableViewController {
   
   func dataSource(dataSource: FetchedResultsTableViewDataSource, configureCell cell: UITableViewCell, forObject object: NSManagedObject, atIndexPath indexPath: NSIndexPath) {
     if let list = object as? List {
-      cell.textLabel!.text = list.name
+      if let cell = cell as? ListsTableViewCell {
+        var listName = ""
+        
+        // set name
+        if let name = list.valueForKey("name") as? String {
+          listName = name
+        }
+        
+        let data = ListsTableViewCellData(name: listName)
+        cell.setData(data)
+      }
     }
   }
   
