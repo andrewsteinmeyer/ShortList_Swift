@@ -67,6 +67,9 @@ final class MeteorEventService {
     Meteor.defineStubForMethodWithName(Message.CreateEvent.rawValue) {
       parameters in
       
+      //TODO: Make sure this method is working.  MeteorContactService is not passing
+      //      in all paramaters so its bailing on guard
+      
       let name = parameters[0] as? String ?? nil
       let date = parameters[1] as? NSDate ?? nil
       let list = parameters[2] as? [String:AnyObject] ?? nil

@@ -56,7 +56,7 @@
         <attribute name="acceptedCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="eventConfiguration" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="insertedOn" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="insertedOn" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="list" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -69,7 +69,7 @@
                 <entry key="JSONKeyPath" value="contacts"/>
             </userInfo>
         </attribute>
-        <attribute name="hideMembers" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
+        <attribute name="hideMembers" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES">
             <userInfo>
                 <entry key="JSONKeyPath" value="hideMembers"/>
             </userInfo>

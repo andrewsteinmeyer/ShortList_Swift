@@ -49,7 +49,7 @@ class EventsTableViewCell : BaseTableViewCell {
       self.addressLabel.text = data.locationName
       self.dateLabel.text = data.date
       self.timeLabel.text = data.time
-      self.acceptedCountButton.titleLabel?.text = data.acceptedCount
+      self.acceptedCountButton.setTitle(data.acceptedCount, forState: .Normal)
     }
   }
   

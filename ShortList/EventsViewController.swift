@@ -26,6 +26,7 @@ private let timeFormatter: NSDateFormatter = {
 }()
 
 class EventsViewController: FetchedResultsTableViewController {
+  typealias NamedValues = [String:AnyObject]
   
   @IBOutlet weak var menuButton: UIBarButtonItem!
   
@@ -100,12 +101,12 @@ class EventsViewController: FetchedResultsTableViewController {
         var eventTime = ""
         var acceptedCount = "0"
         
-        // get location address
-        if let location = event.valueForKey("location") {
-          let JSONLocation = JSON(location)
+        // set venue name
+        if let venue = event.valueForKey("venue") as? NamedValues {
+          let JSONVenue = JSON(venue)
           
-          if let name = JSONLocation["name"].string {
-            locationName = name
+          if let venueName = JSONVenue["name"].string {
+            locationName = venueName
           }
         }
         

@@ -11,18 +11,12 @@ import UIKit
 struct VenuesTableViewCellData {
   typealias NamedValues = [String:AnyObject]
   
-  init(name: String?, location: NamedValues?) {
+  init(name: String?, address: String?) {
     self.name = name ?? ""
-    self.location = location ?? nil
-    
-    if let location = self.location {
-      let JSONLocation = JSON(location)
-      
-      self.address = JSONLocation["address"].string ?? ""
-    }
+    self.address = address ?? ""
   }
+  
   var name: String?
-  var location: NamedValues?
   var address: String?
 }
 

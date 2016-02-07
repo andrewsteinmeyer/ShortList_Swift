@@ -16,6 +16,7 @@ protocol SelectVenueViewControllerDelegate {
 }
 
 class SelectVenueViewController: FetchedResultsTableViewController {
+  typealias NamedValues = [String:AnyObject]
   
   private let listSubscriptionName = "PrivateVenues"
   private let modelName = "Venue"
@@ -50,7 +51,17 @@ class SelectVenueViewController: FetchedResultsTableViewController {
   func dataSource(dataSource: FetchedResultsTableViewDataSource, configureCell cell: UITableViewCell, forObject object: NSManagedObject, atIndexPath indexPath: NSIndexPath) {
     if let venue = object as? Venue {
       if let cell = cell as? VenuesTableViewCell {
-        let data = VenuesTableViewCellData(name: venue.name, location: venue.location)
+        var locationAddress = ""
+        
+        if let location = venue.valueForKey("location") as? NamedValues {
+          let JSONLocation = JSON(location)
+          
+          if let address = JSONLocation["address"].string {
+            locationAddress = address
+          }
+        }
+        
+        let data = VenuesTableViewCellData(name: venue.name, address: locationAddress)
         cell.setData(data)
         
         // highlight venue if one is already selected
