@@ -14,24 +14,27 @@ class CreateContactViewController: UIViewController, UIMaterialTextFieldDelegate
   @IBOutlet weak var nameTextField: UIMaterialTextField!
   @IBOutlet weak var phoneTextField: UIMaterialTextField!
   @IBOutlet weak var emailTextField: UIMaterialTextField!
+  @IBOutlet weak var createContactButton: DesignableButton!
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
-    setup()
     clearErrors()
-  }
-  
-  func setup() {
-    // set delegate
-    nameTextField.materialDelegate = self
-    phoneTextField.materialDelegate = self
-    emailTextField.materialDelegate = self
     
     // assign first responder
     nameTextField.becomeFirstResponder()
   }
   
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    // set delegate
+    nameTextField.materialDelegate = self
+    phoneTextField.materialDelegate = self
+    emailTextField.materialDelegate = self
+    
+    setupAppearance()
+  }
   
   // MARK: UIMaterialTextFieldDelegate
   
@@ -54,7 +57,6 @@ class CreateContactViewController: UIViewController, UIMaterialTextFieldDelegate
   }
 
   @IBAction func createContactButtonPressed() {
-    self.view.endEditing(true)
     createContact()
   }
   
@@ -67,6 +69,9 @@ class CreateContactViewController: UIViewController, UIMaterialTextFieldDelegate
         
         return
     }
+    
+    // dismiss keyboard
+    self.view.endEditing(true)
     
     MeteorContactService.sharedInstance.create( [name, phone, email] ) {
       result, error in
@@ -96,6 +101,18 @@ class CreateContactViewController: UIViewController, UIMaterialTextFieldDelegate
   
   private func clearErrors() {
     errorMessageLabel.text = nil
+  }
+  
+  private func setupAppearance() {
+    // set theme colors
+    let buttonColor =  Theme.CreateContactButtonBackgroundColor.toUIColor()
+    let buttonTextColor = Theme.CreateContactButtonTextColor.toUIColor()
+    
+    createContactButton.backgroundColor = buttonColor
+    createContactButton.setTitleColor(buttonTextColor, forState: .Highlighted)
+    
+    // set error color
+    errorMessageLabel.textColor = Theme.CreateContactViewErrorColor.toUIColor()
   }
   
 }

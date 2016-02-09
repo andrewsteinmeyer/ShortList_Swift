@@ -21,22 +21,19 @@ class CreateListViewController: UIViewController, UIMaterialTextFieldDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    // assign first responder
+    nameTextField.becomeFirstResponder()
+    
     setupAppearance()
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
-    setup()
     clearErrors()
-  }
-  
-  func setup() {
+    
     // set delegate
     nameTextField.materialDelegate = self
-    
-    // assign first responder
-    nameTextField.becomeFirstResponder()
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -67,17 +64,20 @@ class CreateListViewController: UIViewController, UIMaterialTextFieldDelegate {
   
   
   @IBAction func createListButtonPressed() {
-    self.view.endEditing(true)
     createList()
   }
   
   private func createList() {
-    guard let name = nameTextField.text where !name.isEmpty else {
+    guard let name = nameTextField.text where !name.isEmpty
+       && selectedContacts.count > 0 else {
         let errorMessage = "All fields are required to create list"
         displayError(errorMessage)
         
         return
     }
+    
+    // dismiss keyboard
+    self.view.endEditing(true)
     
     // convert to JSON to save to Meteor
     let JSONContacts = selectedContacts.map { contact in JSONDictionaryFromObject(contact) }

@@ -87,8 +87,13 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
-    setup()
     clearErrors()
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    setup()
   }
   
   func setup() {
@@ -166,11 +171,6 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   
   // MARK: IBAction methods
   
-  // TODO: temporary until we add TPKeyboardAvoiding
-  @IBAction func doneButtonDidPress(sender: AnyObject) {
-    self.view.endEditing(true)
-  }
-  
   @IBAction func dateTextFieldDidPress(sender: AnyObject) {
     showDatePicker()
   }
@@ -181,7 +181,6 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   }
   
   @IBAction func createEventButtonPressed(sender: AnyObject) {
-    self.view.endEditing(true)
     createEvent()
   }
   
@@ -200,8 +199,6 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   // MARK: Private methods
   
   private func showDatePicker() {
-    dateTextField.resignFirstResponder()
-    
     let initDate = ( selectedDate != nil ? selectedDate : NSDate() )
     
     let dataChangedCallback : PopDatePicker.PopDatePickerCallback = { [weak self]
@@ -231,6 +228,9 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
         
         return
     }
+    
+    // dismiss keyboard
+    self.view.endEditing(true)
     
     //TODO: Add attendanceType and status to UI
     //      Set eventConfiguration.attendanceType and eventConfiguration.status
@@ -282,6 +282,11 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   
   private func clearErrors() {
     errorMessageLabel.text = nil
+  }
+  
+  private func setupAppearance() {
+    // set error color
+    errorMessageLabel.textColor = Theme.CreateEventViewErrorColor.toUIColor()
   }
   
 }

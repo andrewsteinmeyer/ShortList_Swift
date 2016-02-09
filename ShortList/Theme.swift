@@ -48,6 +48,11 @@ enum Theme {
   case MenuTableViewIconColor
   case MenuTableViewIconSelectedColor
   
+  // Contact
+  case CreateContactButtonBackgroundColor
+  case CreateContactButtonTextColor
+  case CreateContactViewErrorColor
+  
   // List
   case ContactsTableViewCellBackgroundSelectedColor
   case ContactsTableViewCellTextColor
@@ -57,17 +62,30 @@ enum Theme {
   case SelectContactsHeaderViewBackgroundColor
   case SelectContactsHeaderViewTextColor
   
+  // Venue
+  case CreateVenueButtonBackgroundColor
+  case CreateVenueButtonTextColor
+  case CreateVenueViewErrorColor
+  
+  // Event
+  case CreateEventViewErrorColor
+  
   func toUIColor() -> UIColor {
     switch self {
+    
+    // Sign In
     case .SignInViewBackgroundColor:                     return HexColor(Palette.mainThemeBackgroundColor)
     case .SignInViewThemeColor:                          return HexColor(Palette.mainThemeColor)
     case .SignInViewErrorColor:                          return HexColor(Palette.mainThemeErrorColor)
       
+    // Navigation
     case .NavigationBarTintColor:                        return HexColor(Palette.mainThemeTextColor)
     case .NavigationBarBackgroundColor:                  return HexColor(Palette.mainThemeColor)
     
+    // TabBar
     case .TabBarButtonTintColor:                         return HexColor(Palette.mainThemeTextColor)
       
+    // Menu
     case .MenuHeaderViewBackgroundColor:                 return HexColor(Palette.mainThemeBackgroundColor)
     case .MenuHeaderViewTextColor:                       return HexColor(Palette.menuTextColor)
     case .MenuTableViewCellBackgroundColor:              return HexColor(Palette.mainThemeBackgroundColor)
@@ -77,6 +95,12 @@ enum Theme {
     case .MenuTableViewIconColor:                        return HexColor(Palette.mainThemeColor)
     case .MenuTableViewIconSelectedColor:                return ContrastColorOf(Theme.MenuTableViewCellBackgroundSelectedColor.toUIColor(), returnFlat: true)
       
+    // Contact
+    case .CreateContactButtonBackgroundColor:            return HexColor(Palette.mainThemeColor)
+    case .CreateContactButtonTextColor:                  return HexColor(Palette.mainThemeTextColor)
+    case .CreateContactViewErrorColor:                   return HexColor(Palette.mainThemeErrorColor)
+    
+    // List
     case .ContactsTableViewCellBackgroundSelectedColor:  return HexColor(Palette.tableCellSelectedColor)
     case .ContactsTableViewCellTextColor:                return HexColor(Palette.mainThemeTextColor)
     case .ContactsTableViewCellTextSelectedColor:        return HexColor(Palette.tableCellTextSelectedColor)
@@ -84,6 +108,15 @@ enum Theme {
     case .ContactsTableViewCellSeparatorSelectedColor:   return HexColor(Palette.tableCellTextSelectedColor)
     case .SelectContactsHeaderViewBackgroundColor:       return HexColor(Palette.mainThemeColor)
     case .SelectContactsHeaderViewTextColor:             return HexColor(Palette.mainThemeTextColor)
+      
+    // Venue
+    case .CreateVenueButtonBackgroundColor:              return HexColor(Palette.mainThemeColor)
+    case .CreateVenueButtonTextColor:                    return HexColor(Palette.mainThemeTextColor)
+    case .CreateVenueViewErrorColor:                     return HexColor(Palette.mainThemeErrorColor)
+      
+    // Event
+    case .CreateEventViewErrorColor:                     return HexColor(Palette.mainThemeErrorColor)
+    
     }
   }
 }

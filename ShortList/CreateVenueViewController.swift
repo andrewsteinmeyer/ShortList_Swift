@@ -14,25 +14,28 @@ class CreateVenueViewController: UIViewController, UIMaterialTextFieldDelegate {
   @IBOutlet weak var errorMessageLabel: UILabel!
   @IBOutlet weak var locationTextField: UIMaterialTextField!
   @IBOutlet weak var nameTextField: UIMaterialTextField!
+  @IBOutlet weak var createVenueButton: DesignableButton!
   
   private var location: Location?
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
-    setup()
     clearErrors()
-  }
-  
-  func setup() {
-    // set delegate
-    nameTextField.materialDelegate = self
-    locationTextField.materialDelegate = self
     
     // assign first responder
     nameTextField.becomeFirstResponder()
   }
   
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    // set delegate
+    nameTextField.materialDelegate = self
+    locationTextField.materialDelegate = self
+    
+    setupAppearance()
+  }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if let identifier = segue.identifier {
@@ -64,7 +67,6 @@ class CreateVenueViewController: UIViewController, UIMaterialTextFieldDelegate {
   }
   
   @IBAction func createVenueButtonPressed(sender: AnyObject) {
-    self.view.endEditing(true)
     createVenue()
   }
   
@@ -86,6 +88,9 @@ class CreateVenueViewController: UIViewController, UIMaterialTextFieldDelegate {
         
         return
     }
+    
+    // dismiss keyboard
+    self.view.endEditing(true)
     
     let JSONLocation = Mapper().toJSON(location)
     
@@ -117,6 +122,18 @@ class CreateVenueViewController: UIViewController, UIMaterialTextFieldDelegate {
   
   private func clearErrors() {
     errorMessageLabel.text = nil
+  }
+  
+  private func setupAppearance() {
+    // set theme colors
+    let buttonColor =  Theme.CreateVenueButtonBackgroundColor.toUIColor()
+    let buttonTextColor = Theme.CreateVenueButtonTextColor.toUIColor()
+    
+    createVenueButton.backgroundColor = buttonColor
+    createVenueButton.setTitleColor(buttonTextColor, forState: .Highlighted)
+    
+    // set error color
+    errorMessageLabel.textColor = Theme.CreateVenueViewErrorColor.toUIColor()
   }
   
 }
