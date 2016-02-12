@@ -14,17 +14,24 @@ enum Theme {
   private struct Palette {
     
     //static let mainThemeColor             = "F5D76E"
-    static let mainThemeColor             = "FFD673"
-    static let mainThemeBackgroundColor   = "303E4D"
-    static let mainThemeTextColor         = "333333"
-    static let mainThemeErrorColor        = "EB4D5C"
+    static let mainThemeColor               = "FFD673"
+    static let mainThemeBackgroundColor     = "303E4D"
+    static let mainThemeTextColor           = "333333"
+    static let mainThemeErrorColor          = "EB4D5C"
     
-    static let menuTextColor              = "FFECDB"
-    //static let menuIconColor            = "FCE353"  //brighter yellow
+    static let menuTextColor                = "FFECDB"
+    //static let menuIconColor              = "FCE353"  //brighter yellow
     
-    static let tableCellSelectedColor     = "4C9689"
-    static let tableCellTextSelectedColor = "FFECDB"
+    static let tableCellSelectedColor       = "4C9689"
+    static let tableCellTextSelectedColor   = "FFECDB"
+    
+    static let emptyDataSetTitleColor       = "C9C9C9"
+    static let emptyDataSetDescriptionColor = "C9C9C9"
   }
+  
+  // Empty Data Set
+  case EmptyDataSetTitleColor
+  case EmptyDataSetDescriptionColor
   
   // Sign In
   case SignInViewBackgroundColor
@@ -72,6 +79,10 @@ enum Theme {
   
   func toUIColor() -> UIColor {
     switch self {
+      
+    // Empty Data Set
+    case .EmptyDataSetTitleColor:                        return HexColor(Palette.emptyDataSetTitleColor)
+    case .EmptyDataSetDescriptionColor:                  return HexColor(Palette.emptyDataSetDescriptionColor)
     
     // Sign In
     case .SignInViewBackgroundColor:                     return HexColor(Palette.mainThemeBackgroundColor)

@@ -4,6 +4,7 @@ pod 'Groot'
 pod 'GoogleMaps'
 pod 'ObjectMapper'
 pod 'ChameleonFramework/Swift'
+pod 'DZNEmptyDataSet'
 
 post_install do |installer|
     `rm -rf Pods/Headers/Private`
