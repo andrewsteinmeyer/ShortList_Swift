@@ -41,6 +41,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     passwordField.delegate = self
     passwordConfirmationField.delegate = self
     
+    nameField.hidden = true
+    passwordConfirmationField.hidden = true
+    
     setupAppearance()
   }
   
@@ -55,7 +58,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     super.viewDidAppear(animated)
     
     // initially focus on name field
-    nameField.becomeFirstResponder()
+    emailField.becomeFirstResponder()
   }
   
   private func toggleScreen() {
@@ -64,8 +67,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
       currentScreen = .Register
       clearErrors()
       
-      passwordConfirmationField.animation = "fadeIn"
-      passwordConfirmationField.animate()
+      // unhide views
+      animateViews([nameField, passwordConfirmationField], toHidden: false)
+      nameField.becomeFirstResponder()
       
       actionButton.setTitle("Register", forState: .Normal)
       toggleScreenButton.setTitle("Sign In", forState: .Normal)
@@ -74,13 +78,20 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
       currentScreen = .SignIn
       clearErrors()
       
-      passwordConfirmationField.animation = "fadeOut"
-      passwordConfirmationField.animate()
+      // hide views
+      animateViews([nameField, passwordConfirmationField], toHidden: true)
+      emailField.becomeFirstResponder()
       
       actionButton.setTitle("Sign In", forState: .Normal)
       toggleScreenButton.setTitle("Register", forState: .Normal)
     }
   
+  }
+  
+  private func animateViews(views: [UIView], toHidden hidden: Bool) {
+    UIView.animateWithDuration(0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 10, options: UIViewAnimationOptions(), animations: { () -> Void in
+      let _ = views.map { $0.hidden = hidden }
+      }, completion: nil)
   }
   
   // MARK: UITextFieldDelegate
@@ -195,7 +206,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
   }
   
   private func clearErrors() {
-    errorMessageLabel.text = nil
+    errorMessageLabel.text = " "
   }
   
   private func setupAppearance() {
@@ -203,7 +214,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     let themeColor = Theme.SignInViewThemeColor.toUIColor()
     titleLabel.textColor = themeColor
     actionButton.backgroundColor = themeColor
-    toggleScreenButton.setTitleColor(themeColor, forState: .Highlighted)
+    toggleScreenButton.setTitleColor(themeColor, forState: .Normal)
     
     // set background color
     view.backgroundColor = Theme.SignInViewBackgroundColor.toUIColor()
