@@ -12,7 +12,7 @@ final class MeteorContactService {
   static let sharedInstance = MeteorContactService()
   
   private let modelName = "Contact"
-  private let source = "iPhone"
+  private let source = "IPHONE"
   
   private let managedObjectContext = Meteor.mainQueueManagedObjectContext
   

@@ -77,6 +77,9 @@ enum Theme {
   // Event
   case CreateEventViewErrorColor
   
+  // Profile
+  case ProfileTableViewHeaderTextColor
+  
   func toUIColor() -> UIColor {
     switch self {
       
@@ -127,6 +130,9 @@ enum Theme {
       
     // Event
     case .CreateEventViewErrorColor:                     return HexColor(Palette.mainThemeErrorColor)
+      
+    // Profile
+    case ProfileTableViewHeaderTextColor:                return HexColor(Palette.mainThemeTextColor)
     
     }
   }
