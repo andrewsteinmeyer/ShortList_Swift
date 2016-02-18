@@ -15,6 +15,8 @@ enum Menu: Int {
   case Venues
   case Events
   case Contacts
+  case Spacer
+  case Profile
 }
 
 class MenuTableViewController: UITableViewController {
@@ -49,6 +51,15 @@ class MenuTableViewController: UITableViewController {
   @IBOutlet weak var contactsTitleLabel: UILabel!
   @IBOutlet weak var contactsIconImageView: UIImageView!
   
+  // Spacer
+  @IBOutlet weak var spacerTableViewCell: UITableViewCell!
+  
+  // Profile
+  @IBOutlet weak var profileTableViewCell: UITableViewCell!
+  @IBOutlet weak var profileTitleLabel: UILabel!
+  @IBOutlet weak var profileIconImageView: UIImageView!
+  
+  
   @IBAction func logOut(sender: AnyObject) {
     AccountManager.defaultAccountManager.signOut()
   }
@@ -67,6 +78,8 @@ class MenuTableViewController: UITableViewController {
     super.viewWillAppear(animated)
     
     // set user details
+    // TODO: add event listener for when user has successfully logged in.
+    //       update the emailAddress and name when notified of succesful log in.
     if let user = AccountManager.defaultAccountManager.currentUser {
       emailLabel.text = user.emailAddress
       nameLabel.text = user.name
@@ -107,6 +120,8 @@ class MenuTableViewController: UITableViewController {
     venuesTableViewCell.backgroundColor = backgroundColor
     eventsTableViewCell.backgroundColor = backgroundColor
     contactsTableViewCell.backgroundColor = backgroundColor
+    spacerTableViewCell.backgroundColor = backgroundColor
+    profileTableViewCell.backgroundColor = backgroundColor
   }
   
   private func setSelectedCellColor() {
@@ -121,6 +136,7 @@ class MenuTableViewController: UITableViewController {
     venuesTableViewCell.selectedBackgroundView = selectedColorView
     eventsTableViewCell.selectedBackgroundView = selectedColorView
     contactsTableViewCell.selectedBackgroundView = selectedColorView
+    profileTableViewCell.selectedBackgroundView = selectedColorView
   }
   
   private func setInitialTextColor() {
@@ -130,6 +146,7 @@ class MenuTableViewController: UITableViewController {
     venuesTitleLabel.textColor = initialTextColor
     eventsTitleLabel.textColor = initialTextColor
     contactsTitleLabel.textColor = initialTextColor
+    profileTitleLabel.textColor = initialTextColor
   }
   
   private func setInitialIconColor() {
@@ -149,6 +166,9 @@ class MenuTableViewController: UITableViewController {
     
     let contactImage = contactsIconImageView.image?.imageWithColor(initialIconColor)
     contactsIconImageView.image = contactImage
+    
+    let profileImage = profileIconImageView.image?.imageWithColor(initialIconColor)
+    profileIconImageView.image = profileImage
   }
   
   private func setupHeaderAppearance() {
@@ -195,6 +215,13 @@ class MenuTableViewController: UITableViewController {
       contactsIconImageView.image = image
       contactsTitleLabel.textColor = textColor
       contactsTableViewCell.selected = selected
+    case .Spacer:
+      break
+    case .Profile:
+      let image = profileIconImageView.image?.imageWithColor(imageColor)
+      profileIconImageView.image = image
+      profileTitleLabel.textColor = textColor
+      profileTableViewCell.selected = selected
     }
   }
   

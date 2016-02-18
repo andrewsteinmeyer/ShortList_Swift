@@ -80,7 +80,7 @@ class CreateListViewController: UIViewController, UIMaterialTextFieldDelegate {
     self.view.endEditing(true)
     
     // convert to JSON to save to Meteor
-    let JSONContacts = selectedContacts.map { contact in JSONDictionaryFromObject(contact) }
+    let JSONContacts = selectedContacts.map { contact in fetchContact(contact) }
     
     // toggle for hiding members of list
     let hideMembers = false
@@ -104,6 +104,15 @@ class CreateListViewController: UIViewController, UIMaterialTextFieldDelegate {
     }
   }
   
+  private func fetchContact(contact: Contact) -> JSONDictionary {
+    // grab contact documentID
+    let documentID = Meteor.documentKeyForObjectID(contact.objectID).documentID
+    var JSONContact = JSONDictionaryFromObject(contact)
+    JSONContact["_id"] = documentID
+    
+    return JSONContact
+  }
+
   private func displayError(message: String) {
     // clear out previous errors
     clearErrors()

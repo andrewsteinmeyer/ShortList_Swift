@@ -21,7 +21,7 @@ final class MeteorVenueService {
   }
   
   init() {
-    defineStubMethods()
+    //defineStubMethods()
   }
   
   // save locally to core data
