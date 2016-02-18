@@ -80,15 +80,15 @@ final class AccountManager: NSObject {
   
   // Mark: Meteor server calls
   
-  func loginWithEmail(email: String, password: String, completionHandler: METLogInCompletionHandler?) {
+  func loginWithEmail(email: String, password: String, completionHandler: METLogInCompletionHandler) {
     Meteor.loginWithEmail(email, password: password, completionHandler: completionHandler)
   }
   
-  func signUpWithEmail(email: String, password: String, name: String, completionHandler: METLogInCompletionHandler?) {
+  func signUpWithEmail(email: String, password: String, name: String, completionHandler: METLogInCompletionHandler) {
     Meteor.signUpWithEmail(email, password: password, name: name, completionHandler: completionHandler)
   }
   
-  func signUpWithEmail(email: String, password: String, completionHandler: METLogInCompletionHandler?) {
+  func signUpWithEmail(email: String, password: String, completionHandler: METLogInCompletionHandler) {
     Meteor.signUpWithEmail(email, password: password, completionHandler: completionHandler)
   }
   
