@@ -137,6 +137,9 @@
 		4EA89FB71C25E0F200163C57 /* ListsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA89FB61C25E0F200163C57 /* ListsTabBarController.swift */; };
 		4EA89FBB1C261AD800163C57 /* CreateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA89FBA1C261AD800163C57 /* CreateListViewController.swift */; };
 		4EA89FBD1C27097900163C57 /* SelectContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA89FBC1C27097900163C57 /* SelectContactsViewController.swift */; };
+		4EC403F31C7667FB0056D5F3 /* UIImage+Alpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC403F01C7667FB0056D5F3 /* UIImage+Alpha.swift */; };
+		4EC403F41C7667FB0056D5F3 /* UIImage+ReSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC403F11C7667FB0056D5F3 /* UIImage+ReSize.swift */; };
+		4EC403F51C7667FB0056D5F3 /* UIImage+RoundCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC403F21C7667FB0056D5F3 /* UIImage+RoundCorner.swift */; };
 		4EE878CA1C551C3C00BABF15 /* NSData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE878C91C551C3C00BABF15 /* NSData.swift */; };
 		EDC38BDC8C7C0EF0ABD622BE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A2DD5B22DC715FCEC00F2E /* Pods.framework */; };
 /* End PBXBuildFile section */
@@ -302,6 +305,9 @@
 		4EA89FB61C25E0F200163C57 /* ListsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsTabBarController.swift; sourceTree = "<group>"; };
 		4EA89FBA1C261AD800163C57 /* CreateListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateListViewController.swift; sourceTree = "<group>"; };
 		4EA89FBC1C27097900163C57 /* SelectContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectContactsViewController.swift; sourceTree = "<group>"; };
+		4EC403F01C7667FB0056D5F3 /* UIImage+Alpha.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Alpha.swift"; sourceTree = "<group>"; };
+		4EC403F11C7667FB0056D5F3 /* UIImage+ReSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ReSize.swift"; sourceTree = "<group>"; };
+		4EC403F21C7667FB0056D5F3 /* UIImage+RoundCorner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+RoundCorner.swift"; sourceTree = "<group>"; };
 		4EE878C91C551C3C00BABF15 /* NSData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSData.swift; sourceTree = "<group>"; };
 		90A2DD5B22DC715FCEC00F2E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D95D466AA0CD1F1DA86F9F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -601,6 +607,7 @@
 				4E63126F1C1FA7D500EB78F9 /* Info.plist */,
 				4E3288C01C24B19A00F936DF /* UIMaterialTextField.swift */,
 				4E6313331C1FB56D00EB78F9 /* SwiftyJSON.swift */,
+				4EC403EF1C7667FB0056D5F3 /* UIImage_Category_Swift */,
 				4E066E071C5D6C0400003143 /* SWRevealViewController */,
 				4E233C901C3CBDB200FDC1B9 /* PopDatePicker */,
 				4E6312B91C1FB27F00EB78F9 /* Spring */,
@@ -685,6 +692,16 @@
 				4E3288C41C24B99C00F936DF /* CreateContactViewController.swift */,
 			);
 			name = Contact;
+			sourceTree = "<group>";
+		};
+		4EC403EF1C7667FB0056D5F3 /* UIImage_Category_Swift */ = {
+			isa = PBXGroup;
+			children = (
+				4EC403F01C7667FB0056D5F3 /* UIImage+Alpha.swift */,
+				4EC403F11C7667FB0056D5F3 /* UIImage+ReSize.swift */,
+				4EC403F21C7667FB0056D5F3 /* UIImage+RoundCorner.swift */,
+			);
+			path = UIImage_Category_Swift;
 			sourceTree = "<group>";
 		};
 		C410E71E5849E54A69911C63 /* Frameworks */ = {
@@ -925,6 +942,7 @@
 				4E6312A11C1FAF2D00EB78F9 /* UIApplication.swift in Sources */,
 				4E5AF22A1C45E5CE00192C40 /* JoinedListsViewController.swift in Sources */,
 				4E6313441C1FB60A00EB78F9 /* FetchedResultsTableViewDataSource.swift in Sources */,
+				4EC403F41C7667FB0056D5F3 /* UIImage+ReSize.swift in Sources */,
 				4E6312FC1C1FB28000EB78F9 /* DesignableTextField.swift in Sources */,
 				4E6313451C1FB60A00EB78F9 /* PlaceholderView.swift in Sources */,
 				4E5AF22C1C47540300192C40 /* ContactsViewController+Import.swift in Sources */,
@@ -953,6 +971,7 @@
 				4E63132B1C1FB2DE00EB78F9 /* User.swift in Sources */,
 				4EA89FB71C25E0F200163C57 /* ListsTabBarController.swift in Sources */,
 				4EA365301C2380BD00C90249 /* AccountManager.swift in Sources */,
+				4EC403F31C7667FB0056D5F3 /* UIImage+Alpha.swift in Sources */,
 				4E63130E1C1FB28000EB78F9 /* TransitionManager.swift in Sources */,
 				4E066E051C5D6BE400003143 /* SWRevealViewController.m in Sources */,
 				4E63132C1C1FB2DE00EB78F9 /* List.swift in Sources */,
@@ -990,6 +1009,7 @@
 				4E6313101C1FB28000EB78F9 /* UnwindSegue.swift in Sources */,
 				4E60A0D11C2C2E8300D66A9A /* ContactsNavigationViewController.swift in Sources */,
 				4E3288C11C24B19A00F936DF /* UIMaterialTextField.swift in Sources */,
+				4EC403F51C7667FB0056D5F3 /* UIImage+RoundCorner.swift in Sources */,
 				4E63130C1C1FB28000EB78F9 /* SpringTextView.swift in Sources */,
 				4E6312FD1C1FB28000EB78F9 /* DesignableTextView.swift in Sources */,
 				4E6313321C1FB30400EB78F9 /* ShortList.xcdatamodeld in Sources */,

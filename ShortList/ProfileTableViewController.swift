@@ -10,14 +10,12 @@ import UIKit
 
 class ProfileTableViewController: UITableViewController {
   
+  @IBOutlet weak var menuButton: UIBarButtonItem!
+  @IBOutlet weak var firstNameLabel: UILabel!
+  @IBOutlet weak var lastNameLabel: UILabel!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    // present sign in screen if user is not already logged in
-    if !AccountManager.defaultAccountManager.isUserLoggedIn {
-      SignInViewController.presentSignInViewController()
-    }
     
     if self.revealViewController() != nil {
       menuButton.target = self.revealViewController()
@@ -25,46 +23,33 @@ class ProfileTableViewController: UITableViewController {
       self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     
-    // setup delegates for empty data
-    self.tableView.emptyDataSetDelegate = self
-    self.tableView.emptyDataSetSource = self
+    // setup profile image
+    let profileImage = UIImage(named: "background_poly")
+    let thumbnailImage = profileImage?.thumbnailImage(95, transparentBorder: 0, cornerRadius: 7, interpolationQuality: .Default)
+    let imageView = UIImageView(image: thumbnailImage)
     
-    // trick to remove cell separators
-    self.tableView.tableFooterView = UIView()
+    // add profile image to view
+    view.addSubview(imageView)
+    
+    // must turn off auto contraints when using autolayout
+    imageView.translatesAutoresizingMaskIntoConstraints = false
+    
+    let horizontalConstraints = NSLayoutConstraint(item: imageView, attribute: .LeadingMargin, relatedBy: .Equal, toItem: view,
+      attribute: .LeadingMargin, multiplier: 1.0, constant: 7)
+    
+    let verticalConstraints = NSLayoutConstraint(item: imageView, attribute: .Top, relatedBy: .Equal,
+      toItem: view, attribute: .Top, multiplier: 1.0, constant: 34)
+    
+    // activate the new constraints
+    NSLayoutConstraint.activateConstraints([horizontalConstraints, verticalConstraints])
+    
   }
   
-}
-
-extension HomeViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
-  
-  func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
-    let title = Constants.EmptyDataSet.Home.Title
-    let titleFontName = Constants.EmptyDataSet.Title.FontName
-    let titleFontSize = Constants.EmptyDataSet.Title.FontSize
-    let titleColor = Theme.EmptyDataSetTitleColor.toUIColor()
-    
-    let attributes = [NSFontAttributeName: UIFont(name: titleFontName, size: titleFontSize)!, NSForegroundColorAttributeName: titleColor]
-    
-    return NSAttributedString(string: title, attributes: attributes)
-  }
-  
-  func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
-    let description = Constants.EmptyDataSet.Home.Description
-    let descriptionFontName = Constants.EmptyDataSet.Description.FontName
-    let descriptionFontSize = Constants.EmptyDataSet.Description.FontSize
-    let descriptionColor = Theme.EmptyDataSetDescriptionColor.toUIColor()
-    
-    let paragraph = NSMutableParagraphStyle()
-    paragraph.lineBreakMode = NSLineBreakMode.ByWordWrapping
-    paragraph.alignment = NSTextAlignment.Center
-    
-    let attributes = [NSFontAttributeName: UIFont(name: descriptionFontName, size: descriptionFontSize)!, NSForegroundColorAttributeName: descriptionColor, NSParagraphStyleAttributeName: paragraph]
-    
-    return NSAttributedString(string: description, attributes: attributes)
-  }
-  
-  func verticalOffsetForEmptyDataSet(scrollView: UIScrollView!) -> CGFloat {
-    return -40.0
+  override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    if let headerView = view as? UITableViewHeaderFooterView {
+      headerView.textLabel!.textColor = Theme.ProfileTableViewHeaderTextColor.toUIColor()
+      headerView.textLabel!.font = UIFont(name: "Lato-Regular", size: 14)
+    }
   }
   
 }
