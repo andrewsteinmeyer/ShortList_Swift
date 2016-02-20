@@ -82,7 +82,7 @@ class MenuTableViewController: UITableViewController {
     //       update the emailAddress and name when notified of succesful log in.
     if let user = AccountManager.defaultAccountManager.currentUser {
       emailLabel.text = user.emailAddress
-      nameLabel.text = user.name
+      nameLabel.text = user.fullName
     }
     
     // set the selected row before the view appears

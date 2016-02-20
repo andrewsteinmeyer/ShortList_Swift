@@ -12,9 +12,11 @@ class User {
   var lastName: String?
   var emailAddress: String?
   
-  var name: String = "No name" {
+  var fullName: String? {
     didSet {
-      let fullNameArr = self.name.componentsSeparatedByString(" ")
+      guard fullName != nil else { return }
+      
+      let fullNameArr = self.fullName!.componentsSeparatedByString(" ")
       firstName = fullNameArr[0]
       lastName = fullNameArr[1]
     }
