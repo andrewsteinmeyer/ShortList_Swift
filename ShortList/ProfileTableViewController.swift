@@ -28,11 +28,17 @@ class ProfileTableViewController: UITableViewController {
     }
     
     // retrieve profile details
-    var profileImage = AccountManager.defaultAccountManager.currentUser?.image
-    let firstName = AccountManager.defaultAccountManager.currentUser?.firstName
-    let lastName = AccountManager.defaultAccountManager.currentUser?.lastName
-    let emailAddress = AccountManager.defaultAccountManager.currentUser?.emailAddress
-    let phoneNumber = AccountManager.defaultAccountManager.currentUser?.phone
+    let user = AccountManager.defaultAccountManager.currentUser
+    
+    var profileImage = user?.image
+    let firstName = user?.firstName
+    let lastName = user?.lastName
+    let emailAddress = user?.emailAddress
+    var phoneNumber = ""
+    
+    if let number = user?.phone?.toNational() {
+      phoneNumber = String(number)
+    }
     
     // set profile picture
     profileImage = profileImage != nil ? profileImage : UIImage(named: "background_poly")
@@ -43,7 +49,7 @@ class ProfileTableViewController: UITableViewController {
     firstNameLabel.text = firstName != nil ? firstName : ""
     lastNameLabel.text = lastName != nil ? lastName : ""
     emailAddressLabel.text = emailAddress != nil ? emailAddress : ""
-    phoneNumberLabel.text = phoneNumber != nil ? phoneNumber : ""
+    phoneNumberLabel.text = phoneNumber
     
     // add profile image to view
     view.addSubview(imageView)

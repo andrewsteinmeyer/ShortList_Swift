@@ -223,12 +223,22 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
   
   private func toggleIndicator() {
     if actionButton.enabled {
+      activityIndicator.hidden = false
       activityIndicator.startAnimating()
+      
+      toggleScreenButton.hidden = true
+      
       actionButton.enabled = false
+      actionButton.hidden = true
     }
     else {
+      activityIndicator.hidden = true
       activityIndicator.stopAnimating()
+      
+      toggleScreenButton.hidden = false
+      
       actionButton.enabled = true
+      actionButton.hidden = false
     }
   }
   

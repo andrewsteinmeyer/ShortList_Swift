@@ -6,9 +6,8 @@
 //  Copyright © 2015 Andrew Steinmeyer. All rights reserved.
 //
 
-import Foundation
-import UIKit
 import Contacts
+import PhoneNumberKit
 
 class User {
   
@@ -27,15 +26,27 @@ class User {
     }
   }
   
-  var phone: String? {
+  var phone: PhoneNumber?
+  var rawPhone: String? {
     didSet {
       populateWithLocalContact()
+      setPhoneInfo()
+    }
+  }
+  
+  func setPhoneInfo() {
+    guard let number = rawPhone else { return }
+    do {
+      phone = try PhoneNumber(rawNumber: number)
+    }
+    catch {
+      print("Error: Could not parse raw phone number")
     }
   }
   
   // Enrich the user by fetching information from the local contact by phone number.
   func populateWithLocalContact() {
-    guard let phone = phone else { return }
+    guard let phone = rawPhone else { return }
     
     let store = CNContactStore()
     let authorizationStatus = CNContactStore.authorizationStatusForEntityType(.Contacts)

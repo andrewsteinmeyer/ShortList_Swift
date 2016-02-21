@@ -124,7 +124,7 @@ final class AccountManager: NSObject {
         let user = User()
         user.emailAddress = JSONUser["email"].string
         user.fullName = JSONUser["name"].string
-        user.phone = JSONUser["phone"].string
+        user.rawPhone = JSONUser["phone"].string
         
         // save user
         self.currentUser = user
