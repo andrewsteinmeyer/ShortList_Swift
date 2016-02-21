@@ -10,6 +10,7 @@ import UIKit
 import Meteor
 import Contacts
 import GoogleMaps
+import FLEX
 
 
 @UIApplicationMain
@@ -25,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // setup appearance and menu
     self.setAppearance()
+    
+    FLEXManager.sharedManager().showExplorer()
     
     // set up account manager and establish connection to Meteor
     AccountManager.setUpDefaultAccountManager(AccountManager())

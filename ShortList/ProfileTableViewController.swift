@@ -13,8 +13,10 @@ class ProfileTableViewController: UITableViewController {
   @IBOutlet weak var menuButton: UIBarButtonItem!
   @IBOutlet weak var firstNameLabel: UILabel!
   @IBOutlet weak var lastNameLabel: UILabel!
+  @IBOutlet weak var emailAddressLabel: UILabel!
+  @IBOutlet weak var phoneNumberLabel: UILabel!
   
-  let sectionHeaders = ["Name"]
+  let sectionHeaders = ["Name", "Profile"]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,19 +27,23 @@ class ProfileTableViewController: UITableViewController {
       self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     
-    // retrieve profile image
+    // retrieve profile details
     var profileImage = AccountManager.defaultAccountManager.currentUser?.image
     let firstName = AccountManager.defaultAccountManager.currentUser?.firstName
     let lastName = AccountManager.defaultAccountManager.currentUser?.lastName
+    let emailAddress = AccountManager.defaultAccountManager.currentUser?.emailAddress
+    let phoneNumber = AccountManager.defaultAccountManager.currentUser?.phone
     
     // set profile picture
     profileImage = profileImage != nil ? profileImage : UIImage(named: "background_poly")
     let thumbnailImage = profileImage?.thumbnailImage(96, transparentBorder: 0, cornerRadius: 48, interpolationQuality: .Default)
     let imageView = UIImageView(image: thumbnailImage)
     
-    // set user name
+    // set user details
     firstNameLabel.text = firstName != nil ? firstName : ""
     lastNameLabel.text = lastName != nil ? lastName : ""
+    emailAddressLabel.text = emailAddress != nil ? emailAddress : ""
+    phoneNumberLabel.text = phoneNumber != nil ? phoneNumber : ""
     
     // add profile image to view
     view.addSubview(imageView)
@@ -56,12 +62,52 @@ class ProfileTableViewController: UITableViewController {
     
   }
   
-  override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-    if let headerView = view as? UITableViewHeaderFooterView {
-      headerView.textLabel!.textColor = Theme.ProfileTableViewHeaderTextColor.toUIColor()
-      headerView.textLabel!.font = UIFont(name: "Lato-Regular", size: 14)
-      headerView.textLabel!.text = sectionHeaders[section]
+  //MARK: UITableViewDelegate
+  
+  override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return Constants.ProfileTableView.SectionHeaderView.Height
+  }
+  
+  override func tableView(tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+    return Constants.ProfileTableView.SectionHeaderView.Height
+  }
+  
+  override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    
+    let section = indexPath.section
+    if section == 0 {
+      if (cell.respondsToSelector("setSeparatorInset:")) {
+        cell.separatorInset = UIEdgeInsets(top: 0, left: 125, bottom: 0, right: 0)
+      }
+      
+      if (cell.respondsToSelector("setLayoutMargins:")) {
+        
+        cell.layoutMargins = UIEdgeInsets(top: 0, left: 125, bottom: 0, right: 0)
+      }
     }
+  }
+  
+  //MARK: UITableViewSource
+  
+  override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let height = Constants.ProfileTableView.SectionHeaderView.Height
+    let fontName = Constants.ProfileTableView.SectionHeaderView.FontName
+    let fontSize = Constants.ProfileTableView.SectionHeaderView.FontSize
+    
+    // create section header view
+    let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: height))
+    
+    let horizontalPadding: CGFloat = section == 0 ? 125 : 15
+    let verticalPadding: CGFloat = height - fontSize - 5
+    
+    let titleLabel = UILabel(frame: CGRect(x: horizontalPadding, y: verticalPadding, width: tableView.frame.size.width - horizontalPadding, height: fontSize))
+    titleLabel.textColor = Theme.ProfileTableViewHeaderTextColor.toUIColor()
+    titleLabel.font = UIFont(name: fontName, size: fontSize)
+    titleLabel.text = sectionHeaders[section]
+    
+    headerView.addSubview(titleLabel)
+    
+    return headerView
   }
   
 }

@@ -14,6 +14,7 @@ struct Constants {
   struct Meteor {
     //private static let Domain = "shortlist.meteor.com"
     private static let Domain = "10.0.0.3:3000"
+    //private static let Domain = "localhost:3000"
     
     static let RootUrl = "http://\(Domain)"
     static let DDPUrl = "ws://\(Domain)/websocket"
@@ -66,6 +67,15 @@ struct Constants {
     struct Contact {
       static let Title = "No Contacts"
       static let Description = "Get started by adding some contacts."
+    }
+  }
+  
+  // Profile view settings
+  struct ProfileTableView {
+    struct SectionHeaderView {
+      static let Height: CGFloat = 50
+      static let FontName = "Lato-Regular"
+      static let FontSize: CGFloat = 14.0
     }
   }
   
