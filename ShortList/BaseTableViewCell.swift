@@ -31,8 +31,8 @@ public class BaseTableViewCell : UITableViewCell {
   }
   
   public func setData(data: Any?) {
-    self.backgroundColor = UIColor.whiteColor()
-    self.textLabel?.textColor = UIColor.textColor()
+    self.backgroundColor = Theme.BaseTableViewCellBackgroundColor.toUIColor()
+    self.textLabel?.textColor = Theme.BaseTableViewCellTextColor.toUIColor()
     if let menuText = data as? String {
       self.textLabel?.text = menuText
     }

@@ -46,10 +46,8 @@
 		4E6312791C1FA7D500EB78F9 /* ShortListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6312781C1FA7D500EB78F9 /* ShortListTests.swift */; };
 		4E6312841C1FA7D500EB78F9 /* ShortListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6312831C1FA7D500EB78F9 /* ShortListUITests.swift */; };
 		4E6312921C1FAC0000EB78F9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6312911C1FAC0000EB78F9 /* HomeViewController.swift */; };
-		4E63129E1C1FAF2D00EB78F9 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6312961C1FAF2D00EB78F9 /* UIImageView.swift */; };
 		4E6312A01C1FAF2D00EB78F9 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6312981C1FAF2D00EB78F9 /* UITableViewExtension.swift */; };
 		4E6312A11C1FAF2D00EB78F9 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6312991C1FAF2D00EB78F9 /* UIApplication.swift */; };
-		4E6312A31C1FAF2D00EB78F9 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E63129B1C1FAF2D00EB78F9 /* UIImage.swift */; };
 		4E6312A41C1FAF2D00EB78F9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E63129C1C1FAF2D00EB78F9 /* String.swift */; };
 		4E6312A51C1FAF2D00EB78F9 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E63129D1C1FAF2D00EB78F9 /* UIView.swift */; };
 		4E6312B01C1FAFC400EB78F9 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6312AD1C1FAFC400EB78F9 /* BaseTableViewCell.swift */; };
@@ -122,7 +120,6 @@
 		4E63134B1C1FB60A00EB78F9 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6313411C1FB60A00EB78F9 /* FoundationExtensions.swift */; };
 		4E63134E1C1FBAED00EB78F9 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E63134D1C1FBAED00EB78F9 /* ListsViewController.swift */; };
 		4E6313501C1FBB3300EB78F9 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E63134F1C1FBB3300EB78F9 /* ListDetailViewController.swift */; };
-		4E6313541C20E24C00EB78F9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6313531C20E24C00EB78F9 /* Colors.swift */; };
 		4E719C0D1C3F60C3009989AC /* SelectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E719C0C1C3F60C3009989AC /* SelectListViewController.swift */; };
 		4E719C0F1C407087009989AC /* EventConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E719C0E1C407087009989AC /* EventConfiguration.swift */; };
 		4E719C131C4075C2009989AC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E719C121C4075C2009989AC /* Date.swift */; };
@@ -209,10 +206,8 @@
 		4E6312831C1FA7D500EB78F9 /* ShortListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortListUITests.swift; sourceTree = "<group>"; };
 		4E6312851C1FA7D500EB78F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E6312911C1FAC0000EB78F9 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		4E6312961C1FAF2D00EB78F9 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		4E6312981C1FAF2D00EB78F9 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		4E6312991C1FAF2D00EB78F9 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
-		4E63129B1C1FAF2D00EB78F9 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		4E63129C1C1FAF2D00EB78F9 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		4E63129D1C1FAF2D00EB78F9 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		4E6312AD1C1FAFC400EB78F9 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
@@ -290,7 +285,6 @@
 		4E6313411C1FB60A00EB78F9 /* FoundationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
 		4E63134D1C1FBAED00EB78F9 /* ListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
 		4E63134F1C1FBB3300EB78F9 /* ListDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
-		4E6313531C20E24C00EB78F9 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		4E719C0C1C3F60C3009989AC /* SelectListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectListViewController.swift; sourceTree = "<group>"; };
 		4E719C0E1C407087009989AC /* EventConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventConfiguration.swift; sourceTree = "<group>"; };
 		4E719C121C4075C2009989AC /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -473,16 +467,13 @@
 		4E6312A61C1FAF3400EB78F9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				4E6312961C1FAF2D00EB78F9 /* UIImageView.swift */,
+				4E5010E31C75EBDB00CE3CF6 /* METDDPClient+AccountsPassword.swift */,
 				4E6312981C1FAF2D00EB78F9 /* UITableViewExtension.swift */,
 				4E6312991C1FAF2D00EB78F9 /* UIApplication.swift */,
-				4E63129B1C1FAF2D00EB78F9 /* UIImage.swift */,
-				4E6313531C20E24C00EB78F9 /* Colors.swift */,
 				4EE878C91C551C3C00BABF15 /* NSData.swift */,
 				4E719C121C4075C2009989AC /* Date.swift */,
 				4E63129C1C1FAF2D00EB78F9 /* String.swift */,
 				4E63129D1C1FAF2D00EB78F9 /* UIView.swift */,
-				4E5010E31C75EBDB00CE3CF6 /* METDDPClient+AccountsPassword.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -587,11 +578,8 @@
 		4E63132F1C1FB2E500EB78F9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4E6F95511C789E820022F5B2 /* ManagedObjects */,
 				4E6313271C1FB2DE00EB78F9 /* User.swift */,
-				4EA365331C23B4D300C90249 /* Contact.swift */,
-				4E6313281C1FB2DE00EB78F9 /* List.swift */,
-				4E6313291C1FB2DE00EB78F9 /* Event.swift */,
-				4E63132A1C1FB2DE00EB78F9 /* Venue.swift */,
 				4E60A0D71C2F1C7800D66A9A /* Location.swift */,
 				4E719C0E1C407087009989AC /* EventConfiguration.swift */,
 				4E6313301C1FB30400EB78F9 /* ShortList.xcdatamodeld */,
@@ -633,6 +621,17 @@
 				4E6313411C1FB60A00EB78F9 /* FoundationExtensions.swift */,
 			);
 			name = MeteorUI;
+			sourceTree = "<group>";
+		};
+		4E6F95511C789E820022F5B2 /* ManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				4EA365331C23B4D300C90249 /* Contact.swift */,
+				4E6313281C1FB2DE00EB78F9 /* List.swift */,
+				4E6313291C1FB2DE00EB78F9 /* Event.swift */,
+				4E63132A1C1FB2DE00EB78F9 /* Venue.swift */,
+			);
+			name = ManagedObjects;
 			sourceTree = "<group>";
 		};
 		4E7C607D1C39D3380042CE4F /* Service */ = {
@@ -924,7 +923,6 @@
 				4E1A68FA1C5082FB00E55D64 /* InvitationActivityViewController.swift in Sources */,
 				4E60A0DC1C30750300D66A9A /* MeteorVenueService.swift in Sources */,
 				4E6313041C1FB28000EB78F9 /* Misc.swift in Sources */,
-				4E6313541C20E24C00EB78F9 /* Colors.swift in Sources */,
 				4E6313341C1FB56D00EB78F9 /* SwiftyJSON.swift in Sources */,
 				4E63132E1C1FB2DE00EB78F9 /* Venue.swift in Sources */,
 				4E6313071C1FB28000EB78F9 /* SpringAnimation.swift in Sources */,
@@ -955,7 +953,6 @@
 				4E3288C91C24CD4600F936DF /* ContactsTableViewCell.swift in Sources */,
 				4E6312A41C1FAF2D00EB78F9 /* String.swift in Sources */,
 				4E60A0D81C2F1C7800D66A9A /* Location.swift in Sources */,
-				4E6312A31C1FAF2D00EB78F9 /* UIImage.swift in Sources */,
 				4E60A0D31C2C6D7F00D66A9A /* VenuesNavigationViewController.swift in Sources */,
 				4E6312F51C1FB28000EB78F9 /* AsyncImageView.swift in Sources */,
 				4E6312B01C1FAFC400EB78F9 /* BaseTableViewCell.swift in Sources */,
@@ -987,7 +984,6 @@
 				4E5010DC1C73407F00CE3CF6 /* ProfileTableViewController.swift in Sources */,
 				4E63130F1C1FB28000EB78F9 /* TransitionZoom.swift in Sources */,
 				4E6313491C1FB60A00EB78F9 /* FunctionalAdditions.swift in Sources */,
-				4E63129E1C1FAF2D00EB78F9 /* UIImageView.swift in Sources */,
 				4E60A0DA1C2F1E7100D66A9A /* VenuesTableViewCell.swift in Sources */,
 				4E63134E1C1FBAED00EB78F9 /* ListsViewController.swift in Sources */,
 				4EA365321C23AFCA00C90249 /* ContactsViewController.swift in Sources */,

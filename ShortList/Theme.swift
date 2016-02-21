@@ -22,12 +22,17 @@ enum Theme {
     static let menuTextColor                = "FFECDB"
     //static let menuIconColor              = "FCE353"  //brighter yellow
     
+    static let tableCellBackgroundColor     = "FFFFFF"
     static let tableCellSelectedColor       = "4C9689"
     static let tableCellTextSelectedColor   = "FFECDB"
     
     static let emptyDataSetTitleColor       = "C9C9C9"
     static let emptyDataSetDescriptionColor = "C9C9C9"
   }
+  
+  // Base Table View Cell
+  case BaseTableViewCellTextColor
+  case BaseTableViewCellBackgroundColor
   
   // Empty Data Set
   case EmptyDataSetTitleColor
@@ -82,6 +87,10 @@ enum Theme {
   
   func toUIColor() -> UIColor {
     switch self {
+      
+    // Base Table View Cell
+    case .BaseTableViewCellTextColor:                    return HexColor(Palette.mainThemeTextColor)
+    case .BaseTableViewCellBackgroundColor:              return HexColor(Palette.tableCellBackgroundColor)
       
     // Empty Data Set
     case .EmptyDataSetTitleColor:                        return HexColor(Palette.emptyDataSetTitleColor)

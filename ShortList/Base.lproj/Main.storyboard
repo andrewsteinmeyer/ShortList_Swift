@@ -76,6 +76,9 @@
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -131,28 +134,31 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iQ-J1-IJF" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="caY-pe-bcO">
-                                        <rect key="frame" x="164" y="154" width="273" height="338"/>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="73c-tj-jEG">
+                                        <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="caY-pe-bcO">
+                                        <rect key="frame" x="164" y="154" width="273" height="353"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="xce-wS-iuH">
-                                                <rect key="frame" x="0.0" y="0.0" width="273" height="81"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="xce-wS-iuH">
+                                                <rect key="frame" x="0.0" y="0.0" width="273" height="71"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="shortlist." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMj-Xj-4GZ">
-                                                        <rect key="frame" x="59" y="0.0" width="155" height="48"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="shortlist." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMj-Xj-4GZ">
+                                                        <rect key="frame" x="60" y="0.0" width="153" height="47"/>
                                                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="40"/>
                                                         <color key="textColor" red="1" green="0.84313725490000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5O-U8-RrJ">
-                                                        <rect key="frame" x="86" y="61" width="101" height="20"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Error Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5O-U8-RrJ">
+                                                        <rect key="frame" x="85" y="52" width="104" height="19"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                                         <color key="textColor" red="0.91756308080000004" green="0.33028072120000002" blue="0.34021648760000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6NI-gr-FUv">
-                                                <rect key="frame" x="0.0" y="105" width="273" height="120"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6NI-gr-FUv">
+                                                <rect key="frame" x="0.0" y="93" width="273" height="150"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="muD-XF-zAh" customClass="DesignableTextField" customModule="ShortList" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="273" height="30"/>
@@ -184,8 +190,23 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z1S-7e-027" customClass="DesignableTextField" customModule="ShortList" customModuleProvider="target">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f6u-Fw-grd" customClass="DesignableTextField" customModule="ShortList" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="60" width="273" height="30"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                                <real key="value" value="4"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z1S-7e-027" customClass="DesignableTextField" customModule="ShortList" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="90" width="273" height="30"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
@@ -200,7 +221,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password Confirmation" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kUD-4n-W83" customClass="DesignableTextField" customModule="ShortList" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="90" width="273" height="30"/>
+                                                        <rect key="frame" x="0.0" y="120" width="273" height="30"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
@@ -216,8 +237,8 @@
                                                     </textField>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="EFG-bg-9tX">
-                                                <rect key="frame" x="0.0" y="249" width="273" height="89"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="EFG-bg-9tX">
+                                                <rect key="frame" x="0.0" y="265" width="273" height="88"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTE-4L-58L" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="273" height="45"/>
@@ -241,8 +262,8 @@
                                                             <action selector="actionButtonPressed:" destination="9r5-U3-Ygi" eventType="touchUpInside" id="qWh-zy-JXX"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1b-Ic-W2N">
-                                                        <rect key="frame" x="0.0" y="57" width="273" height="32"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1b-Ic-W2N">
+                                                        <rect key="frame" x="0.0" y="57" width="273" height="31"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                                         <state key="normal" title="Register">
                                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -263,6 +284,8 @@
                                 <constraints>
                                     <constraint firstItem="caY-pe-bcO" firstAttribute="top" secondItem="8iQ-J1-IJF" secondAttribute="top" constant="154" id="6sx-27-t0n"/>
                                     <constraint firstAttribute="bottom" secondItem="caY-pe-bcO" secondAttribute="bottom" constant="18" id="TNd-VQ-tqq"/>
+                                    <constraint firstItem="73c-tj-jEG" firstAttribute="centerX" secondItem="8iQ-J1-IJF" secondAttribute="centerX" id="VYi-Aq-94O"/>
+                                    <constraint firstItem="73c-tj-jEG" firstAttribute="centerY" secondItem="8iQ-J1-IJF" secondAttribute="centerY" id="j0m-HF-vPU"/>
                                     <constraint firstItem="caY-pe-bcO" firstAttribute="centerX" secondItem="8iQ-J1-IJF" secondAttribute="centerX" id="yF7-Ns-mhd"/>
                                 </constraints>
                             </scrollView>
@@ -277,11 +300,13 @@
                     </view>
                     <connections>
                         <outlet property="actionButton" destination="RTE-4L-58L" id="zDG-Rr-yBG"/>
+                        <outlet property="activityIndicator" destination="73c-tj-jEG" id="ZfL-qM-tdn"/>
                         <outlet property="emailField" destination="HUU-RK-ywM" id="Exd-6G-Lv1"/>
                         <outlet property="errorMessageLabel" destination="c5O-U8-RrJ" id="jde-ep-toN"/>
                         <outlet property="nameField" destination="muD-XF-zAh" id="eye-aj-8Yq"/>
                         <outlet property="passwordConfirmationField" destination="kUD-4n-W83" id="dnE-4G-iNz"/>
                         <outlet property="passwordField" destination="Z1S-7e-027" id="f52-Ro-Mjj"/>
+                        <outlet property="phoneNumberField" destination="f6u-Fw-grd" id="L2q-Or-a8v"/>
                         <outlet property="titleLabel" destination="dMj-Xj-4GZ" id="JEE-gE-22E"/>
                         <outlet property="toggleScreenButton" destination="d1b-Ic-W2N" id="HpH-r6-rcE"/>
                     </connections>
@@ -1546,27 +1571,46 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="50" sectionFooterHeight="18" id="w78-w1-oBa">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <inset key="separatorInset" minX="125" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <sections>
                             <tableViewSection headerTitle="Name" id="WK1-4B-r2T">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="100" id="rvq-tq-5g7">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="100" textLabel="zgd-C8-DpN" style="IBUITableViewCellStyleDefault" id="rvq-tq-5g7">
                                         <rect key="frame" x="0.0" y="114" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rvq-tq-5g7" id="8Oq-86-tvy">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="First name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zgd-C8-DpN">
+                                                    <rect key="frame" x="125" y="0.0" width="460" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="125" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ptb-Sh-pQO">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="OWp-tY-gYf" style="IBUITableViewCellStyleDefault" id="ptb-Sh-pQO">
                                         <rect key="frame" x="0.0" y="158" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ptb-Sh-pQO" id="dfv-AW-QFx">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Last name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OWp-tY-gYf">
+                                                    <rect key="frame" x="125" y="0.0" width="460" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="125" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1580,6 +1624,8 @@
                         <barButtonItem key="leftBarButtonItem" image="ic_menu_black_24dp" id="G7H-OR-shA"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="firstNameLabel" destination="zgd-C8-DpN" id="4lU-Bc-N1e"/>
+                        <outlet property="lastNameLabel" destination="OWp-tY-gYf" id="CYh-eU-NXY"/>
                         <outlet property="menuButton" destination="G7H-OR-shA" id="iLs-Mo-6if"/>
                     </connections>
                 </tableViewController>

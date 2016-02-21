@@ -21,11 +21,13 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var nameField: DesignableTextField!
   @IBOutlet weak var emailField: DesignableTextField!
+  @IBOutlet weak var phoneNumberField: DesignableTextField!
   @IBOutlet weak var passwordField: DesignableTextField!
   @IBOutlet weak var passwordConfirmationField: DesignableTextField!
   @IBOutlet weak var errorMessageLabel: UILabel!
   @IBOutlet weak var toggleScreenButton: UIButton!
   @IBOutlet weak var actionButton: DesignableButton!
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   
   // set initial screen
   var currentScreen: Screen = .SignIn
@@ -38,10 +40,12 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     // set view controller as delegate
     nameField.delegate = self
     emailField.delegate = self
+    phoneNumberField.delegate = self
     passwordField.delegate = self
     passwordConfirmationField.delegate = self
     
     nameField.hidden = true
+    phoneNumberField.hidden = true
     passwordConfirmationField.hidden = true
     
     setupAppearance()
@@ -68,7 +72,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
       clearErrors()
       
       // unhide views
-      animateViews([nameField, passwordConfirmationField], toHidden: false)
+      animateViews([nameField, phoneNumberField, passwordConfirmationField], toHidden: false)
       nameField.becomeFirstResponder()
       
       actionButton.setTitle("Register", forState: .Normal)
@@ -79,7 +83,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
       clearErrors()
       
       // hide views
-      animateViews([nameField, passwordConfirmationField], toHidden: true)
+      animateViews([nameField, phoneNumberField, passwordConfirmationField], toHidden: true)
       emailField.becomeFirstResponder()
       
       actionButton.setTitle("Sign In", forState: .Normal)
@@ -100,6 +104,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     switch currentScreen {
     case .SignIn:
       if textField == nameField {
+        phoneNumberField.becomeFirstResponder()
+      } else if textField == phoneNumberField {
         emailField.becomeFirstResponder()
       } else if textField == emailField {
         passwordField.becomeFirstResponder()
@@ -111,6 +117,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
       if textField == nameField {
         emailField.becomeFirstResponder()
       } else if textField == emailField {
+        phoneNumberField.becomeFirstResponder()
+      } else if textField == phoneNumberField {
         passwordField.becomeFirstResponder()
       } else if textField == passwordField {
         passwordConfirmationField.becomeFirstResponder()
@@ -148,12 +156,20 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         return
     }
     
+    // start activity indicator and disable action button
+    toggleIndicator()
+    
     AccountManager.defaultAccountManager.loginWithEmail(email, password: password) { (error) -> Void in
       dispatch_async(dispatch_get_main_queue()) {
+        
+        // stop activity indicator and re-enable action button
+        self.toggleIndicator()
+        
         if let error = error {
           let errorMessage = error.localizedFailureReason
           self.displayError(errorMessage!)
         } else {
+          // dismiss keyboard and signup controller
           self.view.endEditing(true)
           self.dismissViewControllerAnimated(true, completion: nil)
         }
@@ -164,6 +180,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
   private func signUp() {
     guard let name = nameField.text where !name.isEmpty,
       let email = emailField.text where !email.isEmpty,
+      var phoneNumber = phoneNumberField.text where !phoneNumber.isEmpty,
       let password = passwordField.text where !password.isEmpty,
       let passwordConfirmation = passwordConfirmationField.text where !passwordConfirmation.isEmpty else {
         let errorMessage = "All fields required to register"
@@ -177,19 +194,41 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
       return
     }
     
-    AccountManager.defaultAccountManager.signUpWithEmail(email, password: password, name: name) { (error) -> Void in
+    // strip down phone number
+    phoneNumber = phoneNumber.stringByRemovingOccurrencesOfCharacters(" )(- ")
+    
+    // start activity indicator and disable action button
+    toggleIndicator()
+    
+    AccountManager.defaultAccountManager.signUpWithEmail(email, password: password, name: name, phone: phoneNumber) { (error) -> Void in
       dispatch_async(dispatch_get_main_queue()) {
+        
+        // stop activity indicator and re-enable action button
+        self.toggleIndicator()
+        
         if let error = error {
           let errorMessage = error.localizedFailureReason
           self.displayError(errorMessage!)
         } else {
-          // send device token to meteor for APNS
+          // send device token to Meteor for APNS
           AccountManager.defaultAccountManager.setUserNotificationToken()
           
+          // dismiss keyboard and signup controller
           self.view.endEditing(true)
           self.dismissViewControllerAnimated(true, completion: nil)
         }
       }
+    }
+  }
+  
+  private func toggleIndicator() {
+    if actionButton.enabled {
+      activityIndicator.startAnimating()
+      actionButton.enabled = false
+    }
+    else {
+      activityIndicator.stopAnimating()
+      actionButton.enabled = true
     }
   }
   
@@ -200,6 +239,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     errorMessageLabel.text = message
     errorMessageLabel.alpha = 1
     
+    // display error for set duration
     UIView.animateWithDuration(5) {
       self.errorMessageLabel.alpha = 0
     }

@@ -9,24 +9,33 @@
 import Foundation
 
 extension String {
-    static func className(aClass: AnyClass) -> String {
-        return NSStringFromClass(aClass).componentsSeparatedByString(".").last!
+  static func className(aClass: AnyClass) -> String {
+    return NSStringFromClass(aClass).componentsSeparatedByString(".").last!
+  }
+  
+  func substring(from: Int) -> String {
+    return self.substringFromIndex(self.startIndex.advancedBy(from))
+  }
+  
+  func convertToDictionary() -> [String:AnyObject]? {
+    if let data = self.dataUsingEncoding(NSUTF8StringEncoding) {
+      do {
+        let json = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as? [String:AnyObject]
+        return json
+      } catch {
+        print("Something went wrong")
+      }
+    }
+    return nil
+  }
+  
+  // Remove some occurrences of characters in a string.
+  func stringByRemovingOccurrencesOfCharacters(chars: String) -> String {
+    let cs = characters.filter {
+      chars.characters.indexOf($0) == nil
     }
     
-    func substring(from: Int) -> String {
-        return self.substringFromIndex(self.startIndex.advancedBy(from))
-    }
-  
-    func convertToDictionary() -> [String:AnyObject]? {
-      if let data = self.dataUsingEncoding(NSUTF8StringEncoding) {
-        do {
-          let json = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as? [String:AnyObject]
-          return json
-        } catch {
-          print("Something went wrong")
-        }
-      }
-      return nil
-    }
+    return String(cs)
+  }
   
 }

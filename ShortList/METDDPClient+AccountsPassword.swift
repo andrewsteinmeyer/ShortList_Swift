@@ -10,20 +10,21 @@ import Meteor
 
 extension METDDPClient {
   
+  // sign up with name and email
   func signUpWithEmail(email: String, password: String, name: String, completionHandler: METLogInCompletionHandler) {
     let profile = ["name" : name]
     
     self.signUpWithEmail(email, password: password, profile: profile, completionHandler: completionHandler)
   }
   
-}
-
-/*
-- (void)signUpWithEmail:(NSString *)email password:(NSString *)password name:(NSString *)name completionHandler:(nullable METLogInCompletionHandler)completionHandler {
-  NSMutableDictionary *profile = [NSMutableDictionary dictionary];
-  name ? profile[@"name"] = name : nil;
+  // sign up with name, email and phone number
+  func signUpWithEmail(email: String, password: String, name: String, phone: String, completionHandler: METLogInCompletionHandler) {
+    let profile: [NSObject: AnyObject] = ["name" : name,
+                                          "phones": [
+                                                      ["number": phone, "verified": false]
+                                                    ]
+                                         ]
+    self.signUpWithEmail(email, password: password, profile: profile, completionHandler: completionHandler)
+  }
   
-  [self signUpWithEmail:email password:password profile:profile completionHandler:completionHandler];
-  
 }
-*/

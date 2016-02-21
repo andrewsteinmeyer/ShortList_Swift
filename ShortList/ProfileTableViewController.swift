@@ -14,6 +14,8 @@ class ProfileTableViewController: UITableViewController {
   @IBOutlet weak var firstNameLabel: UILabel!
   @IBOutlet weak var lastNameLabel: UILabel!
   
+  let sectionHeaders = ["Name"]
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -23,10 +25,19 @@ class ProfileTableViewController: UITableViewController {
       self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     
-    // setup profile image
-    let profileImage = UIImage(named: "background_poly")
-    let thumbnailImage = profileImage?.thumbnailImage(95, transparentBorder: 0, cornerRadius: 7, interpolationQuality: .Default)
+    // retrieve profile image
+    var profileImage = AccountManager.defaultAccountManager.currentUser?.image
+    let firstName = AccountManager.defaultAccountManager.currentUser?.firstName
+    let lastName = AccountManager.defaultAccountManager.currentUser?.lastName
+    
+    // set profile picture
+    profileImage = profileImage != nil ? profileImage : UIImage(named: "background_poly")
+    let thumbnailImage = profileImage?.thumbnailImage(96, transparentBorder: 0, cornerRadius: 48, interpolationQuality: .Default)
     let imageView = UIImageView(image: thumbnailImage)
+    
+    // set user name
+    firstNameLabel.text = firstName != nil ? firstName : ""
+    lastNameLabel.text = lastName != nil ? lastName : ""
     
     // add profile image to view
     view.addSubview(imageView)
@@ -49,6 +60,7 @@ class ProfileTableViewController: UITableViewController {
     if let headerView = view as? UITableViewHeaderFooterView {
       headerView.textLabel!.textColor = Theme.ProfileTableViewHeaderTextColor.toUIColor()
       headerView.textLabel!.font = UIFont(name: "Lato-Regular", size: 14)
+      headerView.textLabel!.text = sectionHeaders[section]
     }
   }
   

@@ -72,7 +72,7 @@ final class AccountManager: NSObject {
     if Meteor.userID == nil {
       self.signOut()
     }
-    // user logged in, request user info from meteor and save locally
+    // user logged in, request user info from Meteor and save locally
     else {
       findCurrentUser()
     }
@@ -84,10 +84,17 @@ final class AccountManager: NSObject {
     Meteor.loginWithEmail(email, password: password, completionHandler: completionHandler)
   }
   
+  // email and name
   func signUpWithEmail(email: String, password: String, name: String, completionHandler: METLogInCompletionHandler) {
     Meteor.signUpWithEmail(email, password: password, name: name, completionHandler: completionHandler)
   }
   
+  // email, name and phone number
+  func signUpWithEmail(email: String, password: String, name: String, phone: String, completionHandler: METLogInCompletionHandler) {
+    Meteor.signUpWithEmail(email, password: password, name: name, phone: phone, completionHandler: completionHandler)
+  }
+  
+  // just email
   func signUpWithEmail(email: String, password: String, completionHandler: METLogInCompletionHandler) {
     Meteor.signUpWithEmail(email, password: password, completionHandler: completionHandler)
   }
@@ -102,7 +109,7 @@ final class AccountManager: NSObject {
       userInfo, error in
       
       if error != nil {
-        print("server succesfully received token: \(token)")
+        print("server successfully received token: \(token)")
       }
     }
   }
@@ -117,7 +124,9 @@ final class AccountManager: NSObject {
         let user = User()
         user.emailAddress = JSONUser["email"].string
         user.fullName = JSONUser["name"].string
+        user.phone = JSONUser["phone"].string
         
+        // save user
         self.currentUser = user
       }
     }
