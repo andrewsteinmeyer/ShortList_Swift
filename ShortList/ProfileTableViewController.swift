@@ -15,6 +15,8 @@ class ProfileTableViewController: UITableViewController {
   @IBOutlet weak var lastNameLabel: UILabel!
   @IBOutlet weak var emailAddressLabel: UILabel!
   @IBOutlet weak var phoneNumberLabel: UILabel!
+  @IBOutlet weak var logoutButton: UIButton!
+
   
   let sectionHeaders = ["Name", "Profile"]
   
@@ -26,6 +28,8 @@ class ProfileTableViewController: UITableViewController {
       menuButton.action = "revealToggle:"
       self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
+    
+    setupAppearance()
     
     // retrieve profile details
     let user = AccountManager.defaultAccountManager.currentUser
@@ -68,6 +72,17 @@ class ProfileTableViewController: UITableViewController {
     
   }
   
+  @IBAction func logoutButtonDidPress(sender: AnyObject) {
+    AccountManager.defaultAccountManager.signOut()
+  }
+  
+  func setupAppearance() {
+    // set button color
+    let buttonTextColor = Theme.ProfileLogoutButtonTextColor.toUIColor()
+
+    logoutButton.setTitleColor(buttonTextColor, forState: .Normal)
+  }
+  
   //MARK: UITableViewDelegate
   
   override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -100,18 +115,21 @@ class ProfileTableViewController: UITableViewController {
     let fontName = Constants.ProfileTableView.SectionHeaderView.FontName
     let fontSize = Constants.ProfileTableView.SectionHeaderView.FontSize
     
+    
     // create section header view
     let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: height))
     
-    let horizontalPadding: CGFloat = section == 0 ? 125 : 15
-    let verticalPadding: CGFloat = height - fontSize - 5
+    if section < 2 {
+      let horizontalPadding: CGFloat = section == 0 ? 125 : 15
+      let verticalPadding: CGFloat = height - fontSize - 5
     
-    let titleLabel = UILabel(frame: CGRect(x: horizontalPadding, y: verticalPadding, width: tableView.frame.size.width - horizontalPadding, height: fontSize))
-    titleLabel.textColor = Theme.ProfileTableViewHeaderTextColor.toUIColor()
-    titleLabel.font = UIFont(name: fontName, size: fontSize)
-    titleLabel.text = sectionHeaders[section]
+      let titleLabel = UILabel(frame: CGRect(x: horizontalPadding, y: verticalPadding, width: tableView.frame.size.width - horizontalPadding, height: fontSize))
+      titleLabel.textColor = Theme.ProfileTableViewHeaderTextColor.toUIColor()
+      titleLabel.font = UIFont(name: fontName, size: fontSize)
+      titleLabel.text = sectionHeaders[section]
     
-    headerView.addSubview(titleLabel)
+      headerView.addSubview(titleLabel)
+    }
     
     return headerView
   }

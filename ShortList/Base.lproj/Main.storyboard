@@ -83,6 +83,7 @@
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -139,19 +140,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="caY-pe-bcO">
-                                        <rect key="frame" x="164" y="154" width="273" height="385"/>
+                                        <rect key="frame" x="164" y="154" width="273" height="388"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="xce-wS-iuH">
-                                                <rect key="frame" x="0.0" y="0.0" width="273" height="71"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="273" height="73"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="shortlist." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMj-Xj-4GZ">
-                                                        <rect key="frame" x="60" y="0.0" width="153" height="47"/>
+                                                        <rect key="frame" x="59" y="0.0" width="155" height="48"/>
                                                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="40"/>
                                                         <color key="textColor" red="1" green="0.84313725490000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5O-U8-RrJ">
-                                                        <rect key="frame" x="85" y="52" width="104" height="19"/>
+                                                        <rect key="frame" x="86" y="53" width="101" height="20"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                                         <color key="textColor" red="0.91756308080000004" green="0.33028072120000002" blue="0.34021648760000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -159,7 +160,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6NI-gr-FUv">
-                                                <rect key="frame" x="0.0" y="93" width="273" height="150"/>
+                                                <rect key="frame" x="0.0" y="95" width="273" height="150"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="muD-XF-zAh" customClass="DesignableTextField" customModule="ShortList" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="273" height="30"/>
@@ -239,7 +240,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="EFG-bg-9tX">
-                                                <rect key="frame" x="0.0" y="265" width="273" height="120"/>
+                                                <rect key="frame" x="0.0" y="267" width="273" height="121"/>
                                                 <subviews>
                                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="73c-tj-jEG">
                                                         <rect key="frame" x="0.0" y="0.0" width="273" height="20"/>
@@ -267,7 +268,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1b-Ic-W2N">
-                                                        <rect key="frame" x="0.0" y="89" width="273" height="31"/>
+                                                        <rect key="frame" x="0.0" y="89" width="273" height="32"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                                         <state key="normal" title="Register">
                                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -1578,7 +1579,7 @@
                         <sections>
                             <tableViewSection headerTitle="Name" id="WK1-4B-r2T">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="zgd-C8-DpN" style="IBUITableViewCellStyleDefault" id="rvq-tq-5g7">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="zgd-C8-DpN" style="IBUITableViewCellStyleDefault" id="rvq-tq-5g7">
                                         <rect key="frame" x="0.0" y="114" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rvq-tq-5g7" id="8Oq-86-tvy">
@@ -1596,7 +1597,7 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="125" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="OWp-tY-gYf" style="IBUITableViewCellStyleDefault" id="ptb-Sh-pQO">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="OWp-tY-gYf" style="IBUITableViewCellStyleDefault" id="ptb-Sh-pQO">
                                         <rect key="frame" x="0.0" y="158" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ptb-Sh-pQO" id="dfv-AW-QFx">
@@ -1618,7 +1619,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Profile" id="asj-6B-P8u">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="zG5-tN-A1H">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="zG5-tN-A1H">
                                         <rect key="frame" x="0.0" y="245" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalHuggingPriority="251" tableViewCell="zG5-tN-A1H" id="IWv-TU-6c1">
@@ -1655,7 +1656,7 @@
                                             <constraint firstItem="gGe-KO-W0z" firstAttribute="centerY" secondItem="zG5-tN-A1H" secondAttribute="centerY" id="eCm-i7-c6m"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="1eY-j2-FCv">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="1eY-j2-FCv">
                                         <rect key="frame" x="0.0" y="289" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalHuggingPriority="251" tableViewCell="1eY-j2-FCv" id="24w-Gr-SDB">
@@ -1694,6 +1695,36 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="R7D-2p-WwU">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="o1C-Rf-xxI">
+                                        <rect key="frame" x="0.0" y="393" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalHuggingPriority="251" tableViewCell="o1C-Rf-xxI" id="lPa-Kv-Gw5">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqN-17-ydY">
+                                                    <rect key="frame" x="274" y="5" width="52" height="33"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="33" id="KzJ-ez-eJM"/>
+                                                        <constraint firstAttribute="width" constant="52" id="xM5-oB-dJk"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                                    <state key="normal" title="Logout"/>
+                                                    <connections>
+                                                        <action selector="logoutButtonDidPress:" destination="KTX-uE-MM3" eventType="touchUpInside" id="Hhc-zU-XoQ"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zqN-17-ydY" firstAttribute="centerY" secondItem="lPa-Kv-Gw5" secondAttribute="centerY" id="DVT-yq-JTi"/>
+                                                <constraint firstItem="zqN-17-ydY" firstAttribute="centerX" secondItem="lPa-Kv-Gw5" secondAttribute="centerX" id="pV7-b1-sHP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="KTX-uE-MM3" id="VXq-pY-3w6"/>
@@ -1707,6 +1738,7 @@
                         <outlet property="emailAddressLabel" destination="aHZ-ca-cpX" id="dXa-hq-5ko"/>
                         <outlet property="firstNameLabel" destination="zgd-C8-DpN" id="4lU-Bc-N1e"/>
                         <outlet property="lastNameLabel" destination="OWp-tY-gYf" id="CYh-eU-NXY"/>
+                        <outlet property="logoutButton" destination="zqN-17-ydY" id="ZuY-DI-KBt"/>
                         <outlet property="menuButton" destination="G7H-OR-shA" id="iLs-Mo-6if"/>
                         <outlet property="phoneNumberLabel" destination="5Kd-XM-NJ1" id="Zzt-fI-Tqh"/>
                     </connections>

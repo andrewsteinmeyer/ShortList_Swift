@@ -10,6 +10,22 @@ import Meteor
 
 extension METDDPClient {
   
+  /*
+  private struct AssociatedKeys {
+    static var account = "account"
+  }
+  
+  //this lets us check to see if the item is supposed to be displayed or not
+  var account : METAccount? {
+    get {
+      guard let account = objc_getAssociatedObject(self, &AssociatedKeys.account) as? METAccount else {
+        return nil
+      }
+      return account
+    }
+  }
+  */
+  
   // sign up with name and email
   func signUpWithEmail(email: String, password: String, name: String, completionHandler: METLogInCompletionHandler) {
     let profile = ["name" : name]
