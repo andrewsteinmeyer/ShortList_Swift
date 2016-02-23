@@ -4,7 +4,7 @@ PODS:
     - ChameleonFramework/Default
   - DZNEmptyDataSet (1.7.3)
   - FLEX (2.2.0)
-  - GoogleMaps (1.11.1)
+  - GoogleMaps (1.12.1)
   - Groot (1.2):
     - Groot/Swift (= 1.2)
   - Groot/Swift (1.2)
@@ -13,10 +13,10 @@ PODS:
     - InflectorKit
     - PocketSocket
     - SimpleKeychain
-  - ObjectMapper (1.0.1)
+  - ObjectMapper (1.1.5)
   - PhoneNumberKit (0.6)
   - PocketSocket (0.6.4)
-  - SimpleKeychain (0.6.1)
+  - SimpleKeychain (0.7.0)
 
 DEPENDENCIES:
   - ChameleonFramework/Swift
@@ -32,13 +32,13 @@ SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   DZNEmptyDataSet: dd7cca17c1d07dfa78956859b1e70a52505678ef
   FLEX: bc8a4fb887ed5d3cdf7c2f3bd665f7bb1647cc58
-  GoogleMaps: c947160008f414c66707a5ea60f35e92055c7670
+  GoogleMaps: d4e7526e96e78faf7131ea95f13dd5411cc2916d
   Groot: 86c2c820d619f18586b2d1dcfd90e908339f00bc
   InflectorKit: 64497199e6764f4d8337cab7f700a77b13d76a73
   Meteor: 6bb446c8f5837f9a0b40dbae2957ea8f6d0b0ebf
-  ObjectMapper: 98524bac0dca46c6b3d5ee02cd410fc700ec6ce2
+  ObjectMapper: 528b1a6677a6acac7747edd508576983e76a9148
   PhoneNumberKit: 683f1287a88c1f27386b27cad851081c7c45cb62
   PocketSocket: eee7ef375f55b98e7ca79e097d9c61fd688e9494
-  SimpleKeychain: 150d76f3b9200de58f033228f6e976c6241a221c
+  SimpleKeychain: b50cef3b87939d480ea1143425c00f5b4b70fe21
 
 COCOAPODS: 0.39.0
