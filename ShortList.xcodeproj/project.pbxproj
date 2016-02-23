@@ -138,6 +138,7 @@
 		4EC403F41C7667FB0056D5F3 /* UIImage+ReSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC403F11C7667FB0056D5F3 /* UIImage+ReSize.swift */; };
 		4EC403F51C7667FB0056D5F3 /* UIImage+RoundCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC403F21C7667FB0056D5F3 /* UIImage+RoundCorner.swift */; };
 		4EE878CA1C551C3C00BABF15 /* NSData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE878C91C551C3C00BABF15 /* NSData.swift */; };
+		4EF93D1A1C7C9FF900FBB18C /* PhoneTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF93D191C7C9FF900FBB18C /* PhoneTextField.swift */; };
 		EDC38BDC8C7C0EF0ABD622BE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A2DD5B22DC715FCEC00F2E /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -303,6 +304,7 @@
 		4EC403F11C7667FB0056D5F3 /* UIImage+ReSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ReSize.swift"; sourceTree = "<group>"; };
 		4EC403F21C7667FB0056D5F3 /* UIImage+RoundCorner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+RoundCorner.swift"; sourceTree = "<group>"; };
 		4EE878C91C551C3C00BABF15 /* NSData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSData.swift; sourceTree = "<group>"; };
+		4EF93D191C7C9FF900FBB18C /* PhoneTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneTextField.swift; sourceTree = "<group>"; };
 		90A2DD5B22DC715FCEC00F2E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D95D466AA0CD1F1DA86F9F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FAC3F16DBC599F9FC99408F7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -482,6 +484,7 @@
 			isa = PBXGroup;
 			children = (
 				4E6312B21C1FAFCA00EB78F9 /* TableCellView */,
+				4EF93D191C7C9FF900FBB18C /* PhoneTextField.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -970,6 +973,7 @@
 				4EA365301C2380BD00C90249 /* AccountManager.swift in Sources */,
 				4EC403F31C7667FB0056D5F3 /* UIImage+Alpha.swift in Sources */,
 				4E63130E1C1FB28000EB78F9 /* TransitionManager.swift in Sources */,
+				4EF93D1A1C7C9FF900FBB18C /* PhoneTextField.swift in Sources */,
 				4E066E051C5D6BE400003143 /* SWRevealViewController.m in Sources */,
 				4E63132C1C1FB2DE00EB78F9 /* List.swift in Sources */,
 				4E63132D1C1FB2DE00EB78F9 /* Event.swift in Sources */,

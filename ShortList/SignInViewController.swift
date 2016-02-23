@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Meteor
+import PhoneNumberKit
 
 
 enum Screen: Int {
@@ -21,7 +22,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var nameField: DesignableTextField!
   @IBOutlet weak var emailField: DesignableTextField!
-  @IBOutlet weak var phoneNumberField: DesignableTextField!
+  @IBOutlet weak var phoneNumberField: PhoneTextField!
   @IBOutlet weak var passwordField: DesignableTextField!
   @IBOutlet weak var passwordConfirmationField: DesignableTextField!
   @IBOutlet weak var errorMessageLabel: UILabel!
@@ -47,6 +48,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     nameField.hidden = true
     phoneNumberField.hidden = true
     passwordConfirmationField.hidden = true
+    activityIndicator.hidden = true
     
     setupAppearance()
   }
@@ -226,16 +228,13 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
       activityIndicator.hidden = false
       activityIndicator.startAnimating()
       
-      toggleScreenButton.hidden = true
-      
       actionButton.enabled = false
       actionButton.hidden = true
     }
     else {
       activityIndicator.hidden = true
       activityIndicator.stopAnimating()
-      
-      toggleScreenButton.hidden = false
+    
       
       actionButton.enabled = true
       actionButton.hidden = false

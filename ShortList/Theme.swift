@@ -42,6 +42,7 @@ enum Theme {
   case SignInViewBackgroundColor
   case SignInViewThemeColor
   case SignInViewErrorColor
+  case SignInViewTextFieldPlaceholderColor
   
   // Navigation
   case NavigationBarTintColor
@@ -100,6 +101,7 @@ enum Theme {
     case .SignInViewBackgroundColor:                     return HexColor(Palette.mainThemeBackgroundColor)
     case .SignInViewThemeColor:                          return HexColor(Palette.mainThemeColor)
     case .SignInViewErrorColor:                          return HexColor(Palette.mainThemeErrorColor)
+    case .SignInViewTextFieldPlaceholderColor:           return HexColor(Palette.mainThemeTextColor)
       
     // Navigation
     case .NavigationBarTintColor:                        return HexColor(Palette.mainThemeTextColor)
