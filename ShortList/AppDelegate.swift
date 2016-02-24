@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // setup appearance and menu
     self.setAppearance()
     
-    FLEXManager.sharedManager().showExplorer()
+    //FLEXManager.sharedManager().showExplorer()
     
     // set up account manager and establish connection to Meteor
     AccountManager.setUpDefaultAccountManager(AccountManager())

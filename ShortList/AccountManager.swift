@@ -48,7 +48,7 @@ final class AccountManager: NSObject {
   }
   
   var token: String {
-    return Meteor.account.resumeToken
+    return Meteor.account!.resumeToken
   }
   
   var deviceToken: String? {
