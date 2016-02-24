@@ -126,7 +126,12 @@ class EventDetailViewController: UIViewController {
       result, error in
       
       if error != nil {
-        print("error: \(error?.localizedDescription)")
+        dispatch_async(dispatch_get_main_queue()) {
+          if let failureReason = error?.localizedFailureReason {
+            AppDelegate.getAppDelegate().showMessage(failureReason)
+            print("error: \(failureReason)")
+          }
+        }
       } else {
         print("success: contacts invited")
       }

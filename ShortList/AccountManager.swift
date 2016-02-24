@@ -48,7 +48,7 @@ final class AccountManager: NSObject {
   }
   
   var token: String {
-    return Meteor.account!.resumeToken
+    return Meteor.account.resumeToken
   }
   
   var deviceToken: String? {
@@ -57,9 +57,8 @@ final class AccountManager: NSObject {
         return
       }
       
-      //TODO: do we need to send this everytime the user launches the app and the app registers for push notifications?
-      // might be overkill because we send the device token when the user signs up.  commenting out for now.
-      // setUserNotificationToken()
+      // send device token to Meteor for APNS
+      setUserNotificationToken()
     }
   }
   

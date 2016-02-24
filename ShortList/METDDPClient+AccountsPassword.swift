@@ -10,6 +10,7 @@ import Meteor
 
 extension METDDPClient {
   
+  /*
   private struct AssociatedKeys {
     static var account = "account"
   }
@@ -23,6 +24,7 @@ extension METDDPClient {
       return account
     }
   }
+  */
   
   // sign up with name and email
   func signUpWithEmail(email: String, password: String, name: String, completionHandler: METLogInCompletionHandler) {
