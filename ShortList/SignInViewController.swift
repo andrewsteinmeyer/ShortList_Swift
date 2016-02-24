@@ -146,10 +146,13 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
         if let error = error {
           let errorMessage = error.localizedFailureReason
           self.displayError(errorMessage!)
+          print("error logging in")
         } else {
           // dismiss keyboard and signup controller
           self.view.endEditing(true)
           self.dismissViewControllerAnimated(true, completion: nil)
+          print("successfully logged in")
+          
         }
       }
     }
@@ -338,8 +341,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
     signInViewController.modalTransitionStyle = .CrossDissolve
     
     // Present the sign in view controller.
-    //AppDelegate.getRootViewController()?.presentViewController(signInViewController, animated: true, completion: nil)
-    UIApplication.topViewController()?.presentViewController(signInViewController, animated: true, completion: nil)
+    AppDelegate.getRootViewController()?.presentViewController(signInViewController, animated: true, completion: nil)
   }
   
 }
