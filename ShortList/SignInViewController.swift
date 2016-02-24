@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Meteor
 import PhoneNumberKit
+import SwiftValidator
 
 
 enum Screen: Int {
@@ -17,18 +18,26 @@ enum Screen: Int {
   case Register
 }
 
-class SignInViewController: UIViewController, UITextFieldDelegate {
+class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDelegate {
   
   @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var errorMessageLabel: UILabel!
   @IBOutlet weak var nameField: DesignableTextField!
   @IBOutlet weak var emailField: DesignableTextField!
   @IBOutlet weak var phoneNumberField: PhoneTextField!
   @IBOutlet weak var passwordField: DesignableTextField!
   @IBOutlet weak var passwordConfirmationField: DesignableTextField!
-  @IBOutlet weak var errorMessageLabel: UILabel!
   @IBOutlet weak var toggleScreenButton: UIButton!
   @IBOutlet weak var actionButton: DesignableButton!
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+  
+  var nameValidated = false
+  var emailValidated = false
+  var phoneValidated = false
+  var passwordValidated = false
+  var passwordConfirmationValidated = false
+  
+  let validator = Validator()
   
   // set initial screen
   var currentScreen: Screen = .SignIn
@@ -38,19 +47,17 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // set view controller as delegate
+    // set view controller as textfield delegate
     nameField.delegate = self
     emailField.delegate = self
     phoneNumberField.delegate = self
     passwordField.delegate = self
     passwordConfirmationField.delegate = self
     
-    nameField.hidden = true
-    phoneNumberField.hidden = true
-    passwordConfirmationField.hidden = true
-    activityIndicator.hidden = true
-    
     setupAppearance()
+    
+    // setup text field validations
+    registerValidations()
   }
   
   
@@ -67,38 +74,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     emailField.becomeFirstResponder()
   }
   
-  private func toggleScreen() {
-    switch currentScreen {
-    case .SignIn:
-      currentScreen = .Register
-      clearErrors()
-      
-      // unhide views
-      animateViews([nameField, phoneNumberField, passwordConfirmationField], toHidden: false)
-      nameField.becomeFirstResponder()
-      
-      actionButton.setTitle("Register", forState: .Normal)
-      toggleScreenButton.setTitle("Sign In", forState: .Normal)
-      
-    case .Register:
-      currentScreen = .SignIn
-      clearErrors()
-      
-      // hide views
-      animateViews([nameField, phoneNumberField, passwordConfirmationField], toHidden: true)
-      emailField.becomeFirstResponder()
-      
-      actionButton.setTitle("Sign In", forState: .Normal)
-      toggleScreenButton.setTitle("Register", forState: .Normal)
-    }
-  
-  }
-  
-  private func animateViews(views: [UIView], toHidden hidden: Bool) {
-    UIView.animateWithDuration(0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 10, options: UIViewAnimationOptions(), animations: { () -> Void in
-      let _ = views.map { $0.hidden = hidden }
-      }, completion: nil)
-  }
+
   
   // MARK: UITextFieldDelegate
   
@@ -143,16 +119,16 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     case .SignIn:
       signIn()
     case .Register:
-      signUp()
+      validate()
     }
   }
   
-  //MARK: - Sign In and Sign Up
+  //MARK: - Sign in and Sign up
   
   private func signIn() {
     guard let email = emailField.text where !email.isEmpty,
       let password = passwordField.text where !password.isEmpty else {
-        let errorMessage = "All fields required to sign in"
+        let errorMessage = "Email and password required."
         displayError(errorMessage)
         
         return
@@ -178,22 +154,17 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
       }
     }
   }
-  
+
   private func signUp() {
+    // already validated in validate()
+    // but use guard to extract to local variables
     guard let name = nameField.text where !name.isEmpty,
       let email = emailField.text where !email.isEmpty,
       var phoneNumber = phoneNumberField.text where !phoneNumber.isEmpty,
       let password = passwordField.text where !password.isEmpty,
-      let passwordConfirmation = passwordConfirmationField.text where !passwordConfirmation.isEmpty else {
-        let errorMessage = "All fields required to register"
-        displayError(errorMessage)
+      let passwordConfirmation = passwordConfirmationField.text where !passwordConfirmation.isEmpty
+      && password == passwordConfirmation else {
         return
-    }
-    
-    if password != passwordConfirmation {
-      let errorMessage = "Password and confirmation do not match"
-      displayError(errorMessage)
-      return
     }
     
     // strip down phone number
@@ -223,22 +194,72 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     }
   }
   
+  //MARK: Helper functions
+  
+  private func toggleScreen() {
+    switch currentScreen {
+    case .SignIn:
+      currentScreen = .Register
+      clearErrors()
+      
+      // unhide views and focus on nameField
+      animateViews([nameField, phoneNumberField, passwordConfirmationField], toHidden: false)
+      nameField.becomeFirstResponder()
+      
+      // toggle button titles
+      actionButton.setTitle("Register", forState: .Normal)
+      toggleScreenButton.setTitle("Sign In", forState: .Normal)
+      
+    case .Register:
+      currentScreen = .SignIn
+      clearErrors()
+      
+      // hide views and focus on emailField
+      animateViews([nameField, phoneNumberField, passwordConfirmationField], toHidden: true)
+      emailField.becomeFirstResponder()
+      
+      // toggle button titles
+      actionButton.setTitle("Sign In", forState: .Normal)
+      toggleScreenButton.setTitle("Register", forState: .Normal)
+    }
+    
+  }
+  
   private func toggleIndicator() {
     if actionButton.enabled {
+      // hide activity indicator
       activityIndicator.hidden = false
       activityIndicator.startAnimating()
       
+      // show action button
       actionButton.enabled = false
       actionButton.hidden = true
     }
     else {
+      // show activity indicator
       activityIndicator.hidden = true
       activityIndicator.stopAnimating()
     
-      
+      // hide action button
       actionButton.enabled = true
       actionButton.hidden = false
     }
+  }
+  
+  private func setupAppearance() {
+    // set theme color
+    let themeColor = Theme.SignInViewThemeColor.toUIColor()
+    titleLabel.textColor = themeColor
+    actionButton.backgroundColor = themeColor
+    toggleScreenButton.setTitleColor(themeColor, forState: .Normal)
+    
+    // set background color
+    view.backgroundColor = Theme.SignInViewBackgroundColor.toUIColor()
+    
+    nameField.hidden = true
+    phoneNumberField.hidden = true
+    passwordConfirmationField.hidden = true
+    activityIndicator.hidden = true
   }
   
   private func displayError(message: String) {
@@ -257,19 +278,46 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
   private func clearErrors() {
     errorMessageLabel.text = " "
   }
+
   
-  private func setupAppearance() {
-    // set theme color
-    let themeColor = Theme.SignInViewThemeColor.toUIColor()
-    titleLabel.textColor = themeColor
-    actionButton.backgroundColor = themeColor
-    toggleScreenButton.setTitleColor(themeColor, forState: .Normal)
+  private func animateViews(views: [UIView], toHidden hidden: Bool) {
+    UIView.animateWithDuration(0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 10, options: UIViewAnimationOptions(), animations: { () -> Void in
+      let _ = views.map { $0.hidden = hidden }
+      }, completion: nil)
+  }
+  
+  //MARK: Validation
+  
+  private func validate() {
+    validator.validate(self)
+  }
+  
+  func validationSuccessful() {
+    signUp()
+  }
+  
+  func validationFailed(errors: OrderedDictionary<UITextField,ValidationError>) {
+    for (_, error) in validator.errors {
+      // the last error will be displayed
+      displayError(error.errorMessage)
+    }
+  }
+  
+  private func registerValidations() {
+    // password confirmation
+    validator.registerField(passwordConfirmationField, errorLabel: errorMessageLabel, rules: [ConfirmationRule(confirmField: passwordField, message: "Passwords do not match.")])
     
-    // set background color
-    view.backgroundColor = Theme.SignInViewBackgroundColor.toUIColor()
+    // password
+    validator.registerField(passwordField, errorLabel: errorMessageLabel, rules: [RequiredRule(message: "Password is required."), MinLengthRule(length: 5, message: "Password must be 5 characters.")])
     
-    // set error color
-    errorMessageLabel.textColor = Theme.SignInViewErrorColor.toUIColor()
+    // phone
+    validator.registerField(phoneNumberField, errorLabel: errorMessageLabel, rules: [RequiredRule(message: "Phone number is required."), MinLengthRule(length: 9, message: "Invalid phone number.")])
+    
+    // email
+    validator.registerField(emailField, errorLabel: errorMessageLabel, rules: [RequiredRule(message: "Email is required."), EmailRule(message: "Invalid email address.")])
+    
+    // name
+    validator.registerField(nameField, errorLabel: errorMessageLabel, rules: [RequiredRule(message: "Name is required."), FullNameRule()])
   }
   
   //MARK: Status Bar

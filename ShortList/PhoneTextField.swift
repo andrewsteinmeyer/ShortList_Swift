@@ -10,6 +10,14 @@ import PhoneNumberKit
 
 @IBDesignable public class PhoneTextField: PhoneNumberTextField {
   
+  @IBInspectable public var placeholderColor: UIColor = UIColor.clearColor() {
+    didSet {
+      attributedPlaceholder = NSAttributedString(string: placeholder!, attributes: [NSForegroundColorAttributeName: placeholderColor])
+      layoutSubviews()
+      
+    }
+  }
+  
   @IBInspectable public var sidePadding: CGFloat = 0 {
     didSet {
       let padding = UIView(frame: CGRectMake(0, 0, sidePadding, sidePadding))

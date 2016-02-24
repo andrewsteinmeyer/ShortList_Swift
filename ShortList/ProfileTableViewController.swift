@@ -29,8 +29,6 @@ class ProfileTableViewController: UITableViewController {
       self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     
-    setupAppearance()
-    
     // retrieve profile details
     let user = AccountManager.defaultAccountManager.currentUser
     
@@ -70,13 +68,18 @@ class ProfileTableViewController: UITableViewController {
     // activate the new constraints
     NSLayoutConstraint.activateConstraints([horizontalConstraints, verticalConstraints])
     
+    setupAppearance()
   }
+  
+  //MARK: IBAction
   
   @IBAction func logoutButtonDidPress(sender: AnyObject) {
     AccountManager.defaultAccountManager.signOut()
   }
   
-  func setupAppearance() {
+  //MARK: Helper functions
+  
+  private func setupAppearance() {
     // set button color
     let buttonTextColor = Theme.ProfileLogoutButtonTextColor.toUIColor()
 

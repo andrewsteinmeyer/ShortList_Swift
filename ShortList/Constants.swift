@@ -60,8 +60,7 @@ struct Constants {
     
     struct Event {
       static let Title = "No Events"
-      static let Description = "Create an event and invite people to join in on the fun.\n\nThey eagerly await your invitation."
-      //static let Description = "Create an event and invite people to join in on the fun.  They eagerly await your invitation."
+      static let Description = "Create an event and invite people to join in on the fun."
     }
     
     struct Contact {
