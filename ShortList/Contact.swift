@@ -10,14 +10,11 @@ import CoreData
 
 class Contact: NSManagedObject {
   
-  @NSManaged var _id: String?
   @NSManaged var userId: String?
   @NSManaged var insertedOn: String?
   @NSManaged var name: String?
   @NSManaged var email: String?
   @NSManaged var phone: String?
   @NSManaged var source: String?
-  @NSManaged var favorite: NSNumber?
-  @NSManaged var score: NSNumber?
   
 }

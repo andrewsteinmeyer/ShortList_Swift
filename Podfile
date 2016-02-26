@@ -1,6 +1,5 @@
 use_frameworks!
 
-pod 'Meteor'
 pod 'Groot'
 pod 'GoogleMaps'
 pod 'ObjectMapper'

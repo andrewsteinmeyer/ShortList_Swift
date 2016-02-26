@@ -154,7 +154,6 @@
 		4EA3652A1C2224B500C90249 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA365291C2224B500C90249 /* SignInViewController.swift */; };
 		4EA365301C2380BD00C90249 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA3652F1C2380BD00C90249 /* AccountManager.swift */; };
 		4EA365321C23AFCA00C90249 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA365311C23AFCA00C90249 /* ContactsViewController.swift */; };
-		4EA365341C23B4D300C90249 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA365331C23B4D300C90249 /* Contact.swift */; };
 		4EA365361C23C44A00C90249 /* MeteorContactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA365351C23C44A00C90249 /* MeteorContactService.swift */; };
 		4EA89FB71C25E0F200163C57 /* ListsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA89FB61C25E0F200163C57 /* ListsTabBarController.swift */; };
 		4EA89FBB1C261AD800163C57 /* CreateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA89FBA1C261AD800163C57 /* CreateListViewController.swift */; };
@@ -163,6 +162,61 @@
 		4EC403F41C7667FB0056D5F3 /* UIImage+ReSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC403F11C7667FB0056D5F3 /* UIImage+ReSize.swift */; };
 		4EC403F51C7667FB0056D5F3 /* UIImage+RoundCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC403F21C7667FB0056D5F3 /* UIImage+RoundCorner.swift */; };
 		4EE878CA1C551C3C00BABF15 /* NSData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE878C91C551C3C00BABF15 /* NSData.swift */; };
+		4EF3299F1C7F53A10078B69A /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3299D1C7F53A10078B69A /* Contact.swift */; };
+		4EF329F11C80931C0078B69A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4EF329A11C80931C0078B69A /* LICENSE */; };
+		4EF329F21C80931C0078B69A /* METAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329A41C80931C0078B69A /* METAccount.m */; };
+		4EF329F31C80931C0078B69A /* METAleaRandomValueGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329A61C80931C0078B69A /* METAleaRandomValueGenerator.m */; };
+		4EF329F41C80931C0078B69A /* METBufferedDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329A81C80931C0078B69A /* METBufferedDocument.m */; };
+		4EF329F51C80931C0078B69A /* METCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329AA1C80931C0078B69A /* METCollection.m */; };
+		4EF329F61C80931C0078B69A /* METCoreDataDDPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329AD1C80931C0078B69A /* METCoreDataDDPClient.m */; };
+		4EF329F71C80931C0078B69A /* METDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329AF1C80931C0078B69A /* METDatabase.m */; };
+		4EF329F81C80931C0078B69A /* METDatabaseChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329B21C80931C0078B69A /* METDatabaseChanges.m */; };
+		4EF329F91C80931C0078B69A /* METDataUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329B51C80931C0078B69A /* METDataUpdate.m */; };
+		4EF329FA1C80931C0078B69A /* METDDPClient+AccountsPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329B71C80931C0078B69A /* METDDPClient+AccountsPassword.m */; };
+		4EF329FB1C80931C0078B69A /* METDDPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329B91C80931C0078B69A /* METDDPClient.m */; };
+		4EF329FC1C80931C0078B69A /* METDDPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329BC1C80931C0078B69A /* METDDPConnection.m */; };
+		4EF329FD1C80931C0078B69A /* METDDPHeartbeat.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329BE1C80931C0078B69A /* METDDPHeartbeat.m */; };
+		4EF329FE1C80931C0078B69A /* METDDPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329C01C80931C0078B69A /* METDDPMessage.m */; };
+		4EF329FF1C80931C0078B69A /* METDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329C21C80931C0078B69A /* METDocument.m */; };
+		4EF32A001C80931C0078B69A /* METDocumentCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329C41C80931C0078B69A /* METDocumentCache.m */; };
+		4EF32A011C80931C0078B69A /* METDocumentChangeDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329C61C80931C0078B69A /* METDocumentChangeDetails.m */; };
+		4EF32A021C80931C0078B69A /* METDocumentKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329C81C80931C0078B69A /* METDocumentKey.m */; };
+		4EF32A031C80931C0078B69A /* METDynamicVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329CA1C80931C0078B69A /* METDynamicVariable.m */; };
+		4EF32A041C80931C0078B69A /* METEJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329CC1C80931C0078B69A /* METEJSONSerialization.m */; };
+		4EF32A051C80931C0078B69A /* METFetchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329CF1C80931C0078B69A /* METFetchRequest.m */; };
+		4EF32A061C80931C0078B69A /* METIncrementalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329D11C80931C0078B69A /* METIncrementalStore.m */; };
+		4EF32A071C80931C0078B69A /* METMethodInvocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329D41C80931C0078B69A /* METMethodInvocation.m */; };
+		4EF32A081C80931C0078B69A /* METMethodInvocationContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329D71C80931C0078B69A /* METMethodInvocationContext.m */; };
+		4EF32A091C80931C0078B69A /* METMethodInvocationCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329D91C80931C0078B69A /* METMethodInvocationCoordinator.m */; };
+		4EF32A0A1C80931C0078B69A /* METNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329DC1C80931C0078B69A /* METNetworkReachabilityManager.m */; };
+		4EF32A0B1C80931C0078B69A /* METRandomStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329DE1C80931C0078B69A /* METRandomStream.m */; };
+		4EF32A0C1C80931C0078B69A /* METRandomValueGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329E01C80931C0078B69A /* METRandomValueGenerator.m */; };
+		4EF32A0D1C80931C0078B69A /* METRetryStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329E21C80931C0078B69A /* METRetryStrategy.m */; };
+		4EF32A0E1C80931C0078B69A /* METSubscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329E41C80931C0078B69A /* METSubscription.m */; };
+		4EF32A0F1C80931C0078B69A /* METSubscriptionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329E71C80931C0078B69A /* METSubscriptionManager.m */; };
+		4EF32A101C80931C0078B69A /* METTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329E91C80931C0078B69A /* METTimer.m */; };
+		4EF32A111C80931C0078B69A /* NSArray+METAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329EB1C80931C0078B69A /* NSArray+METAdditions.m */; };
+		4EF32A121C80931C0078B69A /* NSDictionary+METAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329ED1C80931C0078B69A /* NSDictionary+METAdditions.m */; };
+		4EF32A131C80931C0078B69A /* NSString+METAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329EF1C80931C0078B69A /* NSString+METAdditions.m */; };
+		4EF32A141C80931C0078B69A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 4EF329F01C80931C0078B69A /* README.md */; };
+		4EF32A2B1C8093B70078B69A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4EF32A161C8093B70078B69A /* LICENSE */; };
+		4EF32A2C1C8093B70078B69A /* PSWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF32A191C8093B70078B69A /* PSWebSocket.m */; };
+		4EF32A2D1C8093B70078B69A /* PSWebSocketBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF32A1B1C8093B70078B69A /* PSWebSocketBuffer.m */; };
+		4EF32A2E1C8093B70078B69A /* PSWebSocketDeflater.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF32A1D1C8093B70078B69A /* PSWebSocketDeflater.m */; };
+		4EF32A2F1C8093B70078B69A /* PSWebSocketDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF32A1F1C8093B70078B69A /* PSWebSocketDriver.m */; };
+		4EF32A301C8093B70078B69A /* PSWebSocketInflater.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF32A211C8093B70078B69A /* PSWebSocketInflater.m */; };
+		4EF32A311C8093B70078B69A /* PSWebSocketNetworkThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF32A241C8093B70078B69A /* PSWebSocketNetworkThread.m */; };
+		4EF32A321C8093B70078B69A /* PSWebSocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF32A261C8093B70078B69A /* PSWebSocketServer.m */; };
+		4EF32A331C8093B70078B69A /* PSWebSocketUTF8Decoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF32A291C8093B70078B69A /* PSWebSocketUTF8Decoder.m */; };
+		4EF32A341C8093B70078B69A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 4EF32A2A1C8093B70078B69A /* README.md */; };
+		4EF32A3D1C80943E0078B69A /* NSString+InflectorKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF32A381C80943E0078B69A /* NSString+InflectorKit.m */; };
+		4EF32A3E1C80943E0078B69A /* TTTStringInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF32A3A1C80943E0078B69A /* TTTStringInflector.m */; };
+		4EF32A3F1C80943E0078B69A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4EF32A3B1C80943E0078B69A /* LICENSE */; };
+		4EF32A401C80943E0078B69A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 4EF32A3C1C80943E0078B69A /* README.md */; };
+		4EF32A4A1C8094490078B69A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4EF32A421C8094490078B69A /* LICENSE */; };
+		4EF32A4B1C8094490078B69A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 4EF32A431C8094490078B69A /* README.md */; };
+		4EF32A4C1C8094490078B69A /* A0SimpleKeychain+KeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF32A461C8094490078B69A /* A0SimpleKeychain+KeyPair.m */; };
+		4EF32A4D1C8094490078B69A /* A0SimpleKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF32A481C8094490078B69A /* A0SimpleKeychain.m */; };
 		4EF93D1A1C7C9FF900FBB18C /* PhoneTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF93D191C7C9FF900FBB18C /* PhoneTextField.swift */; };
 		EDC38BDC8C7C0EF0ABD622BE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A2DD5B22DC715FCEC00F2E /* Pods.framework */; };
 /* End PBXBuildFile section */
@@ -346,7 +400,6 @@
 		4EA365291C2224B500C90249 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		4EA3652F1C2380BD00C90249 /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		4EA365311C23AFCA00C90249 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
-		4EA365331C23B4D300C90249 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		4EA365351C23C44A00C90249 /* MeteorContactService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorContactService.swift; sourceTree = "<group>"; };
 		4EA89FB61C25E0F200163C57 /* ListsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsTabBarController.swift; sourceTree = "<group>"; };
 		4EA89FBA1C261AD800163C57 /* CreateListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateListViewController.swift; sourceTree = "<group>"; };
@@ -355,6 +408,119 @@
 		4EC403F11C7667FB0056D5F3 /* UIImage+ReSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ReSize.swift"; sourceTree = "<group>"; };
 		4EC403F21C7667FB0056D5F3 /* UIImage+RoundCorner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+RoundCorner.swift"; sourceTree = "<group>"; };
 		4EE878C91C551C3C00BABF15 /* NSData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSData.swift; sourceTree = "<group>"; };
+		4EF3299D1C7F53A10078B69A /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		4EF329A11C80931C0078B69A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		4EF329A31C80931C0078B69A /* METAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METAccount.h; sourceTree = "<group>"; };
+		4EF329A41C80931C0078B69A /* METAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METAccount.m; sourceTree = "<group>"; };
+		4EF329A51C80931C0078B69A /* METAleaRandomValueGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METAleaRandomValueGenerator.h; sourceTree = "<group>"; };
+		4EF329A61C80931C0078B69A /* METAleaRandomValueGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METAleaRandomValueGenerator.m; sourceTree = "<group>"; };
+		4EF329A71C80931C0078B69A /* METBufferedDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METBufferedDocument.h; sourceTree = "<group>"; };
+		4EF329A81C80931C0078B69A /* METBufferedDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METBufferedDocument.m; sourceTree = "<group>"; };
+		4EF329A91C80931C0078B69A /* METCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METCollection.h; sourceTree = "<group>"; };
+		4EF329AA1C80931C0078B69A /* METCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METCollection.m; sourceTree = "<group>"; };
+		4EF329AB1C80931C0078B69A /* METCollection_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METCollection_Internal.h; sourceTree = "<group>"; };
+		4EF329AC1C80931C0078B69A /* METCoreDataDDPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METCoreDataDDPClient.h; sourceTree = "<group>"; };
+		4EF329AD1C80931C0078B69A /* METCoreDataDDPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METCoreDataDDPClient.m; sourceTree = "<group>"; };
+		4EF329AE1C80931C0078B69A /* METDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METDatabase.h; sourceTree = "<group>"; };
+		4EF329AF1C80931C0078B69A /* METDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METDatabase.m; sourceTree = "<group>"; };
+		4EF329B01C80931C0078B69A /* METDatabase_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METDatabase_Internal.h; sourceTree = "<group>"; };
+		4EF329B11C80931C0078B69A /* METDatabaseChanges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METDatabaseChanges.h; sourceTree = "<group>"; };
+		4EF329B21C80931C0078B69A /* METDatabaseChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METDatabaseChanges.m; sourceTree = "<group>"; };
+		4EF329B31C80931C0078B69A /* METDatabaseChanges_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METDatabaseChanges_Internal.h; sourceTree = "<group>"; };
+		4EF329B41C80931C0078B69A /* METDataUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METDataUpdate.h; sourceTree = "<group>"; };
+		4EF329B51C80931C0078B69A /* METDataUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METDataUpdate.m; sourceTree = "<group>"; };
+		4EF329B61C80931C0078B69A /* METDDPClient+AccountsPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "METDDPClient+AccountsPassword.h"; sourceTree = "<group>"; };
+		4EF329B71C80931C0078B69A /* METDDPClient+AccountsPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "METDDPClient+AccountsPassword.m"; sourceTree = "<group>"; };
+		4EF329B81C80931C0078B69A /* METDDPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METDDPClient.h; sourceTree = "<group>"; };
+		4EF329B91C80931C0078B69A /* METDDPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METDDPClient.m; sourceTree = "<group>"; };
+		4EF329BA1C80931C0078B69A /* METDDPClient_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METDDPClient_Internal.h; sourceTree = "<group>"; };
+		4EF329BB1C80931C0078B69A /* METDDPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METDDPConnection.h; sourceTree = "<group>"; };
+		4EF329BC1C80931C0078B69A /* METDDPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METDDPConnection.m; sourceTree = "<group>"; };
+		4EF329BD1C80931C0078B69A /* METDDPHeartbeat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METDDPHeartbeat.h; sourceTree = "<group>"; };
+		4EF329BE1C80931C0078B69A /* METDDPHeartbeat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METDDPHeartbeat.m; sourceTree = "<group>"; };
+		4EF329BF1C80931C0078B69A /* METDDPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METDDPMessage.h; sourceTree = "<group>"; };
+		4EF329C01C80931C0078B69A /* METDDPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METDDPMessage.m; sourceTree = "<group>"; };
+		4EF329C11C80931C0078B69A /* METDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METDocument.h; sourceTree = "<group>"; };
+		4EF329C21C80931C0078B69A /* METDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METDocument.m; sourceTree = "<group>"; };
+		4EF329C31C80931C0078B69A /* METDocumentCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METDocumentCache.h; sourceTree = "<group>"; };
+		4EF329C41C80931C0078B69A /* METDocumentCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METDocumentCache.m; sourceTree = "<group>"; };
+		4EF329C51C80931C0078B69A /* METDocumentChangeDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METDocumentChangeDetails.h; sourceTree = "<group>"; };
+		4EF329C61C80931C0078B69A /* METDocumentChangeDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METDocumentChangeDetails.m; sourceTree = "<group>"; };
+		4EF329C71C80931C0078B69A /* METDocumentKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METDocumentKey.h; sourceTree = "<group>"; };
+		4EF329C81C80931C0078B69A /* METDocumentKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METDocumentKey.m; sourceTree = "<group>"; };
+		4EF329C91C80931C0078B69A /* METDynamicVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METDynamicVariable.h; sourceTree = "<group>"; };
+		4EF329CA1C80931C0078B69A /* METDynamicVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METDynamicVariable.m; sourceTree = "<group>"; };
+		4EF329CB1C80931C0078B69A /* METEJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METEJSONSerialization.h; sourceTree = "<group>"; };
+		4EF329CC1C80931C0078B69A /* METEJSONSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METEJSONSerialization.m; sourceTree = "<group>"; };
+		4EF329CD1C80931C0078B69A /* Meteor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meteor.h; sourceTree = "<group>"; };
+		4EF329CE1C80931C0078B69A /* METFetchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METFetchRequest.h; sourceTree = "<group>"; };
+		4EF329CF1C80931C0078B69A /* METFetchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METFetchRequest.m; sourceTree = "<group>"; };
+		4EF329D01C80931C0078B69A /* METIncrementalStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METIncrementalStore.h; sourceTree = "<group>"; };
+		4EF329D11C80931C0078B69A /* METIncrementalStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METIncrementalStore.m; sourceTree = "<group>"; };
+		4EF329D21C80931C0078B69A /* METIncrementalStore_Testing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METIncrementalStore_Testing.h; sourceTree = "<group>"; };
+		4EF329D31C80931C0078B69A /* METMethodInvocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METMethodInvocation.h; sourceTree = "<group>"; };
+		4EF329D41C80931C0078B69A /* METMethodInvocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METMethodInvocation.m; sourceTree = "<group>"; };
+		4EF329D51C80931C0078B69A /* METMethodInvocation_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METMethodInvocation_Internal.h; sourceTree = "<group>"; };
+		4EF329D61C80931C0078B69A /* METMethodInvocationContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METMethodInvocationContext.h; sourceTree = "<group>"; };
+		4EF329D71C80931C0078B69A /* METMethodInvocationContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METMethodInvocationContext.m; sourceTree = "<group>"; };
+		4EF329D81C80931C0078B69A /* METMethodInvocationCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METMethodInvocationCoordinator.h; sourceTree = "<group>"; };
+		4EF329D91C80931C0078B69A /* METMethodInvocationCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METMethodInvocationCoordinator.m; sourceTree = "<group>"; };
+		4EF329DA1C80931C0078B69A /* METMethodInvocationCoordinator_Testing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METMethodInvocationCoordinator_Testing.h; sourceTree = "<group>"; };
+		4EF329DB1C80931C0078B69A /* METNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		4EF329DC1C80931C0078B69A /* METNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		4EF329DD1C80931C0078B69A /* METRandomStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METRandomStream.h; sourceTree = "<group>"; };
+		4EF329DE1C80931C0078B69A /* METRandomStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METRandomStream.m; sourceTree = "<group>"; };
+		4EF329DF1C80931C0078B69A /* METRandomValueGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METRandomValueGenerator.h; sourceTree = "<group>"; };
+		4EF329E01C80931C0078B69A /* METRandomValueGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METRandomValueGenerator.m; sourceTree = "<group>"; };
+		4EF329E11C80931C0078B69A /* METRetryStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METRetryStrategy.h; sourceTree = "<group>"; };
+		4EF329E21C80931C0078B69A /* METRetryStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METRetryStrategy.m; sourceTree = "<group>"; };
+		4EF329E31C80931C0078B69A /* METSubscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METSubscription.h; sourceTree = "<group>"; };
+		4EF329E41C80931C0078B69A /* METSubscription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METSubscription.m; sourceTree = "<group>"; };
+		4EF329E51C80931C0078B69A /* METSubscription_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METSubscription_Internal.h; sourceTree = "<group>"; };
+		4EF329E61C80931C0078B69A /* METSubscriptionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METSubscriptionManager.h; sourceTree = "<group>"; };
+		4EF329E71C80931C0078B69A /* METSubscriptionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METSubscriptionManager.m; sourceTree = "<group>"; };
+		4EF329E81C80931C0078B69A /* METTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METTimer.h; sourceTree = "<group>"; };
+		4EF329E91C80931C0078B69A /* METTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METTimer.m; sourceTree = "<group>"; };
+		4EF329EA1C80931C0078B69A /* NSArray+METAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+METAdditions.h"; sourceTree = "<group>"; };
+		4EF329EB1C80931C0078B69A /* NSArray+METAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+METAdditions.m"; sourceTree = "<group>"; };
+		4EF329EC1C80931C0078B69A /* NSDictionary+METAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+METAdditions.h"; sourceTree = "<group>"; };
+		4EF329ED1C80931C0078B69A /* NSDictionary+METAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+METAdditions.m"; sourceTree = "<group>"; };
+		4EF329EE1C80931C0078B69A /* NSString+METAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+METAdditions.h"; sourceTree = "<group>"; };
+		4EF329EF1C80931C0078B69A /* NSString+METAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+METAdditions.m"; sourceTree = "<group>"; };
+		4EF329F01C80931C0078B69A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4EF32A161C8093B70078B69A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		4EF32A181C8093B70078B69A /* PSWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSWebSocket.h; sourceTree = "<group>"; };
+		4EF32A191C8093B70078B69A /* PSWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSWebSocket.m; sourceTree = "<group>"; };
+		4EF32A1A1C8093B70078B69A /* PSWebSocketBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSWebSocketBuffer.h; sourceTree = "<group>"; };
+		4EF32A1B1C8093B70078B69A /* PSWebSocketBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSWebSocketBuffer.m; sourceTree = "<group>"; };
+		4EF32A1C1C8093B70078B69A /* PSWebSocketDeflater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSWebSocketDeflater.h; sourceTree = "<group>"; };
+		4EF32A1D1C8093B70078B69A /* PSWebSocketDeflater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSWebSocketDeflater.m; sourceTree = "<group>"; };
+		4EF32A1E1C8093B70078B69A /* PSWebSocketDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSWebSocketDriver.h; sourceTree = "<group>"; };
+		4EF32A1F1C8093B70078B69A /* PSWebSocketDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSWebSocketDriver.m; sourceTree = "<group>"; };
+		4EF32A201C8093B70078B69A /* PSWebSocketInflater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSWebSocketInflater.h; sourceTree = "<group>"; };
+		4EF32A211C8093B70078B69A /* PSWebSocketInflater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSWebSocketInflater.m; sourceTree = "<group>"; };
+		4EF32A221C8093B70078B69A /* PSWebSocketInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSWebSocketInternal.h; sourceTree = "<group>"; };
+		4EF32A231C8093B70078B69A /* PSWebSocketNetworkThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSWebSocketNetworkThread.h; sourceTree = "<group>"; };
+		4EF32A241C8093B70078B69A /* PSWebSocketNetworkThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSWebSocketNetworkThread.m; sourceTree = "<group>"; };
+		4EF32A251C8093B70078B69A /* PSWebSocketServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSWebSocketServer.h; sourceTree = "<group>"; };
+		4EF32A261C8093B70078B69A /* PSWebSocketServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSWebSocketServer.m; sourceTree = "<group>"; };
+		4EF32A271C8093B70078B69A /* PSWebSocketTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSWebSocketTypes.h; sourceTree = "<group>"; };
+		4EF32A281C8093B70078B69A /* PSWebSocketUTF8Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSWebSocketUTF8Decoder.h; sourceTree = "<group>"; };
+		4EF32A291C8093B70078B69A /* PSWebSocketUTF8Decoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSWebSocketUTF8Decoder.m; sourceTree = "<group>"; };
+		4EF32A2A1C8093B70078B69A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4EF32A371C80943E0078B69A /* NSString+InflectorKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+InflectorKit.h"; sourceTree = "<group>"; };
+		4EF32A381C80943E0078B69A /* NSString+InflectorKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+InflectorKit.m"; sourceTree = "<group>"; };
+		4EF32A391C80943E0078B69A /* TTTStringInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTStringInflector.h; sourceTree = "<group>"; };
+		4EF32A3A1C80943E0078B69A /* TTTStringInflector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTStringInflector.m; sourceTree = "<group>"; };
+		4EF32A3B1C80943E0078B69A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		4EF32A3C1C80943E0078B69A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4EF32A421C8094490078B69A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		4EF32A431C8094490078B69A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4EF32A451C8094490078B69A /* A0SimpleKeychain+KeyPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "A0SimpleKeychain+KeyPair.h"; sourceTree = "<group>"; };
+		4EF32A461C8094490078B69A /* A0SimpleKeychain+KeyPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "A0SimpleKeychain+KeyPair.m"; sourceTree = "<group>"; };
+		4EF32A471C8094490078B69A /* A0SimpleKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A0SimpleKeychain.h; sourceTree = "<group>"; };
+		4EF32A481C8094490078B69A /* A0SimpleKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0SimpleKeychain.m; sourceTree = "<group>"; };
+		4EF32A491C8094490078B69A /* SimpleKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleKeychain.h; sourceTree = "<group>"; };
 		4EF93D191C7C9FF900FBB18C /* PhoneTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneTextField.swift; sourceTree = "<group>"; };
 		90A2DD5B22DC715FCEC00F2E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D95D466AA0CD1F1DA86F9F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -698,6 +864,10 @@
 				4E3288C01C24B19A00F936DF /* UIMaterialTextField.swift */,
 				4E6313331C1FB56D00EB78F9 /* SwiftyJSON.swift */,
 				4E1C46C31C7DE28200C22101 /* OrderedDictionary.swift */,
+				4EF32A411C8094490078B69A /* SimpleKeychain */,
+				4EF32A351C80943E0078B69A /* InflectorKit */,
+				4EF32A151C8093B60078B69A /* PocketSocket */,
+				4EF329A01C80931C0078B69A /* Meteor */,
 				4E1C46C51C7DE53500C22101 /* SwiftValidator */,
 				4EC403EF1C7667FB0056D5F3 /* UIImage_Category_Swift */,
 				4E066E071C5D6C0400003143 /* SWRevealViewController */,
@@ -730,7 +900,7 @@
 		4E6F95511C789E820022F5B2 /* ManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
-				4EA365331C23B4D300C90249 /* Contact.swift */,
+				4EF3299D1C7F53A10078B69A /* Contact.swift */,
 				4E6313281C1FB2DE00EB78F9 /* List.swift */,
 				4E6313291C1FB2DE00EB78F9 /* Event.swift */,
 				4E63132A1C1FB2DE00EB78F9 /* Venue.swift */,
@@ -805,6 +975,178 @@
 				4EC403F21C7667FB0056D5F3 /* UIImage+RoundCorner.swift */,
 			);
 			path = UIImage_Category_Swift;
+			sourceTree = "<group>";
+		};
+		4EF329A01C80931C0078B69A /* Meteor */ = {
+			isa = PBXGroup;
+			children = (
+				4EF329A11C80931C0078B69A /* LICENSE */,
+				4EF329A21C80931C0078B69A /* Meteor */,
+				4EF329F01C80931C0078B69A /* README.md */,
+			);
+			path = Meteor;
+			sourceTree = "<group>";
+		};
+		4EF329A21C80931C0078B69A /* Meteor */ = {
+			isa = PBXGroup;
+			children = (
+				4EF329A31C80931C0078B69A /* METAccount.h */,
+				4EF329A41C80931C0078B69A /* METAccount.m */,
+				4EF329A51C80931C0078B69A /* METAleaRandomValueGenerator.h */,
+				4EF329A61C80931C0078B69A /* METAleaRandomValueGenerator.m */,
+				4EF329A71C80931C0078B69A /* METBufferedDocument.h */,
+				4EF329A81C80931C0078B69A /* METBufferedDocument.m */,
+				4EF329A91C80931C0078B69A /* METCollection.h */,
+				4EF329AA1C80931C0078B69A /* METCollection.m */,
+				4EF329AB1C80931C0078B69A /* METCollection_Internal.h */,
+				4EF329AC1C80931C0078B69A /* METCoreDataDDPClient.h */,
+				4EF329AD1C80931C0078B69A /* METCoreDataDDPClient.m */,
+				4EF329AE1C80931C0078B69A /* METDatabase.h */,
+				4EF329AF1C80931C0078B69A /* METDatabase.m */,
+				4EF329B01C80931C0078B69A /* METDatabase_Internal.h */,
+				4EF329B11C80931C0078B69A /* METDatabaseChanges.h */,
+				4EF329B21C80931C0078B69A /* METDatabaseChanges.m */,
+				4EF329B31C80931C0078B69A /* METDatabaseChanges_Internal.h */,
+				4EF329B41C80931C0078B69A /* METDataUpdate.h */,
+				4EF329B51C80931C0078B69A /* METDataUpdate.m */,
+				4EF329B61C80931C0078B69A /* METDDPClient+AccountsPassword.h */,
+				4EF329B71C80931C0078B69A /* METDDPClient+AccountsPassword.m */,
+				4EF329B81C80931C0078B69A /* METDDPClient.h */,
+				4EF329B91C80931C0078B69A /* METDDPClient.m */,
+				4EF329BA1C80931C0078B69A /* METDDPClient_Internal.h */,
+				4EF329BB1C80931C0078B69A /* METDDPConnection.h */,
+				4EF329BC1C80931C0078B69A /* METDDPConnection.m */,
+				4EF329BD1C80931C0078B69A /* METDDPHeartbeat.h */,
+				4EF329BE1C80931C0078B69A /* METDDPHeartbeat.m */,
+				4EF329BF1C80931C0078B69A /* METDDPMessage.h */,
+				4EF329C01C80931C0078B69A /* METDDPMessage.m */,
+				4EF329C11C80931C0078B69A /* METDocument.h */,
+				4EF329C21C80931C0078B69A /* METDocument.m */,
+				4EF329C31C80931C0078B69A /* METDocumentCache.h */,
+				4EF329C41C80931C0078B69A /* METDocumentCache.m */,
+				4EF329C51C80931C0078B69A /* METDocumentChangeDetails.h */,
+				4EF329C61C80931C0078B69A /* METDocumentChangeDetails.m */,
+				4EF329C71C80931C0078B69A /* METDocumentKey.h */,
+				4EF329C81C80931C0078B69A /* METDocumentKey.m */,
+				4EF329C91C80931C0078B69A /* METDynamicVariable.h */,
+				4EF329CA1C80931C0078B69A /* METDynamicVariable.m */,
+				4EF329CB1C80931C0078B69A /* METEJSONSerialization.h */,
+				4EF329CC1C80931C0078B69A /* METEJSONSerialization.m */,
+				4EF329CD1C80931C0078B69A /* Meteor.h */,
+				4EF329CE1C80931C0078B69A /* METFetchRequest.h */,
+				4EF329CF1C80931C0078B69A /* METFetchRequest.m */,
+				4EF329D01C80931C0078B69A /* METIncrementalStore.h */,
+				4EF329D11C80931C0078B69A /* METIncrementalStore.m */,
+				4EF329D21C80931C0078B69A /* METIncrementalStore_Testing.h */,
+				4EF329D31C80931C0078B69A /* METMethodInvocation.h */,
+				4EF329D41C80931C0078B69A /* METMethodInvocation.m */,
+				4EF329D51C80931C0078B69A /* METMethodInvocation_Internal.h */,
+				4EF329D61C80931C0078B69A /* METMethodInvocationContext.h */,
+				4EF329D71C80931C0078B69A /* METMethodInvocationContext.m */,
+				4EF329D81C80931C0078B69A /* METMethodInvocationCoordinator.h */,
+				4EF329D91C80931C0078B69A /* METMethodInvocationCoordinator.m */,
+				4EF329DA1C80931C0078B69A /* METMethodInvocationCoordinator_Testing.h */,
+				4EF329DB1C80931C0078B69A /* METNetworkReachabilityManager.h */,
+				4EF329DC1C80931C0078B69A /* METNetworkReachabilityManager.m */,
+				4EF329DD1C80931C0078B69A /* METRandomStream.h */,
+				4EF329DE1C80931C0078B69A /* METRandomStream.m */,
+				4EF329DF1C80931C0078B69A /* METRandomValueGenerator.h */,
+				4EF329E01C80931C0078B69A /* METRandomValueGenerator.m */,
+				4EF329E11C80931C0078B69A /* METRetryStrategy.h */,
+				4EF329E21C80931C0078B69A /* METRetryStrategy.m */,
+				4EF329E31C80931C0078B69A /* METSubscription.h */,
+				4EF329E41C80931C0078B69A /* METSubscription.m */,
+				4EF329E51C80931C0078B69A /* METSubscription_Internal.h */,
+				4EF329E61C80931C0078B69A /* METSubscriptionManager.h */,
+				4EF329E71C80931C0078B69A /* METSubscriptionManager.m */,
+				4EF329E81C80931C0078B69A /* METTimer.h */,
+				4EF329E91C80931C0078B69A /* METTimer.m */,
+				4EF329EA1C80931C0078B69A /* NSArray+METAdditions.h */,
+				4EF329EB1C80931C0078B69A /* NSArray+METAdditions.m */,
+				4EF329EC1C80931C0078B69A /* NSDictionary+METAdditions.h */,
+				4EF329ED1C80931C0078B69A /* NSDictionary+METAdditions.m */,
+				4EF329EE1C80931C0078B69A /* NSString+METAdditions.h */,
+				4EF329EF1C80931C0078B69A /* NSString+METAdditions.m */,
+			);
+			path = Meteor;
+			sourceTree = "<group>";
+		};
+		4EF32A151C8093B60078B69A /* PocketSocket */ = {
+			isa = PBXGroup;
+			children = (
+				4EF32A161C8093B70078B69A /* LICENSE */,
+				4EF32A171C8093B70078B69A /* PocketSocket */,
+				4EF32A2A1C8093B70078B69A /* README.md */,
+			);
+			path = PocketSocket;
+			sourceTree = "<group>";
+		};
+		4EF32A171C8093B70078B69A /* PocketSocket */ = {
+			isa = PBXGroup;
+			children = (
+				4EF32A181C8093B70078B69A /* PSWebSocket.h */,
+				4EF32A191C8093B70078B69A /* PSWebSocket.m */,
+				4EF32A1A1C8093B70078B69A /* PSWebSocketBuffer.h */,
+				4EF32A1B1C8093B70078B69A /* PSWebSocketBuffer.m */,
+				4EF32A1C1C8093B70078B69A /* PSWebSocketDeflater.h */,
+				4EF32A1D1C8093B70078B69A /* PSWebSocketDeflater.m */,
+				4EF32A1E1C8093B70078B69A /* PSWebSocketDriver.h */,
+				4EF32A1F1C8093B70078B69A /* PSWebSocketDriver.m */,
+				4EF32A201C8093B70078B69A /* PSWebSocketInflater.h */,
+				4EF32A211C8093B70078B69A /* PSWebSocketInflater.m */,
+				4EF32A221C8093B70078B69A /* PSWebSocketInternal.h */,
+				4EF32A231C8093B70078B69A /* PSWebSocketNetworkThread.h */,
+				4EF32A241C8093B70078B69A /* PSWebSocketNetworkThread.m */,
+				4EF32A251C8093B70078B69A /* PSWebSocketServer.h */,
+				4EF32A261C8093B70078B69A /* PSWebSocketServer.m */,
+				4EF32A271C8093B70078B69A /* PSWebSocketTypes.h */,
+				4EF32A281C8093B70078B69A /* PSWebSocketUTF8Decoder.h */,
+				4EF32A291C8093B70078B69A /* PSWebSocketUTF8Decoder.m */,
+			);
+			path = PocketSocket;
+			sourceTree = "<group>";
+		};
+		4EF32A351C80943E0078B69A /* InflectorKit */ = {
+			isa = PBXGroup;
+			children = (
+				4EF32A361C80943E0078B69A /* InflectorKit */,
+				4EF32A3B1C80943E0078B69A /* LICENSE */,
+				4EF32A3C1C80943E0078B69A /* README.md */,
+			);
+			path = InflectorKit;
+			sourceTree = "<group>";
+		};
+		4EF32A361C80943E0078B69A /* InflectorKit */ = {
+			isa = PBXGroup;
+			children = (
+				4EF32A371C80943E0078B69A /* NSString+InflectorKit.h */,
+				4EF32A381C80943E0078B69A /* NSString+InflectorKit.m */,
+				4EF32A391C80943E0078B69A /* TTTStringInflector.h */,
+				4EF32A3A1C80943E0078B69A /* TTTStringInflector.m */,
+			);
+			path = InflectorKit;
+			sourceTree = "<group>";
+		};
+		4EF32A411C8094490078B69A /* SimpleKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				4EF32A421C8094490078B69A /* LICENSE */,
+				4EF32A431C8094490078B69A /* README.md */,
+				4EF32A441C8094490078B69A /* SimpleKeychain */,
+			);
+			path = SimpleKeychain;
+			sourceTree = "<group>";
+		};
+		4EF32A441C8094490078B69A /* SimpleKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				4EF32A451C8094490078B69A /* A0SimpleKeychain+KeyPair.h */,
+				4EF32A461C8094490078B69A /* A0SimpleKeychain+KeyPair.m */,
+				4EF32A471C8094490078B69A /* A0SimpleKeychain.h */,
+				4EF32A481C8094490078B69A /* A0SimpleKeychain.m */,
+				4EF32A491C8094490078B69A /* SimpleKeychain.h */,
+			);
+			path = SimpleKeychain;
 			sourceTree = "<group>";
 		};
 		C410E71E5849E54A69911C63 /* Frameworks */ = {
@@ -929,18 +1271,22 @@
 			files = (
 				4E63131C1C1FB28000EB78F9 /* Lato-HeavyItalic.ttf in Resources */,
 				4E63131D1C1FB28000EB78F9 /* Lato-Italic.ttf in Resources */,
+				4EF329F11C80931C0078B69A /* LICENSE in Resources */,
 				4E233C8D1C3CBDAC00FDC1B9 /* PopDateViewController.xib in Resources */,
+				4EF32A4A1C8094490078B69A /* LICENSE in Resources */,
 				4E63131B1C1FB28000EB78F9 /* Lato-Heavy.ttf in Resources */,
 				4E63131E1C1FB28000EB78F9 /* Lato-Light.ttf in Resources */,
 				4E6313191C1FB28000EB78F9 /* Lato-Hairline.ttf in Resources */,
 				4E6313241C1FB28000EB78F9 /* Lato-SemiboldItalic.ttf in Resources */,
 				4E6313201C1FB28000EB78F9 /* Lato-Medium.ttf in Resources */,
 				4E6313171C1FB28000EB78F9 /* Lato-Bold.ttf in Resources */,
+				4EF32A3F1C80943E0078B69A /* LICENSE in Resources */,
 				4E6313231C1FB28000EB78F9 /* Lato-Semibold.ttf in Resources */,
 				4E6313151C1FB28000EB78F9 /* Lato-Black.ttf in Resources */,
 				4E6313261C1FB28000EB78F9 /* Lato-ThinItalic.ttf in Resources */,
 				4E63131A1C1FB28000EB78F9 /* Lato-HairlineItalic.ttf in Resources */,
 				4E6313181C1FB28000EB78F9 /* Lato-BoldItalic.ttf in Resources */,
+				4EF32A2B1C8093B70078B69A /* LICENSE in Resources */,
 				4E6313161C1FB28000EB78F9 /* Lato-BlackItalic.ttf in Resources */,
 				4E6313031C1FB28000EB78F9 /* LoadingView.xib in Resources */,
 				4E63126E1C1FA7D500EB78F9 /* LaunchScreen.storyboard in Resources */,
@@ -1025,7 +1371,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E1C46F21C7DE53500C22101 /* PasswordRule.swift in Sources */,
+				4EF32A0C1C80931C0078B69A /* METRandomValueGenerator.m in Sources */,
+				4EF32A051C80931C0078B69A /* METFetchRequest.m in Sources */,
 				4E57A78D1C28EEB50070AEB3 /* MeteorListService.swift in Sources */,
+				4EF329FB1C80931C0078B69A /* METDDPClient.m in Sources */,
+				4EF329FE1C80931C0078B69A /* METDDPMessage.m in Sources */,
 				4E1A68FA1C5082FB00E55D64 /* InvitationActivityViewController.swift in Sources */,
 				4E60A0DC1C30750300D66A9A /* MeteorVenueService.swift in Sources */,
 				4E6313041C1FB28000EB78F9 /* Misc.swift in Sources */,
@@ -1037,11 +1387,14 @@
 				4E6312FA1C1FB28000EB78F9 /* DesignableLabel.swift in Sources */,
 				4E7C60841C3B5FD30042CE4F /* EventsTableViewCell.swift in Sources */,
 				4E5255A41C51CC8F00F6089D /* MeteorRouter.swift in Sources */,
+				4EF329F41C80931C0078B69A /* METBufferedDocument.m in Sources */,
 				4E1C46EE1C7DE53500C22101 /* IPV4Rule.swift in Sources */,
 				4E6313051C1FB28000EB78F9 /* SoundPlayer.swift in Sources */,
+				4EF329F51C80931C0078B69A /* METCollection.m in Sources */,
 				4E1C46F41C7DE53500C22101 /* RegexRule.swift in Sources */,
 				4E1C46EF1C7DE53500C22101 /* ISBNRule.swift in Sources */,
 				4EA365361C23C44A00C90249 /* MeteorContactService.swift in Sources */,
+				4EF32A401C80943E0078B69A /* README.md in Sources */,
 				4E6313011C1FB28000EB78F9 /* KeyboardLayoutConstraint.swift in Sources */,
 				4EA3652A1C2224B500C90249 /* SignInViewController.swift in Sources */,
 				4E1C46F01C7DE53500C22101 /* MaxLengthRule.swift in Sources */,
@@ -1057,52 +1410,79 @@
 				4E1C46F11C7DE53500C22101 /* MinLengthRule.swift in Sources */,
 				4E6313451C1FB60A00EB78F9 /* PlaceholderView.swift in Sources */,
 				4E5AF22C1C47540300192C40 /* ContactsViewController+Import.swift in Sources */,
+				4EF329F71C80931C0078B69A /* METDatabase.m in Sources */,
+				4EF3299F1C7F53A10078B69A /* Contact.swift in Sources */,
 				4EA89FBD1C27097900163C57 /* SelectContactsViewController.swift in Sources */,
+				4EF32A341C8093B70078B69A /* README.md in Sources */,
+				4EF32A141C80931C0078B69A /* README.md in Sources */,
 				4EE878CA1C551C3C00BABF15 /* NSData.swift in Sources */,
 				4E6312F81C1FB28000EB78F9 /* DesignableButton.swift in Sources */,
 				4E63134A1C1FB60A00EB78F9 /* MeteorExtensions.swift in Sources */,
 				4E63130A1C1FB28000EB78F9 /* SpringLabel.swift in Sources */,
+				4EF32A131C80931C0078B69A /* NSString+METAdditions.m in Sources */,
 				4E6312F41C1FB28000EB78F9 /* AsyncButton.swift in Sources */,
+				4EF32A091C80931C0078B69A /* METMethodInvocationCoordinator.m in Sources */,
 				4E3288C91C24CD4600F936DF /* ContactsTableViewCell.swift in Sources */,
+				4EF32A301C8093B70078B69A /* PSWebSocketInflater.m in Sources */,
 				4E6312A41C1FAF2D00EB78F9 /* String.swift in Sources */,
 				4E60A0D81C2F1C7800D66A9A /* Location.swift in Sources */,
+				4EF329F21C80931C0078B69A /* METAccount.m in Sources */,
+				4EF32A321C8093B70078B69A /* PSWebSocketServer.m in Sources */,
 				4E60A0D31C2C6D7F00D66A9A /* VenuesNavigationViewController.swift in Sources */,
+				4EF32A0E1C80931C0078B69A /* METSubscription.m in Sources */,
 				4E6312F51C1FB28000EB78F9 /* AsyncImageView.swift in Sources */,
 				4E6312B01C1FAFC400EB78F9 /* BaseTableViewCell.swift in Sources */,
 				4E6313481C1FB60A00EB78F9 /* ContentLoading.swift in Sources */,
+				4EF32A0F1C80931C0078B69A /* METSubscriptionManager.m in Sources */,
+				4EF32A001C80931C0078B69A /* METDocumentCache.m in Sources */,
 				4E60A0D51C2C6DA400D66A9A /* VenuesViewController.swift in Sources */,
 				4E719C0F1C407087009989AC /* EventConfiguration.swift in Sources */,
 				4E7C60821C3B5F420042CE4F /* EventsViewController.swift in Sources */,
+				4EF32A081C80931C0078B69A /* METMethodInvocationContext.m in Sources */,
 				4E719C131C4075C2009989AC /* Date.swift in Sources */,
 				4EA89FBB1C261AD800163C57 /* CreateListViewController.swift in Sources */,
 				4E6313471C1FB60A00EB78F9 /* SubscriptionLoader.swift in Sources */,
+				4EF32A011C80931C0078B69A /* METDocumentChangeDetails.m in Sources */,
 				4E6312FB1C1FB28000EB78F9 /* DesignableTabBarController.swift in Sources */,
 				4E6312A51C1FAF2D00EB78F9 /* UIView.swift in Sources */,
+				4EF329F91C80931C0078B69A /* METDataUpdate.m in Sources */,
 				4E1C46F51C7DE53500C22101 /* RequiredRule.swift in Sources */,
 				4E63132B1C1FB2DE00EB78F9 /* User.swift in Sources */,
+				4EF329F31C80931C0078B69A /* METAleaRandomValueGenerator.m in Sources */,
 				4EA89FB71C25E0F200163C57 /* ListsTabBarController.swift in Sources */,
+				4EF32A4C1C8094490078B69A /* A0SimpleKeychain+KeyPair.m in Sources */,
 				4EA365301C2380BD00C90249 /* AccountManager.swift in Sources */,
 				4EC403F31C7667FB0056D5F3 /* UIImage+Alpha.swift in Sources */,
 				4E63130E1C1FB28000EB78F9 /* TransitionManager.swift in Sources */,
 				4EF93D1A1C7C9FF900FBB18C /* PhoneTextField.swift in Sources */,
+				4EF32A4B1C8094490078B69A /* README.md in Sources */,
+				4EF32A031C80931C0078B69A /* METDynamicVariable.m in Sources */,
 				4E066E051C5D6BE400003143 /* SWRevealViewController.m in Sources */,
 				4E1C46F31C7DE53500C22101 /* PhoneNumberRule.swift in Sources */,
 				4E63132C1C1FB2DE00EB78F9 /* List.swift in Sources */,
 				4E63132D1C1FB2DE00EB78F9 /* Event.swift in Sources */,
 				4E6312FF1C1FB28000EB78F9 /* ImageLoader.swift in Sources */,
+				4EF32A061C80931C0078B69A /* METIncrementalStore.m in Sources */,
 				4E3288C51C24B99C00F936DF /* CreateContactViewController.swift in Sources */,
 				4E3CDE0B1C5EE79A0005A5F7 /* MenuTableViewController.swift in Sources */,
+				4EF32A0A1C80931C0078B69A /* METNetworkReachabilityManager.m in Sources */,
 				4E6312F91C1FB28000EB78F9 /* DesignableImageView.swift in Sources */,
 				4E719C0D1C3F60C3009989AC /* SelectListViewController.swift in Sources */,
+				4EF32A2F1C8093B70078B69A /* PSWebSocketDriver.m in Sources */,
+				4EF32A0B1C80931C0078B69A /* METRandomStream.m in Sources */,
 				4E6312F61C1FB28000EB78F9 /* AutoTextView.swift in Sources */,
 				4E1C46E21C7DE53500C22101 /* ValidationError.swift in Sources */,
 				4E6313111C1FB28000EB78F9 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				4E63130D1C1FB28000EB78F9 /* SpringView.swift in Sources */,
 				4E5010DC1C73407F00CE3CF6 /* ProfileTableViewController.swift in Sources */,
 				4E63130F1C1FB28000EB78F9 /* TransitionZoom.swift in Sources */,
+				4EF32A121C80931C0078B69A /* NSDictionary+METAdditions.m in Sources */,
+				4EF32A101C80931C0078B69A /* METTimer.m in Sources */,
 				4E1C46E11C7DE53500C22101 /* ValidationDelegate.swift in Sources */,
+				4EF32A311C8093B70078B69A /* PSWebSocketNetworkThread.m in Sources */,
 				4E6313491C1FB60A00EB78F9 /* FunctionalAdditions.swift in Sources */,
 				4E60A0DA1C2F1E7100D66A9A /* VenuesTableViewCell.swift in Sources */,
+				4EF329FA1C80931C0078B69A /* METDDPClient+AccountsPassword.m in Sources */,
 				4E63134E1C1FBAED00EB78F9 /* ListsViewController.swift in Sources */,
 				4E1C46F81C7DE53500C22101 /* ZipCodeRule.swift in Sources */,
 				4EA365321C23AFCA00C90249 /* ContactsViewController.swift in Sources */,
@@ -1111,16 +1491,22 @@
 				4E6312641C1FA7D500EB78F9 /* AppDelegate.swift in Sources */,
 				4E6313021C1FB28000EB78F9 /* LoadingView.swift in Sources */,
 				4E6312921C1FAC0000EB78F9 /* HomeViewController.swift in Sources */,
+				4EF329F81C80931C0078B69A /* METDatabaseChanges.m in Sources */,
 				4E6313081C1FB28000EB78F9 /* SpringButton.swift in Sources */,
+				4EF32A2D1C8093B70078B69A /* PSWebSocketBuffer.m in Sources */,
 				4E54FE351C599C3C00D89DAC /* AppDelegate+Push.swift in Sources */,
+				4EF32A071C80931C0078B69A /* METMethodInvocation.m in Sources */,
 				4E233C891C3CA61700FDC1B9 /* CreateEventViewController.swift in Sources */,
 				4E6313461C1FB60A00EB78F9 /* ManagedObjectObserver.swift in Sources */,
 				4E6312F71C1FB28000EB78F9 /* BlurView.swift in Sources */,
 				4E60A0E01C35A6FA00D66A9A /* CreateVenueViewController.swift in Sources */,
 				4E7C60861C3B62F70042CE4F /* EventsNavigationViewController.swift in Sources */,
+				4EF32A021C80931C0078B69A /* METDocumentKey.m in Sources */,
 				4E1C46E31C7DE53500C22101 /* Validator.swift in Sources */,
 				4E40EE931C41EE9F00087C2E /* EventDetailViewController.swift in Sources */,
+				4EF329FD1C80931C0078B69A /* METDDPHeartbeat.m in Sources */,
 				4E233C8F1C3CBDAC00FDC1B9 /* PopDateViewController.swift in Sources */,
+				4EF32A4D1C8094490078B69A /* A0SimpleKeychain.m in Sources */,
 				4E582A7B1C3F48AB00052399 /* SelectVenueViewController.swift in Sources */,
 				4E63130B1C1FB28000EB78F9 /* SpringTextField.swift in Sources */,
 				4E6313101C1FB28000EB78F9 /* UnwindSegue.swift in Sources */,
@@ -1128,22 +1514,31 @@
 				4E60A0D11C2C2E8300D66A9A /* ContactsNavigationViewController.swift in Sources */,
 				4E3288C11C24B19A00F936DF /* UIMaterialTextField.swift in Sources */,
 				4EC403F51C7667FB0056D5F3 /* UIImage+RoundCorner.swift in Sources */,
+				4EF32A2C1C8093B70078B69A /* PSWebSocket.m in Sources */,
 				4E63130C1C1FB28000EB78F9 /* SpringTextView.swift in Sources */,
+				4EF32A2E1C8093B70078B69A /* PSWebSocketDeflater.m in Sources */,
 				4E1C46E71C7DE53500C22101 /* CharacterSetRule.swift in Sources */,
+				4EF32A111C80931C0078B69A /* NSArray+METAdditions.m in Sources */,
 				4E6312FD1C1FB28000EB78F9 /* DesignableTextView.swift in Sources */,
 				4E6313321C1FB30400EB78F9 /* ShortList.xcdatamodeld in Sources */,
+				4EF32A3D1C80943E0078B69A /* NSString+InflectorKit.m in Sources */,
 				4E1C46E81C7DE53500C22101 /* ConfirmRule.swift in Sources */,
+				4EF32A331C8093B70078B69A /* PSWebSocketUTF8Decoder.m in Sources */,
 				4E6313431C1FB60A00EB78F9 /* FetchedResultsDataSource.swift in Sources */,
+				4EF32A0D1C80931C0078B69A /* METRetryStrategy.m in Sources */,
+				4EF32A3E1C80943E0078B69A /* TTTStringInflector.m in Sources */,
 				4E1C46EA1C7DE53500C22101 /* ExactLengthRule.swift in Sources */,
 				4E6313061C1FB28000EB78F9 /* Spring.swift in Sources */,
-				4EA365341C23B4D300C90249 /* Contact.swift in Sources */,
 				4E60A0DE1C30851900D66A9A /* PlacePickerViewController.swift in Sources */,
 				4E57A7931C2B3F2A0070AEB3 /* ListsTableViewCell.swift in Sources */,
 				4E6313501C1FBB3300EB78F9 /* ListDetailViewController.swift in Sources */,
+				4EF32A041C80931C0078B69A /* METEJSONSerialization.m in Sources */,
 				4E6313421C1FB60A00EB78F9 /* FetchedResultsTableViewController.swift in Sources */,
+				4EF329FC1C80931C0078B69A /* METDDPConnection.m in Sources */,
 				4E5010E41C75EBDB00CE3CF6 /* METDDPClient+AccountsPassword.swift in Sources */,
 				4E63134B1C1FB60A00EB78F9 /* FoundationExtensions.swift in Sources */,
 				4E1C46E51C7DE53500C22101 /* AlphaNumericRule.swift in Sources */,
+				4EF329F61C80931C0078B69A /* METCoreDataDDPClient.m in Sources */,
 				4E5255A81C51CEAA00F6089D /* Constants.swift in Sources */,
 				4E6312A01C1FAF2D00EB78F9 /* UITableViewExtension.swift in Sources */,
 				4E233C8E1C3CBDAC00FDC1B9 /* PopDatePicker.swift in Sources */,
@@ -1152,6 +1547,7 @@
 				4E1C46C41C7DE28200C22101 /* OrderedDictionary.swift in Sources */,
 				4E1C46F61C7DE53500C22101 /* Rule.swift in Sources */,
 				4E1C46F71C7DE53500C22101 /* ValidationRule.swift in Sources */,
+				4EF329FF1C80931C0078B69A /* METDocument.m in Sources */,
 				4E066E021C5AD63300003143 /* InvitationNavigationViewController.swift in Sources */,
 				4E1C46EC1C7DE53500C22101 /* FullNameRule.swift in Sources */,
 			);
