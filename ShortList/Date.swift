@@ -10,8 +10,10 @@ import Foundation
 
 extension NSDate {
   
+  // get time in milliseconds
   func timeInMilliseconds() -> Double {
     return self.timeIntervalSince1970 * 1000
   }
   
 }
+

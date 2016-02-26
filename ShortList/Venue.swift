@@ -12,7 +12,8 @@ class Venue: NSManagedObject {
   typealias NamedValues = [String:AnyObject]
   
   @NSManaged var name: String?
-  @NSManaged var insertedOn: NSDate?
+  @NSManaged var userId: String?
+  @NSManaged var insertedOn: String?
   
   @NSManaged var location: NamedValues?
   

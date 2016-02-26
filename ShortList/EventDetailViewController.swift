@@ -51,12 +51,13 @@ class EventDetailViewController: UIViewController {
     
     // set name
     nameTextField.text = event.name
-  
+    
     // set date and time
-    if let date = event.valueForKey("date") as? NSDate {
-      dateTextField.text = dateFormatter.stringFromDate(date) as String
-      timeTextField.text = timeFormatter.stringFromDate(date) as String
-    }
+    let eventTimestamp = event.date
+    let date = NSDate(timeIntervalSince1970: NSTimeInterval(eventTimestamp))
+      
+    dateTextField.text = dateFormatter.stringFromDate(date) as String
+    timeTextField.text = timeFormatter.stringFromDate(date) as String
     
     // set list name
     if let list = event.valueForKey("list") as? NamedValues {

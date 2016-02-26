@@ -22,7 +22,7 @@ final class MeteorListService {
   }
   
   init() {
-    defineStubMethods()
+    //defineStubMethods()
   }
   
   // save locally to core data
@@ -77,7 +77,6 @@ final class MeteorListService {
       list.userId = AccountManager.defaultAccountManager.currentUserId
       list.name = name
       list.security = security
-      list.insertedOn = NSDate()
       list.contacts = contacts
       
       // save locally

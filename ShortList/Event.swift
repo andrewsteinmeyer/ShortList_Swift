@@ -13,11 +13,11 @@ class Event: NSManagedObject {
   
   @NSManaged var userId: String?
   @NSManaged var name: String?
-  @NSManaged var date: NSDate?
+  @NSManaged var date: NSTimeInterval
   @NSManaged var list: NamedValues?
   @NSManaged var venue: NamedValues?
   @NSManaged var location: NamedValues?
   @NSManaged var acceptedCount: NSNumber?
   @NSManaged var eventConfiguration: NamedValues?
-  @NSManaged var insertedOn: NSNumber?
+  @NSManaged var insertedOn: String?
 }

@@ -67,7 +67,6 @@ final class MeteorVenueService {
       
       let venue = NSEntityDescription.insertNewObjectForEntityForName(self.modelName, inManagedObjectContext: self.managedObjectContext) as! Venue
       venue.name = name
-      venue.insertedOn = NSDate()
       venue.location = location
       
       // save locally

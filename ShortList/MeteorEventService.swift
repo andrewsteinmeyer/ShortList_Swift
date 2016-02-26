@@ -71,7 +71,7 @@ final class MeteorEventService {
       //      in all paramaters so its bailing on guard
       
       let name = parameters[0] as? String ?? nil
-      let date = parameters[1] as? NSDate ?? nil
+      let date = parameters[1] as? NSTimeInterval ?? nil
       let list = parameters[2] as? [String:AnyObject] ?? nil
       let venue = parameters[3] as? [String:AnyObject] ?? nil
       let location = parameters[4] as? [String:AnyObject] ?? nil
@@ -88,11 +88,15 @@ final class MeteorEventService {
       let event = NSEntityDescription.insertNewObjectForEntityForName(self.modelName, inManagedObjectContext: self.managedObjectContext) as! Event
       event.userId = AccountManager.defaultAccountManager.currentUserId
       event.name = name
-      event.date = date
       event.list = list
       event.venue = venue
       event.location = location
       event.acceptedCount = 0
+      
+      // add date if present
+      if let eventDate = date {
+        event.date = eventDate
+      }
       
       // add config if present
       if let config = eventConfiguration {

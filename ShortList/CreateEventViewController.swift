@@ -78,7 +78,7 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
         return
       }
       
-      // set date and time text
+      // set date and time text fields
       dateTextField.text = dateFormatter.stringFromDate(date) as String
       timeTextField.text = timeFormatter.stringFromDate(date) as String
     }
@@ -199,6 +199,8 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   // MARK: Private methods
   
   private func showDatePicker() {
+    // show previously selected date if there is one
+    // default to current date/time
     let initDate = ( selectedDate != nil ? selectedDate : NSDate() )
     
     let dataChangedCallback : PopDatePicker.PopDatePickerCallback = { [weak self]
@@ -219,7 +221,7 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   
   private func createEvent() {
     guard let name = nameTextField.text where !name.isEmpty,
-      let date = selectedDate,
+      let date = selectedDate?.timeIntervalSince1970,
       let list = list,
       let venue = venue,
       let location = location else {
@@ -244,7 +246,6 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
       eventConfiguration.maximumGuests = maxGuests
     }
     
-    
     // use Groot for core location objects
     let JSONList = JSONDictionaryFromObject(list)
     let JSONVenue = JSONDictionaryFromObject(venue)
@@ -252,7 +253,6 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
     // use ObjectMapper for regular models
     let JSONLocation = Mapper().toJSON(location)
     let JSONEventConfiguration = Mapper().toJSON(eventConfiguration)
-    
     
     MeteorEventService.sharedInstance.create([ name, date, JSONList, JSONVenue, JSONLocation, JSONEventConfiguration ]) {
       result, error in
