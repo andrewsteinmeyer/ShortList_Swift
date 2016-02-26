@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Meteor
 import DZNEmptyDataSet
+import PhoneNumberKit
 
 class ContactsViewController: FetchedResultsTableViewController {
   
@@ -64,7 +65,18 @@ class ContactsViewController: FetchedResultsTableViewController {
         
         // set phone number
         if let phone = contact.valueForKey("phone") as? String {
-          contactPhone = phone
+          var phoneNumber: PhoneNumber?
+          
+          do {
+            phoneNumber = try PhoneNumber(rawNumber: phone)
+          }
+          catch {
+            print("Error: Could not parse raw phone number")
+          }
+          
+          if let number = phoneNumber?.toNational() {
+            contactPhone = number
+          }
         }
         
         // set email

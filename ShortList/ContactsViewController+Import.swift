@@ -99,7 +99,7 @@ extension ContactsViewController: CNContactPickerDelegate {
     }
     
     newContact["name"] = CNContactFormatter.stringFromContact(selectedContact, style: .FullName)
-    newContact["phone"] = phoneNumber ?? ""
+    newContact["phone"] = phoneNumber.stringByRemovingOccurrencesOfCharacters(" )(- ") ?? ""
     newContact["email"] = homeEmailAddress ?? ""
     newContact["source"] = "iPhone"
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PhoneNumberKit
 
 class ListDetailViewController: UITableViewController {
   
@@ -21,11 +22,27 @@ class ListDetailViewController: UITableViewController {
           
           let name = contact["name"].string ?? ""
           let email = contact["email"].string ?? ""
-          let phone = contact["phone"].string ?? ""
+          var phone = contact["phone"].string ?? ""
           
           // make sure there is at least a name
           guard !name.isEmpty else {
             return
+          }
+          
+          // set phone number
+          if phone != "" {
+            var phoneNumber: PhoneNumber?
+            
+            do {
+              phoneNumber = try PhoneNumber(rawNumber: phone)
+            }
+            catch {
+              print("Error: Could not parse raw phone number")
+            }
+            
+            if let number = phoneNumber?.toNational() {
+              phone = number
+            }
           }
           
           let newContact = ["name": name,

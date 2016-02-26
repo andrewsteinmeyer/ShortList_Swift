@@ -61,7 +61,7 @@ class SelectContactsViewController: FetchedResultsTableViewController {
         
         // set phone number
         if let number = contact.valueForKey("phone") as? String {
-          contactPhone = number
+          contactPhone = number.stringByRemovingOccurrencesOfCharacters(" )(- ") ?? ""
         }
         
         // set email
