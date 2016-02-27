@@ -38,17 +38,9 @@ class InvitationActivityViewController: UIViewController {
     // load url to request
     invitationVC.url = MeteorRouter.invitationActivityForEventID(eventId)
     
-    let navVC = InvitationNavigationViewController()
-    navVC.setViewControllers([invitationVC], animated: false)
-    //navVC.pushViewController(invitationVC, animated: false)
-    
-    // Customize presentation and transition styles.
-    navVC.modalPresentationStyle = .FullScreen
-    navVC.modalTransitionStyle = .CoverVertical
-    
     // Present the sign in view controller.
-    //AppDelegate.getRootViewController()?.presentViewController(navVC, animated: true, completion: nil)
-    UIApplication.topViewController()?.presentViewController(navVC, animated: true, completion: nil)
+    UIApplication.topViewController()?.presentViewController(invitationVC, animated: true, completion: nil)
+    //AppDelegate.getRootViewController()?.presentViewController(invitationVC, animated: true, completion: nil)
     
   }
   
