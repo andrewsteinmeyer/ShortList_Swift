@@ -115,7 +115,7 @@ NS_INLINE BOOL METShouldLogDDPMessages() {
 }
 
 - (void)webSocket:(PSWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
-     NSLog(@"!!! ERROR: DID CLOSE WEBSOCKET !!! %@, CODE %ld, CLEAN %d", reason, (long)code, wasClean);
+     NSLog(@"!!! WEBSOCKET CLOSED !!! %@, CODE %ld, CLEAN %d", reason, (long)code, wasClean);
   [_delegate connectionDidClose:self];
 }
 
