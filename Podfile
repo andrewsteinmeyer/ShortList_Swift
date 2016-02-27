@@ -1,10 +1,10 @@
 use_frameworks!
 
-pod 'Groot'
-pod 'GoogleMaps'
-pod 'ObjectMapper'
-pod 'ChameleonFramework/Swift'
-pod 'DZNEmptyDataSet'
+pod 'Groot', '1.2'
+pod 'GoogleMaps', '1.12.1'
+pod 'ObjectMapper', '1.1.5'
+pod 'ChameleonFramework/Swift', '2.1.0'
+pod 'DZNEmptyDataSet', '1.7.3'
 pod 'PhoneNumberKit', '~> 0.6'
 pod 'FLEX', '~> 2.0', :configurations => ['Debug']
 
