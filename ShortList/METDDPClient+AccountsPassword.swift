@@ -22,7 +22,7 @@ extension METDDPClient {
   func signUpWithEmail(email: String, password: String, name: String, phone: String, completionHandler: METLogInCompletionHandler) {
     let profile: [NSObject: AnyObject] = ["name" : name,
                                           "phones": [
-                                                      ["number": phone, "verified": true]
+                                                      ["number": phone, "verified": false]
                                                     ]
                                          ]
     
