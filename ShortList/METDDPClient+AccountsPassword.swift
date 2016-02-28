@@ -10,22 +10,6 @@ import Meteor
 
 extension METDDPClient {
   
-  /*
-  private struct AssociatedKeys {
-    static var account = "account"
-  }
-  
-  //this lets us check to see if the item is supposed to be displayed or not
-  var account : METAccount? {
-    get {
-      guard let account = objc_getAssociatedObject(self, &AssociatedKeys.account) as? METAccount else {
-        return nil
-      }
-      return account
-    }
-  }
-  */
-  
   // sign up with name and email
   func signUpWithEmail(email: String, password: String, name: String, completionHandler: METLogInCompletionHandler) {
     let profile = ["name" : name]
@@ -34,12 +18,14 @@ extension METDDPClient {
   }
   
   // sign up with name, email and phone number
+  // auto verify phone number if user signs up via mobile
   func signUpWithEmail(email: String, password: String, name: String, phone: String, completionHandler: METLogInCompletionHandler) {
     let profile: [NSObject: AnyObject] = ["name" : name,
                                           "phones": [
-                                                      ["number": phone, "verified": false]
+                                                      ["number": phone, "verified": true]
                                                     ]
                                          ]
+    
     self.signUpWithEmail(email, password: password, profile: profile, completionHandler: completionHandler)
   }
   

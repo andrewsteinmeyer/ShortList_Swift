@@ -18,6 +18,7 @@ enum Theme {
     static let mainThemeBackgroundColor     = "303E4D"
     static let mainThemeTextColor           = "333333"
     static let mainThemeErrorColor          = "EB4D5C"
+    //static let mainThemeErrorColor          = "DE495B"
     
     static let menuTextColor                = "FFECDB"
     //static let menuIconColor              = "FCE353"  //brighter yellow
