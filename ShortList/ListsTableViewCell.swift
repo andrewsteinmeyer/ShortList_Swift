@@ -27,9 +27,8 @@ class ListsTableViewCell : BaseTableViewCell {
     super.layoutSubviews()
     
     // add a line to the bottom of the section header
-    let lineLayer = CALayer()
     lineLayer.frame = CGRectMake(0, self.bounds.height - 1, self.bounds.width, 0.5)
-    lineLayer.backgroundColor = Theme.ContactsTableViewCellSeparatorColor.toUIColor().CGColor
+    lineLayer.backgroundColor = Theme.BaseTableViewCellSeparatorColor.toUIColor().CGColor
     self.layer.addSublayer(lineLayer)
   }
   
@@ -53,7 +52,7 @@ class ListsTableViewCell : BaseTableViewCell {
     }
     else {
       let textColor = Theme.ContactsTableViewCellTextColor.toUIColor()
-      let separatorColor = Theme.ContactsTableViewCellSeparatorColor.toUIColor()
+      let separatorColor = Theme.BaseTableViewCellSeparatorColor.toUIColor()
       
       self.backgroundColor = UIColor.whiteColor()
       self.nameLabel.textColor = textColor

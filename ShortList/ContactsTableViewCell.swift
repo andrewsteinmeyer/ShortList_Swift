@@ -34,7 +34,7 @@ class ContactsTableViewCell : BaseTableViewCell {
     
     // add a line to the bottom of the section header
     lineLayer.frame = CGRectMake(0, self.bounds.height - 1, self.bounds.width, 0.5)
-    lineLayer.backgroundColor = Theme.ContactsTableViewCellSeparatorColor.toUIColor().CGColor
+    lineLayer.backgroundColor = Theme.BaseTableViewCellSeparatorColor.toUIColor().CGColor
     self.layer.addSublayer(lineLayer)
   }
   
@@ -62,7 +62,7 @@ class ContactsTableViewCell : BaseTableViewCell {
     }
     else {
       let textColor = Theme.ContactsTableViewCellTextColor.toUIColor()
-      let separatorColor = Theme.ContactsTableViewCellSeparatorColor.toUIColor()
+      let separatorColor = Theme.BaseTableViewCellSeparatorColor.toUIColor()
       
       self.backgroundColor = UIColor.whiteColor()
       self.nameLabel.textColor = textColor

@@ -26,6 +26,7 @@ enum Theme {
     static let tableCellBackgroundColor     = "FFFFFF"
     static let tableCellSelectedColor       = "4C9689"
     static let tableCellTextSelectedColor   = "FFECDB"
+    static let tableCellSeparatorColor      = "AAAAAA"
     
     static let emptyDataSetTitleColor       = "C9C9C9"
     static let emptyDataSetDescriptionColor = "C9C9C9"
@@ -34,6 +35,7 @@ enum Theme {
   // Base Table View Cell
   case BaseTableViewCellTextColor
   case BaseTableViewCellBackgroundColor
+  case BaseTableViewCellSeparatorColor
   
   // Empty Data Set
   case EmptyDataSetTitleColor
@@ -71,7 +73,6 @@ enum Theme {
   case ContactsTableViewCellBackgroundSelectedColor
   case ContactsTableViewCellTextColor
   case ContactsTableViewCellTextSelectedColor
-  case ContactsTableViewCellSeparatorColor
   case ContactsTableViewCellSeparatorSelectedColor
   case SelectContactsHeaderViewBackgroundColor
   case SelectContactsHeaderViewTextColor
@@ -94,6 +95,7 @@ enum Theme {
     // Base Table View Cell
     case .BaseTableViewCellTextColor:                    return HexColor(Palette.mainThemeTextColor)
     case .BaseTableViewCellBackgroundColor:              return HexColor(Palette.tableCellBackgroundColor)
+    case .BaseTableViewCellSeparatorColor:               return HexColor(Palette.tableCellSeparatorColor)
       
     // Empty Data Set
     case .EmptyDataSetTitleColor:                        return HexColor(Palette.emptyDataSetTitleColor)
@@ -131,7 +133,6 @@ enum Theme {
     case .ContactsTableViewCellBackgroundSelectedColor:  return HexColor(Palette.tableCellSelectedColor)
     case .ContactsTableViewCellTextColor:                return HexColor(Palette.mainThemeTextColor)
     case .ContactsTableViewCellTextSelectedColor:        return HexColor(Palette.tableCellTextSelectedColor)
-    case .ContactsTableViewCellSeparatorColor:           return UIColor.lightGrayColor()
     case .ContactsTableViewCellSeparatorSelectedColor:   return HexColor(Palette.tableCellTextSelectedColor)
     case .SelectContactsHeaderViewBackgroundColor:       return HexColor(Palette.mainThemeColor)
     case .SelectContactsHeaderViewTextColor:             return HexColor(Palette.mainThemeTextColor)
