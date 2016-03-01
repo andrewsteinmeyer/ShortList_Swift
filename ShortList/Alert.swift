@@ -1,20 +1,17 @@
 //
-//  Alert+CoreDataProperties.swift
-//  
+//  Alert.swift
+//  ShortList
 //
-//  Created by Andrew Steinmeyer on 2/28/16.
-//
-//
-//  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
-//  to delete and recreate this implementation file for your updated model.
+//  Created by Andrew Steinmeyer on 2/28/16
+//  Copyright © 2015 Andrew Steinmeyer. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
-extension Alert {
+class Alert: NSManagedObject {
 
-    @NSManaged var insertedOn: String?
+    @NSManaged var insertedOn: NSTimeInterval
     @NSManaged var userId: String?
     @NSManaged var sendToUserId: String?
     @NSManaged var alertType: String?

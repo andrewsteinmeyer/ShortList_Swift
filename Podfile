@@ -7,6 +7,8 @@ pod 'ChameleonFramework/Swift', '2.1.0'
 pod 'DZNEmptyDataSet', '1.7.3'
 pod 'PhoneNumberKit', '~> 0.6'
 pod 'FLEX', '~> 2.0', :configurations => ['Debug']
+pod 'TTTAttributedLabel', '1.13.4'
+pod 'DateTools', '1.7.0'
 
 post_install do |installer|
     `rm -rf Pods/Headers/Private`

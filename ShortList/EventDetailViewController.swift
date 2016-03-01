@@ -49,13 +49,15 @@ class EventDetailViewController: UIViewController {
       return
     }
     
+    //TODO: Do we need to check valueForKey for name, date and eventConfiguration???
+    
     // set name
     nameTextField.text = event.name
     
     // set date and time
-    let eventTimestamp = event.date
-    let date = NSDate(timeIntervalSince1970: NSTimeInterval(eventTimestamp))
-      
+    let timeInterval = event.date
+    let date = NSDate(timeIntervalSince1970: timeInterval)
+    
     dateTextField.text = dateFormatter.stringFromDate(date) as String
     timeTextField.text = timeFormatter.stringFromDate(date) as String
     

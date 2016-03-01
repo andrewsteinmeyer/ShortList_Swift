@@ -151,6 +151,8 @@
 		4E7C60821C3B5F420042CE4F /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7C60811C3B5F420042CE4F /* EventsViewController.swift */; };
 		4E7C60841C3B5FD30042CE4F /* EventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7C60831C3B5FD30042CE4F /* EventsTableViewCell.swift */; };
 		4E7C60861C3B62F70042CE4F /* EventsNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7C60851C3B62F70042CE4F /* EventsNavigationViewController.swift */; };
+		4E8D889F1C83A87A00A8B68B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8D889E1C83A87A00A8B68B /* Alert.swift */; };
+		4E8D88A11C83B17200A8B68B /* AlertsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8D88A01C83B17200A8B68B /* AlertsTableViewCell.swift */; };
 		4EA3652A1C2224B500C90249 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA365291C2224B500C90249 /* SignInViewController.swift */; };
 		4EA365301C2380BD00C90249 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA3652F1C2380BD00C90249 /* AccountManager.swift */; };
 		4EA365321C23AFCA00C90249 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA365311C23AFCA00C90249 /* ContactsViewController.swift */; };
@@ -397,6 +399,8 @@
 		4E7C60811C3B5F420042CE4F /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		4E7C60831C3B5FD30042CE4F /* EventsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewCell.swift; sourceTree = "<group>"; };
 		4E7C60851C3B62F70042CE4F /* EventsNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsNavigationViewController.swift; sourceTree = "<group>"; };
+		4E8D889E1C83A87A00A8B68B /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		4E8D88A01C83B17200A8B68B /* AlertsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsTableViewCell.swift; sourceTree = "<group>"; };
 		4EA365291C2224B500C90249 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		4EA3652F1C2380BD00C90249 /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		4EA365311C23AFCA00C90249 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
@@ -762,6 +766,7 @@
 				4E57A7921C2B3F2A0070AEB3 /* ListsTableViewCell.swift */,
 				4E60A0D91C2F1E7100D66A9A /* VenuesTableViewCell.swift */,
 				4E7C60831C3B5FD30042CE4F /* EventsTableViewCell.swift */,
+				4E8D88A01C83B17200A8B68B /* AlertsTableViewCell.swift */,
 			);
 			name = TableCellView;
 			sourceTree = "<group>";
@@ -901,6 +906,7 @@
 			isa = PBXGroup;
 			children = (
 				4EF3299D1C7F53A10078B69A /* Contact.swift */,
+				4E8D889E1C83A87A00A8B68B /* Alert.swift */,
 				4E6313281C1FB2DE00EB78F9 /* List.swift */,
 				4E6313291C1FB2DE00EB78F9 /* Event.swift */,
 				4E63132A1C1FB2DE00EB78F9 /* Venue.swift */,
@@ -1429,6 +1435,7 @@
 				4EF329F21C80931C0078B69A /* METAccount.m in Sources */,
 				4EF32A321C8093B70078B69A /* PSWebSocketServer.m in Sources */,
 				4E60A0D31C2C6D7F00D66A9A /* VenuesNavigationViewController.swift in Sources */,
+				4E8D889F1C83A87A00A8B68B /* Alert.swift in Sources */,
 				4EF32A0E1C80931C0078B69A /* METSubscription.m in Sources */,
 				4E6312F51C1FB28000EB78F9 /* AsyncImageView.swift in Sources */,
 				4E6312B01C1FAFC400EB78F9 /* BaseTableViewCell.swift in Sources */,
@@ -1507,6 +1514,7 @@
 				4EF329FD1C80931C0078B69A /* METDDPHeartbeat.m in Sources */,
 				4E233C8F1C3CBDAC00FDC1B9 /* PopDateViewController.swift in Sources */,
 				4EF32A4D1C8094490078B69A /* A0SimpleKeychain.m in Sources */,
+				4E8D88A11C83B17200A8B68B /* AlertsTableViewCell.swift in Sources */,
 				4E582A7B1C3F48AB00052399 /* SelectVenueViewController.swift in Sources */,
 				4E63130B1C1FB28000EB78F9 /* SpringTextField.swift in Sources */,
 				4E6313101C1FB28000EB78F9 /* UnwindSegue.swift in Sources */,

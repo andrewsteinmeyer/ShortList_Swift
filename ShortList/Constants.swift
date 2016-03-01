@@ -50,7 +50,7 @@ struct Constants {
     
     struct JoinedList {
       static let Title = "No Joined Lists"
-      static let Description = "You have not joined any lists.\n\nLife is short.\nJoin a list now and get in on the action."
+      static let Description = "You have not joined any lists.\nJoin a list now and get in on the action."
     }
     
     struct Venue {

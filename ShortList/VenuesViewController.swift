@@ -57,6 +57,12 @@ class VenuesViewController: FetchedResultsTableViewController {
     if let venue = object as? Venue {
       if let cell = cell as? VenuesTableViewCell {
         var locationAddress = ""
+        var venueName = ""
+        
+        // set name
+        if let name = venue.valueForKey("name") as? String {
+          venueName = name
+        }
         
         if let location = venue.valueForKey("location") as? NamedValues {
           let JSONLocation = JSON(location)
@@ -66,7 +72,7 @@ class VenuesViewController: FetchedResultsTableViewController {
           }
         }
         
-        let data = VenuesTableViewCellData(name: venue.name, address: locationAddress)
+        let data = VenuesTableViewCellData(name: venueName, address: locationAddress)
         cell.setData(data)
       }
     }

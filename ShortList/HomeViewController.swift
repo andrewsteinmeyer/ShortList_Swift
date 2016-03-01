@@ -7,20 +7,29 @@
 //
 
 import UIKit
+import CoreData
 import DZNEmptyDataSet
+import DateTools
 
-class HomeViewController: UIViewController {
+class HomeViewController: FetchedResultsTableViewController {
 
   @IBOutlet weak var menuButton: UIBarButtonItem!
-  @IBOutlet weak var tableView: UITableView!
+  
+  private let subscriptionName = "PrivateAlerts"
+  private let modelName = "Alert"
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     // present sign in screen if user is not already logged in
-    if !AccountManager.defaultAccountManager.isUserLoggedIn {
+    guard AccountManager.defaultAccountManager.isUserLoggedIn else {
       SignInViewController.presentSignInViewController()
+      
+      return
     }
+    
+    // set CoreData context
+    self.managedObjectContext = Meteor.mainQueueManagedObjectContext
     
     if self.revealViewController() != nil {
       menuButton.target = self.revealViewController()
@@ -32,8 +41,63 @@ class HomeViewController: UIViewController {
     self.tableView.emptyDataSetDelegate = self
     self.tableView.emptyDataSetSource = self
     
-    // trick to remove cell separators
-    self.tableView.tableFooterView = UIView()
+    // set up auto resizing table view cells
+    self.tableView.rowHeight = UITableViewAutomaticDimension
+    self.tableView.estimatedRowHeight = 100
+  }
+  
+  // MARK: - Content Loading
+  
+  override func configureSubscriptionLoader(subscriptionLoader: SubscriptionLoader) {
+    subscriptionLoader.addSubscriptionWithName(subscriptionName)
+  }
+  
+  override func createFetchedResultsController() -> NSFetchedResultsController? {
+    let fetchRequest = NSFetchRequest(entityName: modelName)
+    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "insertedOn", ascending: false)]
+    
+    return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+  }
+  
+  // MARK: - FetchedResultsTableViewDataSourceDelegate
+  
+  func dataSource(dataSource: FetchedResultsTableViewDataSource, configureCell cell: UITableViewCell, forObject object: NSManagedObject, atIndexPath indexPath: NSIndexPath) {
+    if let alert = object as? Alert {
+      if let cell = cell as? AlertsTableViewCell {
+        var alertTitle = ""
+        var alertType = ""
+        var alertLink = ""
+        var timeSinceAlert = ""
+        
+        // set title
+        if let title = alert.valueForKey("title") as? String {
+          alertTitle = title
+        }
+        
+        // set type
+        if let type = alert.valueForKey("alertType") as? String {
+          alertType = type
+        }
+        
+        // set link
+        if let link = alert.valueForKey("link") as? String {
+          alertLink = link
+        }
+        
+        // time since alert
+        let alertTime = alert.insertedOn
+        let date = NSDate(timeIntervalSince1970: alertTime)
+        timeSinceAlert = date.timeAgoSinceNow()
+        
+        let data = AlertsTableViewCellData(alertType: alertType, title: alertTitle, link: alertLink, insertedOn: timeSinceAlert)
+        cell.setData(data)
+      }
+    }
+  }
+  
+  // do not allow "Delete"
+  override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+    return UITableViewCellEditingStyle.None
   }
   
 }

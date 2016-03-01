@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F1021" minimumToolsVersion="Xcode 7.0">
+    <entity name="Alert" representedClassName="ShortList.Alert" syncable="YES">
+        <attribute name="alertType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="insertedOn" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="read" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="sendToUserId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="targetId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Contact" representedClassName="ShortList.Contact" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES">
             <userInfo>
@@ -98,6 +108,7 @@
         </attribute>
     </entity>
     <elements>
+        <element name="Alert" positionX="-27" positionY="153" width="128" height="165"/>
         <element name="Contact" positionX="-18" positionY="144" width="128" height="135"/>
         <element name="Event" positionX="0" positionY="135" width="128" height="180"/>
         <element name="List" positionX="-54" positionY="36" width="128" height="135"/>
