@@ -234,9 +234,6 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
     // dismiss keyboard
     self.view.endEditing(true)
     
-    //TODO: Add attendanceType and status to UI
-    //      Set eventConfiguration.attendanceType and eventConfiguration.status
-    
     // setup event configuration
     let eventConfiguration = EventConfiguration()
     if let minGuests = minGuestTextField.text {
@@ -246,9 +243,20 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
       eventConfiguration.maximumGuests = maxGuests
     }
     
+    //TODO: Add attendanceType and status to UI
+    //      Set eventConfiguration.attendanceType and eventConfiguration.status
+    
+    eventConfiguration.attendanceType = EventConfiguration.AttendanceType.Rank.rawValue
+    eventConfiguration.status = EventConfiguration.Status.On.rawValue
+    
     // use Groot for core location objects
-    let JSONList = JSONDictionaryFromObject(list)
-    let JSONVenue = JSONDictionaryFromObject(venue)
+    let listID = Meteor.documentKeyForObjectID(list.objectID).documentID
+    var JSONList = JSONDictionaryFromObject(list)
+    JSONList["_id"] = listID
+    
+    let venueID = Meteor.documentKeyForObjectID(venue.objectID).documentID
+    var JSONVenue = JSONDictionaryFromObject(venue)
+    JSONVenue["_id"] = venueID
     
     // use ObjectMapper for regular models
     let JSONLocation = Mapper().toJSON(location)
@@ -272,6 +280,7 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
     // clear out previous errors
     clearErrors()
     
+    // set error message
     errorMessageLabel.text = message
     errorMessageLabel.alpha = 1
     

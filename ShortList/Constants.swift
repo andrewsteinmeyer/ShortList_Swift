@@ -12,6 +12,7 @@ struct Constants {
   
   // Meteor
   struct Meteor {
+    //private static let Domain = "app.myshortlists.com"
     //private static let Domain = "shortlist.meteor.com"
     private static let Domain = "10.0.0.3:3000"
     //private static let Domain = "localhost:3000"

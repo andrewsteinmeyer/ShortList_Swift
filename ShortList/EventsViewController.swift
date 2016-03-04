@@ -106,6 +106,12 @@ class EventsViewController: FetchedResultsTableViewController {
         var eventDate = ""
         var eventTime = ""
         var acceptedCount = "0"
+        var eventName = ""
+        
+        // set name
+        if let name = event.valueForKey("name") as? String {
+          eventName = name
+        }
         
         // set venue name
         if let venue = event.valueForKey("venue") as? NamedValues {
@@ -127,7 +133,7 @@ class EventsViewController: FetchedResultsTableViewController {
           acceptedCount = String(count)
         }
         
-        let data = EventsTableViewCellData(name: event.name, locationName: locationName, date: eventDate, time: eventTime, acceptedCount: acceptedCount)
+        let data = EventsTableViewCellData(name: eventName, locationName: locationName, date: eventDate, time: eventTime, acceptedCount: acceptedCount)
         cell.setData(data)
       }
     }

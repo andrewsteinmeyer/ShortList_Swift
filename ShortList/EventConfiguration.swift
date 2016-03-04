@@ -14,6 +14,14 @@ class EventConfiguration: Mappable {
   var attendanceType: String?
   var status: String?
   
+  enum Status: String {
+    case On = "on"
+  }
+  
+  enum AttendanceType: String {
+    case Rank = "rank"
+  }
+  
   required init() {
   }
   

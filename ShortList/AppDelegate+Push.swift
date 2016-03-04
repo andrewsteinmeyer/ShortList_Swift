@@ -11,8 +11,8 @@ import UIKit
 extension AppDelegate {
   
   private enum Category: String {
-    case Invite = "invite"
-    case Message = "message"
+    case Invite = "eventInvite"
+    case Message = "newMessage"
   }
   
   private enum Action: String {

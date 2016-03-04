@@ -91,6 +91,7 @@ class CreateContactViewController: UIViewController, UIMaterialTextFieldDelegate
     // clear out previous errors
     clearErrors()
     
+    // set error message
     errorMessageLabel.text = message
     errorMessageLabel.alpha = 1
     
