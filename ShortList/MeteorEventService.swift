@@ -21,6 +21,7 @@ final class MeteorEventService {
     case InviteEvent = "inviteEvent"
     case SetInvitationResponse = "setInvitationResponse"
     case SendEventMessage = "sendEventMessage"
+    case FindEventInfoById = "findEventInfoById"
   }
   
   init() {
@@ -58,6 +59,10 @@ final class MeteorEventService {
   
   func sendEventMessage(parameters: [AnyObject]?, completionHandler: METMethodCompletionHandler?) {
     Meteor.callMethodWithName(Message.SendEventMessage.rawValue, parameters: parameters, completionHandler: completionHandler)
+  }
+  
+  func findEventInfoById(parameters: [AnyObject]?, completionHandler: METMethodCompletionHandler?) {
+    Meteor.callMethodWithName(Message.FindEventInfoById.rawValue, parameters: parameters, completionHandler: completionHandler)
   }
   
   //MARK: - Stub methods to save locally before save to server

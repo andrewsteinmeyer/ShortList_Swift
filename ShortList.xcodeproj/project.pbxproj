@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E066E021C5AD63300003143 /* InvitationNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E066E011C5AD63300003143 /* InvitationNavigationViewController.swift */; };
 		4E066E051C5D6BE400003143 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E066E041C5D6BE400003143 /* SWRevealViewController.m */; };
 		4E1A68FA1C5082FB00E55D64 /* InvitationActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A68F91C5082FB00E55D64 /* InvitationActivityViewController.swift */; };
 		4E1C46C41C7DE28200C22101 /* OrderedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1C46C31C7DE28200C22101 /* OrderedDictionary.swift */; };
@@ -241,7 +240,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4E066E011C5AD63300003143 /* InvitationNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationNavigationViewController.swift; sourceTree = "<group>"; };
 		4E066E031C5D6BE400003143 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		4E066E041C5D6BE400003143 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		4E066E0A1C5D6CDF00003143 /* ShortList-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShortList-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -935,7 +933,6 @@
 				4E719C0C1C3F60C3009989AC /* SelectListViewController.swift */,
 				4E582A7A1C3F48AB00052399 /* SelectVenueViewController.swift */,
 				4E40EE921C41EE9F00087C2E /* EventDetailViewController.swift */,
-				4E066E011C5AD63300003143 /* InvitationNavigationViewController.swift */,
 				4E1A68F91C5082FB00E55D64 /* InvitationActivityViewController.swift */,
 			);
 			name = Events;
@@ -1556,7 +1553,6 @@
 				4E1C46F61C7DE53500C22101 /* Rule.swift in Sources */,
 				4E1C46F71C7DE53500C22101 /* ValidationRule.swift in Sources */,
 				4EF329FF1C80931C0078B69A /* METDocument.m in Sources */,
-				4E066E021C5AD63300003143 /* InvitationNavigationViewController.swift in Sources */,
 				4E1C46EC1C7DE53500C22101 /* FullNameRule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -125,18 +125,18 @@ class EventDetailViewController: UIViewController {
     let documentID = Meteor.documentKeyForObjectID(event.objectID).documentID
     
     // TODO: make this not random all the time
-    MeteorEventService.sharedInstance.invite([documentID, "random"]) {
-      result, error in
-      
-      if error != nil {
-        dispatch_async(dispatch_get_main_queue()) {
+    MeteorEventService.sharedInstance.invite([documentID, "random"]) { result, error in
+      dispatch_async(dispatch_get_main_queue()) {
+        
+        if error != nil {
           if let failureReason = error?.localizedFailureReason {
             AppDelegate.getAppDelegate().showMessage(failureReason)
             print("error: \(failureReason)")
           }
+        } else {
+          print("success: contacts invited")
+          self.dismissViewControllerAnimated(true, completion: nil)
         }
-      } else {
-        print("success: contacts invited")
       }
     }
     

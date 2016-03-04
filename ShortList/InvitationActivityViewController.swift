@@ -31,20 +31,46 @@ class InvitationActivityViewController: UIViewController {
   //MARK: - Static methods
   
   static func presentInvitationActivityControllerForEvent(eventId: String) {
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
     
-    let invitationVC = storyboard.instantiateViewControllerWithIdentifier("InvitationActivityViewController") as! InvitationActivityViewController
-    
-    // load url to request
-    invitationVC.url = MeteorRouter.invitationActivityForEventID(eventId)
-    
-    let navVC = InvitationNavigationViewController()
-    navVC.setViewControllers([invitationVC], animated: false)
-    //navVC.pushViewController(invitationVC, animated: false)
-    
-    // Present the sign in view controller.
-    //AppDelegate.getRootViewController()?.presentViewController(navVC, animated: true, completion: nil)
-    UIApplication.topViewController()?.presentViewController(navVC, animated: true, completion: nil)
+    // find the reveal controller
+    if let revealViewController = AppDelegate.getRootViewController() as? SWRevealViewController {
+
+      // query event info
+      MeteorEventService.sharedInstance.findEventInfoById([eventId]) { result, error in
+        dispatch_async(dispatch_get_main_queue()) {
+          if error != nil {
+            print("error: \(error?.localizedDescription)")
+          } else {
+            print("success: event info found")
+            
+            let JSONEvent = JSON(result!)
+            let eventName = JSONEvent["name"].string ?? ""
+            
+            // get main storyboard
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            // setup events page
+            let eventsViewController = storyboard.instantiateViewControllerWithIdentifier("EventsViewController") as! EventsViewController
+            
+            // setup event invitation page
+            let invitationVC = storyboard.instantiateViewControllerWithIdentifier("InvitationActivityViewController") as! InvitationActivityViewController
+            
+            // set name of event
+            invitationVC.navigationItem.title = eventName
+            
+            // load url to request
+            invitationVC.url = MeteorRouter.invitationActivityForEventID(eventId)
+            
+            // populate the navigation controller
+            let navVC = EventsNavigationViewController()
+            navVC.setViewControllers([eventsViewController, invitationVC], animated: false)
+            
+            // present the invitation activity page
+            revealViewController.pushFrontViewController(navVC, animated: true)
+          }
+        }
+      }
+    }
   }
   
 }

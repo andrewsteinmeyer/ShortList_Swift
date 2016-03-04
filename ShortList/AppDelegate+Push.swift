@@ -70,22 +70,7 @@ extension AppDelegate {
             break
           }
           
-          // navigate to events
-          if let revealViewController = AppDelegate.getRootViewController() as? SWRevealViewController {
-            // main storyboard
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            
-            // setup slide menu
-            let eventsViewController = storyboard.instantiateViewControllerWithIdentifier("EventsViewController") as! EventsViewController
-            
-            let navVC = EventsNavigationViewController()
-            navVC.setViewControllers([eventsViewController], animated: false)
-            
-            revealViewController.pushFrontViewController(navVC, animated: true)
-            
-          }
-          
-          // present invitation activity page for event
+          // display invitation activity page for the event
           InvitationActivityViewController.presentInvitationActivityControllerForEvent(eventId)
           
         case .Accept:
