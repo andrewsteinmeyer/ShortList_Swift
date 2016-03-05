@@ -2057,7 +2057,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oDK-BZ-5Az" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2564" y="2710"/>
+            <point key="canvasLocation" x="2570" y="2716"/>
         </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="Q9R-Gm-aUE">
@@ -2426,11 +2426,31 @@
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="HaZ-eH-E2D" id="QRa-NT-NFv"/>
+                        <segue destination="Nrf-mT-MsW" kind="show" identifier="showAlertLink" id="yWh-y7-wRa"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Fg-N1-Q6J" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1850" y="-1607"/>
+        </scene>
+        <!--Invitation Activity View Controller-->
+        <scene sceneID="cm3-v6-73r">
+            <objects>
+                <viewController storyboardIdentifier="AlertLinkViewController" title="Invitation Activity View Controller" extendedLayoutIncludesOpaqueBars="YES" id="Nrf-mT-MsW" customClass="AlertLinkViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kab-si-poT"/>
+                        <viewControllerLayoutGuide type="bottom" id="qb6-mg-8Wz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gmg-YA-S7A">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Alert Title" id="vI3-H7-S1V"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ewi-5e-P3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2571" y="-1607"/>
         </scene>
     </scenes>
     <resources>

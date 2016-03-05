@@ -46,6 +46,28 @@ class HomeViewController: FetchedResultsTableViewController {
     self.tableView.estimatedRowHeight = 100
   }
   
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    guard let indexPath = sender as? NSIndexPath,
+      selectedAlert = dataSource.objectAtIndexPath(indexPath) as? Alert else {
+        return
+    }
+    
+    if segue.identifier == "showAlertLink" {
+      if let alertLinkViewController = segue.destinationViewController as? AlertLinkViewController {
+        // set type
+        if let type = selectedAlert.valueForKey("alertType") as? String,
+          let link = selectedAlert.valueForKey("link") as? String {
+            
+          // set title
+          alertLinkViewController.navigationItem.title = type
+            
+          // load url to request
+          alertLinkViewController.url = MeteorRouter.alertLink(link)
+        }
+      }
+    }
+  }
+  
   // MARK: - Content Loading
   
   override func configureSubscriptionLoader(subscriptionLoader: SubscriptionLoader) {
@@ -95,9 +117,23 @@ class HomeViewController: FetchedResultsTableViewController {
     }
   }
   
-  // do not allow "Delete"
-  override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-    return UITableViewCellEditingStyle.None
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    performSegueWithIdentifier("showAlertLink", sender: indexPath)
+
+    /*
+    // set name of event
+    invitationVC.navigationItem.title = eventName
+    
+    // load url to request
+    invitationVC.url = MeteorRouter.invitationActivityForEventID(eventId)
+    
+    // populate the navigation controller
+    let navVC = EventsNavigationViewController()
+    navVC.setViewControllers([eventsViewController, invitationVC], animated: false)
+    
+    // present the invitation activity page
+    revealViewController.pushFrontViewController(navVC, animated: true)
+    */
   }
   
 }
