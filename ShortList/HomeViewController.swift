@@ -18,8 +18,13 @@ class HomeViewController: FetchedResultsTableViewController {
   private let subscriptionName = "PrivateAlerts"
   private let modelName = "Alert"
   
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    // set CoreData context
+    self.managedObjectContext = Meteor.mainQueueManagedObjectContext
     
     // present sign in screen if user is not already logged in
     guard AccountManager.defaultAccountManager.isUserLoggedIn else {
@@ -27,9 +32,6 @@ class HomeViewController: FetchedResultsTableViewController {
       
       return
     }
-    
-    // set CoreData context
-    self.managedObjectContext = Meteor.mainQueueManagedObjectContext
     
     if self.revealViewController() != nil {
       menuButton.target = self.revealViewController()
@@ -77,6 +79,9 @@ class HomeViewController: FetchedResultsTableViewController {
   override func createFetchedResultsController() -> NSFetchedResultsController? {
     let fetchRequest = NSFetchRequest(entityName: modelName)
     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "insertedOn", ascending: false)]
+    
+    print("managed: \(managedObjectContext)")
+    print("fetchRequest: \(fetchRequest)")
     
     return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
   }
