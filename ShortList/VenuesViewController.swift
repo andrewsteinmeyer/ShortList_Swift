@@ -36,6 +36,8 @@ class VenuesViewController: FetchedResultsTableViewController {
     // setup delegates for empty data
     self.tableView.emptyDataSetDelegate = self
     self.tableView.emptyDataSetSource = self
+    
+    setupAppearance()
   }
   
   // MARK: - Content Loading
@@ -96,6 +98,10 @@ class VenuesViewController: FetchedResultsTableViewController {
         print("success: venue deleted")
       }
     }
+  }
+  
+  func setupAppearance() {
+    self.navigationItem.rightBarButtonItem?.tintColor = Theme.NavigationBarActionButtonTextColor.toUIColor()
   }
 
 }

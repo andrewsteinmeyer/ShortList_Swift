@@ -35,6 +35,8 @@ class ListsViewController: FetchedResultsTableViewController {
     // setup delegates for empty data
     self.tableView.emptyDataSetDelegate = self
     self.tableView.emptyDataSetSource = self
+    
+    setupAppearance()
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -82,7 +84,6 @@ class ListsViewController: FetchedResultsTableViewController {
     }
   }
   
-  
   func dataSource(dataSource: FetchedResultsTableViewDataSource, deleteObject object: NSManagedObject, atIndexPath indexPath: NSIndexPath) {
     guard object is List else {
       return
@@ -101,6 +102,11 @@ class ListsViewController: FetchedResultsTableViewController {
       }
     }
   }
+  
+  func setupAppearance() {
+    self.navigationItem.rightBarButtonItem?.tintColor = Theme.NavigationBarActionButtonTextColor.toUIColor()
+  }
+  
   
 }
 

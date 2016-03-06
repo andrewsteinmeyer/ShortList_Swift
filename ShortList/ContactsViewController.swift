@@ -34,6 +34,8 @@ class ContactsViewController: FetchedResultsTableViewController {
     // setup delegates for empty data
     self.tableView.emptyDataSetDelegate = self
     self.tableView.emptyDataSetSource = self
+    
+    setupAppearance()
   }
   
   // MARK: - Content Loading
@@ -116,6 +118,10 @@ class ContactsViewController: FetchedResultsTableViewController {
   
   func importContacts() {
     displayContactsController()
+  }
+  
+  func setupAppearance() {
+    self.navigationItem.rightBarButtonItem?.tintColor = Theme.NavigationBarActionButtonTextColor.toUIColor()
   }
   
   

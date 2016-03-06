@@ -58,6 +58,7 @@ class CreateListViewController: UIViewController, UIMaterialTextFieldDelegate {
   // MARK: - IBAction methods
   
   @IBAction func createListDidCancel(sender: AnyObject) {
+    // dismiss keyboard and dismiss create list
     self.view.endEditing(true)
     self.dismissViewControllerAnimated(true, completion: nil)
   }
@@ -67,10 +68,30 @@ class CreateListViewController: UIViewController, UIMaterialTextFieldDelegate {
     createList()
   }
   
+  @IBAction func showContactMenu(sender: AnyObject) {
+    //dismiss keyboard
+    self.view.endEditing(true)
+    
+    let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+    
+    let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: { _ in self.nameTextField.becomeFirstResponder() } )
+    alertController.addAction(cancelAction)
+    
+    let createContactAction = UIAlertAction(title: "Create Contact", style: UIAlertActionStyle.Default, handler: { _ in self.createContact() })
+    alertController.addAction(createContactAction)
+    
+    let importContactsAction = UIAlertAction(title: "Import Contacts", style: .Default, handler: { _ in self.importContacts() })
+    alertController.addAction(importContactsAction)
+    
+    presentViewController(alertController, animated: true, completion: nil)
+  }
+  
+  // MARK: - Private methods
+  
   private func createList() {
     guard let name = nameTextField.text where !name.isEmpty
        && selectedContacts.count > 0 else {
-        let errorMessage = "All fields are required to create list"
+        let errorMessage = "Create a name and select contacts below."
         displayError(errorMessage)
         
         return
@@ -132,6 +153,18 @@ class CreateListViewController: UIViewController, UIMaterialTextFieldDelegate {
   private func setupAppearance() {
     selectContactsHeaderView.backgroundColor = Theme.SelectContactsHeaderViewBackgroundColor.toUIColor()
     selectContactsHeaderViewLabel.textColor = Theme.SelectContactsHeaderViewTextColor.toUIColor()
+    
+    self.navigationItem.rightBarButtonItem?.tintColor = Theme.NavigationBarActionButtonTextColor.toUIColor()
+  }
+  
+  //MARK: Contacts methods
+  
+  func createContact() {
+    performSegueWithIdentifier("createContact", sender: nil)
+  }
+  
+  func importContacts() {
+    displayContactsController()
   }
   
 }

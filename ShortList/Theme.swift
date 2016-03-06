@@ -19,6 +19,8 @@ enum Theme {
     static let mainThemeTextColor           = "333333"
     static let mainThemeErrorColor          = "EB4D5C"
     //static let mainThemeErrorColor          = "DE495B"
+    static let mainThemeButtonTextColor     = "007AFF"
+    //static let mainThemeButtonTextColor     = "428BCA"
     
     static let menuTextColor                = "FFECDB"
     //static let menuIconColor              = "FCE353"  //brighter yellow
@@ -50,6 +52,7 @@ enum Theme {
   // Navigation
   case NavigationBarTintColor
   case NavigationBarBackgroundColor
+  case NavigationBarActionButtonTextColor
   
   // TabBar
   case TabBarButtonTintColor
@@ -110,6 +113,7 @@ enum Theme {
     // Navigation
     case .NavigationBarTintColor:                        return HexColor(Palette.mainThemeTextColor)
     case .NavigationBarBackgroundColor:                  return HexColor(Palette.mainThemeColor)
+    case .NavigationBarActionButtonTextColor:            return HexColor(Palette.mainThemeButtonTextColor)
     
     // TabBar
     case .TabBarButtonTintColor:                         return HexColor(Palette.mainThemeTextColor)

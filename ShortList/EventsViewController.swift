@@ -53,6 +53,8 @@ class EventsViewController: FetchedResultsTableViewController {
     // setup delegates for empty data
     self.tableView.emptyDataSetDelegate = self
     self.tableView.emptyDataSetSource = self
+    
+    setupAppearance()
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -166,6 +168,11 @@ class EventsViewController: FetchedResultsTableViewController {
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     performSegueWithIdentifier("showInvitationActivity", sender: indexPath)
   }
+  
+  func setupAppearance() {
+    self.navigationItem.rightBarButtonItem?.tintColor = Theme.NavigationBarActionButtonTextColor.toUIColor()
+  }
+  
   
 }
 

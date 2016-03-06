@@ -29,6 +29,8 @@ class SelectVenueViewController: FetchedResultsTableViewController {
     super.viewDidLoad()
     
     self.managedObjectContext = Meteor.mainQueueManagedObjectContext
+    
+    setupAppearance()
   }
   
   
@@ -97,5 +99,8 @@ class SelectVenueViewController: FetchedResultsTableViewController {
     return UITableViewCellEditingStyle.None
   }
   
+  private func setupAppearance() {
+    self.navigationItem.rightBarButtonItem?.tintColor = Theme.NavigationBarActionButtonTextColor.toUIColor()
+  }
   
 }

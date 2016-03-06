@@ -83,7 +83,7 @@ class CreateVenueViewController: UIViewController, UIMaterialTextFieldDelegate {
   private func createVenue() {
     guard let name = nameTextField.text where !name.isEmpty,
       let location = location else {
-        let errorMessage = "Both fields are required to create venue"
+        let errorMessage = "Both fields are needed to create a venue."
         displayError(errorMessage)
         
         return

@@ -86,6 +86,7 @@
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -487,9 +488,6 @@
                                         <constraint firstAttribute="width" constant="204" id="nzd-gE-Bi0"/>
                                         <constraint firstAttribute="height" constant="51" id="o5a-8O-ohx"/>
                                     </constraints>
-                                    <connections>
-                                        <action selector="logOut:" destination="o2S-fA-yTT" eventType="touchUpInside" id="yPy-gp-aTx"/>
-                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="jandrewsteinmeyer@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4aK-bO-7xl">
                                     <rect key="frame" x="8" y="60" width="584" height="21"/>
@@ -765,7 +763,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="tZQ-2N-wX2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                 <color key="textColor" red="0.91756308078765869" green="0.33028072118759155" blue="0.34021648764610291" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -940,7 +938,7 @@
                                 <rect key="frame" x="20" y="97" width="560" height="40"/>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="anB-7x-0X2"/>
+                                    <constraint firstAttribute="height" constant="40" id="uVj-LC-QOt"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
@@ -949,31 +947,41 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3U-AV-Rvg">
                                 <rect key="frame" x="20" y="72" width="560" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="qNS-8q-CIJ"/>
+                                    <constraint firstAttribute="height" constant="21" id="1Es-2g-4C6"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                 <color key="textColor" red="0.91756308080000004" green="0.33028072120000002" blue="0.34021648760000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLd-Jh-JUI">
-                                <rect key="frame" x="0.0" y="180" width="600" height="30"/>
+                                <rect key="frame" x="0.0" y="179" width="600" height="34"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Contacts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9l-pb-Kvy">
-                                        <rect key="frame" x="8" y="5" width="117" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="Vg4-4o-Dqd"/>
-                                            <constraint firstAttribute="width" constant="117" id="kte-I8-Vdv"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qX5-e3-aQ8">
+                                        <rect key="frame" x="13" y="0.0" width="574" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Contacts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9l-pb-Kvy">
+                                                <rect key="frame" x="0.0" y="0.0" width="103" height="30"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0QT-22-XLX">
+                                                <rect key="frame" x="103" y="0.0" width="471" height="30"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                                <state key="normal" title="Add Contact"/>
+                                                <connections>
+                                                    <action selector="showContactMenu:" destination="P4E-LF-fLh" eventType="touchUpInside" id="MiF-pr-GbL"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.84313725490000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="F9l-pb-Kvy" firstAttribute="top" secondItem="dLd-Jh-JUI" secondAttribute="top" constant="5" id="2dv-nh-jpm"/>
-                                    <constraint firstAttribute="height" constant="30" id="cfu-0X-r0e"/>
-                                    <constraint firstItem="F9l-pb-Kvy" firstAttribute="leading" secondItem="dLd-Jh-JUI" secondAttribute="leading" constant="8" id="chA-sW-rxP"/>
+                                    <constraint firstItem="qX5-e3-aQ8" firstAttribute="centerX" secondItem="dLd-Jh-JUI" secondAttribute="centerX" id="Ofp-da-7QL"/>
+                                    <constraint firstItem="qX5-e3-aQ8" firstAttribute="leading" secondItem="dLd-Jh-JUI" secondAttribute="leading" constant="13" id="WoR-Tx-HPn"/>
+                                    <constraint firstItem="qX5-e3-aQ8" firstAttribute="centerY" secondItem="dLd-Jh-JUI" secondAttribute="centerY" constant="-2" id="Zhp-br-V67"/>
+                                    <constraint firstItem="qX5-e3-aQ8" firstAttribute="top" secondItem="dLd-Jh-JUI" secondAttribute="top" id="nqD-Gv-31P"/>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RyJ-DK-IHA">
@@ -985,20 +993,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="RyJ-DK-IHA" secondAttribute="trailing" constant="-20" id="2eE-Uj-em6"/>
-                            <constraint firstItem="L3U-AV-Rvg" firstAttribute="trailing" secondItem="id4-PB-CpV" secondAttribute="trailingMargin" id="5Eb-UO-U8X"/>
-                            <constraint firstItem="Ifp-VA-tsh" firstAttribute="top" secondItem="L3U-AV-Rvg" secondAttribute="bottom" constant="4" id="7mO-XP-Fpe"/>
-                            <constraint firstItem="L3U-AV-Rvg" firstAttribute="leading" secondItem="id4-PB-CpV" secondAttribute="leadingMargin" id="8d5-nE-TGN"/>
-                            <constraint firstItem="Ifp-VA-tsh" firstAttribute="trailing" secondItem="id4-PB-CpV" secondAttribute="trailingMargin" id="93a-1p-tt4"/>
+                            <constraint firstItem="RyJ-DK-IHA" firstAttribute="leading" secondItem="id4-PB-CpV" secondAttribute="leading" id="1IN-Lo-De1"/>
+                            <constraint firstItem="Ifp-VA-tsh" firstAttribute="centerX" secondItem="dLd-Jh-JUI" secondAttribute="centerX" id="1cm-jD-sgc"/>
                             <constraint firstItem="Ifp-VA-tsh" firstAttribute="centerX" secondItem="dLd-Jh-JUI" secondAttribute="centerX" id="9cE-A8-JsK"/>
-                            <constraint firstItem="RyJ-DK-IHA" firstAttribute="leading" secondItem="id4-PB-CpV" secondAttribute="leadingMargin" constant="-20" id="HWN-wy-axw"/>
-                            <constraint firstItem="Ifp-VA-tsh" firstAttribute="leading" secondItem="id4-PB-CpV" secondAttribute="leadingMargin" id="T7u-ed-BoB"/>
-                            <constraint firstItem="L3U-AV-Rvg" firstAttribute="top" secondItem="blT-24-EsN" secondAttribute="bottom" constant="8" id="Zy6-Jd-3VA"/>
-                            <constraint firstItem="g47-Sa-IRu" firstAttribute="top" secondItem="RyJ-DK-IHA" secondAttribute="bottom" id="gSE-ui-M3b"/>
-                            <constraint firstItem="dLd-Jh-JUI" firstAttribute="top" secondItem="Ifp-VA-tsh" secondAttribute="bottom" constant="43" id="hX8-Yo-Puf"/>
-                            <constraint firstItem="RyJ-DK-IHA" firstAttribute="top" secondItem="Ifp-VA-tsh" secondAttribute="bottom" constant="72" id="qb9-uA-mzy"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dLd-Jh-JUI" secondAttribute="trailing" constant="-20" id="uCg-Oa-d6P"/>
-                            <constraint firstItem="dLd-Jh-JUI" firstAttribute="leading" secondItem="id4-PB-CpV" secondAttribute="leadingMargin" constant="-20" id="wua-D4-HXE"/>
+                            <constraint firstItem="Ifp-VA-tsh" firstAttribute="top" secondItem="L3U-AV-Rvg" secondAttribute="bottom" constant="4" id="HN7-u8-ttE"/>
+                            <constraint firstAttribute="trailing" secondItem="dLd-Jh-JUI" secondAttribute="trailing" id="I0U-aJ-zTf"/>
+                            <constraint firstItem="L3U-AV-Rvg" firstAttribute="leading" secondItem="id4-PB-CpV" secondAttribute="leadingMargin" id="JcM-Rn-4W1"/>
+                            <constraint firstItem="RyJ-DK-IHA" firstAttribute="top" secondItem="0QT-22-XLX" secondAttribute="bottom" id="L6g-O7-zg9"/>
+                            <constraint firstItem="dLd-Jh-JUI" firstAttribute="trailing" secondItem="RyJ-DK-IHA" secondAttribute="trailing" id="LKE-d0-qn8"/>
+                            <constraint firstItem="L3U-AV-Rvg" firstAttribute="top" secondItem="blT-24-EsN" secondAttribute="bottom" constant="8" symbolic="YES" id="OCh-dK-ZlC"/>
+                            <constraint firstItem="L3U-AV-Rvg" firstAttribute="trailing" secondItem="Ifp-VA-tsh" secondAttribute="trailing" id="Q0g-sU-hEl"/>
+                            <constraint firstItem="dLd-Jh-JUI" firstAttribute="top" secondItem="Ifp-VA-tsh" secondAttribute="bottom" constant="42" id="es1-5x-Tkv"/>
+                            <constraint firstItem="RyJ-DK-IHA" firstAttribute="bottom" secondItem="g47-Sa-IRu" secondAttribute="top" id="f3L-lP-T7g"/>
+                            <constraint firstItem="dLd-Jh-JUI" firstAttribute="leading" secondItem="RyJ-DK-IHA" secondAttribute="leading" id="kD4-Bp-pOa"/>
+                            <constraint firstItem="L3U-AV-Rvg" firstAttribute="leading" secondItem="Ifp-VA-tsh" secondAttribute="leading" id="qhy-KS-ysl"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -1023,6 +1031,7 @@
                         <outlet property="nameTextField" destination="Ifp-VA-tsh" id="8BB-8t-4q6"/>
                         <outlet property="selectContactsHeaderView" destination="dLd-Jh-JUI" id="pf4-KT-myN"/>
                         <outlet property="selectContactsHeaderViewLabel" destination="F9l-pb-Kvy" id="c7c-3i-8tK"/>
+                        <segue destination="IWT-EJ-aYl" kind="presentation" identifier="createContact" id="XY4-q6-rST"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CdP-nk-cc7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1116,14 +1125,7 @@
                             <outlet property="delegate" destination="uBj-Q8-RFc" id="Ubv-zk-I6e"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Contacts" id="uIS-n0-uqy">
-                        <barButtonItem key="leftBarButtonItem" id="htD-y6-gId" userLabel="User Button"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Pd8-YR-42z" userLabel="Add Button">
-                            <connections>
-                                <action selector="showContactMenu:" destination="uBj-Q8-RFc" id="osQ-HS-fAt"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Contacts" id="uIS-n0-uqy"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3v-Vj-sGm" sceneMemberID="firstResponder"/>
             </objects>
@@ -1313,7 +1315,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="veg-9X-jmL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                 <color key="textColor" red="0.91756308080000004" green="0.33028072120000002" blue="0.34021648760000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1766,7 +1768,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="XFr-GH-PXt"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                 <color key="textColor" red="0.91756308080000004" green="0.33028072120000002" blue="0.34021648760000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1983,7 +1985,13 @@
                             <outlet property="delegate" destination="c8W-f2-CbU" id="StK-pt-hK8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Select Venue" id="EdP-YL-lYK"/>
+                    <navigationItem key="navigationItem" title="Select Venue" id="EdP-YL-lYK">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Z1Y-Ae-WG8">
+                            <connections>
+                                <segue destination="7Sf-2R-wyG" kind="presentation" id="adx-sL-IMq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IN7-wz-IOD" sceneMemberID="firstResponder"/>
             </objects>
@@ -2034,7 +2042,13 @@
                             <outlet property="delegate" destination="EE7-ki-S8e" id="oGJ-ga-a01"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Select List" id="tNS-W2-TCj"/>
+                    <navigationItem key="navigationItem" title="Select List" id="tNS-W2-TCj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="VWu-Xo-Z5n">
+                            <connections>
+                                <segue destination="OtC-u3-dJi" kind="presentation" id="1qy-LQ-hbz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QfF-hx-1uA" sceneMemberID="firstResponder"/>
             </objects>
@@ -2466,7 +2480,10 @@
         <image name="user_icon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="1qy-LQ-hbz"/>
         <segue reference="kqc-Wa-N8f"/>
         <segue reference="ALo-DL-w39"/>
+        <segue reference="adx-sL-IMq"/>
+        <segue reference="XY4-q6-rST"/>
     </inferredMetricsTieBreakers>
 </document>

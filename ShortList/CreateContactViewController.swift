@@ -64,7 +64,7 @@ class CreateContactViewController: UIViewController, UIMaterialTextFieldDelegate
     guard let name = nameTextField.text where !name.isEmpty,
       let phone = phoneTextField.text where !phone.isEmpty,
       let email = emailTextField.text where !email.isEmpty else {
-        let errorMessage = "All fields are required to create contact"
+        let errorMessage = "All fields are needed to create a contact."
         displayError(errorMessage)
         
         return

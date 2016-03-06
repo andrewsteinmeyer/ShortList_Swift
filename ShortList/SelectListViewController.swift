@@ -27,6 +27,8 @@ class SelectListViewController: FetchedResultsTableViewController {
     super.viewDidLoad()
     
     self.managedObjectContext = Meteor.mainQueueManagedObjectContext
+    
+    setupAppearance()
   }
   
   
@@ -85,5 +87,8 @@ class SelectListViewController: FetchedResultsTableViewController {
     return UITableViewCellEditingStyle.None
   }
   
+  private func setupAppearance() {
+    self.navigationItem.rightBarButtonItem?.tintColor = Theme.NavigationBarActionButtonTextColor.toUIColor()
+  }
   
 }

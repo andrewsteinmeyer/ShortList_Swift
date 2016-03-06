@@ -112,6 +112,8 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
     
     // assign first responder
     nameTextField.becomeFirstResponder()
+    
+    setupAppearance()
   }
   
   
@@ -296,6 +298,9 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   private func setupAppearance() {
     // set error color
     errorMessageLabel.textColor = Theme.CreateEventViewErrorColor.toUIColor()
+    
+    // setup nav bar right button
+    self.navigationItem.rightBarButtonItem?.tintColor = Theme.NavigationBarActionButtonTextColor.toUIColor()
   }
   
 }

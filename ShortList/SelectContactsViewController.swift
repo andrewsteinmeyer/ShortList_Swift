@@ -10,6 +10,7 @@
 import UIKit
 import CoreData
 import Meteor
+import PhoneNumberKit
 
 protocol SelectContactsViewControllerDelegate {
   func selectContactsViewControllerDidSelectContact(contact: Contact)
@@ -60,8 +61,19 @@ class SelectContactsViewController: FetchedResultsTableViewController {
         }
         
         // set phone number
-        if let number = contact.valueForKey("phone") as? String {
-          contactPhone = number.stringByRemovingOccurrencesOfCharacters(" )(- ") ?? ""
+        if let phone = contact.valueForKey("phone") as? String {
+          var phoneNumber: PhoneNumber?
+          
+          do {
+            phoneNumber = try PhoneNumber(rawNumber: phone)
+          }
+          catch {
+            print("Error: Could not parse raw phone number")
+          }
+          
+          if let number = phoneNumber?.toNational() {
+            contactPhone = number
+          }
         }
         
         // set email
@@ -93,6 +105,8 @@ class SelectContactsViewController: FetchedResultsTableViewController {
   override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
     return UITableViewCellEditingStyle.None
   }
+  
+
   
   
 }

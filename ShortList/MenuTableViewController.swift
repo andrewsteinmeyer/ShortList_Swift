@@ -60,10 +60,6 @@ class MenuTableViewController: UITableViewController {
   @IBOutlet weak var profileIconImageView: UIImageView!
   
   
-  @IBAction func logOut(sender: AnyObject) {
-    AccountManager.defaultAccountManager.signOut()
-  }
-  
   // initial selected row is .Home
   var selectedRow = 0
   

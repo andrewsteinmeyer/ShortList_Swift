@@ -1,15 +1,15 @@
 //
-//  ContactsViewController+Import.swift
+//  CreateListViewController+Import.swift
 //  ShortList
 //
-//  Created by Andrew Steinmeyer on 1/13/16.
+//  Created by Andrew Steinmeyer on 3/6/16.
 //  Copyright © 2016 Andrew Steinmeyer. All rights reserved.
 //
 
 import Contacts
 import ContactsUI
 
-extension ContactsViewController: CNContactPickerDelegate {
+extension CreateListViewController: CNContactPickerDelegate {
   
   typealias ContactDetails = [String:String]
   
@@ -31,7 +31,7 @@ extension ContactsViewController: CNContactPickerDelegate {
         
         //TODO: Filter out contacts that have already been selected and saved.  Having trouble with predicate
         
-        //contactPickerViewController.predicateForEnablingContact = NSPredicate(format: "!(name IN %@)", fullNames)
+        //contactPickerViewController.predicateForEnablingContact = NSPredicate(format: "NOT (name IN %@)", fullNames)
         contactPickerViewController.delegate = self
         
         //contactPickerViewController.displayedPropertyKeys = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactEmailAddressesKey, CNContactBirthdayKey, CNContactImageDataKey]

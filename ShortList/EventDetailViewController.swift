@@ -42,6 +42,7 @@ class EventDetailViewController: UIViewController {
     super.viewDidLoad()
     
     populateEventFields()
+    setupAppearance()
   }
   
   func populateEventFields() {
@@ -139,7 +140,10 @@ class EventDetailViewController: UIViewController {
         }
       }
     }
-    
+  }
+  
+  private func setupAppearance() {
+    self.navigationItem.rightBarButtonItem?.tintColor = Theme.NavigationBarActionButtonTextColor.toUIColor()
   }
   
   // MARK: - IBAction methods
