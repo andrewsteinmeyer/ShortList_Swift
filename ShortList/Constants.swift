@@ -17,7 +17,7 @@ struct Constants {
     private static let Domain = "10.0.0.3:3000"
     //private static let Domain = "localhost:3000"
 
-    static let RootUrl = "http://\(Domain)"
+    static let RootUrl = "https://\(Domain)"
     static let DDPUrl = "ws://\(Domain)/websocket"
   }
   
