@@ -20,7 +20,6 @@
 
 import UIKit
 import CoreData
-import Meteor
 
 class FetchedResultsTableViewController: UITableViewController, ContentLoading, SubscriptionLoaderDelegate, FetchedResultsTableViewDataSourceDelegate {
   // MARK: - Lifecycle

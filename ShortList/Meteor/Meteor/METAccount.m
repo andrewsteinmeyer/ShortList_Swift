@@ -20,7 +20,7 @@
 
 #import "METAccount.h"
 
-#import <SimpleKeychain/A0SimpleKeychain.h>
+#import "A0SimpleKeychain.h"
 
 NSString * const METAccountKeychainItemName = @"MeteorAccount";
 

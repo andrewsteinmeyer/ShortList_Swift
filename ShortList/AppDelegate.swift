@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Meteor
 import Contacts
 import GoogleMaps
 import FLEX

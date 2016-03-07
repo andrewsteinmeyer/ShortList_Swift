@@ -9,7 +9,6 @@
 
 import UIKit
 import CoreData
-import Meteor
 
 protocol SelectVenueViewControllerDelegate {
   func selectVenueViewControllerDidSelectVenue(venue: Venue)

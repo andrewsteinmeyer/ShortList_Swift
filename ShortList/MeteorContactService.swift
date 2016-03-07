@@ -6,7 +6,6 @@
 //  Copyright © 2015 Andrew Steinmeyer. All rights reserved.
 //
 
-import Meteor
 
 final class MeteorContactService {
   static let sharedInstance = MeteorContactService()

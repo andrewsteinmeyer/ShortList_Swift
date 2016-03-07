@@ -8,9 +8,7 @@
 
 import UIKit
 import CoreData
-import Meteor
 import PhoneNumberKit
-import SwiftValidator
 
 
 enum Screen: Int {

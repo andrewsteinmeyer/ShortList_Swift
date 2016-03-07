@@ -10,7 +10,6 @@ import Foundation
 
 import UIKit
 import CoreData
-import Meteor
 import DZNEmptyDataSet
 
 class VenuesViewController: FetchedResultsTableViewController {

@@ -6,7 +6,6 @@
 //  Copyright © 2015 Andrew Steinmeyer. All rights reserved.
 //
 
-import Meteor
 
 // Meteor setup
 let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: Constants.Meteor.DDPUrl)!)

@@ -26,15 +26,15 @@ FOUNDATION_EXPORT double MeteorVersionNumber;
 //! Project version string for Meteor.
 FOUNDATION_EXPORT const unsigned char MeteorVersionString[];
 
-#import <Meteor/METDDPClient.h>
-#import <Meteor/METAccount.h>
-#import <Meteor/METDDPClient+AccountsPassword.h>
-#import <Meteor/METSubscription.h>
-#import <Meteor/METDatabase.h>
-#import <Meteor/METCollection.h>
-#import <Meteor/METDocument.h>
-#import <Meteor/METDocumentKey.h>
-#import <Meteor/METDatabaseChanges.h>
-#import <Meteor/METDocumentChangeDetails.h>
-#import <Meteor/METCoreDataDDPClient.h>
-#import <Meteor/METIncrementalStore.h>
+#import "METDDPClient.h"
+#import "METAccount.h"
+#import "METDDPClient+AccountsPassword.h"
+#import "METSubscription.h"
+#import "METDatabase.h"
+#import "METCollection.h"
+#import "METDocument.h"
+#import "METDocumentKey.h"
+#import "METDatabaseChanges.h"
+#import "METDocumentChangeDetails.h"
+#import "METCoreDataDDPClient.h"
+#import "METIncrementalStore.h"

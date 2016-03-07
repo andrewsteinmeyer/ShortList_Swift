@@ -6,8 +6,6 @@
 //  Copyright © 2016 Andrew Steinmeyer. All rights reserved.
 //
 
-import Meteor
-
 extension METDDPClient {
   
   // sign up with name and email

@@ -9,7 +9,6 @@
 
 import UIKit
 import CoreData
-import Meteor
 import PhoneNumberKit
 
 protocol SelectContactsViewControllerDelegate {

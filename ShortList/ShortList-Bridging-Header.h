@@ -10,6 +10,7 @@
 #define ShortList_Bridging_Header_h
 
 #import "SWRevealViewController.h"
+#import "Meteor.h"
 
 
 #endif /* ShortList_Bridging_Header_h */

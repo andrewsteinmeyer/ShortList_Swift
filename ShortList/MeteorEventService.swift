@@ -6,7 +6,6 @@
 //  Copyright © 2016 Andrew Steinmeyer. All rights reserved.
 //
 
-import Meteor
 
 final class MeteorEventService {
   static let sharedInstance = MeteorEventService()
