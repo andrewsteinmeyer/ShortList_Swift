@@ -32,6 +32,10 @@ enum Theme {
     
     static let emptyDataSetTitleColor       = "C9C9C9"
     static let emptyDataSetDescriptionColor = "C9C9C9"
+    
+    static let eventInviteIconColor         = "4C9689"
+    static let eventMessageIconColor        = "428BCA"
+    static let eventAlertIconColor          = "EB4D5C"
   }
   
   // Base Table View Cell
@@ -91,6 +95,11 @@ enum Theme {
   // Profile
   case ProfileTableViewHeaderTextColor
   case ProfileLogoutButtonTextColor
+  
+  // Alert
+  case AlertEventInviteIconColor
+  case AlertNewMessageIconColor
+  case AlertDefaultIconColor
   
   func toUIColor() -> UIColor {
     switch self {
@@ -152,6 +161,11 @@ enum Theme {
     // Profile
     case .ProfileTableViewHeaderTextColor:               return HexColor(Palette.mainThemeTextColor)
     case .ProfileLogoutButtonTextColor:                  return HexColor(Palette.mainThemeErrorColor)
+    
+    // Alert
+    case .AlertEventInviteIconColor:                     return HexColor(Palette.eventInviteIconColor)
+    case .AlertNewMessageIconColor:                      return HexColor(Palette.eventMessageIconColor)
+    case .AlertDefaultIconColor:                         return HexColor(Palette.eventAlertIconColor)
     
     }
   }

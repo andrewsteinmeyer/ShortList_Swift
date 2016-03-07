@@ -57,10 +57,16 @@ class AlertsTableViewCell : BaseTableViewCell {
     switch type {
       case "eventInvite":
         self.alertIcon.image = UIImage(named: "calendar_2-outline")
+        let alertImage = alertIcon.image?.imageWithColor(Theme.AlertEventInviteIconColor.toUIColor())
+        alertIcon.image = alertImage
       case "newMessage":
         self.alertIcon.image = UIImage(named: "chats-outline")
+        let messageImage = alertIcon.image?.imageWithColor(Theme.AlertNewMessageIconColor.toUIColor())
+        alertIcon.image = messageImage
       default:
         self.alertIcon.image = UIImage(named: "alarm-outline")
+        let defaultImage = alertIcon.image?.imageWithColor(Theme.AlertDefaultIconColor.toUIColor())
+        alertIcon.image = defaultImage
     }
   }
   

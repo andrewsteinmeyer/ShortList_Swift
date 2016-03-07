@@ -18,8 +18,6 @@ class HomeViewController: FetchedResultsTableViewController {
   private let subscriptionName = "PrivateAlerts"
   private let modelName = "Alert"
   
-  
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     
