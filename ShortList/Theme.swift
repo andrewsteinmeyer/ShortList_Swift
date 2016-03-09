@@ -37,7 +37,8 @@ enum Theme {
     static let eventMessageIconColor        = "428BCA"
     static let eventAlertIconColor          = "EB4D5C"
     
-    static let scannerOutlineColor          = "65A0D6"
+    static let scannerOutlineColor          = "FFD673"
+    //static let scannerOutlineColor          = "65A0D6"
   }
   
   // Base Table View Cell

@@ -141,6 +141,34 @@ class ContactsViewController: FetchedResultsTableViewController {
     presentViewController(alertController, animated: true, completion: nil)
   }
   
+  // MARK: - Static functions
+  
+  static func presentContactsViewController() {
+    
+    // find the reveal controller
+    if let revealVC = AppDelegate.getRootViewController() as? SWRevealViewController {
+      
+      // update menu sidebar
+      if let menuVC = revealVC.rearViewController as? MenuTableViewController {
+        menuVC.selectRow(Menu.Contacts.rawValue)
+      }
+      
+      // get main storyboard
+      let storyboard = UIStoryboard(name: "Main", bundle: nil)
+      
+      // setup contacts page
+      let contactsViewController = storyboard.instantiateViewControllerWithIdentifier("ContactsViewController") as! ContactsViewController
+      
+      // setup navigation controller
+      let navVC = ContactsNavigationViewController()
+      navVC.pushViewController(contactsViewController, animated: false)
+      
+      // present the contacts page
+      revealVC.pushFrontViewController(navVC, animated: true)
+    }
+      
+  }
+  
 }
 
 extension ContactsViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {

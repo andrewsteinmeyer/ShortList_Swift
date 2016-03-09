@@ -63,8 +63,8 @@ class ScanViewController: UIViewController {
   // MARK: - Private methods
   
   private func saveUserToContacts(id: String) {
-    let parameters = [id]
-    MeteorContactService.sharedInstance.addUserToContacts(parameters) {
+    
+    MeteorContactService.sharedInstance.addUserToContacts([id]) {
       result, error in
       
       dispatch_async(dispatch_get_main_queue()) {
@@ -72,7 +72,10 @@ class ScanViewController: UIViewController {
           let errorMessage = error.localizedFailureReason
           AppDelegate.getAppDelegate().showMessage(errorMessage!)
         } else {
-          self.dismissViewControllerAnimated(true, completion: nil)
+          self.dismissViewControllerAnimated(true) {
+            // navigate to contacts page
+            ContactsViewController.presentContactsViewController()
+          }
         }
       }
     }
