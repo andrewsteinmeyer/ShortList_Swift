@@ -47,6 +47,7 @@
 		4E40EE931C41EE9F00087C2E /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E40EE921C41EE9F00087C2E /* EventDetailViewController.swift */; };
 		4E5010DC1C73407F00CE3CF6 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5010DB1C73407F00CE3CF6 /* ProfileTableViewController.swift */; };
 		4E5010E41C75EBDB00CE3CF6 /* METDDPClient+AccountsPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5010E31C75EBDB00CE3CF6 /* METDDPClient+AccountsPassword.swift */; };
+		4E51AB861C8F0D2600260D82 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51AB851C8F0D2600260D82 /* ScanViewController.swift */; };
 		4E5255A41C51CC8F00F6089D /* MeteorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5255A31C51CC8F00F6089D /* MeteorRouter.swift */; };
 		4E5255A81C51CEAA00F6089D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5255A71C51CEAA00F6089D /* Constants.swift */; };
 		4E54FE351C599C3C00D89DAC /* AppDelegate+Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E54FE341C599C3C00D89DAC /* AppDelegate+Push.swift */; };
@@ -285,6 +286,7 @@
 		4E40EE921C41EE9F00087C2E /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		4E5010DB1C73407F00CE3CF6 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		4E5010E31C75EBDB00CE3CF6 /* METDDPClient+AccountsPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "METDDPClient+AccountsPassword.swift"; sourceTree = "<group>"; };
+		4E51AB851C8F0D2600260D82 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		4E5255A31C51CC8F00F6089D /* MeteorRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorRouter.swift; sourceTree = "<group>"; };
 		4E5255A71C51CEAA00F6089D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4E54FE341C599C3C00D89DAC /* AppDelegate+Push.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Push.swift"; sourceTree = "<group>"; };
@@ -653,6 +655,14 @@
 			name = Utility;
 			sourceTree = "<group>";
 		};
+		4E51AB841C8F0CD600260D82 /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				4E51AB851C8F0D2600260D82 /* ScanViewController.swift */,
+			);
+			name = Scan;
+			sourceTree = "<group>";
+		};
 		4E60A0D61C2C6E4400D66A9A /* Venue */ = {
 			isa = PBXGroup;
 			children = (
@@ -732,6 +742,7 @@
 				4E60A0D61C2C6E4400D66A9A /* Venue */,
 				4E7C607E1C3B5F210042CE4F /* Events */,
 				4EA89FC01C2709CF00163C57 /* Contact */,
+				4E51AB841C8F0CD600260D82 /* Scan */,
 				4E5010DD1C73415E00CE3CF6 /* Profile */,
 			);
 			name = ViewController;
@@ -1530,6 +1541,7 @@
 				4EF32A2C1C8093B70078B69A /* PSWebSocket.m in Sources */,
 				4E63130C1C1FB28000EB78F9 /* SpringTextView.swift in Sources */,
 				4EF32A2E1C8093B70078B69A /* PSWebSocketDeflater.m in Sources */,
+				4E51AB861C8F0D2600260D82 /* ScanViewController.swift in Sources */,
 				4E1C46E71C7DE53500C22101 /* CharacterSetRule.swift in Sources */,
 				4EF32A111C80931C0078B69A /* NSArray+METAdditions.m in Sources */,
 				4E6312FD1C1FB28000EB78F9 /* DesignableTextView.swift in Sources */,

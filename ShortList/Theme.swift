@@ -36,6 +36,8 @@ enum Theme {
     static let eventInviteIconColor         = "4C9689"
     static let eventMessageIconColor        = "428BCA"
     static let eventAlertIconColor          = "EB4D5C"
+    
+    static let scannerOutlineColor          = "65A0D6"
   }
   
   // Base Table View Cell
@@ -100,6 +102,11 @@ enum Theme {
   case AlertEventInviteIconColor
   case AlertNewMessageIconColor
   case AlertDefaultIconColor
+  
+  // Scan
+  case QRScannerOutlineColor
+  case CancelScanButtonBackgroundColor
+  case CancelScanButtonTextColor
   
   func toUIColor() -> UIColor {
     switch self {
@@ -166,6 +173,11 @@ enum Theme {
     case .AlertEventInviteIconColor:                     return HexColor(Palette.eventInviteIconColor)
     case .AlertNewMessageIconColor:                      return HexColor(Palette.eventMessageIconColor)
     case .AlertDefaultIconColor:                         return HexColor(Palette.eventAlertIconColor)
+      
+    // Scan
+    case QRScannerOutlineColor:                          return HexColor(Palette.scannerOutlineColor)
+    case CancelScanButtonBackgroundColor:                return HexColor(Palette.mainThemeColor)
+    case CancelScanButtonTextColor:                      return HexColor(Palette.mainThemeTextColor)
     
     }
   }

@@ -97,6 +97,7 @@ final class AccountManager: NSObject {
     Meteor.signUpWithEmail(email, password: password, completionHandler: completionHandler)
   }
   
+  // save device token for APNS
   func setUserNotificationToken() {
     guard let token = deviceToken else {
       return

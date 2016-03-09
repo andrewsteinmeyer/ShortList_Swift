@@ -19,6 +19,7 @@ final class MeteorContactService {
     case ImportContacts = "importContacts"
     case CreateContact = "createContact"
     case DeleteContact = "deleteContact"
+    case AddUserToContacts = "addUserToContacts"
   }
   
   init() {
@@ -49,9 +50,12 @@ final class MeteorContactService {
     Meteor.callMethodWithName(Message.DeleteContact.rawValue, parameters: parameters, completionHandler: completionHandler)
   }
   
-  //TODO: Implement import method
   func importContacts(parameters: [AnyObject]?, completionHandler: METMethodCompletionHandler?) {
     Meteor.callMethodWithName(Message.ImportContacts.rawValue, parameters: parameters, completionHandler: completionHandler)
+  }
+  
+  func addUserToContacts(parameters: [AnyObject]?, completionHandler: METMethodCompletionHandler?) {
+    Meteor.callMethodWithName(Message.AddUserToContacts.rawValue, parameters: parameters, completionHandler: completionHandler)
   }
   
   //MARK: - Stub methods to save locally before save to server

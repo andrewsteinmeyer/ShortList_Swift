@@ -15,6 +15,7 @@ enum Menu: Int {
   case Venues
   case Events
   case Contacts
+  case Scan
   case Spacer
   case Profile
 }
@@ -50,6 +51,12 @@ class MenuTableViewController: UITableViewController {
   @IBOutlet weak var contactsTableViewCell: UITableViewCell!
   @IBOutlet weak var contactsTitleLabel: UILabel!
   @IBOutlet weak var contactsIconImageView: UIImageView!
+  
+  // Scan
+  @IBOutlet weak var scanTableViewCell: UITableViewCell!
+  @IBOutlet weak var scanTitleLabel: UILabel!
+  @IBOutlet weak var scanIconImageView: UIImageView!
+  
   
   // Spacer
   @IBOutlet weak var spacerTableViewCell: UITableViewCell!
@@ -116,6 +123,7 @@ class MenuTableViewController: UITableViewController {
     venuesTableViewCell.backgroundColor = backgroundColor
     eventsTableViewCell.backgroundColor = backgroundColor
     contactsTableViewCell.backgroundColor = backgroundColor
+    scanTableViewCell.backgroundColor = backgroundColor
     spacerTableViewCell.backgroundColor = backgroundColor
     profileTableViewCell.backgroundColor = backgroundColor
   }
@@ -132,6 +140,7 @@ class MenuTableViewController: UITableViewController {
     venuesTableViewCell.selectedBackgroundView = selectedColorView
     eventsTableViewCell.selectedBackgroundView = selectedColorView
     contactsTableViewCell.selectedBackgroundView = selectedColorView
+    scanTableViewCell.selectedBackgroundView = selectedColorView
     profileTableViewCell.selectedBackgroundView = selectedColorView
   }
   
@@ -142,6 +151,7 @@ class MenuTableViewController: UITableViewController {
     venuesTitleLabel.textColor = initialTextColor
     eventsTitleLabel.textColor = initialTextColor
     contactsTitleLabel.textColor = initialTextColor
+    scanTitleLabel.textColor = initialTextColor
     profileTitleLabel.textColor = initialTextColor
   }
   
@@ -162,6 +172,9 @@ class MenuTableViewController: UITableViewController {
     
     let contactImage = contactsIconImageView.image?.imageWithColor(initialIconColor)
     contactsIconImageView.image = contactImage
+    
+    let scanImage = scanIconImageView.image?.imageWithColor(initialIconColor)
+    scanIconImageView.image = scanImage
     
     let profileImage = profileIconImageView.image?.imageWithColor(initialIconColor)
     profileIconImageView.image = profileImage
@@ -211,6 +224,11 @@ class MenuTableViewController: UITableViewController {
       contactsIconImageView.image = image
       contactsTitleLabel.textColor = textColor
       contactsTableViewCell.selected = selected
+    case .Scan:
+      let image = scanIconImageView.image?.imageWithColor(imageColor)
+      scanIconImageView.image = image
+      scanTitleLabel.textColor = textColor
+      scanTableViewCell.selected = selected
     case .Spacer:
       break
     case .Profile:
