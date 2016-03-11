@@ -15,6 +15,8 @@ class JoinedListsViewController: FetchedResultsTableViewController {
   
   @IBOutlet weak var menuButton: UIBarButtonItem!
   
+  //TODO: BUG: Public lists showing up in Joined Lists
+  
   private let subscriptionName = "PrivateLists"
   private let modelName = "List"
   

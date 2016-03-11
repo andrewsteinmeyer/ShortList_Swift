@@ -18,6 +18,7 @@ final class MeteorListService {
     case CreateList = "createList"
     case DeleteList = "deleteList"
     case RemoveContactFromList = "removeContactFromList"
+    case AddUserToList = "addUserToList"
   }
   
   init() {
@@ -43,6 +44,10 @@ final class MeteorListService {
   
   func delete(parameters: [AnyObject]?, completionHandler: METMethodCompletionHandler?) {
     Meteor.callMethodWithName(Message.DeleteList.rawValue, parameters: parameters, completionHandler: completionHandler)
+  }
+  
+  func addUserToList(parameters: [AnyObject]?, completionHandler: METMethodCompletionHandler?) {
+    Meteor.callMethodWithName(Message.AddUserToList.rawValue, parameters: parameters, completionHandler: completionHandler)
   }
   
   func removeContactFromList(parameters: [AnyObject]?, completionHandler: METMethodCompletionHandler?) {

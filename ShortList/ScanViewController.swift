@@ -34,9 +34,8 @@ class ScanViewController: UIViewController {
       switch type {
         case "contact":
           self.saveUserToContacts(id)
-          break
         case "list":
-          break
+          self.saveUserToList(id)
         case "event":
           break
         default: ()
@@ -75,6 +74,25 @@ class ScanViewController: UIViewController {
           self.dismissViewControllerAnimated(true) {
             // navigate to contacts page
             ContactsViewController.presentContactsViewController()
+          }
+        }
+      }
+    }
+  }
+  
+  private func saveUserToList(id: String) {
+    
+    MeteorListService.sharedInstance.addUserToList([id]) {
+      result, error in
+      
+      dispatch_async(dispatch_get_main_queue()) {
+        if let error = error {
+          let errorMessage = error.localizedFailureReason
+          AppDelegate.getAppDelegate().showMessage(errorMessage!)
+        } else {
+          self.dismissViewControllerAnimated(true) {
+            // navigate to contacts page
+            ListsViewController.presentListsViewController()
           }
         }
       }

@@ -559,7 +559,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="m8h-3l-UMD" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="EAb-9Z-C7b"/>
+                                            <segue destination="m8h-3l-UMD" kind="custom" identifier="showLists" customClass="SWRevealViewControllerSeguePushController" id="EAb-9Z-C7b"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="eGq-S2-VyP">
@@ -628,7 +628,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="iGV-YX-XyM" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="JOz-wf-66j"/>
+                                            <segue destination="iGV-YX-XyM" kind="custom" identifier="showContacts" customClass="SWRevealViewControllerSeguePushController" id="JOz-wf-66j"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="HvU-La-7OW">
@@ -1574,7 +1574,7 @@
                         <viewControllerLayoutGuide type="top" id="lGI-f8-C8j"/>
                         <viewControllerLayoutGuide type="bottom" id="4re-GM-Mbl"/>
                     </layoutGuides>
-                    <view key="view" alpha="0.84999999999999998" contentMode="scaleToFill" id="WaC-jB-gKX">
+                    <view key="view" alpha="0.94999999999999996" contentMode="scaleToFill" id="WaC-jB-gKX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

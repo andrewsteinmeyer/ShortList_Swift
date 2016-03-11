@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum ListsTabBar: Int {
+  case MyLists = 0
+  case JoinedLists
+}
+
 class ListsTabBarController: UITabBarController {
 
   override func viewDidLoad() {

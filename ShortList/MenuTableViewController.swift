@@ -68,7 +68,7 @@ class MenuTableViewController: UITableViewController {
   
   
   // initial selected row is .Home
-  var selectedRow = Menu.Home.rawValue
+  var selectedRow: Menu = .Home
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -90,6 +90,19 @@ class MenuTableViewController: UITableViewController {
     
     // set the selected row before the view appears
     setSelectedRow(selectedRow)
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if let identifier = segue.identifier {
+      if identifier == "showLists" {
+        let listTabBarController = segue.destinationViewController as! ListsTabBarController
+        listTabBarController.selectedIndex = ListsTabBar.JoinedLists.rawValue
+        selectRow(.Lists)
+      }
+      else if identifier == "showContacts" {
+        selectRow(.Contacts)
+      }
+    }
   }
   
   //MARK: - Private methods
@@ -186,31 +199,36 @@ class MenuTableViewController: UITableViewController {
     nameLabel.textColor = Theme.MenuHeaderViewTextColor.toUIColor()
   }
   
-  private func setSelectedRow(row: Int = 0) {
+  private func setSelectedRow(row: Menu = .Home) {
     // if a previous row was selected,
-    // then update its colors back to unselected
+    // then set its colors back to unselected
     let previousRow = selectedRow
-    if let menuRow = Menu(rawValue: previousRow) {
-      print("previous row: \(menuRow)")
-      let imageColor = Theme.MenuTableViewIconColor.toUIColor()
-      let textColor = Theme.MenuTableViewCellTextColor.toUIColor()
-      
-      updateRow(menuRow, imageColor: imageColor, textColor: textColor, selected: false)
-    }
+    unhighlightRow(previousRow)
     
     // update the colors of the new selected row
-    if let menuRow = Menu(rawValue: row) {
-      print("newly selected row: \(menuRow)")
-      let imageColor = Theme.MenuTableViewIconSelectedColor.toUIColor()
-      let textColor = Theme.MenuTableViewCellTextSelectedColor.toUIColor()
-      
-      updateRow(menuRow, imageColor: imageColor, textColor: textColor, selected: true)
-    }
-    
+    let currentRow = row
+    highlightRow(currentRow)
+  
     // store new selected row
     selectedRow = row
   }
   
+  private func unhighlightRow(row: Menu) {
+    print("previous row: \(row)")
+    let imageColor = Theme.MenuTableViewIconColor.toUIColor()
+    let textColor = Theme.MenuTableViewCellTextColor.toUIColor()
+    
+    updateRow(row, imageColor: imageColor, textColor: textColor, selected: false)
+  }
+  
+  private func highlightRow(row: Menu) {
+    print("newly selected row: \(row)")
+    let imageColor = Theme.MenuTableViewIconSelectedColor.toUIColor()
+    let textColor = Theme.MenuTableViewCellTextSelectedColor.toUIColor()
+    
+    updateRow(row, imageColor: imageColor, textColor: textColor, selected: true)
+  }
+
   private func updateRow(menuRow: Menu, imageColor: UIColor, textColor: UIColor, selected: Bool) {
     // update corresponding row
     switch menuRow {
@@ -252,21 +270,26 @@ class MenuTableViewController: UITableViewController {
       profileTitleLabel.textColor = textColor
       profileTableViewCell.selected = selected
     }
+    
   }
   
   //MARK: - Helper methods
   
-  func selectRow(row: Int) {
-    setSelectedRow(row)
+  func selectRow(row: Menu) {
+    let previousRow = selectedRow
+    unhighlightRow(previousRow)
     
-    self.tableView.setNeedsLayout()
+    self.selectedRow = row
   }
   
   //MARK: - UITableViewDelegate
   
   override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    
     // update selected row
-    setSelectedRow(indexPath.row)
+    if let selectedRow = Menu(rawValue: indexPath.row) {
+      setSelectedRow(selectedRow)
+    }
     
     return true
   }
