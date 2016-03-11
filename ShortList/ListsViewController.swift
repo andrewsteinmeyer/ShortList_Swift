@@ -115,28 +115,10 @@ class ListsViewController: FetchedResultsTableViewController {
       
       // update menu sidebar
       if let menuVC = revealVC.rearViewController as? MenuTableViewController {
-        //menuVC.selectRow(.Lists)
         menuVC.performSegueWithIdentifier("showLists", sender: nil)
       }
-      
-      /*
-      // get main storyboard
-      let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      
-      // setup contacts page
-      let contactsViewController = storyboard.instantiateViewControllerWithIdentifier("ListsViewController") as! ContactsViewController
-      
-      // setup navigation controller
-      let navVC = ContactsNavigationViewController()
-      navVC.pushViewController(contactsViewController, animated: false)
-      
-      // present the contacts page
-      revealVC.pushFrontViewController(navVC, animated: true)
-      */
     }
-    
   }
-  
   
 }
 
