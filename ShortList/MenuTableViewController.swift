@@ -95,9 +95,13 @@ class MenuTableViewController: UITableViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if let identifier = segue.identifier {
       if identifier == "showLists" {
-        let listTabBarController = segue.destinationViewController as! ListsTabBarController
-        listTabBarController.selectedIndex = ListsTabBar.JoinedLists.rawValue
         selectRow(.Lists)
+        
+        // navigate tab bar to joined lists if segue instruction initiated from JoinedListsViewController
+        if sender!.isKindOfClass(JoinedListsViewController) {
+          let listTabBarController = segue.destinationViewController as! ListsTabBarController
+          listTabBarController.selectedIndex = ListsTabBar.JoinedLists.rawValue
+        }
       }
       else if identifier == "showContacts" {
         selectRow(.Contacts)

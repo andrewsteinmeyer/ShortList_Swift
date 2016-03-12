@@ -92,7 +92,7 @@ class ScanViewController: UIViewController {
         } else {
           self.dismissViewControllerAnimated(true) {
             // navigate to contacts page
-            ListsViewController.presentListsViewController()
+            JoinedListsViewController.presentJoinedListsViewController()
           }
         }
       }

@@ -15,9 +15,7 @@ class JoinedListsViewController: FetchedResultsTableViewController {
   
   @IBOutlet weak var menuButton: UIBarButtonItem!
   
-  //TODO: BUG: Public lists showing up in Joined Lists
-  
-  private let subscriptionName = "PrivateLists"
+  private let subscriptionName = "ContactLists"
   private let modelName = "List"
   
   override func viewDidLoad() {
@@ -56,7 +54,31 @@ class JoinedListsViewController: FetchedResultsTableViewController {
   
   override func createFetchedResultsController() -> NSFetchedResultsController? {
     let fetchRequest = NSFetchRequest(entityName: modelName)
-    fetchRequest.predicate = NSPredicate(format: "userId != %@", AccountManager.defaultAccountManager.currentUserId!)
+    
+    // find lists that the user has joined by searching for the user's email address
+    let emailPredicate = NSPredicate { (evaluatedObject, _) in
+      if let listContacts = (evaluatedObject as! List).contacts as NSSet? {
+        let JSONContacts = JSON(listContacts)
+        
+        for (_,contact):(String, JSON) in JSONContacts {
+          let email = contact["email"].string ?? ""
+          
+          // found user's email in the list contacts
+          if email == AccountManager.defaultAccountManager.currentUser?.emailAddress {
+            return true
+          }
+        }
+      }
+      
+      // could not evaluate contacts in list
+      return false
+    }
+    
+    // find lists where the user is not the owner
+    let userPredicate = NSPredicate(format: "userId != %@", AccountManager.defaultAccountManager.currentUserId!)
+    
+    // combine the predicates and sort by date inserted
+    fetchRequest.predicate = NSCompoundPredicate(type: .AndPredicateType, subpredicates: [userPredicate, emailPredicate])
     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "insertedOn", ascending: false)]
     
     return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
@@ -93,15 +115,29 @@ class JoinedListsViewController: FetchedResultsTableViewController {
     }
     
     // grab joined list documentID
-    let documentID = Meteor.documentKeyForObjectID(object.objectID).documentID
+    let joinedListID = Meteor.documentKeyForObjectID(object.objectID).documentID
     
-    MeteorListService.sharedInstance.delete([documentID]) {
+    MeteorListService.sharedInstance.removeContactFromList([ joinedListID ]) {
       result, error in
       
       if error != nil {
         print("error: \(error?.localizedDescription)")
       } else {
         print("success: list deleted")
+      }
+    }
+  }
+  
+  // MARK: - Static functions
+  
+  static func presentJoinedListsViewController() {
+    
+    // find the reveal controller
+    if let revealVC = AppDelegate.getRootViewController() as? SWRevealViewController {
+      
+      // update menu sidebar
+      if let menuVC = revealVC.rearViewController as? MenuTableViewController {
+        menuVC.performSegueWithIdentifier("showLists", sender: JoinedListsViewController())
       }
     }
   }

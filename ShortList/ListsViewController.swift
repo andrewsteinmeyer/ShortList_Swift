@@ -102,22 +102,10 @@ class ListsViewController: FetchedResultsTableViewController {
     }
   }
   
+  // MARK: - Private
+  
   private func setupAppearance() {
     self.navigationItem.rightBarButtonItem?.tintColor = Theme.NavigationBarActionButtonTextColor.toUIColor()
-  }
-  
-  // MARK: - Static functions
-  
-  static func presentListsViewController() {
-    
-    // find the reveal controller
-    if let revealVC = AppDelegate.getRootViewController() as? SWRevealViewController {
-      
-      // update menu sidebar
-      if let menuVC = revealVC.rearViewController as? MenuTableViewController {
-        menuVC.performSegueWithIdentifier("showLists", sender: nil)
-      }
-    }
   }
   
 }
