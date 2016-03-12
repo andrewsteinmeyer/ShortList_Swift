@@ -124,7 +124,9 @@ class EventsViewController: FetchedResultsTableViewController {
         }
         
         // set date and time
-        if let date = event.valueForKey("date") as? NSDate {
+        if let epochDate = event.valueForKey("date") as? NSTimeInterval {
+          let date = NSDate(timeIntervalSince1970: epochDate.formatForNSDate())
+          
           eventDate = dateFormatter.stringFromDate(date) as String
           eventTime = timeFormatter.stringFromDate(date) as String
         }

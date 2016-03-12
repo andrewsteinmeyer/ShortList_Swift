@@ -48,6 +48,7 @@
 		4E5010DC1C73407F00CE3CF6 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5010DB1C73407F00CE3CF6 /* ProfileTableViewController.swift */; };
 		4E5010E41C75EBDB00CE3CF6 /* METDDPClient+AccountsPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5010E31C75EBDB00CE3CF6 /* METDDPClient+AccountsPassword.swift */; };
 		4E51AB861C8F0D2600260D82 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51AB851C8F0D2600260D82 /* ScanViewController.swift */; };
+		4E51AB881C945A0F00260D82 /* NSTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51AB871C945A0F00260D82 /* NSTimeInterval.swift */; };
 		4E5255A41C51CC8F00F6089D /* MeteorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5255A31C51CC8F00F6089D /* MeteorRouter.swift */; };
 		4E5255A81C51CEAA00F6089D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5255A71C51CEAA00F6089D /* Constants.swift */; };
 		4E54FE351C599C3C00D89DAC /* AppDelegate+Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E54FE341C599C3C00D89DAC /* AppDelegate+Push.swift */; };
@@ -287,6 +288,7 @@
 		4E5010DB1C73407F00CE3CF6 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		4E5010E31C75EBDB00CE3CF6 /* METDDPClient+AccountsPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "METDDPClient+AccountsPassword.swift"; sourceTree = "<group>"; };
 		4E51AB851C8F0D2600260D82 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		4E51AB871C945A0F00260D82 /* NSTimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTimeInterval.swift; sourceTree = "<group>"; };
 		4E5255A31C51CC8F00F6089D /* MeteorRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorRouter.swift; sourceTree = "<group>"; };
 		4E5255A71C51CEAA00F6089D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4E54FE341C599C3C00D89DAC /* AppDelegate+Push.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Push.swift"; sourceTree = "<group>"; };
@@ -756,6 +758,7 @@
 				4E6312991C1FAF2D00EB78F9 /* UIApplication.swift */,
 				4EE878C91C551C3C00BABF15 /* NSData.swift */,
 				4E719C121C4075C2009989AC /* Date.swift */,
+				4E51AB871C945A0F00260D82 /* NSTimeInterval.swift */,
 				4E63129C1C1FAF2D00EB78F9 /* String.swift */,
 				4E63129D1C1FAF2D00EB78F9 /* UIView.swift */,
 			);
@@ -1573,6 +1576,7 @@
 				4E1C46F61C7DE53500C22101 /* Rule.swift in Sources */,
 				4E1C46F71C7DE53500C22101 /* ValidationRule.swift in Sources */,
 				4EF329FF1C80931C0078B69A /* METDocument.m in Sources */,
+				4E51AB881C945A0F00260D82 /* NSTimeInterval.swift in Sources */,
 				4E1C46EC1C7DE53500C22101 /* FullNameRule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,8 +11,14 @@ import Foundation
 extension NSDate {
   
   // get time in milliseconds
-  func timeInMilliseconds() -> Double {
+  func timeInMilliseconds() -> NSTimeInterval {
     return self.timeIntervalSince1970 * 1000
+  }
+  
+  // get epoch time from date
+  func convertToEpoch() -> NSTimeInterval {
+    return Double(floor(self.timeIntervalSince1970 / 100.0) * 100.0) * 1000.0
+    
   }
   
 }

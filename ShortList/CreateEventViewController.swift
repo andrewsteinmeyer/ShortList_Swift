@@ -223,7 +223,7 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   
   private func createEvent() {
     guard let name = nameTextField.text where !name.isEmpty,
-      let date = selectedDate?.timeIntervalSince1970,
+      let date = selectedDate,
       let list = list,
       let venue = venue,
       let location = location else {
@@ -264,7 +264,10 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
     let JSONLocation = Mapper().toJSON(location)
     let JSONEventConfiguration = Mapper().toJSON(eventConfiguration)
     
-    MeteorEventService.sharedInstance.create([ name, date, JSONList, JSONVenue, JSONLocation, JSONEventConfiguration ]) {
+    // format date to play nice with web and android epoch unix
+    let epochDate = date.convertToEpoch()
+    
+    MeteorEventService.sharedInstance.create([ name, epochDate, JSONList, JSONVenue, JSONLocation, JSONEventConfiguration ]) {
       result, error in
       
       dispatch_async(dispatch_get_main_queue()) {
