@@ -15,6 +15,7 @@ class ScanViewController: UIViewController {
   // initialize scanner
   let scanner = QRCode(autoRemoveSubLayers: false, lineWidth: 4, strokeColor: Theme.QRScannerOutlineColor.toUIColor(), maxDetectedCount: 20)
   
+  @IBOutlet weak var blurView: UIVisualEffectView!
   @IBOutlet weak var modalCancelScanButton: UIButton!
   @IBOutlet weak var cancelScanButton: UIButton!
   
@@ -65,6 +66,12 @@ class ScanViewController: UIViewController {
   }
   
   @IBAction func modalStartScanButtonDidPress(sender: AnyObject) {
+    // hide blur view and show cancel button
+    UIView.animateWithDuration(0.1, delay: 0, options: .CurveEaseInOut, animations: {
+      self.cancelScanButton.hidden = false
+      self.blurView.alpha = 0
+      },
+      completion: nil)
   }
   
   // MARK: - Private methods
