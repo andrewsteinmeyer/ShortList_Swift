@@ -29,6 +29,12 @@ class ProfileTableViewController: UITableViewController {
       self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     
+    setupAppearance()
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+    
     // retrieve profile details
     let user = AccountManager.defaultAccountManager.currentUser
     
@@ -68,7 +74,6 @@ class ProfileTableViewController: UITableViewController {
     // activate the new constraints
     NSLayoutConstraint.activateConstraints([horizontalConstraints, verticalConstraints])
     
-    setupAppearance()
   }
   
   //MARK: IBAction

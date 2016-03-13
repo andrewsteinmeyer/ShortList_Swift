@@ -12,13 +12,14 @@ import SwiftQRCode
 
 class ScanViewController: UIViewController {
   
+  // initialize scanner
   let scanner = QRCode(autoRemoveSubLayers: false, lineWidth: 4, strokeColor: Theme.QRScannerOutlineColor.toUIColor(), maxDetectedCount: 20)
   
+  @IBOutlet weak var modalCancelScanButton: UIButton!
   @IBOutlet weak var cancelScanButton: UIButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     
     scanner.prepareScan(view) { (stringValue) -> () in
       print(stringValue)
@@ -57,6 +58,13 @@ class ScanViewController: UIViewController {
   
   @IBAction func cancelScanButtonDidPress(sender: AnyObject) {
     self.dismissViewControllerAnimated(true, completion: nil)
+  }
+  
+  @IBAction func modalCancelScanButtonDidPress(sender: AnyObject) {
+    self.dismissViewControllerAnimated(true, completion: nil)
+  }
+  
+  @IBAction func modalStartScanButtonDidPress(sender: AnyObject) {
   }
   
   // MARK: - Private methods
