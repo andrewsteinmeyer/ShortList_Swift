@@ -100,6 +100,10 @@ extension ContactsViewController: CNContactPickerDelegate {
         homeEmailAddress = emailAddress.value as! String
         break
       }
+      else if emailAddress.label == CNLabelOther {
+        homeEmailAddress = emailAddress.value as! String
+        break
+      }
     }
     
     newContact["name"] = CNContactFormatter.stringFromContact(selectedContact, style: .FullName)
