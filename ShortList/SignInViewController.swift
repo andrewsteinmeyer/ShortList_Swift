@@ -58,7 +58,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
     registerValidations()
   }
   
-  
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
@@ -72,7 +71,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
     emailField.becomeFirstResponder()
   }
   
-
   
   // MARK: UITextFieldDelegate
   
@@ -148,6 +146,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
           // dismiss keyboard and signup controller
           self.view.endEditing(true)
           self.dismissViewControllerAnimated(true, completion: nil)
+         
+          // present home screen
+          HomeViewController.presentHomeViewController()
         }
       }
     }
@@ -187,6 +188,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
           // dismiss keyboard and signup controller
           self.view.endEditing(true)
           self.dismissViewControllerAnimated(true, completion: nil)
+          
+          // present home screen
+          HomeViewController.presentHomeViewController()
         }
       }
     }

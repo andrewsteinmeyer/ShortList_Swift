@@ -106,6 +106,9 @@ class MenuTableViewController: UITableViewController {
       else if identifier == "showContacts" {
         selectRow(.Contacts)
       }
+      else if identifier == "showHome" {
+        selectRow(.Home)
+      }
     }
   }
   

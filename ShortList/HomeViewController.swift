@@ -139,6 +139,18 @@ class HomeViewController: FetchedResultsTableViewController {
     */
   }
   
+  static func presentHomeViewController() {
+    
+    // find the reveal controller
+    if let revealVC = AppDelegate.getRootViewController() as? SWRevealViewController {
+      
+      // update menu sidebar
+      if let menuVC = revealVC.rearViewController as? MenuTableViewController {
+        menuVC.performSegueWithIdentifier("showHome", sender: nil)
+      }
+    }
+  }
+  
 }
 
 extension HomeViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {

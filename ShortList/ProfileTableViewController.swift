@@ -102,7 +102,7 @@ class ProfileTableViewController: UITableViewController {
   }
   
   override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-    
+    // adjust separator insets
     let section = indexPath.section
     if section == 0 {
       if (cell.respondsToSelector("setSeparatorInset:")) {
@@ -127,6 +127,7 @@ class ProfileTableViewController: UITableViewController {
     // create section header view
     let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: height))
     
+    // add title for first two sections
     if section < 2 {
       let horizontalPadding: CGFloat = section == 0 ? 125 : 15
       let verticalPadding: CGFloat = height - fontSize - 5
