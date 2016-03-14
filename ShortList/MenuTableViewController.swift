@@ -16,6 +16,7 @@ enum Menu: Int {
   case Events
   case Contacts
   case Scan
+  case Share
   case Spacer
   case Profile
 }
@@ -57,6 +58,9 @@ class MenuTableViewController: UITableViewController {
   @IBOutlet weak var scanTitleLabel: UILabel!
   @IBOutlet weak var scanIconImageView: UIImageView!
   
+  @IBOutlet weak var shareTableViewCell: UITableViewCell!
+  @IBOutlet weak var shareTitleLabel: UILabel!
+  @IBOutlet weak var shareIconImageView: UIImageView!
   
   // Spacer
   @IBOutlet weak var spacerTableViewCell: UITableViewCell!
@@ -94,19 +98,17 @@ class MenuTableViewController: UITableViewController {
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if let identifier = segue.identifier {
-      if identifier == "showLists" {
+      if identifier == "showLists" && sender!.isKindOfClass(JoinedListsViewController) {
         selectRow(.Lists)
         
         // navigate tab bar to joined lists if segue instruction initiated from JoinedListsViewController
-        if sender!.isKindOfClass(JoinedListsViewController) {
-          let listTabBarController = segue.destinationViewController as! ListsTabBarController
-          listTabBarController.selectedIndex = ListsTabBar.JoinedLists.rawValue
-        }
+        let listTabBarController = segue.destinationViewController as! ListsTabBarController
+        listTabBarController.selectedIndex = ListsTabBar.JoinedLists.rawValue
       }
-      else if identifier == "showContacts" {
+      else if identifier == "showContacts" && sender!.isKindOfClass(ContactsViewController) {
         selectRow(.Contacts)
       }
-      else if identifier == "showHome" {
+      else if identifier == "showHome" && sender!.isKindOfClass(HomeViewController) {
         selectRow(.Home)
       }
     }
@@ -144,6 +146,7 @@ class MenuTableViewController: UITableViewController {
     eventsTableViewCell.backgroundColor = backgroundColor
     contactsTableViewCell.backgroundColor = backgroundColor
     scanTableViewCell.backgroundColor = backgroundColor
+    shareTableViewCell.backgroundColor = backgroundColor
     spacerTableViewCell.backgroundColor = backgroundColor
     profileTableViewCell.backgroundColor = backgroundColor
   }
@@ -161,6 +164,7 @@ class MenuTableViewController: UITableViewController {
     eventsTableViewCell.selectedBackgroundView = selectedColorView
     contactsTableViewCell.selectedBackgroundView = selectedColorView
     scanTableViewCell.selectedBackgroundView = selectedColorView
+    shareTableViewCell.selectedBackgroundView = selectedColorView
     profileTableViewCell.selectedBackgroundView = selectedColorView
   }
   
@@ -172,6 +176,7 @@ class MenuTableViewController: UITableViewController {
     eventsTitleLabel.textColor = initialTextColor
     contactsTitleLabel.textColor = initialTextColor
     scanTitleLabel.textColor = initialTextColor
+    shareTitleLabel.textColor = initialTextColor
     profileTitleLabel.textColor = initialTextColor
   }
   
@@ -195,6 +200,9 @@ class MenuTableViewController: UITableViewController {
     
     let scanImage = scanIconImageView.image?.imageWithColor(initialIconColor)
     scanIconImageView.image = scanImage
+    
+    let shareImage = shareIconImageView.image?.imageWithColor(initialIconColor)
+    shareIconImageView.image = shareImage
     
     let profileImage = profileIconImageView.image?.imageWithColor(initialIconColor)
     profileIconImageView.image = profileImage
@@ -221,7 +229,6 @@ class MenuTableViewController: UITableViewController {
   }
   
   private func unhighlightRow(row: Menu) {
-    print("previous row: \(row)")
     let imageColor = Theme.MenuTableViewIconColor.toUIColor()
     let textColor = Theme.MenuTableViewCellTextColor.toUIColor()
     
@@ -229,7 +236,6 @@ class MenuTableViewController: UITableViewController {
   }
   
   private func highlightRow(row: Menu) {
-    print("newly selected row: \(row)")
     let imageColor = Theme.MenuTableViewIconSelectedColor.toUIColor()
     let textColor = Theme.MenuTableViewCellTextSelectedColor.toUIColor()
     
@@ -269,6 +275,11 @@ class MenuTableViewController: UITableViewController {
       scanIconImageView.image = image
       scanTitleLabel.textColor = textColor
       scanTableViewCell.selected = selected
+    case .Share:
+      let image = shareIconImageView.image?.imageWithColor(imageColor)
+      shareIconImageView.image = image
+      shareTitleLabel.textColor = textColor
+      shareTableViewCell.selected = selected
     case .Spacer:
       break
     case .Profile:

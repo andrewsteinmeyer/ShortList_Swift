@@ -146,7 +146,7 @@ class HomeViewController: FetchedResultsTableViewController {
       
       // update menu sidebar
       if let menuVC = revealVC.rearViewController as? MenuTableViewController {
-        menuVC.performSegueWithIdentifier("showHome", sender: nil)
+        menuVC.performSegueWithIdentifier("showHome", sender: HomeViewController())
       }
     }
   }

@@ -57,6 +57,7 @@
 		4E57A78D1C28EEB50070AEB3 /* MeteorListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E57A78C1C28EEB50070AEB3 /* MeteorListService.swift */; };
 		4E57A7931C2B3F2A0070AEB3 /* ListsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E57A7921C2B3F2A0070AEB3 /* ListsTableViewCell.swift */; };
 		4E582A7B1C3F48AB00052399 /* SelectVenueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E582A7A1C3F48AB00052399 /* SelectVenueViewController.swift */; };
+		4E59257A1C9656D100755323 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5925791C9656D100755323 /* ShareViewController.swift */; };
 		4E5AF22A1C45E5CE00192C40 /* JoinedListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5AF2291C45E5CE00192C40 /* JoinedListsViewController.swift */; };
 		4E5AF22C1C47540300192C40 /* ContactsViewController+Import.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5AF22B1C47540300192C40 /* ContactsViewController+Import.swift */; };
 		4E60A0D11C2C2E8300D66A9A /* ContactsNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E60A0D01C2C2E8300D66A9A /* ContactsNavigationViewController.swift */; };
@@ -297,6 +298,7 @@
 		4E57A78C1C28EEB50070AEB3 /* MeteorListService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorListService.swift; sourceTree = "<group>"; };
 		4E57A7921C2B3F2A0070AEB3 /* ListsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsTableViewCell.swift; sourceTree = "<group>"; };
 		4E582A7A1C3F48AB00052399 /* SelectVenueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectVenueViewController.swift; sourceTree = "<group>"; };
+		4E5925791C9656D100755323 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		4E5AF2291C45E5CE00192C40 /* JoinedListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinedListsViewController.swift; sourceTree = "<group>"; };
 		4E5AF22B1C47540300192C40 /* ContactsViewController+Import.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ContactsViewController+Import.swift"; sourceTree = "<group>"; };
 		4E60A0D01C2C2E8300D66A9A /* ContactsNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsNavigationViewController.swift; sourceTree = "<group>"; };
@@ -665,6 +667,14 @@
 			name = Scan;
 			sourceTree = "<group>";
 		};
+		4E5925781C96563200755323 /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				4E5925791C9656D100755323 /* ShareViewController.swift */,
+			);
+			name = Share;
+			sourceTree = "<group>";
+		};
 		4E60A0D61C2C6E4400D66A9A /* Venue */ = {
 			isa = PBXGroup;
 			children = (
@@ -745,6 +755,7 @@
 				4E7C607E1C3B5F210042CE4F /* Events */,
 				4EA89FC01C2709CF00163C57 /* Contact */,
 				4E51AB841C8F0CD600260D82 /* Scan */,
+				4E5925781C96563200755323 /* Share */,
 				4E5010DD1C73415E00CE3CF6 /* Profile */,
 			);
 			name = ViewController;
@@ -1537,6 +1548,7 @@
 				4E582A7B1C3F48AB00052399 /* SelectVenueViewController.swift in Sources */,
 				4E63130B1C1FB28000EB78F9 /* SpringTextField.swift in Sources */,
 				4E6313101C1FB28000EB78F9 /* UnwindSegue.swift in Sources */,
+				4E59257A1C9656D100755323 /* ShareViewController.swift in Sources */,
 				4E1C46ED1C7DE53500C22101 /* HexColorRule.swift in Sources */,
 				4E60A0D11C2C2E8300D66A9A /* ContactsNavigationViewController.swift in Sources */,
 				4E3288C11C24B19A00F936DF /* UIMaterialTextField.swift in Sources */,

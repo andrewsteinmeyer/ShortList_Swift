@@ -150,7 +150,7 @@ class ContactsViewController: FetchedResultsTableViewController {
       
       // update menu sidebar
       if let menuVC = revealVC.rearViewController as? MenuTableViewController {
-        menuVC.performSegueWithIdentifier("showContacts", sender: nil)
+        menuVC.performSegueWithIdentifier("showContacts", sender: ContactsViewController())
       }
     }
   }
