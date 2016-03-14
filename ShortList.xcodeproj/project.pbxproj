@@ -58,6 +58,8 @@
 		4E57A7931C2B3F2A0070AEB3 /* ListsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E57A7921C2B3F2A0070AEB3 /* ListsTableViewCell.swift */; };
 		4E582A7B1C3F48AB00052399 /* SelectVenueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E582A7A1C3F48AB00052399 /* SelectVenueViewController.swift */; };
 		4E59257A1C9656D100755323 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5925791C9656D100755323 /* ShareViewController.swift */; };
+		4E59257C1C96E6C300755323 /* ShareContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E59257B1C96E6C300755323 /* ShareContactsViewController.swift */; };
+		4E59257F1C9724D300755323 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E59257E1C9724D300755323 /* QRCodeViewController.swift */; };
 		4E5AF22A1C45E5CE00192C40 /* JoinedListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5AF2291C45E5CE00192C40 /* JoinedListsViewController.swift */; };
 		4E5AF22C1C47540300192C40 /* ContactsViewController+Import.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5AF22B1C47540300192C40 /* ContactsViewController+Import.swift */; };
 		4E60A0D11C2C2E8300D66A9A /* ContactsNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E60A0D01C2C2E8300D66A9A /* ContactsNavigationViewController.swift */; };
@@ -299,6 +301,8 @@
 		4E57A7921C2B3F2A0070AEB3 /* ListsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsTableViewCell.swift; sourceTree = "<group>"; };
 		4E582A7A1C3F48AB00052399 /* SelectVenueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectVenueViewController.swift; sourceTree = "<group>"; };
 		4E5925791C9656D100755323 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		4E59257B1C96E6C300755323 /* ShareContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareContactsViewController.swift; sourceTree = "<group>"; };
+		4E59257E1C9724D300755323 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		4E5AF2291C45E5CE00192C40 /* JoinedListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinedListsViewController.swift; sourceTree = "<group>"; };
 		4E5AF22B1C47540300192C40 /* ContactsViewController+Import.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ContactsViewController+Import.swift"; sourceTree = "<group>"; };
 		4E60A0D01C2C2E8300D66A9A /* ContactsNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsNavigationViewController.swift; sourceTree = "<group>"; };
@@ -671,6 +675,8 @@
 			isa = PBXGroup;
 			children = (
 				4E5925791C9656D100755323 /* ShareViewController.swift */,
+				4E59257B1C96E6C300755323 /* ShareContactsViewController.swift */,
+				4E59257E1C9724D300755323 /* QRCodeViewController.swift */,
 			);
 			name = Share;
 			sourceTree = "<group>";
@@ -1528,6 +1534,7 @@
 				4E6313021C1FB28000EB78F9 /* LoadingView.swift in Sources */,
 				4E5590FA1C8C9BC5000388FC /* CreateListViewController+Import.swift in Sources */,
 				4E6312921C1FAC0000EB78F9 /* HomeViewController.swift in Sources */,
+				4E59257C1C96E6C300755323 /* ShareContactsViewController.swift in Sources */,
 				4EF329F81C80931C0078B69A /* METDatabaseChanges.m in Sources */,
 				4E6313081C1FB28000EB78F9 /* SpringButton.swift in Sources */,
 				4EF32A2D1C8093B70078B69A /* PSWebSocketBuffer.m in Sources */,
@@ -1549,6 +1556,7 @@
 				4E63130B1C1FB28000EB78F9 /* SpringTextField.swift in Sources */,
 				4E6313101C1FB28000EB78F9 /* UnwindSegue.swift in Sources */,
 				4E59257A1C9656D100755323 /* ShareViewController.swift in Sources */,
+				4E59257F1C9724D300755323 /* QRCodeViewController.swift in Sources */,
 				4E1C46ED1C7DE53500C22101 /* HexColorRule.swift in Sources */,
 				4E60A0D11C2C2E8300D66A9A /* ContactsNavigationViewController.swift in Sources */,
 				4E3288C11C24B19A00F936DF /* UIMaterialTextField.swift in Sources */,
