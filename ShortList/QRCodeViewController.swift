@@ -24,7 +24,17 @@ class QRCodeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: Selector("doneButtonDidPress"))
+    self.navigationItem.rightBarButtonItem = doneButton
+    
     self.QRImageView.image = QRCode.generateImage("\(type):\(documentID)", avatarImage: nil)
     self.nameLabel.text = self.name
+  }
+  
+  func doneButtonDidPress() {
+    // find the reveal controller
+    if let revealVC = AppDelegate.getRootViewController() as? SWRevealViewController {
+      revealVC.dismissViewControllerAnimated(true, completion: nil)
+    }
   }
 }

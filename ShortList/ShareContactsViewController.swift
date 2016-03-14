@@ -44,7 +44,7 @@ class ShareContactsViewController: FetchedResultsTableViewController {
             contactName = name
           }
           
-          QRCodeViewController.navigationItem.title = "Contact QRCode"
+          QRCodeViewController.navigationItem.title = "Contact"
           QRCodeViewController.name = contactName
           QRCodeViewController.type = "contact"
           QRCodeViewController.documentID = documentID as! String
