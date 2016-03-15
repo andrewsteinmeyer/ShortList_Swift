@@ -60,6 +60,7 @@
 		4E59257A1C9656D100755323 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5925791C9656D100755323 /* ShareViewController.swift */; };
 		4E59257C1C96E6C300755323 /* ShareContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E59257B1C96E6C300755323 /* ShareContactsViewController.swift */; };
 		4E59257F1C9724D300755323 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E59257E1C9724D300755323 /* QRCodeViewController.swift */; };
+		4E5925811C97925A00755323 /* ShareListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5925801C97925A00755323 /* ShareListsViewController.swift */; };
 		4E5AF22A1C45E5CE00192C40 /* JoinedListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5AF2291C45E5CE00192C40 /* JoinedListsViewController.swift */; };
 		4E5AF22C1C47540300192C40 /* ContactsViewController+Import.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5AF22B1C47540300192C40 /* ContactsViewController+Import.swift */; };
 		4E60A0D11C2C2E8300D66A9A /* ContactsNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E60A0D01C2C2E8300D66A9A /* ContactsNavigationViewController.swift */; };
@@ -303,6 +304,7 @@
 		4E5925791C9656D100755323 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		4E59257B1C96E6C300755323 /* ShareContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareContactsViewController.swift; sourceTree = "<group>"; };
 		4E59257E1C9724D300755323 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		4E5925801C97925A00755323 /* ShareListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareListsViewController.swift; sourceTree = "<group>"; };
 		4E5AF2291C45E5CE00192C40 /* JoinedListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinedListsViewController.swift; sourceTree = "<group>"; };
 		4E5AF22B1C47540300192C40 /* ContactsViewController+Import.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ContactsViewController+Import.swift"; sourceTree = "<group>"; };
 		4E60A0D01C2C2E8300D66A9A /* ContactsNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsNavigationViewController.swift; sourceTree = "<group>"; };
@@ -676,6 +678,7 @@
 			children = (
 				4E5925791C9656D100755323 /* ShareViewController.swift */,
 				4E59257B1C96E6C300755323 /* ShareContactsViewController.swift */,
+				4E5925801C97925A00755323 /* ShareListsViewController.swift */,
 				4E59257E1C9724D300755323 /* QRCodeViewController.swift */,
 			);
 			name = Share;
@@ -1434,6 +1437,7 @@
 				4EF329F51C80931C0078B69A /* METCollection.m in Sources */,
 				4E1C46F41C7DE53500C22101 /* RegexRule.swift in Sources */,
 				4E1C46EF1C7DE53500C22101 /* ISBNRule.swift in Sources */,
+				4E5925811C97925A00755323 /* ShareListsViewController.swift in Sources */,
 				4EA365361C23C44A00C90249 /* MeteorContactService.swift in Sources */,
 				4EF32A401C80943E0078B69A /* README.md in Sources */,
 				4E6313011C1FB28000EB78F9 /* KeyboardLayoutConstraint.swift in Sources */,
