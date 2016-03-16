@@ -334,7 +334,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
   
   //MARK: - Static methods
   
-  static func presentSignInViewController() {
+  static func presentSignInViewController(animated animated: Bool = true) {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     
     let signInViewController = storyboard.instantiateViewControllerWithIdentifier("SignInViewController") as! SignInViewController
@@ -344,7 +344,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
     signInViewController.modalTransitionStyle = .CrossDissolve
     
     // Present the sign in view controller.
-    AppDelegate.getRootViewController()?.presentViewController(signInViewController, animated: true, completion: nil)
+    AppDelegate.getRootViewController()?.presentViewController(signInViewController, animated: animated, completion: nil)
   }
   
 }
