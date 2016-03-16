@@ -78,9 +78,6 @@ class HomeViewController: FetchedResultsTableViewController {
     let fetchRequest = NSFetchRequest(entityName: modelName)
     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "insertedOn", ascending: false)]
     
-    print("managed: \(managedObjectContext)")
-    print("fetchRequest: \(fetchRequest)")
-    
     return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
   }
   

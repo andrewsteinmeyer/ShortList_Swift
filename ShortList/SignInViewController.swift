@@ -146,6 +146,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
           // dismiss keyboard and signup controller
           self.view.endEditing(true)
           self.dismissViewControllerAnimated(true, completion: nil)
+          
+          // register for APNS
+          AppDelegate.getAppDelegate().registerForPushNotifications()
          
           // present home screen
           HomeViewController.presentHomeViewController()
@@ -188,6 +191,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
           // dismiss keyboard and signup controller
           self.view.endEditing(true)
           self.dismissViewControllerAnimated(true, completion: nil)
+          
+          // register for APNS
+          AppDelegate.getAppDelegate().registerForPushNotifications()
           
           // present home screen
           HomeViewController.presentHomeViewController()

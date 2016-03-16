@@ -32,9 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     AccountManager.setUpDefaultAccountManager(AccountManager())
     NSUserDefaults.standardUserDefaults().setBool(true, forKey: "METShouldLogDDPMessages")
     
-    // register for APNS
-    self.registerForPushNotifications()
-    
     // set up google services
     GMSServices.provideAPIKey(googleMapsApiKey)
       

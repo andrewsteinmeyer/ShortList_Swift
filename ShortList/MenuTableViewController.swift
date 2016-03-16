@@ -109,7 +109,10 @@ class MenuTableViewController: UITableViewController {
         selectRow(.Contacts)
       }
       else if identifier == "showHome" && sender!.isKindOfClass(HomeViewController) {
-        selectRow(.Home)
+        // make sure view is loaded for initial login/signup
+        if self.isViewLoaded() {
+          selectRow(.Home)
+        }
       }
     }
   }
