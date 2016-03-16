@@ -9,6 +9,7 @@
 
 import UIKit
 import CoreData
+import DZNEmptyDataSet
 import PhoneNumberKit
 
 protocol SelectContactsViewControllerDelegate {
@@ -30,6 +31,10 @@ class SelectContactsViewController: FetchedResultsTableViewController {
     self.tableView.allowsMultipleSelection = true
     
     self.managedObjectContext = Meteor.mainQueueManagedObjectContext
+    
+    // setup delegates for empty data
+    self.tableView.emptyDataSetDelegate = self
+    self.tableView.emptyDataSetSource = self
   }
   
   // MARK: - Content Loading
@@ -105,7 +110,38 @@ class SelectContactsViewController: FetchedResultsTableViewController {
     return UITableViewCellEditingStyle.None
   }
   
+}
 
+extension SelectContactsViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
   
+  func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+    let title = Constants.EmptyDataSet.Contact.Title
+    let titleFontName = Constants.EmptyDataSet.Title.FontName
+    let titleFontSize = Constants.EmptyDataSet.Title.FontSize
+    let titleColor = Theme.EmptyDataSetTitleColor.toUIColor()
+    
+    let attributes = [NSFontAttributeName: UIFont(name: titleFontName, size: titleFontSize)!, NSForegroundColorAttributeName: titleColor]
+    
+    return NSAttributedString(string: title, attributes: attributes)
+  }
+  
+  func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+    let description = Constants.EmptyDataSet.Contact.Description
+    let descriptionFontName = Constants.EmptyDataSet.Description.FontName
+    let descriptionFontSize = Constants.EmptyDataSet.Description.FontSize
+    let descriptionColor = Theme.EmptyDataSetDescriptionColor.toUIColor()
+    
+    let paragraph = NSMutableParagraphStyle()
+    paragraph.lineBreakMode = NSLineBreakMode.ByWordWrapping
+    paragraph.alignment = NSTextAlignment.Center
+    
+    let attributes = [NSFontAttributeName: UIFont(name: descriptionFontName, size: descriptionFontSize)!, NSForegroundColorAttributeName: descriptionColor, NSParagraphStyleAttributeName: paragraph]
+    
+    return NSAttributedString(string: description, attributes: attributes)
+  }
+  
+  func verticalOffsetForEmptyDataSet(scrollView: UIScrollView!) -> CGFloat {
+    return -100.0
+  }
   
 }
