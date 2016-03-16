@@ -18,7 +18,6 @@ enum Screen: Int {
 
 class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDelegate {
   
-  @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var errorMessageLabel: UILabel!
   @IBOutlet weak var nameField: DesignableTextField!
   @IBOutlet weak var emailField: DesignableTextField!
@@ -257,7 +256,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
   private func setupAppearance() {
     // set theme color
     let themeColor = Theme.SignInViewThemeColor.toUIColor()
-    titleLabel.textColor = themeColor
     actionButton.backgroundColor = themeColor
     toggleScreenButton.setTitleColor(themeColor, forState: .Normal)
     
