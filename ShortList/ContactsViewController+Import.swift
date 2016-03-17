@@ -8,6 +8,7 @@
 
 import Contacts
 import ContactsUI
+import Crashlytics
 
 extension ContactsViewController: CNContactPickerDelegate {
   
@@ -128,6 +129,19 @@ extension ContactsViewController: CNContactPickerDelegate {
       if error != nil {
         print("error importing contacts to database: \(error?.localizedDescription)")
       } else {
+        print("success importing contacts to database")
+        
+        for addedContact in contacts {
+          Answers.logCustomEventWithName("Import Contact",
+            customAttributes: [
+              "User": (AccountManager.defaultAccountManager.currentUser?.fullName)!,
+              "Contact Name": addedContact["name"]!,
+              "Contact Phone": addedContact["phone"]!,
+              "Contact Email": addedContact["email"]!,
+              "Source": "iPhone"
+            ]
+          )
+        }
       }
     }
   }

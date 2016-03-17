@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Crashlytics
 
 class CreateContactViewController: UIViewController, UIMaterialTextFieldDelegate {
 
@@ -82,6 +83,16 @@ class CreateContactViewController: UIViewController, UIMaterialTextFieldDelegate
           self.displayError(errorMessage!)
         } else {
           self.dismissViewControllerAnimated(true, completion: nil)
+          
+          Answers.logCustomEventWithName("Create Contact",
+            customAttributes: [
+              "User": (AccountManager.defaultAccountManager.currentUser?.fullName)!,
+              "Contact Name": name,
+              "Contact Phone": phone,
+              "Contact Email": email,
+              "Source": "iPhone"
+            ]
+          )
         }
       }
     }

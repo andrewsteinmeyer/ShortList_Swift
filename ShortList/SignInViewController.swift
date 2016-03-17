@@ -143,10 +143,17 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
         if let error = error {
           let errorMessage = error.localizedFailureReason
           self.displayError(errorMessage!)
+          
+          Answers.logLoginWithMethod("Email",
+            success: false,
+            customAttributes: ["Error": error.localizedDescription])
         } else {
           // dismiss keyboard and signup controller
           self.view.endEditing(true)
           self.dismissViewControllerAnimated(true, completion: nil)
+          
+          // send device token to Meteor for APNS
+          AccountManager.defaultAccountManager.setUserNotificationToken()
           
           // register for APNS
           AppDelegate.getAppDelegate().registerForPushNotifications()
@@ -195,24 +202,18 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
         if let error = error {
           let errorMessage = error.localizedFailureReason
           self.displayError(errorMessage!)
+          
+          Answers.logSignUpWithMethod("Email",
+            success: false,
+            customAttributes: ["Error": error.localizedDescription])
         } else {
-          // send device token to Meteor for APNS
-          AccountManager.defaultAccountManager.setUserNotificationToken()
-          
-          // dismiss keyboard and signup controller
-          self.view.endEditing(true)
-          self.dismissViewControllerAnimated(true, completion: nil)
-          
-          // register for APNS
-          AppDelegate.getAppDelegate().registerForPushNotifications()
-          
-          // present home screen
-          HomeViewController.presentHomeViewController()
-          
           // log to Answers
           Answers.logSignUpWithMethod("Email",
             success: true,
             customAttributes: [:])
+          
+          // log user in after signUp
+          self.signIn()
         }
       }
     }
