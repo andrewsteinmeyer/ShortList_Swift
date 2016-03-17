@@ -8,9 +8,11 @@
 
 import Contacts
 import PhoneNumberKit
+import Crashlytics
 
 class User {
   
+  var userId: String?
   var firstName: String?
   var lastName: String?
   var emailAddress: String?
@@ -93,6 +95,20 @@ class User {
       print("Error looking for contact: \(error)")
     }
   }
+  
+  func logUserInCrashlytics() {
+    guard let email = emailAddress,
+      let userId = userId,
+      let name = fullName else {
+        return
+    }
+    
+    // set user data in Crashlytics
+    Crashlytics.sharedInstance().setUserEmail(email)
+    Crashlytics.sharedInstance().setUserIdentifier(userId)
+    Crashlytics.sharedInstance().setUserName(name)
+  }
+
 }
 
 private func phoneNumber(phoneNumber: CNPhoneNumber, matchesPhoneNumberString phoneNumberString: String) -> Bool {

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Crashlytics
 import PhoneNumberKit
 
 
@@ -150,18 +151,25 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
           // register for APNS
           AppDelegate.getAppDelegate().registerForPushNotifications()
           
-          // clear badge count
+          // reset badge count
+          // the reset in applicationDidBecomeActive only handles when the user is already logged in to app
+          // we reset here to handle the case when the user opens the app but isn't logged in yet
           AppDelegate.getAppDelegate().resetBadgeCount()
-         
-          // present home screen
+          
+           // present home screen
           HomeViewController.presentHomeViewController()
+          
+          // log to Answers
+          Answers.logLoginWithMethod("Email",
+            success: true,
+            customAttributes: [:])
         }
       }
     }
   }
 
   private func signUp() {
-    // already validated in validate()
+    // we have already validated in validate()
     // but use guard to extract to local variables
     guard let name = nameField.text where !name.isEmpty,
       let email = emailField.text where !email.isEmpty,
@@ -200,6 +208,11 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
           
           // present home screen
           HomeViewController.presentHomeViewController()
+          
+          // log to Answers
+          Answers.logSignUpWithMethod("Email",
+            success: true,
+            customAttributes: [:])
         }
       }
     }

@@ -2,14 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Lato-Light.ttf</string>
-		<string>Lato-Bold.ttf</string>
-		<string>Lato-Regular.ttf</string>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -28,8 +20,35 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>5b89f5f37dc54b90c30689af907be751e51d94c9</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Crashlytics</string>
+			</dict>
+		</array>
+	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string></string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Lato-Light.ttf</string>
+		<string>Lato-Bold.ttf</string>
+		<string>Lato-Regular.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -42,10 +61,5 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>NSAppTransportSecurity</key>
-<dict>
-    <key>NSAllowsArbitraryLoads</key>
-    <true/>
-</dict>
 </dict>
 </plist>

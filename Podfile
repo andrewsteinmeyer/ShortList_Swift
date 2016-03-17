@@ -9,7 +9,9 @@ pod 'PhoneNumberKit', '~> 0.6'
 pod 'FLEX', '~> 2.0', :configurations => ['Debug']
 pod 'TTTAttributedLabel', '1.13.4'
 pod 'DateTools', '1.7.0'
-pod 'SwiftQRCode'
+pod 'SwiftQRCode', '2.0.1'
+pod 'Fabric', '1.6.7'
+pod 'Crashlytics', '3.7.0'
 
 post_install do |installer|
     `rm -rf Pods/Headers/Private`

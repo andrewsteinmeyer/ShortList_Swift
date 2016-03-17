@@ -9,6 +9,8 @@
 import UIKit
 import Contacts
 import GoogleMaps
+import Fabric
+import Crashlytics
 import FLEX
 
 
@@ -27,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     self.setAppearance()
     
     //FLEXManager.sharedManager().showExplorer()
+    Fabric.with([Crashlytics.self])
     
     // set up account manager and establish connection to Meteor
     AccountManager.setUpDefaultAccountManager(AccountManager())
