@@ -73,6 +73,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
   
   // MARK: UITextFieldDelegate
   
+  // text field navigation
   func textFieldShouldReturn(textField: UITextField) -> Bool {
     switch currentScreen {
     case .SignIn:
@@ -148,6 +149,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
           
           // register for APNS
           AppDelegate.getAppDelegate().registerForPushNotifications()
+          
+          // clear badge count
+          AppDelegate.getAppDelegate().resetBadgeCount()
          
           // present home screen
           HomeViewController.presentHomeViewController()

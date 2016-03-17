@@ -10,6 +10,10 @@ import UIKit
 
 extension AppDelegate {
   
+  private enum Message: String {
+    case ResetBadgeCount = "removeHistory"
+  }
+  
   private enum Category: String {
     case Invite = "eventInvite"
     case Message = "newMessage"
@@ -193,6 +197,24 @@ extension AppDelegate {
     
     // register for remote notifications from APNS
     UIApplication.sharedApplication().registerForRemoteNotifications()
+  }
+  
+  //MARK: Badge reset
+  
+  func resetBadgeCount() {
+    guard let userId = Meteor.userID else { return }
+    
+    // clear badge on server
+    Meteor.callMethodWithName(Message.ResetBadgeCount.rawValue, parameters: [ userId ]) {
+      userInfo, error in
+      
+      if error == nil {
+        print("successfully reset badge count")
+        // set local count to zero to clear badge
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+      }
+    }
+    
   }
   
 }

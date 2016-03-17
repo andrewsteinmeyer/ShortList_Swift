@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // set up google services
     GMSServices.provideAPIKey(googleMapsApiKey)
-      
+    
     return true
   }
   
@@ -54,6 +54,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func applicationDidBecomeActive(application: UIApplication) {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    // reset badge count when user re-opens app from background state
+    self.resetBadgeCount()
   }
 
   func applicationWillTerminate(application: UIApplication) {

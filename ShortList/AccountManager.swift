@@ -21,6 +21,7 @@ final class AccountManager: NSObject {
   private enum Message: String {
     case FindCurrentUser = "findCurrentUser"
     case SetUserNotificationToken = "setUserNotificationToken"
+    case ResetBadgeCount = "removeHistory"
   }
   
   override init() {
@@ -146,6 +147,8 @@ final class AccountManager: NSObject {
       }
     }
   }
+  
+
   
   // MARK: Notification observers
   
