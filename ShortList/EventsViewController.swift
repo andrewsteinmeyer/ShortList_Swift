@@ -26,7 +26,7 @@ private let timeFormatter: NSDateFormatter = {
   return formatter
 }()
 
-class EventsViewController: FetchedResultsTableViewController {
+class EventsViewController: FetchedResultsCollectionViewController {
   typealias NamedValues = [String:AnyObject]
   
   @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -50,8 +50,8 @@ class EventsViewController: FetchedResultsTableViewController {
     }
     
     // setup delegates for empty data
-    self.tableView.emptyDataSetDelegate = self
-    self.tableView.emptyDataSetSource = self
+    self.collectionView!.emptyDataSetDelegate = self
+    self.collectionView!.emptyDataSetSource = self
     
     setupAppearance()
   }
@@ -100,9 +100,9 @@ class EventsViewController: FetchedResultsTableViewController {
   
   // MARK: - FetchedResultsTableViewDataSourceDelegate
   
-  func dataSource(dataSource: FetchedResultsTableViewDataSource, configureCell cell: UITableViewCell, forObject object: NSManagedObject, atIndexPath indexPath: NSIndexPath) {
+  func dataSource(dataSource: FetchedResultsCollectionViewDataSource, configureCell cell: UICollectionViewCell, forObject object: NSManagedObject, atIndexPath indexPath: NSIndexPath) {
     if let event = object as? Event {
-      if let cell = cell as? EventsTableViewCell {
+      if let cell = cell as? EventsCollectionViewCell {
         var locationName = ""
         var eventDate = ""
         var eventTime = ""
@@ -136,13 +136,13 @@ class EventsViewController: FetchedResultsTableViewController {
           acceptedCount = String(count)
         }
         
-        let data = EventsTableViewCellData(name: eventName, locationName: locationName, date: eventDate, time: eventTime, acceptedCount: acceptedCount)
+        let data = EventsCollectionViewCellData(name: eventName, locationName: locationName, date: eventDate, time: eventTime, acceptedCount: acceptedCount)
         cell.setData(data)
       }
     }
   }
   
-  func dataSource(dataSource: FetchedResultsTableViewDataSource, deleteObject object: NSManagedObject, atIndexPath indexPath: NSIndexPath) {
+  func dataSource(dataSource: FetchedResultsCollectionViewDataSource, deleteObject object: NSManagedObject, atIndexPath indexPath: NSIndexPath) {
     guard let event = object as? Event else {
       return
     }
@@ -160,14 +160,6 @@ class EventsViewController: FetchedResultsTableViewController {
         print("success: event deleted")
       }
     }
-  }
-  
-  override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
-    performSegueWithIdentifier("showEventDetail", sender: indexPath)
-  }
-  
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    performSegueWithIdentifier("showInvitationActivity", sender: indexPath)
   }
   
   func setupAppearance() {

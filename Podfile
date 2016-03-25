@@ -12,6 +12,8 @@ pod 'DateTools', '1.7.0'
 pod 'SwiftQRCode', '2.0.1'
 pod 'Fabric', '1.6.7'
 pod 'Crashlytics', '3.7.0'
+pod 'CSStickyHeaderFlowLayout', '0.2.10'
+pod 'DZNSegmentedControl', '1.3.3'
 
 post_install do |installer|
     `rm -rf Pods/Headers/Private`
