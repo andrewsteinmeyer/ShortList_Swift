@@ -57,11 +57,21 @@ class EventsViewController: FetchedResultsCollectionViewController {
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    
     guard let indexPath = sender as? NSIndexPath,
       selectedEvent = dataSource.objectAtIndexPath(indexPath) as? Event else {
       return
     }
     
+    if segue.identifier == "showEventDetail" {
+      if let eventDetailCollectionVC = segue.destinationViewController as? EventDetailCollectionViewController {
+        // set eventID to load in Event Details
+        //eventDetailCollectionVC.eventID = selectedEvent.objectID
+        eventDetailCollectionVC.event = selectedEvent
+      }
+    }
+    
+    /*
     if segue.identifier == "showInvitationActivity" {
       if let invitationActivityViewController = segue.destinationViewController as? InvitationActivityViewController {
         // get documentID for event
@@ -82,6 +92,7 @@ class EventsViewController: FetchedResultsCollectionViewController {
         }
       }
     }
+    */
   }
   
   // MARK: - Content Loading
@@ -142,6 +153,8 @@ class EventsViewController: FetchedResultsCollectionViewController {
     }
   }
   
+  //TODO: Implement delete event in UI using this method.
+  
   func dataSource(dataSource: FetchedResultsCollectionViewDataSource, deleteObject object: NSManagedObject, atIndexPath indexPath: NSIndexPath) {
     guard let event = object as? Event else {
       return
@@ -160,6 +173,11 @@ class EventsViewController: FetchedResultsCollectionViewController {
         print("success: event deleted")
       }
     }
+  }
+  
+  // pragma mark - UICollectionViewDelegate
+  override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    performSegueWithIdentifier("showEventDetail", sender: indexPath)
   }
   
   func setupAppearance() {
