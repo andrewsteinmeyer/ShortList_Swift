@@ -37,6 +37,9 @@ class EventsViewController: FetchedResultsCollectionViewController {
   
   private var selectedEvent: Event?
   
+  var eventDetailTransitionDelegate: EventDetailTransitioningDelegate?
+  var selectionObject: SelectionObject?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -50,8 +53,8 @@ class EventsViewController: FetchedResultsCollectionViewController {
     }
     
     // setup delegates for empty data
-    self.collectionView!.emptyDataSetDelegate = self
-    self.collectionView!.emptyDataSetSource = self
+    self.collectionView?.emptyDataSetDelegate = self
+    self.collectionView?.emptyDataSetSource = self
     
     setupAppearance()
   }
@@ -67,7 +70,7 @@ class EventsViewController: FetchedResultsCollectionViewController {
       if let eventDetailCollectionVC = segue.destinationViewController as? EventDetailCollectionViewController {
         // set eventID to load in Event Details
         //eventDetailCollectionVC.eventID = selectedEvent.objectID
-        eventDetailCollectionVC.event = selectedEvent
+        //eventDetailCollectionVC.event = selectedEvent
       }
     }
     
@@ -149,6 +152,13 @@ class EventsViewController: FetchedResultsCollectionViewController {
         
         let data = EventsCollectionViewCellData(name: eventName, locationName: locationName, date: eventDate, time: eventTime, acceptedCount: acceptedCount)
         cell.setData(data)
+        
+        if selectionObject != nil &&
+          selectionObject?.selectedCellIndexPath == indexPath {
+          cell.hide = selectionObject!.hidden
+        } else {
+          cell.hide = false
+        }
       }
     }
   }
@@ -177,15 +187,61 @@ class EventsViewController: FetchedResultsCollectionViewController {
   
   // pragma mark - UICollectionViewDelegate
   override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    performSegueWithIdentifier("showEventDetail", sender: indexPath)
+    //performSegueWithIdentifier("showEventDetail", sender: indexPath)
+    
+    showEventDetailForIndexPath(indexPath)
   }
   
-  func setupAppearance() {
+  
+  func showEventDetailForIndexPath(indexPath: NSIndexPath) {
+    let selectedCell = collectionView?.cellForItemAtIndexPath(indexPath) as! EventsCollectionViewCell
+    
+    //set rect for selectedCell and save origin in relation to superview (view controller)
+    var rect = selectedCell.frame
+    let origin = view.convertPoint(rect.origin, toView: selectedCell.superview)
+    rect.origin = origin
+      
+    selectionObject = SelectionObject(snapshot: selectedCell.snapshot, selectedCellIndexPath: indexPath, originalCellPosition: rect)
+    eventDetailTransitionDelegate = EventDetailTransitioningDelegate(selectedObject: selectionObject!)
+    transitioningDelegate = eventDetailTransitionDelegate
+    
+    // get main storyboard
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    
+    // get event
+    let selectedEvent = dataSource.objectAtIndexPath(indexPath) as? Event
+    
+    //set up eventDetailCollectionVC and set transitionDelegate as its delegate
+    let eventDetailVC = storyboard.instantiateViewControllerWithIdentifier("EventDetailCollectionViewController") as! EventDetailCollectionViewController
+    eventDetailVC.event = selectedEvent
+    eventDetailVC.ticketView = selectedCell.snapshot
+    eventDetailVC.transitioningDelegate = eventDetailTransitionDelegate
+    presentViewController(eventDetailVC, animated: true, completion: nil)
+    
+    //fade out cell's image
+    UIView.animateWithDuration(0.5, animations: {
+      selectedCell.hide = true
+      }, completion: nil)
+  }
+  
+  // hide selected image view and reload cell
+  func hideImage(hidden: Bool, indexPath: NSIndexPath) {
+    if selectionObject != nil {
+      selectionObject!.hidden = hidden
+    }
+    
+    collectionView?.reloadItemsAtIndexPaths([indexPath])
+  }
+  
+  //MARK: Private methods
+  
+  private func setupAppearance() {
     self.navigationItem.rightBarButtonItem?.tintColor = Theme.NavigationBarActionButtonTextColor.toUIColor()
   }
   
-  
 }
+
+//MARK: Empty Data Set
 
 extension EventsViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
   

@@ -12,13 +12,16 @@ import CSStickyHeaderFlowLayout
 
 class EventDetailCollectionViewController: UICollectionViewController {
   typealias NamedValues = [String:AnyObject]
+  typealias Contacts = [String:String]
   
-  private var contacts = [[String:String]]()
+  private var contacts = [Contacts]()
   
   // MARK: - Model
   
   var managedObjectContext: NSManagedObjectContext!
   private var eventObserver: ManagedObjectObserver?
+  
+  var ticketView: UIView?
   
   var event: Event? {
     didSet {
@@ -60,6 +63,13 @@ class EventDetailCollectionViewController: UICollectionViewController {
   
   // MARK: - View Lifecycle
   
+  required init?(coder: NSCoder) {
+    super.init(coder: coder)
+    
+    // needed for custom presentation
+    modalPresentationStyle = UIModalPresentationStyle.Custom
+  }
+  
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
@@ -68,6 +78,8 @@ class EventDetailCollectionViewController: UICollectionViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    print("view did load")
     
     // set CoreData context
     self.managedObjectContext = Meteor.mainQueueManagedObjectContext
@@ -78,13 +90,22 @@ class EventDetailCollectionViewController: UICollectionViewController {
     // Register cell classes
     let headerViewNib = UINib(nibName: Constants.EventDetailCollection.HeaderViewIdentifier, bundle: nil)
     self.collectionView?.registerNib(headerViewNib, forSupplementaryViewOfKind: CSStickyHeaderParallaxHeader, withReuseIdentifier: Constants.EventDetailCollection.HeaderViewIdentifier)
+    
+    // hide view initially
+    self.collectionView?.backgroundColor = UIColor.clearColor()
+    self.view.alpha = 0.0
+    
   }
   
   func reloadLayout() {
     // set header size and item size
     if let layout = self.collectionViewLayout as? CSStickyHeaderFlowLayout {
-      layout.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.width, Constants.EventDetailCollection.HeaderViewHeight)
-      layout.itemSize = CGSizeMake(self.view.frame.size.width, layout.itemSize.height)
+      let size = self.view.frame.width - Constants.EventDetailCollection.Padding
+      
+      // resize layout header and item
+      layout.parallaxHeaderReferenceSize = CGSizeMake(size, size)
+      layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(size, size)
+      layout.itemSize = CGSizeMake(size, layout.itemSize.height)
     }
   }
   
@@ -156,7 +177,7 @@ class EventDetailCollectionViewController: UICollectionViewController {
   }
   
   override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return contacts.count
+    return contacts.count + 20
   }
   
   override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -173,12 +194,29 @@ class EventDetailCollectionViewController: UICollectionViewController {
       return cell
     case CSStickyHeaderParallaxHeader:
       // make sure the header cell uses the proper identifier
-      let cell = self.collectionView!.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: Constants.EventDetailCollection.HeaderViewIdentifier, forIndexPath: indexPath) as UICollectionReusableView!
+      let cell = self.collectionView!.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: Constants.EventDetailCollection.HeaderViewIdentifier, forIndexPath: indexPath) as! EventDetailCollectionViewHeaderView
+      
+      let resizedTicketView = scaleAndPositionTicketInHeaderView(cell, ticketView: ticketView!)
+      //cell.addSubview(resizedTicketView)
+      cell.ticketView = resizedTicketView
       
       return cell
     default:
       assert(false, "Unexpected element kind")
     }
+  }
+  
+  func scaleAndPositionTicketInHeaderView(cell: EventDetailCollectionViewHeaderView, ticketView: UIView) -> UIView {
+    var ticketFrame = ticketView.frame
+    
+    let ratio = ticketFrame.size.width / ticketFrame.size.height
+    
+    ticketFrame.size.width = view.frame.size.width
+    ticketFrame.size.height = ticketFrame.size.width / ratio
+    
+    ticketView.frame = ticketFrame
+    
+    return ticketView
   }
   
 }

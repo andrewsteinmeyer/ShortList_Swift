@@ -7,26 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="C45-xf-z4Q">
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="C45-xf-z4Q" customClass="EventDetailCollectionViewHeaderView" customModule="ShortList" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ticket-blue" translatesAutoresizingMaskIntoConstraints="NO" id="nVQ-iX-K70">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </imageView>
-            </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstAttribute="bottom" secondItem="nVQ-iX-K70" secondAttribute="bottom" id="ijb-0Z-Uxb"/>
-                <constraint firstItem="nVQ-iX-K70" firstAttribute="leading" secondItem="C45-xf-z4Q" secondAttribute="leading" id="k18-qb-bEg"/>
-                <constraint firstItem="nVQ-iX-K70" firstAttribute="top" secondItem="C45-xf-z4Q" secondAttribute="top" id="luK-2o-ZnM"/>
-                <constraint firstAttribute="trailing" secondItem="nVQ-iX-K70" secondAttribute="trailing" id="wLI-SY-B5W"/>
-            </constraints>
             <point key="canvasLocation" x="76.5" y="221"/>
         </collectionReusableView>
     </objects>
-    <resources>
-        <image name="ticket-blue" width="300" height="300"/>
-    </resources>
 </document>

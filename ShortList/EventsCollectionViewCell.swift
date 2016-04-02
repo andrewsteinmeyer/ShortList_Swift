@@ -25,6 +25,7 @@ struct EventsCollectionViewCellData {
   var acceptedCount: String?
 }
 
+
 class EventsCollectionViewCell : UICollectionViewCell {
   
   @IBOutlet weak var nameLabel: UILabel!
@@ -32,8 +33,35 @@ class EventsCollectionViewCell : UICollectionViewCell {
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var timeLabel: UILabel!
   
-  override func awakeFromNib() {
-    //self.layer.cornerRadius = 5
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    
+    contentView.alpha = 1.0
+    nameLabel = nil
+    addressLabel = nil
+    dateLabel = nil
+    timeLabel = nil
+  }
+  
+  
+  var hide: Bool = false {
+    didSet {
+      let alpha: CGFloat = hide ? 0.0 : 1.0
+      contentView.alpha = alpha
+      backgroundView?.alpha = alpha
+    }
+  }
+  
+  var snapshot: UIView {
+    get {
+      let snapshot = snapshotViewAfterScreenUpdates(false)
+      let layer = snapshot.layer
+      layer.masksToBounds = false
+      layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+      layer.shadowRadius = 5.0
+      layer.shadowOpacity = 0.4
+      return snapshot
+    }
   }
   
   func setData(data: Any?) {

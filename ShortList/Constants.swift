@@ -86,6 +86,10 @@ struct Constants {
     static let HeaderViewIdentifier = "EventDetailCollectionViewHeaderView"
     static let SectionHeaderIdentifier = "EventDetailCollectionViewSectionHeader"
     static let HeaderViewHeight: CGFloat = 300
+    static let Padding: CGFloat = 40
   }
   
+  struct Notifications {
+    static let EventTicketDidSaveSnapshot = "EventTicketDidSaveSnapshot"
+  }
 }
