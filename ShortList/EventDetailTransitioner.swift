@@ -71,22 +71,26 @@ class EventDetailAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransi
     let eventsViewController = eventsNavigationVC.topViewController as! EventsViewController
     
     // hide cell's image view if a dismissal
+    // ticket will shrink back down to the area where the cell was displayed
     if !isPresentation {
       eventsViewController.hideImage(true, indexPath: selectedObject!.selectedCellIndexPath)
     }
     
+    let delay = isPresentation ? 0.4 : 0.1
+    
     UIView.animateWithDuration(transitionDuration(transitionContext),
-      delay: 0.0,
+      delay: delay,
       options: [UIViewAnimationOptions.AllowUserInteraction, UIViewAnimationOptions.BeginFromCurrentState],
       animations: {
         animatingView.alpha = 1.0
         
-        //countriesViewController.changeCellSpacingForPresentation(self.isPresentation)
       }, completion: { _ in
         if !self.isPresentation {
           
+          // if dismissal, unhide the ticket collection view cell
           eventsViewController.hideImage(false, indexPath: self.selectedObject!.selectedCellIndexPath)
           
+          // fade out the fromView
           UIView.animateWithDuration(0.3, animations: {
             fromView.alpha = 0.0
             }, completion: { _ in

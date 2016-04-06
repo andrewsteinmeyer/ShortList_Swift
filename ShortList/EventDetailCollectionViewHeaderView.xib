@@ -10,7 +10,22 @@
         <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="C45-xf-z4Q" customClass="EventDetailCollectionViewHeaderView" customModule="ShortList" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ip9-10-drr">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </imageView>
+            </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Ip9-10-drr" firstAttribute="leading" secondItem="C45-xf-z4Q" secondAttribute="leading" id="1tL-UG-x3T"/>
+                <constraint firstItem="Ip9-10-drr" firstAttribute="top" secondItem="C45-xf-z4Q" secondAttribute="top" id="PuJ-tE-8wb"/>
+                <constraint firstAttribute="bottom" secondItem="Ip9-10-drr" secondAttribute="bottom" id="QUR-zq-XBw"/>
+                <constraint firstAttribute="trailing" secondItem="Ip9-10-drr" secondAttribute="trailing" id="c26-YW-Yfz"/>
+            </constraints>
+            <connections>
+                <outlet property="ticketView" destination="Ip9-10-drr" id="MA0-ep-nXn"/>
+            </connections>
             <point key="canvasLocation" x="76.5" y="221"/>
         </collectionReusableView>
     </objects>

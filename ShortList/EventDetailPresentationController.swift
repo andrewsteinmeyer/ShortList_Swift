@@ -88,9 +88,9 @@ class EventDetailPresentationController: UIPresentationController {
   }
   
   func animateTicketWithBounceToPresentedPosition(presentedPosition: Bool) {
-    UIView.animateWithDuration(0.7,
+    UIView.animateWithDuration(0.5,
       delay: 0.2,
-      usingSpringWithDamping: 0.4,
+      usingSpringWithDamping: 0.7,
       initialSpringVelocity: 0.0,
       options: UIViewAnimationOptions.CurveEaseOut,
       animations: {

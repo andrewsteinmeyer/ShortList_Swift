@@ -169,6 +169,8 @@
 		4E7C60861C3B62F70042CE4F /* EventsNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7C60851C3B62F70042CE4F /* EventsNavigationViewController.swift */; };
 		4E8D889F1C83A87A00A8B68B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8D889E1C83A87A00A8B68B /* Alert.swift */; };
 		4E8D88A11C83B17200A8B68B /* AlertsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8D88A01C83B17200A8B68B /* AlertsTableViewCell.swift */; };
+		4E8FA7361CB20175003FC81C /* InviteeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8FA7351CB20174003FC81C /* InviteeCollectionViewCell.swift */; };
+		4E8FA73A1CB208FE003FC81C /* EventDetailCollectionViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8FA7391CB208FE003FC81C /* EventDetailCollectionViewSectionHeader.swift */; };
 		4EA3652A1C2224B500C90249 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA365291C2224B500C90249 /* SignInViewController.swift */; };
 		4EA365301C2380BD00C90249 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA3652F1C2380BD00C90249 /* AccountManager.swift */; };
 		4EA365321C23AFCA00C90249 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA365311C23AFCA00C90249 /* ContactsViewController.swift */; };
@@ -433,6 +435,8 @@
 		4E7C60851C3B62F70042CE4F /* EventsNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsNavigationViewController.swift; sourceTree = "<group>"; };
 		4E8D889E1C83A87A00A8B68B /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		4E8D88A01C83B17200A8B68B /* AlertsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsTableViewCell.swift; sourceTree = "<group>"; };
+		4E8FA7351CB20174003FC81C /* InviteeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteeCollectionViewCell.swift; sourceTree = "<group>"; };
+		4E8FA7391CB208FE003FC81C /* EventDetailCollectionViewSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailCollectionViewSectionHeader.swift; sourceTree = "<group>"; };
 		4EA365291C2224B500C90249 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		4EA3652F1C2380BD00C90249 /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		4EA365311C23AFCA00C90249 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
@@ -677,7 +681,9 @@
 			isa = PBXGroup;
 			children = (
 				4E430FC61CA237A9008BC34F /* EventsCollectionViewCell.swift */,
+				4E8FA7351CB20174003FC81C /* InviteeCollectionViewCell.swift */,
 				4E51E3B71CAD497B00AFBA3A /* EventDetailCollectionViewHeaderView.swift */,
+				4E8FA7391CB208FE003FC81C /* EventDetailCollectionViewSectionHeader.swift */,
 			);
 			name = CollectionViewCell;
 			sourceTree = "<group>";
@@ -1584,6 +1590,7 @@
 				4EF32A0A1C80931C0078B69A /* METNetworkReachabilityManager.m in Sources */,
 				4E6312F91C1FB28000EB78F9 /* DesignableImageView.swift in Sources */,
 				4E719C0D1C3F60C3009989AC /* SelectListViewController.swift in Sources */,
+				4E8FA7361CB20175003FC81C /* InviteeCollectionViewCell.swift in Sources */,
 				4EF32A2F1C8093B70078B69A /* PSWebSocketDriver.m in Sources */,
 				4EF32A0B1C80931C0078B69A /* METRandomStream.m in Sources */,
 				4E6312F61C1FB28000EB78F9 /* AutoTextView.swift in Sources */,
@@ -1597,6 +1604,7 @@
 				4EF32A101C80931C0078B69A /* METTimer.m in Sources */,
 				4E1C46E11C7DE53500C22101 /* ValidationDelegate.swift in Sources */,
 				4EF32A311C8093B70078B69A /* PSWebSocketNetworkThread.m in Sources */,
+				4E8FA73A1CB208FE003FC81C /* EventDetailCollectionViewSectionHeader.swift in Sources */,
 				4E5CB36C1CA9F28700ED785B /* SelectionObject.swift in Sources */,
 				4E6313491C1FB60A00EB78F9 /* FunctionalAdditions.swift in Sources */,
 				4E60A0DA1C2F1E7100D66A9A /* VenuesTableViewCell.swift in Sources */,
@@ -1822,6 +1830,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ShortList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dsmlabs.ShortList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1839,6 +1848,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ShortList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dsmlabs.ShortList;
 				PRODUCT_NAME = "$(TARGET_NAME)";

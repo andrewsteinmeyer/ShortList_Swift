@@ -18,6 +18,12 @@ extension METDDPClient {
   // sign up with name, email and phone number
   // auto verify phone number if user signs up via mobile
   func signUpWithEmail(email: String, password: String, name: String, phone: String, completionHandler: METLogInCompletionHandler) {
+    print("email: \(email)")
+    print("password: \(password)")
+    print("phone: \(phone)")
+    print("name: \(name)")
+    
+    
     let profile: [NSObject: AnyObject] = ["name" : name,
                                           "phones": [
                                                       ["number": phone, "verified": false]

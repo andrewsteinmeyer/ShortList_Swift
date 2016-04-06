@@ -82,7 +82,7 @@ struct Constants {
   
   // Event Detail Collection Settings
   struct EventDetailCollection {
-    static let CellIdentifier = "EventDetailCollectionViewCell"
+    static let CellIdentifier = "InviteeCollectionViewCell"
     static let HeaderViewIdentifier = "EventDetailCollectionViewHeaderView"
     static let SectionHeaderIdentifier = "EventDetailCollectionViewSectionHeader"
     static let HeaderViewHeight: CGFloat = 300

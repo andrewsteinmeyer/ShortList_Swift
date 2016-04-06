@@ -79,7 +79,28 @@ class EventDetailCollectionViewController: UICollectionViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    print("view did load")
+    // set clipsToBounds to false so cancel button can hover
+    self.view.clipsToBounds = false
+    
+    // create cancel button
+    let closeButton = UIButton(type: .Custom)
+    closeButton.frame = CGRect(x: -15, y: -15, width: 30, height: 30)
+    closeButton.layer.cornerRadius = 15
+    closeButton.layer.backgroundColor = UIColor.whiteColor().CGColor
+    closeButton.setImage(UIImage(named: "cancel-button"), forState: .Normal)
+    closeButton.layer.borderWidth = 1.5
+    closeButton.layer.borderColor = Theme.EventDetailCancelButtonColor.toUIColor().CGColor
+    closeButton.addTarget(self, action: "closeButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+    
+    // create clear cancel button for greater surface area
+    let clearButton = UIButton(type: .Custom)
+    clearButton.frame = CGRect(x: -20, y: -20, width: 50, height: 50)
+    clearButton.layer.backgroundColor = UIColor.clearColor().CGColor
+    clearButton.addTarget(self, action: "closeButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+    
+    // add cancel button to view
+    self.view.addSubview(closeButton)
+    self.view.addSubview(clearButton)
     
     // set CoreData context
     self.managedObjectContext = Meteor.mainQueueManagedObjectContext
@@ -103,8 +124,8 @@ class EventDetailCollectionViewController: UICollectionViewController {
       let size = self.view.frame.width - Constants.EventDetailCollection.Padding
       
       // resize layout header and item
-      layout.parallaxHeaderReferenceSize = CGSizeMake(size, size)
-      layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(size, size)
+      layout.parallaxHeaderReferenceSize = CGSizeMake(size, 256)
+      layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(size, 256)
       layout.itemSize = CGSizeMake(size, layout.itemSize.height)
     }
   }
@@ -124,6 +145,7 @@ class EventDetailCollectionViewController: UICollectionViewController {
           let name = contact["name"].string ?? ""
           let email = contact["email"].string ?? ""
           var phone = contact["phone"].string ?? ""
+          let score = contact["score"].int ?? 0
           
           // make sure there is at least a name
           guard !name.isEmpty else {
@@ -148,7 +170,8 @@ class EventDetailCollectionViewController: UICollectionViewController {
           
           let newContact = ["name": name,
                             "email": email,
-                            "phone": phone]
+                            "phone": phone,
+                            "score": String(score)]
           
           contacts.append(newContact)
         }
@@ -177,11 +200,21 @@ class EventDetailCollectionViewController: UICollectionViewController {
   }
   
   override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return contacts.count + 20
+    return contacts.count
   }
   
   override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.EventDetailCollection.CellIdentifier, forIndexPath: indexPath)
+    let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.EventDetailCollection.CellIdentifier, forIndexPath: indexPath) as! InviteeCollectionViewCell
+    
+    var name = ""
+    var score = "0"
+    
+    let contact = contacts[indexPath.row]
+    name = contact["name"]!
+    score = contact["score"]!
+    
+    let data = InviteeCollectionViewCellData(name: name, score: score)
+    cell.setData(data)
     
     return cell
   }
@@ -198,7 +231,7 @@ class EventDetailCollectionViewController: UICollectionViewController {
       
       let resizedTicketView = scaleAndPositionTicketInHeaderView(cell, ticketView: ticketView!)
       //cell.addSubview(resizedTicketView)
-      cell.ticketView = resizedTicketView
+      cell.ticketView.image = resizedTicketView
       
       return cell
     default:
@@ -206,17 +239,31 @@ class EventDetailCollectionViewController: UICollectionViewController {
     }
   }
   
-  func scaleAndPositionTicketInHeaderView(cell: EventDetailCollectionViewHeaderView, ticketView: UIView) -> UIView {
+  private func scaleAndPositionTicketInHeaderView(cell: EventDetailCollectionViewHeaderView, ticketView: UIView) -> UIImage {
     var ticketFrame = ticketView.frame
     
+    // scale snapshot of ticket to fill header
+    // use the same size ratio of the smaller ticket
     let ratio = ticketFrame.size.width / ticketFrame.size.height
     
+    // calculate new ticket size
     ticketFrame.size.width = view.frame.size.width
     ticketFrame.size.height = ticketFrame.size.width / ratio
     
+    // update ticket frame with new size
     ticketView.frame = ticketFrame
     
-    return ticketView
+    // crop out stats on bottom of ticket
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(ticketView.bounds.size.width, 256), false, UIScreen.mainScreen().scale)
+    ticketView.drawViewHierarchyInRect(CGRectMake(0, -44, ticketView.bounds.size.width, ticketView.bounds.size.height), afterScreenUpdates: true)
+    let croppedTicketImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    
+    return croppedTicketImage
+  }
+  
+  func closeButtonPressed(sender: UIButton) {
+    presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
   }
   
 }

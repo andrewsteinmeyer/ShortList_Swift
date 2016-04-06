@@ -94,6 +94,7 @@ enum Theme {
   
   // Event
   case CreateEventViewErrorColor
+  case EventDetailCancelButtonColor
   
   // Profile
   case ProfileTableViewHeaderTextColor
@@ -106,7 +107,6 @@ enum Theme {
   
   // Scan
   case QRScannerOutlineColor
-  case CancelScanButtonBackgroundColor
   case CancelScanButtonTextColor
   
   func toUIColor() -> UIColor {
@@ -165,6 +165,7 @@ enum Theme {
       
     // Event
     case .CreateEventViewErrorColor:                     return HexColor(Palette.mainThemeErrorColor)
+    case .EventDetailCancelButtonColor:                  return HexColor(Palette.mainThemeErrorColor)
       
     // Profile
     case .ProfileTableViewHeaderTextColor:               return HexColor(Palette.mainThemeTextColor)
@@ -177,9 +178,7 @@ enum Theme {
       
     // Scan
     case QRScannerOutlineColor:                          return HexColor(Palette.scannerOutlineColor)
-    case CancelScanButtonBackgroundColor:                return HexColor(Palette.mainThemeColor)
     case CancelScanButtonTextColor:                      return HexColor(Palette.mainThemeTextColor)
-    
     }
   }
 }

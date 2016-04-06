@@ -32,17 +32,24 @@ class EventsCollectionViewCell : UICollectionViewCell {
   @IBOutlet weak var addressLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var timeLabel: UILabel!
+  @IBOutlet weak var descriptionTextView: UITextView!
   
-  override func prepareForReuse() {
-    super.prepareForReuse()
+  @IBOutlet weak var statsStackView: UIStackView!
+  @IBOutlet weak var ticketBodyStackView: UIStackView!
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
     
-    contentView.alpha = 1.0
-    nameLabel = nil
-    addressLabel = nil
-    dateLabel = nil
-    timeLabel = nil
+    // remove textview padding
+    descriptionTextView.textContainer.lineFragmentPadding = 0
+    descriptionTextView.textContainerInset = UIEdgeInsetsZero
+    
+    layer.masksToBounds = false
+    layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+    layer.shadowRadius = 5.0
+    layer.shadowOpacity = 0.4
+    
   }
-  
   
   var hide: Bool = false {
     didSet {
@@ -54,12 +61,19 @@ class EventsCollectionViewCell : UICollectionViewCell {
   
   var snapshot: UIView {
     get {
-      let snapshot = snapshotViewAfterScreenUpdates(false)
+      // hide stats area for snapshot
+      statsStackView.hidden = true
+      
+      let snapshot = snapshotViewAfterScreenUpdates(true)
       let layer = snapshot.layer
       layer.masksToBounds = false
       layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
       layer.shadowRadius = 5.0
       layer.shadowOpacity = 0.4
+      
+      // reveal area area after we have snapshot
+      statsStackView.hidden = false
+      
       return snapshot
     }
   }

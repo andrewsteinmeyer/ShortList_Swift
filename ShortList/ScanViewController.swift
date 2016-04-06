@@ -116,10 +116,8 @@ class ScanViewController: UIViewController {
   
   private func setupAppearance() {
     // set theme colors
-    let buttonColor =  Theme.CancelScanButtonBackgroundColor.toUIColor()
     let buttonTextColor = Theme.CancelScanButtonTextColor.toUIColor()
     
-    cancelScanButton.backgroundColor = buttonColor
     cancelScanButton.setTitleColor(buttonTextColor, forState: .Highlighted)
     
     // make the view transparent
