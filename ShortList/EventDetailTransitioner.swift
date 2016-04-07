@@ -76,13 +76,15 @@ class EventDetailAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransi
       eventsViewController.hideImage(true, indexPath: selectedObject!.selectedCellIndexPath)
     }
     
-    let delay = isPresentation ? 0.4 : 0.1
+    let delay = isPresentation ? 0.3 : 0.1
     
     UIView.animateWithDuration(transitionDuration(transitionContext),
       delay: delay,
       options: [UIViewAnimationOptions.AllowUserInteraction, UIViewAnimationOptions.BeginFromCurrentState],
       animations: {
-        animatingView.alpha = 1.0
+        if self.isPresentation {
+         animatingView.alpha = 1.0
+        }
         
       }, completion: { _ in
         if !self.isPresentation {
@@ -91,7 +93,7 @@ class EventDetailAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransi
           eventsViewController.hideImage(false, indexPath: self.selectedObject!.selectedCellIndexPath)
           
           // fade out the fromView
-          UIView.animateWithDuration(0.3, animations: {
+          UIView.animateWithDuration(0.4, animations: {
             fromView.alpha = 0.0
             }, completion: { _ in
               fromView.removeFromSuperview()

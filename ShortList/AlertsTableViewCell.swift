@@ -36,7 +36,7 @@ class AlertsTableViewCell : BaseTableViewCell {
   override func layoutSubviews() {
     super.layoutSubviews()
     
-    // add a line to the bottom of the section header
+    // add a custom separator line to the bottom of the cell
     lineLayer.frame = CGRectMake(0, self.bounds.height - 1, self.bounds.width, 0.5)
     lineLayer.backgroundColor = Theme.BaseTableViewCellSeparatorColor.toUIColor().CGColor
     self.layer.addSublayer(lineLayer)

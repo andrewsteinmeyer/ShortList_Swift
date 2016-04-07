@@ -83,6 +83,9 @@ class EventDetailPresentationController: UIPresentationController {
       // Move ticket back to original position
       var ticketFrame = ticketView.frame
       ticketFrame = selectionObject!.originalCellPosition
+      ticketFrame.origin.y += 80
+      ticketFrame.size.width = 200
+      ticketFrame.size.height = 200
       ticketView.frame = ticketFrame
     }
   }
@@ -90,9 +93,9 @@ class EventDetailPresentationController: UIPresentationController {
   func animateTicketWithBounceToPresentedPosition(presentedPosition: Bool) {
     UIView.animateWithDuration(0.5,
       delay: 0.2,
-      usingSpringWithDamping: 0.7,
+      usingSpringWithDamping: 0.70,
       initialSpringVelocity: 0.0,
-      options: UIViewAnimationOptions.CurveEaseOut,
+      options: UIViewAnimationOptions.CurveEaseInOut,
       animations: {
         self.moveTicketToPresentedPosition(presentedPosition)
       }, completion: { _ in

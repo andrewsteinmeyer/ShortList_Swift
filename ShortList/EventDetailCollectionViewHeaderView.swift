@@ -8,26 +8,11 @@
 
 
 import UIKit
-import DZNSegmentedControl
 
 class EventDetailCollectionViewHeaderView: UICollectionReusableView {
   
   @IBOutlet weak var ticketView: UIImageView!
   
-  var control: DZNSegmentedControl?
-  
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    
-    let menuItems = ["Pending", "Accepted", "Declined"]
-    control = DZNSegmentedControl(items: menuItems)
-    control?.selectedSegmentIndex = 0
-    control?.height = 44
-    control?.bouncySelectionIndicator = false
-    control?.showsCount = false
-    
-    self.view = control
-  }
   
   /*
   var ticketView: UIView? {

@@ -212,7 +212,8 @@ class EventsViewController: FetchedResultsCollectionViewController {
     let selectedEvent = dataSource.objectAtIndexPath(indexPath) as? Event
     
     //set up eventDetailCollectionVC and set transitionDelegate as its delegate
-    let eventDetailVC = storyboard.instantiateViewControllerWithIdentifier("EventDetailCollectionViewController") as! EventDetailCollectionViewController
+    //let eventDetailVC = storyboard.instantiateViewControllerWithIdentifier("EventDetailCollectionViewController") as! EventDetailCollectionViewController
+    let eventDetailVC = storyboard.instantiateViewControllerWithIdentifier("EventDetailTableViewController") as! EventDetailTableViewController
     eventDetailVC.event = selectedEvent
     eventDetailVC.ticketView = selectedCell.snapshot
     eventDetailVC.transitioningDelegate = eventDetailTransitionDelegate

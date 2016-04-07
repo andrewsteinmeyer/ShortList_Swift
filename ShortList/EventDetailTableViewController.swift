@@ -1,25 +1,32 @@
 //
-//  EventDetailCollectionViewController.swift
+//  EventDetailTableViewController.swift
 //  ShortList
 //
-//  Created by Andrew Steinmeyer on 3/25/16.
+//  Created by Andrew Steinmeyer on 4/5/16.
 //  Copyright © 2016 Andrew Steinmeyer. All rights reserved.
 //
 
+import Foundation
+
 import CoreData
 import PhoneNumberKit
-import CSStickyHeaderFlowLayout
 
-class EventDetailCollectionViewController: UICollectionViewController {
+class EventDetailTableViewController: UIViewController {
   typealias NamedValues = [String:AnyObject]
   typealias Contacts = [String:String]
   
   private var contacts = [Contacts]()
   
+  var statusCategories = ["Pending", "Accepted", "Declined", "Timeout"]
+  
   // MARK: - Model
   
   var managedObjectContext: NSManagedObjectContext!
   private var eventObserver: ManagedObjectObserver?
+  
+  
+  @IBOutlet weak var headerView: EventDetailTableViewHeaderView!
+  @IBOutlet weak var tableView: UITableView!
   
   var ticketView: UIView?
   
@@ -82,6 +89,7 @@ class EventDetailCollectionViewController: UICollectionViewController {
     // set clipsToBounds to false so cancel button can hover
     self.view.clipsToBounds = false
     
+    
     // create cancel button
     let closeButton = UIButton(type: .Custom)
     closeButton.frame = CGRect(x: -15, y: -15, width: 30, height: 30)
@@ -98,39 +106,24 @@ class EventDetailCollectionViewController: UICollectionViewController {
     clearButton.layer.backgroundColor = UIColor.clearColor().CGColor
     clearButton.addTarget(self, action: #selector(EventDetailCollectionViewController.closeButtonPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside)
     
-    // add cancel button to view
+    // add cancel buttons to view
     self.view.addSubview(closeButton)
     self.view.addSubview(clearButton)
     
     // set CoreData context
     self.managedObjectContext = Meteor.mainQueueManagedObjectContext
     
-    // setup custom layout
-    reloadLayout()
-    
-    // Register cell classes
-    let headerViewNib = UINib(nibName: Constants.EventDetailCollection.HeaderViewIdentifier, bundle: nil)
-    self.collectionView?.registerNib(headerViewNib, forSupplementaryViewOfKind: CSStickyHeaderParallaxHeader, withReuseIdentifier: Constants.EventDetailCollection.HeaderViewIdentifier)
+    // register section header row
+    let nib = UINib(nibName: "EventDetailTableViewSectionHeader", bundle: nil)
+    tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: "EventDetailTableViewSectionHeader")
     
     // hide view initially
-    self.collectionView?.backgroundColor = UIColor.clearColor()
+    self.tableView?.backgroundColor = UIColor.clearColor()
     self.view.alpha = 0.0
     
   }
   
-  func reloadLayout() {
-    // set header size and item size
-    if let layout = self.collectionViewLayout as? CSStickyHeaderFlowLayout {
-      let size = self.view.frame.width - Constants.EventDetailCollection.Padding
-      
-      // resize layout header and item
-      layout.parallaxHeaderReferenceSize = CGSizeMake(size, 256)
-      layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(size, 256)
-      layout.itemSize = CGSizeMake(size, layout.itemSize.height)
-    }
-  }
-  
-    // MARK: - Updating View
+  // MARK: - Updating View
   
   func updateViewWithModel() {
     if event == nil {
@@ -182,7 +175,7 @@ class EventDetailCollectionViewController: UICollectionViewController {
     }
     
     // refresh data
-    collectionView?.reloadData()
+    tableView?.reloadData()
   }
   
   override func prefersStatusBarHidden() -> Bool {
@@ -193,77 +186,38 @@ class EventDetailCollectionViewController: UICollectionViewController {
     return .Fade
   }
   
-  // MARK: - UICollectionViewDataSource
+  func closeButtonPressed(sender: UIButton) {
+    presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
+  }
+
+}
+
+//MARK: UITableViewDataSource Extension
+
+extension EventDetailTableViewController: UITableViewDataSource {
   
-  override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return 1
   }
   
-  override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return contacts.count
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return statusCategories.count
   }
   
-  override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.EventDetailCollection.CellIdentifier, forIndexPath: indexPath) as! InviteeCollectionViewCell
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCellWithIdentifier("StatusCategoryCell", forIndexPath: indexPath) as! InvitationStatusTableViewCell
     
-    var name = ""
-    var score = "0"
-    
-    let contact = contacts[indexPath.row]
-    name = contact["name"]!
-    score = contact["score"]!
-    
-    let data = InviteeCollectionViewCellData(name: name, score: score)
-    cell.setData(data)
+    cell.statusCategoryLabel.text = statusCategories[indexPath.row]
+    cell.countLabel.text = "0"
     
     return cell
   }
-  
-  override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-    switch kind {
-    case UICollectionElementKindSectionHeader:
-      let cell = self.collectionView?.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: Constants.EventDetailCollection.SectionHeaderIdentifier, forIndexPath: indexPath) as UICollectionReusableView!
-      
-      return cell
-    case CSStickyHeaderParallaxHeader:
-      // make sure the header cell uses the proper identifier
-      let cell = self.collectionView!.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: Constants.EventDetailCollection.HeaderViewIdentifier, forIndexPath: indexPath) as! EventDetailCollectionViewHeaderView
-      
-      let resizedTicketView = scaleAndPositionTicketImageInHeaderView(ticketView!)
-      //cell.addSubview(resizedTicketView)
-      cell.ticketView.image = resizedTicketView
-      
-      return cell
-    default:
-      assert(false, "Unexpected element kind")
-    }
-  }
-  
-  private func scaleAndPositionTicketImageInHeaderView(ticketView: UIView) -> UIImage {
-    var ticketFrame = ticketView.frame
+
+  func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let cell = self.tableView.dequeueReusableHeaderFooterViewWithIdentifier("EventDetailTableViewSectionHeader") as! EventDetailTableViewSectionHeader
     
-    // scale snapshot of ticket to fill header
-    // use the same size ratio of the smaller ticket
-    let ratio = ticketFrame.size.width / ticketFrame.size.height
     
-    // calculate new ticket size
-    ticketFrame.size.width = view.frame.size.width
-    ticketFrame.size.height = ticketFrame.size.width / ratio
-    
-    // update ticket frame with new size
-    ticketView.frame = ticketFrame
-    
-    // crop out stats on bottom of ticket
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(ticketView.bounds.size.width, 256), false, UIScreen.mainScreen().scale)
-    ticketView.drawViewHierarchyInRect(CGRectMake(0, -44, ticketView.bounds.size.width, ticketView.bounds.size.height), afterScreenUpdates: true)
-    let croppedTicketImage = UIGraphicsGetImageFromCurrentImageContext()
-    UIGraphicsEndImageContext()
-    
-    return croppedTicketImage
-  }
-  
-  func closeButtonPressed(sender: UIButton) {
-    presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
+    return cell
   }
   
 }
