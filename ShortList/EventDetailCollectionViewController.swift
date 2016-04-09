@@ -16,7 +16,14 @@ class EventDetailCollectionViewController: UICollectionViewController {
   
   private var contacts = [Contacts]()
   
-  var statusCategories = ["Pending", "Accepted", "Declined", "Timeout"]
+  var ownerCategories = ["Invited", "Accepted", "Declined", "Timeout"]
+  var nonOwnerCategories = ["Accepted", "Declined"]
+  
+  var isOwner = false
+  var invitedCount = 0
+  var acceptedCount = 0
+  var declinedCount = 0
+  var timeoutCount = 0
   
   // MARK: - Model
   
@@ -120,6 +127,7 @@ class EventDetailCollectionViewController: UICollectionViewController {
     
   }
   
+  // add sticky header
   func reloadLayout() {
     // set header size and item size
     if let layout = self.collectionViewLayout as? CSStickyHeaderFlowLayout {
@@ -132,60 +140,74 @@ class EventDetailCollectionViewController: UICollectionViewController {
     }
   }
   
-    // MARK: - Updating View
+  // MARK: - Updating View
   
   func updateViewWithModel() {
-    if event == nil {
-    }
-    else {
-      // set list name
-      if let list = event?.valueForKey("list") as? NamedValues {
-        let JSONList = JSON(list)
+    guard let event = event else { return }
+    
+    invitedCount = Int(event.contactCount!) ?? 0
+    acceptedCount = Int(event.acceptedCount!) ?? 0
+    declinedCount = Int(event.declinedCount!) ?? 0
+    timeoutCount = Int(event.timeoutCount!) ?? 0
+    
+    isOwner = (event.userId == AccountManager.defaultAccountManager.currentUserId) ? true : false
+    
+    // refresh data
+    collectionView?.reloadData()
+  }
+  
+  /*
+  func updateViewWithModel() {
+    guard let event = event else { return }
+    
+    // set list name
+    if let list = event.valueForKey("list") as? NamedValues {
+      let JSONList = JSON(list)
+      
+      for (_,contact):(String, JSON) in JSONList["contacts"] {
         
-        for (_,contact):(String, JSON) in JSONList["contacts"] {
-          
-          let name = contact["name"].string ?? ""
-          let email = contact["email"].string ?? ""
-          var phone = contact["phone"].string ?? ""
-          let score = contact["score"].int ?? 0
-          
-          // make sure there is at least a name
-          guard !name.isEmpty else {
-            return
-          }
-          
-          // set phone number
-          if phone != "" {
-            var phoneNumber: PhoneNumber?
-            
-            do {
-              phoneNumber = try PhoneNumber(rawNumber: phone)
-            }
-            catch {
-              print("Error: Could not parse raw phone number")
-            }
-            
-            if let number = phoneNumber?.toNational() {
-              phone = number
-            }
-          }
-          
-          let newContact = ["name": name,
-                            "email": email,
-                            "phone": phone,
-                            "score": String(score)]
-          
-          contacts.append(newContact)
+        let name = contact["name"].string ?? ""
+        let email = contact["email"].string ?? ""
+        var phone = contact["phone"].string ?? ""
+        let score = contact["score"].int ?? 0
+        
+        // make sure there is at least a name
+        guard !name.isEmpty else {
+          return
         }
-      } else {
-        // clear if no list exists
-        contacts = []
+        
+        // set phone number
+        if phone != "" {
+          var phoneNumber: PhoneNumber?
+          
+          do {
+            phoneNumber = try PhoneNumber(rawNumber: phone)
+          }
+          catch {
+            print("Error: Could not parse raw phone number")
+          }
+          
+          if let number = phoneNumber?.toNational() {
+            phone = number
+          }
+        }
+        
+        let newContact = ["name": name,
+                          "email": email,
+                          "phone": phone,
+                          "score": String(score)]
+        
+        contacts.append(newContact)
       }
+    } else {
+      // clear if no list exists
+      contacts = []
     }
     
     // refresh data
     collectionView?.reloadData()
   }
+  */
   
   override func prefersStatusBarHidden() -> Bool {
     return true
@@ -202,10 +224,35 @@ class EventDetailCollectionViewController: UICollectionViewController {
   }
   
   override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return contacts.count
+    return (isOwner ? ownerCategories.count : nonOwnerCategories.count)
   }
   
   override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    
+    let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.EventDetailCollection.CellIdentifier, forIndexPath: indexPath) as! StatusCategoryCollectionViewCell
+    
+    let category = isOwner ? ownerCategories[indexPath.row] : nonOwnerCategories[indexPath.row]
+    var count = 0
+    
+    if category == "Invited" {
+      count = invitedCount
+    }
+    else if category == "Accepted" {
+      count = acceptedCount
+    }
+    else if category == "Declined" {
+      count = declinedCount
+    }
+    else if category == "Timeout" {
+      count = timeoutCount
+    }
+    
+    let data = StatusCategoryCollectionViewCellData(name: category, count: count)
+    cell.setData(data)
+    
+    return cell
+    
+    /*
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.EventDetailCollection.CellIdentifier, forIndexPath: indexPath) as! InviteeCollectionViewCell
     
     var name = ""
@@ -219,12 +266,18 @@ class EventDetailCollectionViewController: UICollectionViewController {
     cell.setData(data)
     
     return cell
+    */
   }
   
   override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
     switch kind {
     case UICollectionElementKindSectionHeader:
-      let cell = self.collectionView?.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: Constants.EventDetailCollection.SectionHeaderIdentifier, forIndexPath: indexPath) as UICollectionReusableView!
+      let cell = self.collectionView?.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: Constants.EventDetailCollection.SectionHeaderIdentifier, forIndexPath: indexPath) as! EventDetailCollectionViewSectionHeader
+      
+      // hide invite button if not owner of event
+      if !isOwner {
+        cell.inviteButton.hidden = true
+      }
       
       return cell
     case CSStickyHeaderParallaxHeader:

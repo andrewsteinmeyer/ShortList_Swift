@@ -104,6 +104,7 @@
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -2460,50 +2461,51 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InviteeCollectionViewCell" id="wTe-nP-72f" customClass="InviteeCollectionViewCell" customModule="ShortList" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StatusCategoryCollectionViewCell" id="wTe-nP-72f" customClass="StatusCategoryCollectionViewCell" customModule="ShortList" customModuleProvider="target">
                                 <rect key="frame" x="123" y="50" width="355" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="355" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="a1L-Q1-Npj">
-                                            <rect key="frame" x="18" y="8" width="319" height="34"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rij-P3-rNf">
+                                            <rect key="frame" x="23" y="14" width="279" height="23"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mg-3B-Hgf">
-                                                    <rect key="frame" x="0.0" y="6" width="289" height="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" misplaced="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mg-3B-Hgf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="245" height="23"/>
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBn-TH-63Q" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
-                                                    <rect key="frame" x="289" y="2" width="30" height="30"/>
-                                                    <color key="backgroundColor" red="0.25882352939999997" green="0.5450980392" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                                    <state key="normal" title="0">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="15"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" misplaced="YES" text="100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDr-jv-eTh">
+                                                    <rect key="frame" x="245" y="0.0" width="34" height="23"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="19"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </stackView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="next" translatesAutoresizingMaskIntoConstraints="NO" id="m3m-7s-WDR">
+                                            <rect key="frame" x="327" y="16" width="10" height="17"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="17" id="DME-n0-Wm5"/>
+                                                <constraint firstAttribute="width" constant="10" id="eoj-By-mNp"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottomMargin" secondItem="a1L-Q1-Npj" secondAttribute="bottom" id="8E8-ek-fcd"/>
-                                    <constraint firstItem="a1L-Q1-Npj" firstAttribute="leading" secondItem="wTe-nP-72f" secondAttribute="leadingMargin" constant="10" id="ILg-B8-kbR"/>
-                                    <constraint firstItem="a1L-Q1-Npj" firstAttribute="top" secondItem="wTe-nP-72f" secondAttribute="topMargin" id="WZz-Pn-QwE"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="a1L-Q1-Npj" secondAttribute="trailing" constant="10" id="fZY-hp-e7K"/>
+                                    <constraint firstItem="rij-P3-rNf" firstAttribute="centerY" secondItem="wTe-nP-72f" secondAttribute="centerY" id="Gqb-m0-ceV"/>
+                                    <constraint firstItem="rij-P3-rNf" firstAttribute="leading" secondItem="wTe-nP-72f" secondAttribute="leadingMargin" constant="15" id="Jbr-1t-q4T"/>
+                                    <constraint firstItem="m3m-7s-WDR" firstAttribute="leading" secondItem="rij-P3-rNf" secondAttribute="trailing" constant="25" id="QM9-cB-lYr"/>
+                                    <constraint firstItem="m3m-7s-WDR" firstAttribute="centerY" secondItem="wTe-nP-72f" secondAttribute="centerY" id="gef-Bj-Vh1"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="m3m-7s-WDR" secondAttribute="trailing" constant="10" id="iaN-jV-24I"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="nameLabel" destination="6mg-3B-Hgf" id="a0w-k0-0kV"/>
-                                    <outlet property="scoreButton" destination="JBn-TH-63Q" id="gyQ-3O-YkZ"/>
+                                    <outlet property="statusCountLabel" destination="ZDr-jv-eTh" id="uDd-Qh-FZl"/>
+                                    <outlet property="statusNameLabel" destination="6mg-3B-Hgf" id="nKC-pl-ZVP"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -2515,16 +2517,42 @@
                                     <rect key="frame" x="8" y="8" width="584" height="34"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDz-HH-d9g" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
+                                    <rect key="frame" x="238" y="8" width="125" height="35"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="125" id="b36-TK-jlo"/>
+                                        <constraint firstAttribute="height" constant="35" id="vV6-Qm-CIK"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="19"/>
+                                    <state key="normal" title="Invite">
+                                        <color key="titleColor" red="0.29803921568627451" green="0.58823529411764708" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="4"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.29803921568627451" green="0.58823529411764708" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="DDz-HH-d9g" firstAttribute="centerX" secondItem="JJg-8S-RDX" secondAttribute="centerX" id="8st-Fw-B54"/>
                                 <constraint firstAttribute="trailingMargin" secondItem="Rku-ab-U60" secondAttribute="trailing" id="Q9F-ps-2vk"/>
                                 <constraint firstItem="Rku-ab-U60" firstAttribute="leading" secondItem="JJg-8S-RDX" secondAttribute="leadingMargin" id="Tgq-6a-oYx"/>
+                                <constraint firstItem="DDz-HH-d9g" firstAttribute="centerY" secondItem="JJg-8S-RDX" secondAttribute="centerY" id="ZGr-dg-CN6"/>
                                 <constraint firstAttribute="bottomMargin" secondItem="Rku-ab-U60" secondAttribute="bottom" id="iMa-Aj-XEF"/>
                                 <constraint firstItem="Rku-ab-U60" firstAttribute="top" secondItem="JJg-8S-RDX" secondAttribute="topMargin" id="jby-ri-kCd"/>
                             </constraints>
                             <connections>
                                 <outlet property="controlView" destination="Rku-ab-U60" id="vSK-I4-9z0"/>
+                                <outlet property="inviteButton" destination="DDz-HH-d9g" id="L6w-UT-sed"/>
                             </connections>
                         </collectionReusableView>
                         <connections>
@@ -3159,6 +3187,7 @@
         <image name="ic_qrcode" width="32" height="32"/>
         <image name="ic_venues" width="64" height="64"/>
         <image name="menu" width="22" height="22"/>
+        <image name="next" width="22" height="40"/>
         <image name="people" width="256" height="256"/>
         <image name="qrcode" width="128" height="128"/>
         <image name="search" width="32" height="32"/>
