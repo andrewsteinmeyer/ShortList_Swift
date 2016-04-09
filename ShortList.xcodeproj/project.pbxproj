@@ -181,8 +181,6 @@
 		4EC321B71CB4B6FF006FC62F /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC321B61CB4B6FF006FC62F /* EventDetailTableViewController.swift */; };
 		4EC321B91CB4C075006FC62F /* InvitationStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC321B81CB4C075006FC62F /* InvitationStatusTableViewCell.swift */; };
 		4EC321BB1CB4C432006FC62F /* EventDetailTableViewSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EC321BA1CB4C432006FC62F /* EventDetailTableViewSectionHeader.xib */; };
-		4EC321BD1CB4C81A006FC62F /* EventDetailTableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC321BC1CB4C81A006FC62F /* EventDetailTableViewSectionHeader.swift */; };
-		4EC321BF1CB5DEAA006FC62F /* EventDetailTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC321BE1CB5DEAA006FC62F /* EventDetailTableViewHeaderView.swift */; };
 		4EC403F31C7667FB0056D5F3 /* UIImage+Alpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC403F01C7667FB0056D5F3 /* UIImage+Alpha.swift */; };
 		4EC403F41C7667FB0056D5F3 /* UIImage+ReSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC403F11C7667FB0056D5F3 /* UIImage+ReSize.swift */; };
 		4EC403F51C7667FB0056D5F3 /* UIImage+RoundCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC403F21C7667FB0056D5F3 /* UIImage+RoundCorner.swift */; };
@@ -452,8 +450,6 @@
 		4EC321B61CB4B6FF006FC62F /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
 		4EC321B81CB4C075006FC62F /* InvitationStatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationStatusTableViewCell.swift; sourceTree = "<group>"; };
 		4EC321BA1CB4C432006FC62F /* EventDetailTableViewSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailTableViewSectionHeader.xib; sourceTree = "<group>"; };
-		4EC321BC1CB4C81A006FC62F /* EventDetailTableViewSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewSectionHeader.swift; sourceTree = "<group>"; };
-		4EC321BE1CB5DEAA006FC62F /* EventDetailTableViewHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewHeaderView.swift; sourceTree = "<group>"; };
 		4EC403F01C7667FB0056D5F3 /* UIImage+Alpha.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Alpha.swift"; sourceTree = "<group>"; };
 		4EC403F11C7667FB0056D5F3 /* UIImage+ReSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ReSize.swift"; sourceTree = "<group>"; };
 		4EC403F21C7667FB0056D5F3 /* UIImage+RoundCorner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+RoundCorner.swift"; sourceTree = "<group>"; };
@@ -692,8 +688,8 @@
 			children = (
 				4E430FC61CA237A9008BC34F /* EventsCollectionViewCell.swift */,
 				4E8FA7351CB20174003FC81C /* InviteeCollectionViewCell.swift */,
-				4E51E3B71CAD497B00AFBA3A /* EventDetailCollectionViewHeaderView.swift */,
-				4E8FA7391CB208FE003FC81C /* EventDetailCollectionViewSectionHeader.swift */,
+				4E5A3A5C1CB70E42003D7F89 /* HeaderView */,
+				4E5A3A5D1CB70E81003D7F89 /* SectionHeaderView */,
 			);
 			name = CollectionViewCell;
 			sourceTree = "<group>";
@@ -733,6 +729,32 @@
 				4E59257E1C9724D300755323 /* QRCodeViewController.swift */,
 			);
 			name = Share;
+			sourceTree = "<group>";
+		};
+		4E5A3A5C1CB70E42003D7F89 /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				4E51E3B71CAD497B00AFBA3A /* EventDetailCollectionViewHeaderView.swift */,
+			);
+			name = HeaderView;
+			sourceTree = "<group>";
+		};
+		4E5A3A5D1CB70E81003D7F89 /* SectionHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				4E8FA7391CB208FE003FC81C /* EventDetailCollectionViewSectionHeader.swift */,
+			);
+			name = SectionHeaderView;
+			sourceTree = "<group>";
+		};
+		4E5A3A5E1CB70FDD003D7F89 /* EventDetailTransition */ = {
+			isa = PBXGroup;
+			children = (
+				4E5CB3671CA9F1EE00ED785B /* EventDetailTransitioner.swift */,
+				4E5CB3691CA9F1FB00ED785B /* EventDetailPresentationController.swift */,
+				4E5CB36B1CA9F28700ED785B /* SelectionObject.swift */,
+			);
+			name = EventDetailTransition;
 			sourceTree = "<group>";
 		};
 		4E5CB3621CA5DA4800ED785B /* Nibs */ = {
@@ -864,8 +886,6 @@
 				4E57A7921C2B3F2A0070AEB3 /* ListsTableViewCell.swift */,
 				4E60A0D91C2F1E7100D66A9A /* VenuesTableViewCell.swift */,
 				4E7C60831C3B5FD30042CE4F /* EventsTableViewCell.swift */,
-				4EC321BC1CB4C81A006FC62F /* EventDetailTableViewSectionHeader.swift */,
-				4EC321BE1CB5DEAA006FC62F /* EventDetailTableViewHeaderView.swift */,
 				4EC321B81CB4C075006FC62F /* InvitationStatusTableViewCell.swift */,
 				4E8D88A01C83B17200A8B68B /* AlertsTableViewCell.swift */,
 			);
@@ -1032,9 +1052,7 @@
 		4E7C607E1C3B5F210042CE4F /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				4E5CB3671CA9F1EE00ED785B /* EventDetailTransitioner.swift */,
-				4E5CB3691CA9F1FB00ED785B /* EventDetailPresentationController.swift */,
-				4E5CB36B1CA9F28700ED785B /* SelectionObject.swift */,
+				4E5A3A5E1CB70FDD003D7F89 /* EventDetailTransition */,
 				4E7C60851C3B62F70042CE4F /* EventsNavigationViewController.swift */,
 				4E7C60811C3B5F420042CE4F /* EventsViewController.swift */,
 				4E5CB3631CA5E8F700ED785B /* EventDetailCollectionViewController.swift */,
@@ -1520,7 +1538,6 @@
 				4E7C60841C3B5FD30042CE4F /* EventsTableViewCell.swift in Sources */,
 				4E5255A41C51CC8F00F6089D /* MeteorRouter.swift in Sources */,
 				4E5590F81C8A82FA000388FC /* AlertLinkViewController.swift in Sources */,
-				4EC321BF1CB5DEAA006FC62F /* EventDetailTableViewHeaderView.swift in Sources */,
 				4EF329F41C80931C0078B69A /* METBufferedDocument.m in Sources */,
 				4E1C46EE1C7DE53500C22101 /* IPV4Rule.swift in Sources */,
 				4E6313051C1FB28000EB78F9 /* SoundPlayer.swift in Sources */,
@@ -1668,7 +1685,6 @@
 				4EC403F51C7667FB0056D5F3 /* UIImage+RoundCorner.swift in Sources */,
 				4EF32A2C1C8093B70078B69A /* PSWebSocket.m in Sources */,
 				4E63130C1C1FB28000EB78F9 /* SpringTextView.swift in Sources */,
-				4EC321BD1CB4C81A006FC62F /* EventDetailTableViewSectionHeader.swift in Sources */,
 				4EF32A2E1C8093B70078B69A /* PSWebSocketDeflater.m in Sources */,
 				4E51AB861C8F0D2600260D82 /* ScanViewController.swift in Sources */,
 				4E1C46E71C7DE53500C22101 /* CharacterSetRule.swift in Sources */,

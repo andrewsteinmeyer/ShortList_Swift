@@ -18,6 +18,10 @@ class Event: NSManagedObject {
   @NSManaged var venue: NamedValues?
   @NSManaged var location: NamedValues?
   @NSManaged var acceptedCount: NSNumber?
+  @NSManaged var declinedCount: NSNumber?
+  @NSManaged var timeoutCount: NSNumber?
   @NSManaged var eventConfiguration: NamedValues?
   @NSManaged var insertedOn: String?
+  @NSManaged var invitationsSent: String?
+  @NSManaged var contactCount: NSNumber?
 }

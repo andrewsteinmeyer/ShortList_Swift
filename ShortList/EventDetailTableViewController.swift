@@ -6,6 +6,7 @@
 //  Copyright © 2016 Andrew Steinmeyer. All rights reserved.
 //
 
+/*
 import Foundation
 
 import CoreData
@@ -25,8 +26,8 @@ class EventDetailTableViewController: UIViewController {
   private var eventObserver: ManagedObjectObserver?
   
   
-  @IBOutlet weak var headerView: EventDetailTableViewHeaderView!
-  @IBOutlet weak var tableView: UITableView!
+  //@IBOutlet weak var headerView: EventDetailTableViewHeaderView!
+  //@IBOutlet weak var tableView: UITableView!
   
   var ticketView: UIView?
   
@@ -214,10 +215,11 @@ extension EventDetailTableViewController: UITableViewDataSource {
   }
 
   func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    let cell = self.tableView.dequeueReusableHeaderFooterViewWithIdentifier("EventDetailTableViewSectionHeader") as! EventDetailTableViewSectionHeader
+    //let cell = self.tableView.dequeueReusableHeaderFooterViewWithIdentifier("EventDetailTableViewSectionHeader") as! EventDetailTableViewSectionHeader
     
     
     return cell
   }
   
 }
+ */

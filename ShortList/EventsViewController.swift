@@ -48,7 +48,7 @@ class EventsViewController: FetchedResultsCollectionViewController {
     
     if self.revealViewController() != nil {
       menuButton.target = self.revealViewController()
-      menuButton.action = "revealToggle:"
+      menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
       self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     
@@ -57,45 +57,6 @@ class EventsViewController: FetchedResultsCollectionViewController {
     self.collectionView?.emptyDataSetSource = self
     
     setupAppearance()
-  }
-  
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    
-    guard let indexPath = sender as? NSIndexPath,
-      selectedEvent = dataSource.objectAtIndexPath(indexPath) as? Event else {
-      return
-    }
-    
-    if segue.identifier == "showEventDetail" {
-      if let eventDetailCollectionVC = segue.destinationViewController as? EventDetailCollectionViewController {
-        // set eventID to load in Event Details
-        //eventDetailCollectionVC.eventID = selectedEvent.objectID
-        //eventDetailCollectionVC.event = selectedEvent
-      }
-    }
-    
-    /*
-    if segue.identifier == "showInvitationActivity" {
-      if let invitationActivityViewController = segue.destinationViewController as? InvitationActivityViewController {
-        // get documentID for event
-        let documentID = Meteor.documentKeyForObjectID(selectedEvent.objectID).documentID as! String
-        
-        // set name of event
-        invitationActivityViewController.navigationItem.title = selectedEvent.name
-        
-        // load url to request
-        invitationActivityViewController.url = MeteorRouter.invitationActivityForEventID(documentID)
-      }
-    }
-    else if segue.identifier == "showEventDetail" {
-      if let eventDetailNavController = segue.destinationViewController as? UINavigationController {
-        // pass event to Detail View Controller
-        if let eventDetailViewController = eventDetailNavController.topViewController as? EventDetailViewController {
-          eventDetailViewController.event = selectedEvent
-        }
-      }
-    }
-    */
   }
   
   // MARK: - Content Loading
@@ -121,7 +82,10 @@ class EventsViewController: FetchedResultsCollectionViewController {
         var eventDate = ""
         var eventTime = ""
         var acceptedCount = "0"
+        var declinedCount = "0"
         var eventName = ""
+        var listName = ""
+        var eventDescription = ""
         
         // set name
         if let name = event.valueForKey("name") as? String {
@@ -145,12 +109,27 @@ class EventsViewController: FetchedResultsCollectionViewController {
           eventTime = timeFormatter.stringFromDate(date) as String
         }
         
-        // set accepted count
-        if let count = event.valueForKey("acceptedCount") as? Int {
-          acceptedCount = String(count)
+        // list name
+        if let list = event.valueForKey("list") as? NamedValues {
+          let JSONList = JSON(list)
+          
+          listName = JSONList["name"].string ?? ""
         }
         
-        let data = EventsCollectionViewCellData(name: eventName, locationName: locationName, date: eventDate, time: eventTime, acceptedCount: acceptedCount)
+        //TODO - get eventDescription after changing property name from "description" on server
+        // Core data cannot use generic property names because "description" is already used by Core Data
+        
+        // set accepted count
+        if let accepted = event.valueForKey("acceptedCount") as? Int {
+          acceptedCount = String(accepted)
+        }
+        
+        // set declined count
+        if let declined = event.valueForKey("declinedCount") as? Int {
+          declinedCount = String(declined)
+        }
+        
+        let data = EventsCollectionViewCellData(name: eventName, locationName: locationName, date: eventDate, time: eventTime, listName: listName, eventDescription: eventDescription, acceptedCount: acceptedCount, declinedCount: declinedCount)
         cell.setData(data)
         
         if selectionObject != nil &&
@@ -187,8 +166,6 @@ class EventsViewController: FetchedResultsCollectionViewController {
   
   // pragma mark - UICollectionViewDelegate
   override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    //performSegueWithIdentifier("showEventDetail", sender: indexPath)
-    
     showEventDetailForIndexPath(indexPath)
   }
   
@@ -212,8 +189,7 @@ class EventsViewController: FetchedResultsCollectionViewController {
     let selectedEvent = dataSource.objectAtIndexPath(indexPath) as? Event
     
     //set up eventDetailCollectionVC and set transitionDelegate as its delegate
-    //let eventDetailVC = storyboard.instantiateViewControllerWithIdentifier("EventDetailCollectionViewController") as! EventDetailCollectionViewController
-    let eventDetailVC = storyboard.instantiateViewControllerWithIdentifier("EventDetailTableViewController") as! EventDetailTableViewController
+    let eventDetailVC = storyboard.instantiateViewControllerWithIdentifier("EventDetailCollectionViewController") as! EventDetailCollectionViewController
     eventDetailVC.event = selectedEvent
     eventDetailVC.ticketView = selectedCell.snapshot
     eventDetailVC.transitioningDelegate = eventDetailTransitionDelegate

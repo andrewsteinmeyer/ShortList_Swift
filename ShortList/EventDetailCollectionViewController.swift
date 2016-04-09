@@ -16,6 +16,8 @@ class EventDetailCollectionViewController: UICollectionViewController {
   
   private var contacts = [Contacts]()
   
+  var statusCategories = ["Pending", "Accepted", "Declined", "Timeout"]
+  
   // MARK: - Model
   
   var managedObjectContext: NSManagedObjectContext!
@@ -94,7 +96,7 @@ class EventDetailCollectionViewController: UICollectionViewController {
     
     // create clear cancel button for greater surface area
     let clearButton = UIButton(type: .Custom)
-    clearButton.frame = CGRect(x: -20, y: -20, width: 50, height: 50)
+    clearButton.frame = CGRect(x: -20, y: -20, width: 60, height: 60)
     clearButton.layer.backgroundColor = UIColor.clearColor().CGColor
     clearButton.addTarget(self, action: #selector(EventDetailCollectionViewController.closeButtonPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside)
     

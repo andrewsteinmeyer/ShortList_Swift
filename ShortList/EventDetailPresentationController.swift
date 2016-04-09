@@ -18,7 +18,7 @@ class EventDetailPresentationController: UIPresentationController {
   override init(presentedViewController: UIViewController, presentingViewController: UIViewController) {
     super.init(presentedViewController: presentedViewController, presentingViewController: presentingViewController)
     
-    dimmingView.backgroundColor = UIColor(white: 0.0, alpha: 0.6)
+    dimmingView.backgroundColor = UIColor(white: 0.0, alpha: 0.7)
     
     //do not want visible initially
     dimmingView.alpha = 0.0
@@ -83,19 +83,16 @@ class EventDetailPresentationController: UIPresentationController {
       // Move ticket back to original position
       var ticketFrame = ticketView.frame
       ticketFrame = selectionObject!.originalCellPosition
-      ticketFrame.origin.y += 80
-      ticketFrame.size.width = 200
-      ticketFrame.size.height = 200
       ticketView.frame = ticketFrame
     }
   }
   
   func animateTicketWithBounceToPresentedPosition(presentedPosition: Bool) {
     UIView.animateWithDuration(0.5,
-      delay: 0.2,
-      usingSpringWithDamping: 0.70,
-      initialSpringVelocity: 0.0,
-      options: UIViewAnimationOptions.CurveEaseInOut,
+      delay: 0.1,
+      usingSpringWithDamping: 300.0,
+      initialSpringVelocity: 8.0,
+      options: UIViewAnimationOptions.CurveLinear,
       animations: {
         self.moveTicketToPresentedPosition(presentedPosition)
       }, completion: { _ in

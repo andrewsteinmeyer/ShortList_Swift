@@ -28,7 +28,7 @@ class EventDetailCollectionViewSectionHeader: UICollectionReusableView {
     controlView = self.control
     
     
-    // add a line to the bottom of the section header
+    // add a line to the bottom of the section header view
     let lineLayer = CALayer()
     lineLayer.frame = CGRectMake(0, self.bounds.height - 1, self.bounds.width, 0.5)
     lineLayer.backgroundColor = UIColor.lightGrayColor().CGColor

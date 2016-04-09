@@ -10,19 +10,25 @@ import UIKit
 
 struct EventsCollectionViewCellData {
   
-  init(name: String?, locationName: String?, date: String?, time: String?, acceptedCount: String?) {
+  init(name: String?, locationName: String?, date: String?, time: String?, listName: String?, eventDescription: String?, acceptedCount: String?, declinedCount: String?) {
     self.name = name ?? ""
     self.locationName = locationName ?? ""
     self.date = date ?? ""
     self.time = time ?? ""
+    self.listName = listName ?? ""
+    self.eventDescription = eventDescription ?? ""
     self.acceptedCount = acceptedCount ?? ""
+    self.declinedCount = declinedCount ?? ""
   }
   
   var name: String?
   var locationName: String?
   var date: String?
   var time: String?
+  var listName: String?
+  var eventDescription: String?
   var acceptedCount: String?
+  var declinedCount: String?
 }
 
 
@@ -33,12 +39,19 @@ class EventsCollectionViewCell : UICollectionViewCell {
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var timeLabel: UILabel!
   @IBOutlet weak var descriptionTextView: UITextView!
+  @IBOutlet weak var acceptedCount: UILabel!
+  @IBOutlet weak var declinedCount: UILabel!
+  @IBOutlet weak var inviteButton: DesignableButton!
+  @IBOutlet weak var listNameLabel: UILabel!
   
   @IBOutlet weak var statsStackView: UIStackView!
   @IBOutlet weak var ticketBodyStackView: UIStackView!
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    
+    // hide invite button for now
+    inviteButton.hidden = true
     
     // remove textview padding
     descriptionTextView.textContainer.lineFragmentPadding = 0
@@ -84,6 +97,9 @@ class EventsCollectionViewCell : UICollectionViewCell {
       self.addressLabel.text = data.locationName
       self.dateLabel.text = data.date
       self.timeLabel.text = data.time
+      self.listNameLabel.text = data.listName
+      self.acceptedCount.text = data.acceptedCount
+      self.declinedCount.text = data.declinedCount
     }
   }
   

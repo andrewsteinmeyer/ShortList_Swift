@@ -13,6 +13,7 @@ class EventConfiguration: Mappable {
   var maximumGuests: String?
   var attendanceType: String?
   var status: String?
+  var duration: String?
   
   enum Status: String {
     case On = "on"
@@ -35,5 +36,6 @@ class EventConfiguration: Mappable {
     maximumGuests  <- map["maximumGuests"]
     attendanceType <- map["attendanceType"]
     status         <- map["status"]
+    duration       <- map["duration"]
   }
 }
