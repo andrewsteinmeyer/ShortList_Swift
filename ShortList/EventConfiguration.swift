@@ -17,10 +17,17 @@ class EventConfiguration: Mappable {
   
   enum Status: String {
     case On = "on"
+    case Minimum = "minimum"
+    case Tentative = "tentative"
+    case Postponed = "postponed"
+    case Cancelled = "cancelled"
   }
   
   enum AttendanceType: String {
     case Rank = "rank"
+    case Random = "random"
+    case FCFS = "fcfs"
+    case NoLimit = "nolimit"
   }
   
   required init() {
