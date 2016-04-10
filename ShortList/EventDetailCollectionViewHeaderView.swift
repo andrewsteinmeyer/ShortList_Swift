@@ -13,7 +13,6 @@ class EventDetailCollectionViewHeaderView: UICollectionReusableView {
   
   @IBOutlet weak var ticketView: UIImageView!
   
-  
   /*
   var ticketView: UIView? {
     didSet {

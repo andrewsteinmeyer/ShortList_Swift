@@ -56,6 +56,7 @@
 		4E5255A41C51CC8F00F6089D /* MeteorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5255A31C51CC8F00F6089D /* MeteorRouter.swift */; };
 		4E5255A81C51CEAA00F6089D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5255A71C51CEAA00F6089D /* Constants.swift */; };
 		4E54FE351C599C3C00D89DAC /* AppDelegate+Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E54FE341C599C3C00D89DAC /* AppDelegate+Push.swift */; };
+		4E5536231CB9E3A9004B03AD /* EventDetailNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5536221CB9E3A9004B03AD /* EventDetailNavigationViewController.swift */; };
 		4E5590F81C8A82FA000388FC /* AlertLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5590F71C8A82FA000388FC /* AlertLinkViewController.swift */; };
 		4E5590FA1C8C9BC5000388FC /* CreateListViewController+Import.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5590F91C8C9BC5000388FC /* CreateListViewController+Import.swift */; };
 		4E57A78D1C28EEB50070AEB3 /* MeteorListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E57A78C1C28EEB50070AEB3 /* MeteorListService.swift */; };
@@ -315,6 +316,7 @@
 		4E5255A31C51CC8F00F6089D /* MeteorRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorRouter.swift; sourceTree = "<group>"; };
 		4E5255A71C51CEAA00F6089D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4E54FE341C599C3C00D89DAC /* AppDelegate+Push.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Push.swift"; sourceTree = "<group>"; };
+		4E5536221CB9E3A9004B03AD /* EventDetailNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailNavigationViewController.swift; sourceTree = "<group>"; };
 		4E5590F71C8A82FA000388FC /* AlertLinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertLinkViewController.swift; sourceTree = "<group>"; };
 		4E5590F91C8C9BC5000388FC /* CreateListViewController+Import.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CreateListViewController+Import.swift"; sourceTree = "<group>"; };
 		4E57A78C1C28EEB50070AEB3 /* MeteorListService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorListService.swift; sourceTree = "<group>"; };
@@ -1058,6 +1060,7 @@
 				4E5A3A5E1CB70FDD003D7F89 /* EventDetailTransition */,
 				4E7C60851C3B62F70042CE4F /* EventsNavigationViewController.swift */,
 				4E7C60811C3B5F420042CE4F /* EventsViewController.swift */,
+				4E5536221CB9E3A9004B03AD /* EventDetailNavigationViewController.swift */,
 				4E5CB3631CA5E8F700ED785B /* EventDetailCollectionViewController.swift */,
 				4EC321B61CB4B6FF006FC62F /* EventDetailTableViewController.swift */,
 				4E233C881C3CA61700FDC1B9 /* CreateEventViewController.swift */,
@@ -1541,6 +1544,7 @@
 				4E7C60841C3B5FD30042CE4F /* EventsTableViewCell.swift in Sources */,
 				4E5255A41C51CC8F00F6089D /* MeteorRouter.swift in Sources */,
 				4E5590F81C8A82FA000388FC /* AlertLinkViewController.swift in Sources */,
+				4E5536231CB9E3A9004B03AD /* EventDetailNavigationViewController.swift in Sources */,
 				4EF329F41C80931C0078B69A /* METBufferedDocument.m in Sources */,
 				4E1C46EE1C7DE53500C22101 /* IPV4Rule.swift in Sources */,
 				4E6313051C1FB28000EB78F9 /* SoundPlayer.swift in Sources */,

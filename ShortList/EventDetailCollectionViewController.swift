@@ -91,26 +91,6 @@ class EventDetailCollectionViewController: UICollectionViewController {
     // set clipsToBounds to false so cancel button can hover
     self.view.clipsToBounds = false
     
-    // create cancel button
-    let closeButton = UIButton(type: .Custom)
-    closeButton.frame = CGRect(x: -15, y: -15, width: 30, height: 30)
-    closeButton.layer.cornerRadius = 15
-    closeButton.layer.backgroundColor = UIColor.whiteColor().CGColor
-    closeButton.setImage(UIImage(named: "cancel-button"), forState: .Normal)
-    closeButton.layer.borderWidth = 1.5
-    closeButton.layer.borderColor = Theme.EventDetailCancelButtonColor.toUIColor().CGColor
-    closeButton.addTarget(self, action: #selector(EventDetailCollectionViewController.closeButtonPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-    
-    // create clear cancel button for greater surface area
-    let clearButton = UIButton(type: .Custom)
-    clearButton.frame = CGRect(x: -20, y: -20, width: 60, height: 60)
-    clearButton.layer.backgroundColor = UIColor.clearColor().CGColor
-    clearButton.addTarget(self, action: #selector(EventDetailCollectionViewController.closeButtonPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-    
-    // add cancel button to view
-    self.view.addSubview(closeButton)
-    self.view.addSubview(clearButton)
-    
     // set CoreData context
     self.managedObjectContext = Meteor.mainQueueManagedObjectContext
     
@@ -285,13 +265,26 @@ class EventDetailCollectionViewController: UICollectionViewController {
       let cell = self.collectionView!.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: Constants.EventDetailCollection.HeaderViewIdentifier, forIndexPath: indexPath) as! EventDetailCollectionViewHeaderView
       
       let resizedTicketView = scaleAndPositionTicketImageInHeaderView(ticketView!)
-      //cell.addSubview(resizedTicketView)
       cell.ticketView.image = resizedTicketView
+      
+      // add tap gesture recognizer to the ticket view
+      let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EventDetailCollectionViewController.closeButtonPressed(_:)))
+      tapGestureRecognizer.numberOfTapsRequired = 1
+      cell.ticketView.userInteractionEnabled = true
+      cell.ticketView.addGestureRecognizer(tapGestureRecognizer)
       
       return cell
     default:
       assert(false, "Unexpected element kind")
     }
+  }
+  
+  override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    performSegueWithIdentifier("showAttendeeDetails", sender: nil)
+  }
+  
+  func closeButtonPressed(sender: UIButton) {
+    presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
   }
   
   private func scaleAndPositionTicketImageInHeaderView(ticketView: UIView) -> UIImage {
@@ -317,8 +310,6 @@ class EventDetailCollectionViewController: UICollectionViewController {
     return croppedTicketImage
   }
   
-  func closeButtonPressed(sender: UIButton) {
-    presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
-  }
+
   
 }

@@ -192,8 +192,10 @@ class EventsViewController: FetchedResultsCollectionViewController {
     let eventDetailVC = storyboard.instantiateViewControllerWithIdentifier("EventDetailCollectionViewController") as! EventDetailCollectionViewController
     eventDetailVC.event = selectedEvent
     eventDetailVC.ticketView = selectedCell.snapshot
-    eventDetailVC.transitioningDelegate = eventDetailTransitionDelegate
-    presentViewController(eventDetailVC, animated: true, completion: nil)
+    
+    let eventDetailNavVC = EventDetailNavigationViewController(rootViewController: eventDetailVC)
+    eventDetailNavVC.transitioningDelegate = eventDetailTransitionDelegate
+    presentViewController(eventDetailNavVC, animated: true, completion: nil)
     
     //fade out cell's image
     UIView.animateWithDuration(0.5, animations: {

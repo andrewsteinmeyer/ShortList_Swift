@@ -10,8 +10,6 @@ import UIKit
 
 class EventsNavigationViewController: UINavigationController {
   
-  var eventDetailTransitionDelegate: EventDetailTransitioningDelegate?
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     

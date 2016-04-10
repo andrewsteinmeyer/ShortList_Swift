@@ -83,7 +83,11 @@ class EventDetailAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransi
       options: [UIViewAnimationOptions.AllowUserInteraction, UIViewAnimationOptions.BeginFromCurrentState],
       animations: {
         if self.isPresentation {
-         animatingView.alpha = 1.0
+          let eventNavVC = toViewController as! EventDetailNavigationViewController
+          let eventDetailVC = eventNavVC.topViewController as! EventDetailCollectionViewController
+          
+          eventDetailVC.view.alpha = 1.0
+          //animatingView.alpha = 1.0
         }
         
       }, completion: { _ in
