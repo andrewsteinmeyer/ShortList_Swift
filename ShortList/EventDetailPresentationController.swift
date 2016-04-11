@@ -44,8 +44,8 @@ class EventDetailPresentationController: UIPresentationController {
     bounds.size.width -= Constants.EventDetailCollection.Padding
     bounds.size.height -= Constants.EventDetailCollection.Padding
     
-    bounds.origin.x = (containerView!.bounds.width / 2) - (bounds.size.width / 2)
-    bounds.origin.y = (containerView!.bounds.height / 2) - (bounds.size.height / 2)
+    bounds.origin.x = (containerView!.frame.width / 2) - (bounds.size.width / 2)
+    bounds.origin.y = (containerView!.frame.height / 2) - (bounds.size.height / 2)
     
     return bounds
   }
@@ -69,18 +69,19 @@ class EventDetailPresentationController: UIPresentationController {
     ticketFrame.origin.y = offset
     
     ticketView.frame = ticketFrame
-    
   }
   
   func moveTicketToPresentedPosition(presentedPosition: Bool) {
     
     if presentedPosition {
       // Expand ticket and move to header view position
+      // show dimming background
       self.dimmingView.alpha = 1.0
       scaleAndPositionTicket()
     } else {
-      self.dimmingView.alpha = 0.0
       // Move ticket back to original position
+      // hide dimming background
+      self.dimmingView.alpha = 0.0
       var ticketFrame = ticketView.frame
       ticketFrame = selectionObject!.originalCellPosition
       ticketView.frame = ticketFrame

@@ -31,6 +31,7 @@ class EventDetailCollectionViewController: UICollectionViewController {
   private var eventObserver: ManagedObjectObserver?
   
   var ticketView: UIView?
+  var ticketImage: UIImage?
   
   var event: Event? {
     didSet {
@@ -102,7 +103,6 @@ class EventDetailCollectionViewController: UICollectionViewController {
     self.collectionView?.registerNib(headerViewNib, forSupplementaryViewOfKind: CSStickyHeaderParallaxHeader, withReuseIdentifier: Constants.EventDetailCollection.HeaderViewIdentifier)
     
     // hide view initially
-    self.collectionView?.backgroundColor = UIColor.clearColor()
     self.view.alpha = 0.0
     
   }
@@ -115,7 +115,6 @@ class EventDetailCollectionViewController: UICollectionViewController {
       
       // resize layout header and item
       layout.parallaxHeaderReferenceSize = CGSizeMake(size, 256)
-      layout.parallaxHeaderMinimumReferenceSize = CGSizeMake(size, 256)
       layout.itemSize = CGSizeMake(size, layout.itemSize.height)
     }
   }
@@ -200,11 +199,13 @@ class EventDetailCollectionViewController: UICollectionViewController {
   // MARK: - UICollectionViewDataSource
   
   override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-    return 1
+    return 20
+    //return (isOwner ? ownerCategories.count : nonOwnerCategories.count)
   }
   
   override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return (isOwner ? ownerCategories.count : nonOwnerCategories.count)
+    return 2
+    //return (isOwner ? ownerCategories.count : nonOwnerCategories.count)
   }
   
   override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -264,8 +265,7 @@ class EventDetailCollectionViewController: UICollectionViewController {
       // make sure the header cell uses the proper identifier
       let cell = self.collectionView!.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: Constants.EventDetailCollection.HeaderViewIdentifier, forIndexPath: indexPath) as! EventDetailCollectionViewHeaderView
       
-      let resizedTicketView = scaleAndPositionTicketImageInHeaderView(ticketView!)
-      cell.ticketView.image = resizedTicketView
+      cell.ticketView.image = ticketImage
       
       // add tap gesture recognizer to the ticket view
       let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EventDetailCollectionViewController.closeButtonPressed(_:)))
@@ -287,29 +287,5 @@ class EventDetailCollectionViewController: UICollectionViewController {
     presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
   }
   
-  private func scaleAndPositionTicketImageInHeaderView(ticketView: UIView) -> UIImage {
-    var ticketFrame = ticketView.frame
-    
-    // scale snapshot of ticket to fill header
-    // use the same size ratio of the smaller ticket
-    let ratio = ticketFrame.size.width / ticketFrame.size.height
-    
-    // calculate new ticket size
-    ticketFrame.size.width = view.frame.size.width
-    ticketFrame.size.height = ticketFrame.size.width / ratio
-    
-    // update ticket frame with new size
-    ticketView.frame = ticketFrame
-    
-    // crop out stats on bottom of ticket
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(ticketView.bounds.size.width, 256), false, UIScreen.mainScreen().scale)
-    ticketView.drawViewHierarchyInRect(CGRectMake(0, -44, ticketView.bounds.size.width, ticketView.bounds.size.height), afterScreenUpdates: true)
-    let croppedTicketImage = UIGraphicsGetImageFromCurrentImageContext()
-    UIGraphicsEndImageContext()
-    
-    return croppedTicketImage
-  }
-  
-
   
 }

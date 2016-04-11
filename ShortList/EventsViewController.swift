@@ -191,7 +191,7 @@ class EventsViewController: FetchedResultsCollectionViewController {
     //set up eventDetailCollectionVC and set transitionDelegate as its delegate
     let eventDetailVC = storyboard.instantiateViewControllerWithIdentifier("EventDetailCollectionViewController") as! EventDetailCollectionViewController
     eventDetailVC.event = selectedEvent
-    eventDetailVC.ticketView = selectedCell.snapshot
+    eventDetailVC.ticketImage = scaleAndPositionTicketImageInHeaderView(selectedCell.contentView)
     
     let eventDetailNavVC = EventDetailNavigationViewController(rootViewController: eventDetailVC)
     eventDetailNavVC.transitioningDelegate = eventDetailTransitionDelegate
@@ -216,6 +216,30 @@ class EventsViewController: FetchedResultsCollectionViewController {
   
   private func setupAppearance() {
     self.navigationItem.rightBarButtonItem?.tintColor = Theme.NavigationBarActionButtonTextColor.toUIColor()
+  }
+  
+  private func scaleAndPositionTicketImageInHeaderView(ticketView: UIView) -> UIImage {
+    
+    var ticketFrame = ticketView.frame
+    
+    // scale ticket to fill header view
+    // use the same size ratio of the smaller ticket
+    let ratio = ticketFrame.size.width / ticketFrame.size.height
+    
+    // calculate new ticket size
+    ticketFrame.size.width = self.view.frame.size.width - Constants.EventDetailCollection.Padding
+    ticketFrame.size.height = ticketFrame.size.width / ratio
+    
+    // update ticket frame with new size
+    ticketView.frame = ticketFrame
+    
+    
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(ticketView.bounds.size.width, 256), false, UIScreen.mainScreen().scale)
+    ticketView.drawViewHierarchyInRect(ticketView.bounds, afterScreenUpdates: true)
+    let croppedTicketImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    
+    return croppedTicketImage
   }
   
 }

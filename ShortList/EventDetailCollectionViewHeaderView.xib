@@ -11,17 +11,29 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ip9-10-drr">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qql-R0-7AJ">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ip9-10-drr">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </imageView>
+                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </imageView>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Ip9-10-drr" secondAttribute="trailing" id="EeR-Oa-Rdq"/>
+                        <constraint firstItem="Ip9-10-drr" firstAttribute="leading" secondItem="qql-R0-7AJ" secondAttribute="leading" id="f36-Xv-hYU"/>
+                        <constraint firstAttribute="bottom" secondItem="Ip9-10-drr" secondAttribute="bottom" id="ngZ-3n-TL3"/>
+                        <constraint firstAttribute="height" constant="256" id="pUt-mo-zrX"/>
+                        <constraint firstItem="Ip9-10-drr" firstAttribute="top" secondItem="qql-R0-7AJ" secondAttribute="top" id="u0P-Nh-Sdb"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Ip9-10-drr" firstAttribute="leading" secondItem="C45-xf-z4Q" secondAttribute="leading" id="1tL-UG-x3T"/>
-                <constraint firstItem="Ip9-10-drr" firstAttribute="top" secondItem="C45-xf-z4Q" secondAttribute="top" id="PuJ-tE-8wb"/>
-                <constraint firstAttribute="bottom" secondItem="Ip9-10-drr" secondAttribute="bottom" id="QUR-zq-XBw"/>
-                <constraint firstAttribute="trailing" secondItem="Ip9-10-drr" secondAttribute="trailing" id="c26-YW-Yfz"/>
+                <constraint firstItem="qql-R0-7AJ" firstAttribute="centerY" secondItem="C45-xf-z4Q" secondAttribute="centerY" id="CIQ-od-Jnr"/>
+                <constraint firstAttribute="trailing" secondItem="qql-R0-7AJ" secondAttribute="trailing" id="PfX-kr-ef4"/>
+                <constraint firstItem="qql-R0-7AJ" firstAttribute="leading" secondItem="C45-xf-z4Q" secondAttribute="leading" id="WNy-Nd-q9w"/>
             </constraints>
             <connections>
                 <outlet property="ticketView" destination="Ip9-10-drr" id="MA0-ep-nXn"/>

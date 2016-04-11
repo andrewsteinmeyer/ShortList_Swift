@@ -84,7 +84,7 @@ class EventsCollectionViewCell : UICollectionViewCell {
       layer.shadowRadius = 5.0
       layer.shadowOpacity = 0.4
       
-      // reveal area area after we have snapshot
+      // reveal stats area after we have snapshot
       statsStackView.hidden = false
       
       return snapshot
