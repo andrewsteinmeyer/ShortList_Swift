@@ -41,7 +41,6 @@ class EventsCollectionViewCell : UICollectionViewCell {
   @IBOutlet weak var descriptionTextView: UITextView!
   @IBOutlet weak var acceptedCount: UILabel!
   @IBOutlet weak var declinedCount: UILabel!
-  @IBOutlet weak var inviteButton: DesignableButton!
   @IBOutlet weak var listNameLabel: UILabel!
   
   @IBOutlet weak var statsStackView: UIStackView!
@@ -50,13 +49,15 @@ class EventsCollectionViewCell : UICollectionViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     
-    // hide invite button for now
-    inviteButton.hidden = true
-    
     // remove textview padding
     descriptionTextView.textContainer.lineFragmentPadding = 0
     descriptionTextView.textContainerInset = UIEdgeInsetsZero
     
+    // disable interaction in text view
+    // ignores touches in text view and passes to cell view
+    descriptionTextView.userInteractionEnabled = false
+    
+    // add shadow
     layer.masksToBounds = false
     layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
     layer.shadowRadius = 5.0

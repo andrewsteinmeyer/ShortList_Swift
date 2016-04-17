@@ -175,7 +175,10 @@ class EventsViewController: FetchedResultsCollectionViewController {
     
     //set rect for selectedCell and save origin in relation to superview (view controller)
     var rect = selectedCell.frame
-    let origin = view.convertPoint(rect.origin, toView: selectedCell.superview)
+    var origin = view.convertPoint(rect.origin, toView: selectedCell.superview?.superview)
+    
+    // subtract out scroll offset
+    origin.y = origin.y - (self.collectionView?.contentOffset.y)!
     rect.origin = origin
       
     selectionObject = SelectionObject(snapshot: selectedCell.snapshot, selectedCellIndexPath: indexPath, originalCellPosition: rect)
@@ -188,16 +191,17 @@ class EventsViewController: FetchedResultsCollectionViewController {
     // get event
     let selectedEvent = dataSource.objectAtIndexPath(indexPath) as? Event
     
-    //set up eventDetailCollectionVC and set transitionDelegate as its delegate
+    //set up eventDetailCollectionVC
     let eventDetailVC = storyboard.instantiateViewControllerWithIdentifier("EventDetailCollectionViewController") as! EventDetailCollectionViewController
     eventDetailVC.event = selectedEvent
     eventDetailVC.ticketImage = scaleAndPositionTicketImageInHeaderView(selectedCell.contentView)
     
+    // set eventDetailTransitionDelegate as the transition delegate
     let eventDetailNavVC = EventDetailNavigationViewController(rootViewController: eventDetailVC)
     eventDetailNavVC.transitioningDelegate = eventDetailTransitionDelegate
     presentViewController(eventDetailNavVC, animated: true, completion: nil)
     
-    //fade out cell's image
+    //fade out the seleected cell's ticket image
     UIView.animateWithDuration(0.5, animations: {
       selectedCell.hide = true
       }, completion: nil)

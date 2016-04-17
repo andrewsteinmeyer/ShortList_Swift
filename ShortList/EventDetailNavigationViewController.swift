@@ -34,6 +34,7 @@ class EventDetailNavigationViewController: UINavigationController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    // hide nav bar
     self.navigationBarHidden = true
     
     /*

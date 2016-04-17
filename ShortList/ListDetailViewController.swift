@@ -15,18 +15,23 @@ class ListDetailViewController: UITableViewController {
   
   var list: List? {
     didSet {
+      // reset contacts
+      contacts = []
+      
+      // retrieve contacts from list
       if let listContacts = list?.contacts as NSSet? {
         let JSONContacts = JSON(listContacts)
         
+        // iterate over contacts
         for (_,contact):(String, JSON) in JSONContacts {
           
           let name = contact["name"].string ?? ""
           let email = contact["email"].string ?? ""
           var phone = contact["phone"].string ?? ""
           
-          // make sure there is at least a name
+          // make sure there is at least a name the contact
           guard !name.isEmpty else {
-            return
+            continue
           }
           
           // set phone number
@@ -51,9 +56,6 @@ class ListDetailViewController: UITableViewController {
             
           contacts.append(newContact)
         }
-      } else {
-        // clear if no list exists
-        contacts = []
       }
     }
   }

@@ -46,7 +46,7 @@ class EventDetailAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransi
   }
   
   func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-    return 0.7
+    return 0.3
   }
   
   func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
@@ -76,7 +76,7 @@ class EventDetailAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransi
       eventsViewController.hideImage(true, indexPath: selectedObject!.selectedCellIndexPath)
     }
     
-    let delay = isPresentation ? 0.3 : 0.1
+    let delay = isPresentation ? 0.3 : 0.0
     
     UIView.animateWithDuration(transitionDuration(transitionContext),
       delay: delay,
@@ -86,8 +86,15 @@ class EventDetailAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransi
           let eventNavVC = toViewController as! EventDetailNavigationViewController
           let eventDetailVC = eventNavVC.topViewController as! EventDetailCollectionViewController
           
+          // fade in event detail view controller
           eventDetailVC.view.alpha = 1.0
-          //animatingView.alpha = 1.0
+        }
+        else {
+          // if dismissal, unhide the ticket cell in the collection view
+          //eventsViewController.hideImage(false, indexPath: self.selectedObject!.selectedCellIndexPath)
+          
+          // fade out event detail view controller
+          fromView.alpha = 0.0
         }
         
       }, completion: { _ in
@@ -97,8 +104,8 @@ class EventDetailAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransi
           eventsViewController.hideImage(false, indexPath: self.selectedObject!.selectedCellIndexPath)
           
           // fade out the fromView
-          UIView.animateWithDuration(0.4, animations: {
-            fromView.alpha = 0.0
+          UIView.animateWithDuration(0.3, animations: {
+            //fromView.alpha = 0.0
             }, completion: { _ in
               fromView.removeFromSuperview()
               transitionContext.completeTransition(true)

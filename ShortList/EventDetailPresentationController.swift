@@ -20,7 +20,7 @@ class EventDetailPresentationController: UIPresentationController {
     
     dimmingView.backgroundColor = UIColor(white: 0.0, alpha: 0.7)
     
-    //do not want visible initially
+    // do not want visible initially
     dimmingView.alpha = 0.0
     
     ticketView.clipsToBounds = true
@@ -29,45 +29,57 @@ class EventDetailPresentationController: UIPresentationController {
   func configureWithSelectionObject(selectionObject: SelectionObject) {
     self.selectionObject = selectionObject
     
+    // populate ticketView with a snapshot of the ticket cell
+    // save the original position of the ticket cell
     ticketView = selectionObject.snapshot
     ticketView.frame = selectionObject.originalCellPosition
   }
   
-  //allows views under presentedView to be visible
+  // allows views under presentedView to be visible
   func adaptivePresentationStyleForPresentationController(controller: UIPresentationController!) -> UIModalPresentationStyle {
     return UIModalPresentationStyle.OverFullScreen
   }
   
-  //make sure it fits screen
+  // make sure it fits screen and add a padding
   override func frameOfPresentedViewInContainerView() -> CGRect {
     var bounds = containerView!.bounds
+    
+    // add padding around view
     bounds.size.width -= Constants.EventDetailCollection.Padding
     bounds.size.height -= Constants.EventDetailCollection.Padding
     
+    // center on screen
     bounds.origin.x = (containerView!.frame.width / 2) - (bounds.size.width / 2)
     bounds.origin.y = (containerView!.frame.height / 2) - (bounds.size.height / 2)
     
     return bounds
   }
   
-  //make sure it maintains bounds after orientation changes
+  // make sure it maintains bounds after orientation changes
   override func containerViewDidLayoutSubviews() {
     dimmingView.frame = containerView!.bounds
   }
   
+  // expand the ticket cell
   func scaleAndPositionTicket() {
     var ticketFrame = ticketView.frame
     
+    // save aspect ratio of ticket cell
     let ratio = ticketFrame.size.width / ticketFrame.size.height
     
+    // set ticket to new width and account for padding
+    // set height according to saved aspect ratio
     ticketFrame.size.width = containerView!.frame.size.width - Constants.EventDetailCollection.Padding
     ticketFrame.size.height = ticketFrame.size.width / ratio
     
+    // offset the ticket by the padding
     let offset = Constants.EventDetailCollection.Padding / 2
     
+    // reposition ticket with padding
     ticketFrame.origin.x = offset
     ticketFrame.origin.y = offset
     
+    // save the updated ticket frame
     ticketView.frame = ticketFrame
   }
   
@@ -76,11 +88,13 @@ class EventDetailPresentationController: UIPresentationController {
     if presentedPosition {
       // Expand ticket and move to header view position
       // show dimming background
+      
       self.dimmingView.alpha = 1.0
       scaleAndPositionTicket()
     } else {
       // Move ticket back to original position
       // hide dimming background
+      
       self.dimmingView.alpha = 0.0
       var ticketFrame = ticketView.frame
       ticketFrame = selectionObject!.originalCellPosition
@@ -89,7 +103,7 @@ class EventDetailPresentationController: UIPresentationController {
   }
   
   func animateTicketWithBounceToPresentedPosition(presentedPosition: Bool) {
-    UIView.animateWithDuration(0.5,
+    UIView.animateWithDuration(0.3,
       delay: 0.1,
       usingSpringWithDamping: 300.0,
       initialSpringVelocity: 8.0,
