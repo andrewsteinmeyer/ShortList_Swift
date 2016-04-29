@@ -16,22 +16,16 @@ class EventDetailCollectionViewController: UICollectionViewController {
   
   private var contacts = [Contacts]()
   
-  var ownerCategories = ["Invited", "Accepted", "Declined", "Timeout"]
+  private var isEventOwner = false
   
-  var isOwner = false
-  var invitedCount = 0
-  var acceptedCount = 0
-  var declinedCount = 0
-  var timeoutCount = 0
+  var ticketImage: UIImage?
+  private var ticketView: UIView?
   
   // MARK: - Model
   
   var managedObjectContext: NSManagedObjectContext!
   private var eventObserver: ManagedObjectObserver?
-  
-  var ticketView: UIView?
-  var ticketImage: UIImage?
-  
+ 
   var event: Event? {
     didSet {
       if event != oldValue {
@@ -41,7 +35,8 @@ class EventDetailCollectionViewController: UICollectionViewController {
             case .Deleted, .Invalidated:
               self.event = nil
             case .Updated, .Refreshed:
-              //self.eventDidChange()
+              // TODO: Example updated here and below, this one seems redundant.  Think this through
+              // self.eventDidChange()
               break
             default:
               break
@@ -51,6 +46,7 @@ class EventDetailCollectionViewController: UICollectionViewController {
           eventObserver = nil
         }
         
+        // make updates
         eventDidChange()
       }
     }
@@ -62,13 +58,7 @@ class EventDetailCollectionViewController: UICollectionViewController {
     }
   }
   
-  func eventDidChange() {
-    title = event?.name
-    
-    if isViewLoaded() {
-      updateViewWithModel()
-    }
-  }
+
   
   // MARK: - View Lifecycle
   
@@ -82,13 +72,17 @@ class EventDetailCollectionViewController: UICollectionViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
+    // make sure navigation bar hides
+    self.navigationController?.navigationBarHidden = true
+    
+    // refresh
     updateViewWithModel()
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // set clipsToBounds to false so cancel button can hover
+    // set clipsToBounds to false so close button can hover
     self.view.clipsToBounds = false
     
     // set CoreData context
@@ -102,6 +96,7 @@ class EventDetailCollectionViewController: UICollectionViewController {
     self.collectionView?.registerNib(headerViewNib, forSupplementaryViewOfKind: CSStickyHeaderParallaxHeader, withReuseIdentifier: Constants.EventDetailCollection.HeaderViewIdentifier)
     
     // hide view initially
+    // the transition coordinator will fade in the view
     self.view.alpha = 0.0
     
   }
@@ -112,17 +107,10 @@ class EventDetailCollectionViewController: UICollectionViewController {
     guard let event = event else { return }
     
     // determine if user is event owner
-    isOwner = (event.userId == AccountManager.defaultAccountManager.currentUserId) ? true : false
+    isEventOwner = (event.userId == AccountManager.defaultAccountManager.currentUserId) ? true : false
     
-    // user is event owner
-    if isOwner {
-      invitedCount = Int(event.contactCount!) ?? 0
-      acceptedCount = Int(event.acceptedCount!) ?? 0
-      declinedCount = Int(event.declinedCount!) ?? 0
-      timeoutCount = Int(event.timeoutCount!) ?? 0
-    }
     // user is attendee
-    else {
+    if !isEventOwner {
       // reset contact list
       contacts = []
       
@@ -134,37 +122,16 @@ class EventDetailCollectionViewController: UICollectionViewController {
         for (_,contact):(String, JSON) in JSONList["contacts"] {
           
           let name = contact["name"].string ?? ""
-          let email = contact["email"].string ?? ""
-          var phone = contact["phone"].string ?? ""
           let score = contact["score"].int ?? 0
           
           // make sure there is at least a name for the contact
-          guard !name.isEmpty else {
-            continue
-          }
-          
-          // set phone number
-          if phone != "" {
-            var phoneNumber: PhoneNumber?
-            
-            do {
-              phoneNumber = try PhoneNumber(rawNumber: phone)
-            }
-            catch {
-              print("Error: Could not parse raw phone number")
-            }
-            
-            if let number = phoneNumber?.toNational() {
-              phone = number
-            }
-          }
+          guard !name.isEmpty else { continue }
           
           // build contact
           let newContact = ["name": name,
-                            "email": email,
-                            "phone": phone,
                             "score": String(score)]
           
+          // add contact to list
           contacts.append(newContact)
         }
       }
@@ -172,6 +139,14 @@ class EventDetailCollectionViewController: UICollectionViewController {
     
     // refresh data
     collectionView?.reloadData()
+  }
+  
+  private func eventDidChange() {
+    if isViewLoaded() {
+      
+      // refresh view if loaded
+      updateViewWithModel()
+    }
   }
   
   // add sticky header
@@ -186,22 +161,54 @@ class EventDetailCollectionViewController: UICollectionViewController {
     }
   }
   
-  private func getCountForCategory(category: String) -> Int {
-    switch category {
-    case "Invited":
-      return invitedCount
-    case "Accepted":
-      return acceptedCount
-    case "Declined":
-      return declinedCount
-    case "Timeout":
-      return timeoutCount
-    default:
-      return 0
+  // MARK: - Segue
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if (segue.identifier == "showInviteeDetails") {
+      let indexPath = sender as! NSIndexPath
+      let category = Invitation.Status.categories[indexPath.row]
+      
+      /*
+      let guestListVC = segue.destinationViewController as! GuestListTableViewController
+      guestListVC.event = event
+      guestListVC.selectedCategory = category
+      guestListVC.navigationController?.title = category.uppercaseString
+      */
+      
+      // get documentID for event
+      let eventId = Meteor.documentKeyForObjectID(event!.objectID).documentID as! String
+      
+      let invitationsVC = segue.destinationViewController as! EventInvitationsViewController
+      invitationsVC.statusCategory = category
+      invitationsVC.eventId = eventId
     }
+    
   }
   
-  func closeButtonPressed(sender: UIButton) {
+  // MARK: - Helper methods
+  
+  private func getCountForCategory(category: String) -> Int {
+    guard let event = event else { return 0 }
+    
+    if let status = Invitation.Status(rawValue: category) {
+      switch status {
+      case .Active:
+        return Int(event.contactCount!) ?? 0
+      case .Accepted:
+        return Int(event.acceptedCount!) ?? 0
+      case .Declined:
+        return Int(event.declinedCount!) ?? 0
+      case .Timeout:
+        return Int(event.timeoutCount!) ?? 0
+      default:
+        return 0
+      }
+    }
+    
+    return 0
+  }
+  
+  func closeEventDetailModal(sender: UIButton) {
     presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
   }
   
@@ -212,28 +219,30 @@ class EventDetailCollectionViewController: UICollectionViewController {
   }
   
   override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return (isOwner ? ownerCategories.count : contacts.count)
+    // if event owner, display status categories
+    // otherwise, only display names of guests that have accepted an invitation
+    return (isEventOwner ? Invitation.Status.categories.count : contacts.count)
   }
   
   override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    if isOwner {
+    // if event owner, display the status categories
+    if isEventOwner {
       let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.EventDetailCollection.CategoryCellIdentifier, forIndexPath: indexPath) as! StatusCategoryCollectionViewCell
       
-      let category = ownerCategories[indexPath.row]
+      let category = Invitation.Status.categories[indexPath.row]
       let count = getCountForCategory(category)
       
-      let data = StatusCategoryCollectionViewCellData(name: category, count: count)
+      let data = StatusCategoryCollectionViewCellData(name: category.uppercaseString, count: count)
       cell.setData(data)
       
       return cell
     }
+    // otherwise, only display the names of the guests that have accepted an invitation
     else {
        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.EventDetailCollection.AttendeeCellIdentifier, forIndexPath: indexPath) as! AttendeeCollectionViewCell
        
-       var name = ""
-      
        let contact = contacts[indexPath.row]
-       name = contact["name"] ?? ""
+       let name = contact["name"] ?? ""
       
        let data = AttendeeCollectionViewCellData(name: name)
        cell.setData(data)
@@ -248,17 +257,18 @@ class EventDetailCollectionViewController: UICollectionViewController {
       let cell = self.collectionView?.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: Constants.EventDetailCollection.SectionHeaderIdentifier, forIndexPath: indexPath) as! EventDetailCollectionViewSectionHeader
       
       // setup cell depending on event ownership
-      cell.toggleIsOwner(isOwner)
+      cell.toggleIsOwner(isEventOwner)
       
       return cell
     case CSStickyHeaderParallaxHeader:
-      // make sure the header cell uses the proper identifier
       let cell = self.collectionView!.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: Constants.EventDetailCollection.HeaderViewIdentifier, forIndexPath: indexPath) as! EventDetailCollectionViewHeaderView
       
+      // set the image of the event ticket as the collection view header
       cell.ticketView.image = ticketImage
       
       // add tap gesture recognizer to the ticket view
-      let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EventDetailCollectionViewController.closeButtonPressed(_:)))
+      // this will be used to close the event detail modal
+      let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EventDetailCollectionViewController.closeEventDetailModal(_:)))
       tapGestureRecognizer.numberOfTapsRequired = 1
       cell.ticketView.userInteractionEnabled = true
       cell.ticketView.addGestureRecognizer(tapGestureRecognizer)
@@ -269,8 +279,10 @@ class EventDetailCollectionViewController: UICollectionViewController {
     }
   }
   
+  // MARK: - UICollectionViewDelegate
+  
   override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    performSegueWithIdentifier("showAttendeeDetails", sender: nil)
+    performSegueWithIdentifier("showInviteeDetails", sender: indexPath)
   }
   
 

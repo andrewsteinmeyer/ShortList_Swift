@@ -34,13 +34,15 @@ class EventDetailNavigationViewController: UINavigationController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // hide nav bar
+    // hide navigation bar
     self.navigationBarHidden = true
+    
+    //TODO: Decide if we want a close button that hovers in top left corner
     
     /*
     self.view.clipsToBounds = false
     
-    // create cancel button
+    // create close button
     let closeButton = UIButton(type: .Custom)
     closeButton.frame = CGRect(x: -15, y: -15, width: 30, height: 30)
     closeButton.layer.cornerRadius = 15

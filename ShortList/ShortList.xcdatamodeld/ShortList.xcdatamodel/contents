@@ -2,7 +2,7 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
     <entity name="Alert" representedClassName="ShortList.Alert" syncable="YES">
         <attribute name="alertType" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="insertedOn" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="insertedOn" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="read" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="sendToUserId" optional="YES" attributeType="String" syncable="YES"/>
@@ -16,7 +16,7 @@
                 <entry key="JSONKeyPath" value="email"/>
             </userInfo>
         </attribute>
-        <attribute name="insertedOn" optional="YES" attributeType="String" syncable="YES">
+        <attribute name="insertedOn" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES">
             <userInfo>
                 <entry key="JSONKeyPath" value="insertedOn"/>
             </userInfo>
@@ -48,14 +48,23 @@
         <attribute name="date" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="declinedCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="eventConfiguration" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="insertedOn" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="invitationsSent" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="insertedOn" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="list" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeoutCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="venue" optional="YES" attributeType="Transformable" syncable="YES"/>
+    </entity>
+    <entity name="EventInvitation" syncable="YES">
+        <attribute name="actionUpdated" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="contact" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="eventId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="insertedOn" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="listId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="List" representedClassName="ShortList.List" syncable="YES">
         <attribute name="contacts" optional="YES" attributeType="Transformable" syncable="YES">
@@ -68,7 +77,7 @@
                 <entry key="JSONKeyPath" value="hideMembers"/>
             </userInfo>
         </attribute>
-        <attribute name="insertedOn" optional="YES" attributeType="String" syncable="YES">
+        <attribute name="insertedOn" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES">
             <userInfo>
                 <entry key="JSONKeyPath" value="insertedOn"/>
             </userInfo>
@@ -83,6 +92,7 @@
                 <entry key="JSONKeyPath" value="security"/>
             </userInfo>
         </attribute>
+        <attribute name="updateDate" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="userId" optional="YES" attributeType="String" syncable="YES">
             <userInfo>
                 <entry key="JSONKeyPath" value="userId"/>
@@ -90,7 +100,7 @@
         </attribute>
     </entity>
     <entity name="Venue" representedClassName="ShortList.Venue" syncable="YES">
-        <attribute name="insertedOn" optional="YES" attributeType="String" syncable="YES">
+        <attribute name="insertedOn" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES">
             <userInfo>
                 <entry key="JSONKeyPath" value="insertedOn"/>
             </userInfo>
@@ -114,8 +124,9 @@
     <elements>
         <element name="Alert" positionX="-27" positionY="153" width="128" height="165"/>
         <element name="Contact" positionX="-18" positionY="144" width="128" height="135"/>
-        <element name="Event" positionX="0" positionY="135" width="128" height="240"/>
-        <element name="List" positionX="-54" positionY="36" width="128" height="135"/>
+        <element name="Event" positionX="0" positionY="135" width="128" height="225"/>
+        <element name="EventInvitation" positionX="-27" positionY="180" width="128" height="165"/>
+        <element name="List" positionX="-54" positionY="36" width="128" height="150"/>
         <element name="Venue" positionX="-18" positionY="99" width="128" height="105"/>
     </elements>
 </model>

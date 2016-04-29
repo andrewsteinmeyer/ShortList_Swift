@@ -48,6 +48,11 @@
 		4E430FC01CA16EE7008BC34F /* FetchedResultsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E430FBF1CA16EE7008BC34F /* FetchedResultsCollectionViewController.swift */; };
 		4E430FC21CA17032008BC34F /* FetchedResultsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E430FC11CA17032008BC34F /* FetchedResultsCollectionViewDataSource.swift */; };
 		4E430FC71CA237A9008BC34F /* EventsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E430FC61CA237A9008BC34F /* EventsCollectionViewCell.swift */; };
+		4E4AEE211CCBF75000C43A7F /* GuestListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4AEE201CCBF75000C43A7F /* GuestListTableViewController.swift */; };
+		4E4AEE231CCD461500C43A7F /* Invitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4AEE221CCD461500C43A7F /* Invitation.swift */; };
+		4E4AEE251CCD8D8A00C43A7F /* EventInvitationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4AEE241CCD8D8A00C43A7F /* EventInvitationsViewController.swift */; };
+		4E4AEE271CCDA8F000C43A7F /* EventInvitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4AEE261CCDA8F000C43A7F /* EventInvitation.swift */; };
+		4E4C36301CCE3C9600699B72 /* InviteeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4C362F1CCE3C9600699B72 /* InviteeTableViewCell.swift */; };
 		4E5010DC1C73407F00CE3CF6 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5010DB1C73407F00CE3CF6 /* ProfileTableViewController.swift */; };
 		4E5010E41C75EBDB00CE3CF6 /* METDDPClient+AccountsPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5010E31C75EBDB00CE3CF6 /* METDDPClient+AccountsPassword.swift */; };
 		4E51AB861C8F0D2600260D82 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51AB851C8F0D2600260D82 /* ScanViewController.swift */; };
@@ -305,6 +310,11 @@
 		4E430FBF1CA16EE7008BC34F /* FetchedResultsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsCollectionViewController.swift; sourceTree = "<group>"; };
 		4E430FC11CA17032008BC34F /* FetchedResultsCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		4E430FC61CA237A9008BC34F /* EventsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsCollectionViewCell.swift; sourceTree = "<group>"; };
+		4E4AEE201CCBF75000C43A7F /* GuestListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestListTableViewController.swift; sourceTree = "<group>"; };
+		4E4AEE221CCD461500C43A7F /* Invitation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invitation.swift; sourceTree = "<group>"; };
+		4E4AEE241CCD8D8A00C43A7F /* EventInvitationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInvitationsViewController.swift; sourceTree = "<group>"; };
+		4E4AEE261CCDA8F000C43A7F /* EventInvitation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInvitation.swift; sourceTree = "<group>"; };
+		4E4C362F1CCE3C9600699B72 /* InviteeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteeTableViewCell.swift; sourceTree = "<group>"; };
 		4E5010DB1C73407F00CE3CF6 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		4E5010E31C75EBDB00CE3CF6 /* METDDPClient+AccountsPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "METDDPClient+AccountsPassword.swift"; sourceTree = "<group>"; };
 		4E51AB851C8F0D2600260D82 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
@@ -885,6 +895,7 @@
 				4E60A0D91C2F1E7100D66A9A /* VenuesTableViewCell.swift */,
 				4E7C60831C3B5FD30042CE4F /* EventsTableViewCell.swift */,
 				4E8D88A01C83B17200A8B68B /* AlertsTableViewCell.swift */,
+				4E4C362F1CCE3C9600699B72 /* InviteeTableViewCell.swift */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -972,6 +983,7 @@
 				4E6F95511C789E820022F5B2 /* ManagedObjects */,
 				4E6313271C1FB2DE00EB78F9 /* User.swift */,
 				4E60A0D71C2F1C7800D66A9A /* Location.swift */,
+				4E4AEE221CCD461500C43A7F /* Invitation.swift */,
 				4E719C0E1C407087009989AC /* EventConfiguration.swift */,
 				4E6313301C1FB30400EB78F9 /* ShortList.xcdatamodeld */,
 			);
@@ -1029,6 +1041,7 @@
 				4E8D889E1C83A87A00A8B68B /* Alert.swift */,
 				4E6313281C1FB2DE00EB78F9 /* List.swift */,
 				4E6313291C1FB2DE00EB78F9 /* Event.swift */,
+				4E4AEE261CCDA8F000C43A7F /* EventInvitation.swift */,
 				4E63132A1C1FB2DE00EB78F9 /* Venue.swift */,
 			);
 			name = ManagedObjects;
@@ -1049,18 +1062,36 @@
 		4E7C607E1C3B5F210042CE4F /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				4E5A3A5E1CB70FDD003D7F89 /* EventDetailTransition */,
 				4E7C60851C3B62F70042CE4F /* EventsNavigationViewController.swift */,
 				4E7C60811C3B5F420042CE4F /* EventsViewController.swift */,
-				4E5536221CB9E3A9004B03AD /* EventDetailNavigationViewController.swift */,
-				4E5CB3631CA5E8F700ED785B /* EventDetailCollectionViewController.swift */,
 				4E233C881C3CA61700FDC1B9 /* CreateEventViewController.swift */,
 				4E719C0C1C3F60C3009989AC /* SelectListViewController.swift */,
 				4E582A7A1C3F48AB00052399 /* SelectVenueViewController.swift */,
+				4E94F4CC1CC445EF00D823A2 /* EventDetails */,
+				4E94F4CB1CC445AC00D823A2 /* Old Detail Page */,
+			);
+			name = Events;
+			sourceTree = "<group>";
+		};
+		4E94F4CB1CC445AC00D823A2 /* Old Detail Page */ = {
+			isa = PBXGroup;
+			children = (
 				4E40EE921C41EE9F00087C2E /* EventDetailViewController.swift */,
 				4E1A68F91C5082FB00E55D64 /* InvitationActivityViewController.swift */,
 			);
-			name = Events;
+			name = "Old Detail Page";
+			sourceTree = "<group>";
+		};
+		4E94F4CC1CC445EF00D823A2 /* EventDetails */ = {
+			isa = PBXGroup;
+			children = (
+				4E5A3A5E1CB70FDD003D7F89 /* EventDetailTransition */,
+				4E5536221CB9E3A9004B03AD /* EventDetailNavigationViewController.swift */,
+				4E5CB3631CA5E8F700ED785B /* EventDetailCollectionViewController.swift */,
+				4E4AEE241CCD8D8A00C43A7F /* EventInvitationsViewController.swift */,
+				4E4AEE201CCBF75000C43A7F /* GuestListTableViewController.swift */,
+			);
+			name = EventDetails;
 			sourceTree = "<group>";
 		};
 		4EA89FBE1C27099F00163C57 /* Home */ = {
@@ -1561,6 +1592,7 @@
 				4E5AF22C1C47540300192C40 /* ContactsViewController+Import.swift in Sources */,
 				4EF329F71C80931C0078B69A /* METDatabase.m in Sources */,
 				4EF3299F1C7F53A10078B69A /* Contact.swift in Sources */,
+				4E4AEE231CCD461500C43A7F /* Invitation.swift in Sources */,
 				4EA89FBD1C27097900163C57 /* SelectContactsViewController.swift in Sources */,
 				4EF32A341C8093B70078B69A /* README.md in Sources */,
 				4EF32A141C80931C0078B69A /* README.md in Sources */,
@@ -1573,6 +1605,7 @@
 				4EF32A131C80931C0078B69A /* NSString+METAdditions.m in Sources */,
 				4E6312F41C1FB28000EB78F9 /* AsyncButton.swift in Sources */,
 				4EF32A091C80931C0078B69A /* METMethodInvocationCoordinator.m in Sources */,
+				4E4C36301CCE3C9600699B72 /* InviteeTableViewCell.swift in Sources */,
 				4E3288C91C24CD4600F936DF /* ContactsTableViewCell.swift in Sources */,
 				4EF32A301C8093B70078B69A /* PSWebSocketInflater.m in Sources */,
 				4E6312A41C1FAF2D00EB78F9 /* String.swift in Sources */,
@@ -1592,6 +1625,7 @@
 				4E719C0F1C407087009989AC /* EventConfiguration.swift in Sources */,
 				4E7C60821C3B5F420042CE4F /* EventsViewController.swift in Sources */,
 				4EF32A081C80931C0078B69A /* METMethodInvocationContext.m in Sources */,
+				4E4AEE271CCDA8F000C43A7F /* EventInvitation.swift in Sources */,
 				4E719C131C4075C2009989AC /* Date.swift in Sources */,
 				4EA89FBB1C261AD800163C57 /* CreateListViewController.swift in Sources */,
 				4E6313471C1FB60A00EB78F9 /* SubscriptionLoader.swift in Sources */,
@@ -1645,6 +1679,7 @@
 				4E1C46F81C7DE53500C22101 /* ZipCodeRule.swift in Sources */,
 				4EA365321C23AFCA00C90249 /* ContactsViewController.swift in Sources */,
 				4E6313141C1FB28000EB78F9 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				4E4AEE211CCBF75000C43A7F /* GuestListTableViewController.swift in Sources */,
 				4E1C46E61C7DE53500C22101 /* AlphaRule.swift in Sources */,
 				4E6312641C1FA7D500EB78F9 /* AppDelegate.swift in Sources */,
 				4E6313021C1FB28000EB78F9 /* LoadingView.swift in Sources */,
@@ -1669,6 +1704,7 @@
 				4EF32A4D1C8094490078B69A /* A0SimpleKeychain.m in Sources */,
 				4E8D88A11C83B17200A8B68B /* AlertsTableViewCell.swift in Sources */,
 				4E582A7B1C3F48AB00052399 /* SelectVenueViewController.swift in Sources */,
+				4E4AEE251CCD8D8A00C43A7F /* EventInvitationsViewController.swift in Sources */,
 				4E63130B1C1FB28000EB78F9 /* SpringTextField.swift in Sources */,
 				4E6313101C1FB28000EB78F9 /* UnwindSegue.swift in Sources */,
 				4E59257A1C9656D100755323 /* ShareViewController.swift in Sources */,

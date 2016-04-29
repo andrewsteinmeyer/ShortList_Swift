@@ -11,7 +11,7 @@ import CoreData
 class Contact: NSManagedObject {
   
   @NSManaged var userId: String?
-  @NSManaged var insertedOn: String?
+  @NSManaged var insertedOn: NSTimeInterval
   @NSManaged var name: String?
   @NSManaged var email: String?
   @NSManaged var phone: String?

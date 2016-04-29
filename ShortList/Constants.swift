@@ -6,13 +6,12 @@
 //  Copyright © 2016 Andrew Steinmeyer. All rights reserved.
 //
 
-import Foundation
-
 struct Constants {
   
   // Meteor
   struct Meteor {
-    private static let Domain = "app.myshortlists.com"
+    private static let Domain = "slist.me"
+    //private static let Domain = "app.myshortlists.com"
     //private static let Domain = "shortlist.meteor.com"
     //private static let Domain = "10.0.0.3:3000"
     //private static let Domain = "localhost:3000"
@@ -71,7 +70,7 @@ struct Constants {
     }
   }
   
-  // Profile view settings
+  // Profile View Settings
   struct ProfileTableView {
     struct SectionHeaderView {
       static let Height: CGFloat = 50
@@ -90,7 +89,12 @@ struct Constants {
     static let Padding: CGFloat = 40
   }
   
-  struct Notifications {
-    static let EventTicketDidSaveSnapshot = "EventTicketDidSaveSnapshot"
+  // Guest List TableView Settings
+  struct GuestListTableView {
+    static let InviteeCellIdentifier = "InviteeTableViewCell"
+    static let AttendeeCellIdentifier = "AttendeeTableViewCell"
+    static let DeclinedCellIdentifier = "DeclinedTableViewCell"
+    static let TimeoutCellIdentifier = "TimeoutTableViewCell"
   }
+  
 }

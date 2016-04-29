@@ -13,7 +13,8 @@ class List: NSManagedObject {
   @NSManaged var userId: String?
   @NSManaged var security: String?
   @NSManaged var hideMembers: NSNumber?
-  @NSManaged var insertedOn: String?
+  @NSManaged var insertedOn: NSTimeInterval
+  @NSManaged var updateDate: NSTimeInterval
   
   // TODO: Leave as NSSet or make [[String: AnyObject]]??
   @NSManaged var contacts: NSSet?

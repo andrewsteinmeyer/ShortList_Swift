@@ -13,7 +13,7 @@ class Venue: NSManagedObject {
   
   @NSManaged var name: String?
   @NSManaged var userId: String?
-  @NSManaged var insertedOn: String?
+  @NSManaged var insertedOn: NSTimeInterval
   
   @NSManaged var location: NamedValues?
   

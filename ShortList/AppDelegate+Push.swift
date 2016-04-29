@@ -8,23 +8,31 @@
 
 import UIKit
 
-extension AppDelegate {
+// MARK: - Apple Push Notifications
+
+struct Push {
   
-  private enum Message: String {
+  enum Message: String {
     case ResetBadgeCount = "removeHistory"
   }
   
-  private enum Category: String {
+  enum Category: String {
     case Invite = "eventInvite"
     case Message = "newMessage"
   }
   
-  private enum Action: String {
+  enum Action: String {
     case Accept = "accept"
     case Decline = "decline"
     case Reply = "reply"
     case MoreInfo = "more-info"
   }
+  
+}
+
+//MARK: - AppDelegate Extension for APNS
+
+extension AppDelegate {
   
   //MARK: Handle notification registration
   
@@ -60,11 +68,11 @@ extension AppDelegate {
     let json = JSON(userInfo)
     
     if let categoryString = json["aps"]["category"].string,
-      category = Category(rawValue: categoryString),
+      category = Push.Category(rawValue: categoryString),
       ejsonString = json["ejson"].string,
       ejsonDict = ejsonString.convertToDictionary(),
       identifier = identifier,
-      action = Action(rawValue: identifier) {
+      action = Push.Action(rawValue: identifier) {
       
       switch category {
       case .Invite:
@@ -136,7 +144,7 @@ extension AppDelegate {
     // accept action
     let acceptAction = UIMutableUserNotificationAction()
     acceptAction.title = "Accept"
-    acceptAction.identifier = Action.Accept.rawValue
+    acceptAction.identifier = Push.Action.Accept.rawValue
     acceptAction.activationMode = .Background
     acceptAction.behavior = .Default
     acceptAction.authenticationRequired = false
@@ -144,7 +152,7 @@ extension AppDelegate {
     // decline action
     let declineAction = UIMutableUserNotificationAction()
     declineAction.title = "Decline"
-    declineAction.identifier = Action.Decline.rawValue
+    declineAction.identifier = Push.Action.Decline.rawValue
     declineAction.activationMode = .Background
     declineAction.behavior = .Default
     declineAction.authenticationRequired = false
@@ -152,14 +160,14 @@ extension AppDelegate {
     // more info action
     let moreAction = UIMutableUserNotificationAction()
     moreAction.title = "More Info"
-    moreAction.identifier = Action.MoreInfo.rawValue
+    moreAction.identifier = Push.Action.MoreInfo.rawValue
     moreAction.activationMode = .Foreground
     moreAction.behavior = .Default
     moreAction.authenticationRequired = false
     
     // invite category
     let inviteCategory = UIMutableUserNotificationCategory()
-    inviteCategory.identifier = Category.Invite.rawValue
+    inviteCategory.identifier = Push.Category.Invite.rawValue
     inviteCategory.setActions([acceptAction, moreAction], forContext: .Minimal)
     inviteCategory.setActions([acceptAction, moreAction, declineAction], forContext: .Default)
     
@@ -170,14 +178,14 @@ extension AppDelegate {
     // reply action
     let replyAction = UIMutableUserNotificationAction()
     replyAction.title = "Reply"
-    replyAction.identifier = Action.Reply.rawValue
+    replyAction.identifier = Push.Action.Reply.rawValue
     replyAction.activationMode = .Background
     replyAction.behavior = .TextInput
     replyAction.authenticationRequired = false
     
     // message category
     let messageCategory = UIMutableUserNotificationCategory()
-    messageCategory.identifier = Category.Message.rawValue
+    messageCategory.identifier = Push.Category.Message.rawValue
     messageCategory.setActions([replyAction], forContext: .Minimal)
     
     return messageCategory
@@ -205,7 +213,7 @@ extension AppDelegate {
     guard let userId = Meteor.userID else { return }
     
     // clear badge on server
-    Meteor.callMethodWithName(Message.ResetBadgeCount.rawValue, parameters: [ userId ]) {
+    Meteor.callMethodWithName(Push.Message.ResetBadgeCount.rawValue, parameters: [ userId ]) {
       userInfo, error in
       
       if error == nil {

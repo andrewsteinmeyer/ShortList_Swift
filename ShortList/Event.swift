@@ -21,7 +21,8 @@ class Event: NSManagedObject {
   @NSManaged var declinedCount: NSNumber?
   @NSManaged var timeoutCount: NSNumber?
   @NSManaged var eventConfiguration: NamedValues?
-  @NSManaged var insertedOn: String?
-  @NSManaged var invitationsSent: String?
+  @NSManaged var insertedOn: NSTimeInterval
   @NSManaged var contactCount: NSNumber?
+  
+  //TODO: removed invitationsSent bc it was crashing.  Is this not always set on an Event object on server?
 }

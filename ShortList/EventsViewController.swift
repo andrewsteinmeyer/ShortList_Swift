@@ -237,7 +237,8 @@ class EventsViewController: FetchedResultsCollectionViewController {
     // update ticket frame with new size
     ticketView.frame = ticketFrame
     
-    
+    // clip off bottom part of ticket that had the event stats
+    // this area gets replaced by the section header of the collection view
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(ticketView.bounds.size.width, 256), false, UIScreen.mainScreen().scale)
     ticketView.drawViewHierarchyInRect(ticketView.bounds, afterScreenUpdates: true)
     let croppedTicketImage = UIGraphicsGetImageFromCurrentImageContext()

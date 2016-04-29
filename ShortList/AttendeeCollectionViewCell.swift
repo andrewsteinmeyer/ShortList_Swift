@@ -22,6 +22,13 @@ class AttendeeCollectionViewCell : UICollectionViewCell {
   
   @IBOutlet weak var nameLabel: UILabel!
   
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    
+    // do not let user select these cells
+    self.userInteractionEnabled = false
+  }
+  
   func setData(data: Any?) {
     if let data = data as? AttendeeCollectionViewCellData {
       self.nameLabel.text = data.name

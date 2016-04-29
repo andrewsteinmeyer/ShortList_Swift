@@ -6,8 +6,6 @@
 //  Copyright © 2015 Andrew Steinmeyer. All rights reserved.
 //
 
-import Foundation
-
 import UIKit
 import CoreData
 import DZNEmptyDataSet
