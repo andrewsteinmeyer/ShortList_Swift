@@ -6,33 +6,19 @@
 //  Copyright © 2016 Andrew Steinmeyer. All rights reserved.
 //
 
-struct Invitation {
+import CoreData
+
+class Invitation: NSManagedObject {
+  typealias NamedValues = [String:AnyObject]
   
-  enum Status: String {
-    case Accepted = "accepted"
-    case Declined = "declined"
-    case Timeout  = "timeout"
-    case Active   = "active"
-    case Bailout  = "bailout"
-    case Skipped  = "skipped"
-    case Maybe    = "maybe"
-    case Capacity = "capacity"
-    
-    // NOTE: category order and enum order above must match
-    //       not the best way, but will work until Swift has a way to count enums
-    
-    static let categories = [
-      "accepted",
-      "declined",
-      "timeout",
-      "active",
-      "bailout",
-      "skipped",
-      "maybe",
-      "capacity"
-    ]
-  }
-  
+  @NSManaged var userId: String?
+  @NSManaged var eventId: String?
+  @NSManaged var listId: String?
+  @NSManaged var contact: NamedValues?
+  @NSManaged var duration: NSNumber?
+  @NSManaged var insertedOn: NSTimeInterval
+  @NSManaged var status: String?
+  @NSManaged var actionUpdated: NSTimeInterval
 }
 
 
