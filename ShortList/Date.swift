@@ -15,11 +15,19 @@ extension NSDate {
     return self.timeIntervalSince1970 * 1000
   }
   
-  // get epoch time from date
-  func convertToEpoch() -> NSTimeInterval {
+  // get epoch time in milliseconds
+  func convertToEpochMilliseconds() -> NSTimeInterval {
     return Double(floor(self.timeIntervalSince1970 / 100.0) * 100.0) * 1000.0
-    
   }
   
 }
 
+// MARK: - Global Date Helpers
+
+func timeStamp() -> String {
+  return String(Int(NSDate().timeIntervalSince1970))
+}
+
+func secondsToMinutesSeconds (seconds : Int) -> (Int, Int) {
+  return ((seconds % 3600) / 60, (seconds % 3600) % 60)
+}

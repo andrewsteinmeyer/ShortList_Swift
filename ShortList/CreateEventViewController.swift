@@ -265,7 +265,7 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
     let JSONEventConfiguration = Mapper().toJSON(eventConfiguration)
     
     // format date to play nice with web and android epoch unix
-    let epochDate = date.convertToEpoch()
+    let epochDate = date.convertToEpochMilliseconds()
     
     MeteorEventService.sharedInstance.create([ name, epochDate, JSONList, JSONVenue, JSONLocation, JSONEventConfiguration ]) {
       result, error in

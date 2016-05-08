@@ -85,8 +85,7 @@ struct Constants {
     static let AttendeeCellIdentifier = "AttendeeCollectionViewCell"
     static let HeaderViewIdentifier = "EventDetailCollectionViewHeaderView"
     static let SectionHeaderIdentifier = "EventDetailCollectionViewSectionHeader"
-    static let HeaderViewHeight: CGFloat = 300
-    static let Padding: CGFloat = 40
+    static let HeaderViewHeight: CGFloat = 256
   }
   
   // Guest List TableView Settings

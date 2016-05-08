@@ -10,20 +10,18 @@
 import UIKit
 import CoreData
 
+
 class EventInvitationsViewController: FetchedResultsTableViewController {
   typealias NamedValues = [String:AnyObject]
   
   private let subscriptionName = "EventInvitations"
-  private let modelName = "EventInvitation"
+  private let modelName = "Invitation"
   
   var eventId: String!
   var statusCategory: String!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    // show navigation bar
-    self.navigationController?.navigationBarHidden = false
     
     // set CoreData context
     self.managedObjectContext = Meteor.mainQueueManagedObjectContext
@@ -33,12 +31,12 @@ class EventInvitationsViewController: FetchedResultsTableViewController {
   
   override func configureSubscriptionLoader(subscriptionLoader: SubscriptionLoader) {
     // subscribe to invitations on this event
-    subscriptionLoader.addSubscriptionWithName(subscriptionName, parameters: [ eventId ])
+    subscriptionLoader.addSubscriptionWithName(subscriptionName, parameters: eventId)
   }
   
   override func createFetchedResultsController() -> NSFetchedResultsController? {
     let fetchRequest = NSFetchRequest(entityName: modelName)
-    fetchRequest.predicate = NSPredicate(format: "(eventId == %@) AND (status == %@)", eventId, statusCategory)
+    fetchRequest.predicate = NSPredicate(format: "(status == %@) && (eventId == %@)", statusCategory, eventId)
     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "insertedOn", ascending: false)]
     
     return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
@@ -47,16 +45,10 @@ class EventInvitationsViewController: FetchedResultsTableViewController {
   // MARK: - FetchedResultsTableViewDataSourceDelegate
   
   func dataSource(dataSource: FetchedResultsTableViewDataSource, configureCell cell: UITableViewCell, forObject object: NSManagedObject, atIndexPath indexPath: NSIndexPath) {
-    if let invitation = object as? EventInvitation {
+    
+    if let invitation = object as? Invitation {
       if let cell = cell as? InviteeTableViewCell {
-        var inviteeName = ""
-        
-        // set name
-        if let name = invitation.valueForKey("name") as? String {
-          inviteeName = name
-        }
-        
-        let data = InviteeTableViewCellData(name: inviteeName)
+        let data = InviteeTableViewCellData(invitation: invitation)
         cell.setData(data)
       }
     }

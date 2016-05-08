@@ -8,7 +8,6 @@
 
 import CoreData
 import PhoneNumberKit
-import CSStickyHeaderFlowLayout
 
 class GuestListTableViewController: UITableViewController {
   typealias NamedValues = [String:AnyObject]
