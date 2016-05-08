@@ -208,9 +208,9 @@ static const NSInteger kHeaderZIndex = 1024;
   // again, this is not the best way, but works for now
   // section header has a height of 44, all other cells are 60
   // need to move each decoration view up 16 to account for the smaller section header
-  decorationOffset -= 16;
-  CGFloat xOffset = self.collectionViewContentSize.width * 0.25;
-  CGFloat lineWidth = self.collectionViewContentSize.width * 0.75;
+  //decorationOffset -= 16;
+  CGFloat xOffset = self.collectionViewContentSize.width * 0.10;
+  CGFloat lineWidth = self.collectionViewContentSize.width * 0.90;
   layoutAttributes.frame = CGRectMake(xOffset, decorationOffset, lineWidth, self.minimumLineSpacing);
   layoutAttributes.zIndex = 1000;
   

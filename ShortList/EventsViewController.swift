@@ -37,9 +37,6 @@ class EventsViewController: FetchedResultsCollectionViewController {
   
   private var selectedEvent: Event?
   
-  var eventDetailTransitionDelegate: EventDetailTransitioningDelegate?
-  var selectionObject: SelectionObject?
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -71,6 +68,17 @@ class EventsViewController: FetchedResultsCollectionViewController {
     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "insertedOn", ascending: false)]
     
     return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+  }
+  
+  // MARK: - Segue
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if (segue.identifier == "showEventDetails") {
+      if let selectedEvent = dataSource.selectedObject as? Event {
+        let eventDetailVC = segue.destinationViewController as! EventDetailCollectionViewController
+        eventDetailVC.event = selectedEvent
+      }
+    }
   }
   
   // MARK: - FetchedResultsTableViewDataSourceDelegate
@@ -131,13 +139,6 @@ class EventsViewController: FetchedResultsCollectionViewController {
         
         let data = EventsCollectionViewCellData(name: eventName, locationName: locationName, date: eventDate, time: eventTime, listName: listName, eventDescription: eventDescription, acceptedCount: acceptedCount, declinedCount: declinedCount)
         cell.setData(data)
-        
-        if selectionObject != nil &&
-          selectionObject?.selectedCellIndexPath == indexPath {
-          cell.hide = selectionObject!.hidden
-        } else {
-          cell.hide = false
-        }
       }
     }
   }
@@ -166,85 +167,13 @@ class EventsViewController: FetchedResultsCollectionViewController {
   
   // pragma mark - UICollectionViewDelegate
   override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    showEventDetailForIndexPath(indexPath)
-  }
-  
-  
-  func showEventDetailForIndexPath(indexPath: NSIndexPath) {
-    let selectedCell = collectionView?.cellForItemAtIndexPath(indexPath) as! EventsCollectionViewCell
-    
-    //set rect for selectedCell and save origin in relation to superview (view controller)
-    var rect = selectedCell.frame
-    var origin = view.convertPoint(rect.origin, toView: selectedCell.superview?.superview)
-    
-    // subtract out scroll offset
-    origin.y = origin.y - (self.collectionView?.contentOffset.y)!
-    rect.origin = origin
-      
-    selectionObject = SelectionObject(snapshot: selectedCell.snapshot, selectedCellIndexPath: indexPath, originalCellPosition: rect)
-    eventDetailTransitionDelegate = EventDetailTransitioningDelegate(selectedObject: selectionObject!)
-    transitioningDelegate = eventDetailTransitionDelegate
-    
-    // get main storyboard
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    
-    // get event
-    let selectedEvent = dataSource.objectAtIndexPath(indexPath) as? Event
-    
-    //set up eventDetailCollectionVC
-    let eventDetailVC = storyboard.instantiateViewControllerWithIdentifier("EventDetailCollectionViewController") as! EventDetailCollectionViewController
-    eventDetailVC.event = selectedEvent
-    eventDetailVC.ticketImage = scaleAndPositionTicketImageInHeaderView(selectedCell.contentView)
-    
-    // set eventDetailTransitionDelegate as the transition delegate
-    let eventDetailNavVC = EventDetailNavigationViewController(rootViewController: eventDetailVC)
-    eventDetailNavVC.transitioningDelegate = eventDetailTransitionDelegate
-    presentViewController(eventDetailNavVC, animated: true, completion: nil)
-    
-    //fade out the seleected cell's ticket image
-    UIView.animateWithDuration(0.5, animations: {
-      selectedCell.hide = true
-      }, completion: nil)
-  }
-  
-  // hide selected image view and reload cell
-  func hideImage(hidden: Bool, indexPath: NSIndexPath) {
-    if selectionObject != nil {
-      selectionObject!.hidden = hidden
-    }
-    
-    collectionView?.reloadItemsAtIndexPaths([indexPath])
+    performSegueWithIdentifier("showEventDetails", sender: nil)
   }
   
   //MARK: Private methods
   
   private func setupAppearance() {
     self.navigationItem.rightBarButtonItem?.tintColor = Theme.NavigationBarActionButtonTextColor.toUIColor()
-  }
-  
-  private func scaleAndPositionTicketImageInHeaderView(ticketView: UIView) -> UIImage {
-    
-    var ticketFrame = ticketView.frame
-    
-    // scale ticket to fill header view
-    // use the same size ratio of the smaller ticket
-    let ratio = ticketFrame.size.width / ticketFrame.size.height
-    
-    // calculate new ticket size
-    ticketFrame.size.width = self.view.frame.size.width - Constants.EventDetailCollection.Padding
-    ticketFrame.size.height = ticketFrame.size.width / ratio
-    
-    // update ticket frame with new size
-    ticketView.frame = ticketFrame
-    
-    // clip off bottom part of ticket that had the event stats
-    // this area gets replaced by the section header of the collection view
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(ticketView.bounds.size.width, 256), false, UIScreen.mainScreen().scale)
-    ticketView.drawViewHierarchyInRect(ticketView.bounds, afterScreenUpdates: true)
-    let croppedTicketImage = UIGraphicsGetImageFromCurrentImageContext()
-    UIGraphicsEndImageContext()
-    
-    return croppedTicketImage
   }
   
 }

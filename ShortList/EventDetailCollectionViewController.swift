@@ -8,7 +8,6 @@
 
 import CoreData
 import PhoneNumberKit
-import CSStickyHeaderFlowLayout
 
 class EventDetailCollectionViewController: UICollectionViewController {
   typealias NamedValues = [String:AnyObject]
@@ -17,9 +16,6 @@ class EventDetailCollectionViewController: UICollectionViewController {
   private var contacts = [Contacts]()
   
   private var isEventOwner = false
-  
-  var ticketImage: UIImage?
-  private var ticketView: UIView?
   
   // MARK: - Model
   
@@ -57,23 +53,12 @@ class EventDetailCollectionViewController: UICollectionViewController {
       eventObserver = nil
     }
   }
-  
 
   
   // MARK: - View Lifecycle
   
-  required init?(coder: NSCoder) {
-    super.init(coder: coder)
-    
-    // needed for custom presentation
-    modalPresentationStyle = UIModalPresentationStyle.Custom
-  }
-  
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    
-    // make sure navigation bar hides
-    self.navigationController?.navigationBarHidden = true
     
     // refresh
     updateViewWithModel()
@@ -81,9 +66,6 @@ class EventDetailCollectionViewController: UICollectionViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    // set clipsToBounds to false so close button can hover
-    self.view.clipsToBounds = false
     
     // set CoreData context
     self.managedObjectContext = Meteor.mainQueueManagedObjectContext
@@ -94,13 +76,8 @@ class EventDetailCollectionViewController: UICollectionViewController {
     // Register cell classes
     let headerViewNib = UINib(nibName: Constants.EventDetailCollection.HeaderViewIdentifier, bundle: nil)
     self.collectionView?.registerNib(headerViewNib, forSupplementaryViewOfKind: CSStickyHeaderParallaxHeader, withReuseIdentifier: Constants.EventDetailCollection.HeaderViewIdentifier)
-    
-    // hide view initially
-    // the transition coordinator will fade in the view
-    self.view.alpha = 0.0
-    
   }
-
+  
   // MARK: - Updating View
   
   private func updateViewWithModel() {
@@ -149,15 +126,16 @@ class EventDetailCollectionViewController: UICollectionViewController {
     }
   }
   
-  // add sticky header
   private func reloadLayout() {
     // set header size and item size
     if let layout = self.collectionViewLayout as? CSStickyHeaderFlowLayout {
-      let size = self.view.frame.width - Constants.EventDetailCollection.Padding
+      // enable lines between cells
+      layout.enableDecorationView = true
+      layout.minimumLineSpacing = 0.50
       
-      // resize layout header and item
-      layout.parallaxHeaderReferenceSize = CGSizeMake(size, 256)
-      layout.itemSize = CGSizeMake(size, layout.itemSize.height)
+      layout.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.width, Constants.EventDetailCollection.HeaderViewHeight)
+      layout.itemSize = CGSizeMake(self.view.frame.width, layout.itemSize.height)
+      layout.disableStickyHeaders = false
     }
   }
   
@@ -166,7 +144,7 @@ class EventDetailCollectionViewController: UICollectionViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if (segue.identifier == "showInviteeDetails") {
       let indexPath = sender as! NSIndexPath
-      let category = Invitation.Status.categories[indexPath.row]
+      let category = EventInvitation.Status.categories[indexPath.row]
       
       /*
       let guestListVC = segue.destinationViewController as! GuestListTableViewController
@@ -190,7 +168,7 @@ class EventDetailCollectionViewController: UICollectionViewController {
   private func getCountForCategory(category: String) -> Int {
     guard let event = event else { return 0 }
     
-    if let status = Invitation.Status(rawValue: category) {
+    if let status = EventInvitation.Status(rawValue: category) {
       switch status {
       case .Active:
         return Int(event.contactCount!) ?? 0
@@ -208,10 +186,6 @@ class EventDetailCollectionViewController: UICollectionViewController {
     return 0
   }
   
-  func closeEventDetailModal(sender: UIButton) {
-    presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
-  }
-  
   // MARK: - UICollectionViewDataSource
   
   override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -221,7 +195,7 @@ class EventDetailCollectionViewController: UICollectionViewController {
   override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     // if event owner, display status categories
     // otherwise, only display names of guests that have accepted an invitation
-    return (isEventOwner ? Invitation.Status.categories.count : contacts.count)
+    return (isEventOwner ? EventInvitation.Status.categories.count : contacts.count)
   }
   
   override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -229,7 +203,7 @@ class EventDetailCollectionViewController: UICollectionViewController {
     if isEventOwner {
       let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.EventDetailCollection.CategoryCellIdentifier, forIndexPath: indexPath) as! StatusCategoryCollectionViewCell
       
-      let category = Invitation.Status.categories[indexPath.row]
+      let category = EventInvitation.Status.categories[indexPath.row]
       let count = getCountForCategory(category)
       
       let data = StatusCategoryCollectionViewCellData(name: category.uppercaseString, count: count)
@@ -263,16 +237,6 @@ class EventDetailCollectionViewController: UICollectionViewController {
     case CSStickyHeaderParallaxHeader:
       let cell = self.collectionView!.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: Constants.EventDetailCollection.HeaderViewIdentifier, forIndexPath: indexPath) as! EventDetailCollectionViewHeaderView
       
-      // set the image of the event ticket as the collection view header
-      cell.ticketView.image = ticketImage
-      
-      // add tap gesture recognizer to the ticket view
-      // this will be used to close the event detail modal
-      let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EventDetailCollectionViewController.closeEventDetailModal(_:)))
-      tapGestureRecognizer.numberOfTapsRequired = 1
-      cell.ticketView.userInteractionEnabled = true
-      cell.ticketView.addGestureRecognizer(tapGestureRecognizer)
-      
       return cell
     default:
       assert(false, "Unexpected element kind")
@@ -284,8 +248,6 @@ class EventDetailCollectionViewController: UICollectionViewController {
   override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     performSegueWithIdentifier("showInviteeDetails", sender: indexPath)
   }
-  
-
   
   
 }
