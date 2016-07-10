@@ -46,6 +46,11 @@
   [self loginWithMethodName:@"registerUser" parameters:parameters completionHandler:completionHandler];
 }
 
+- (void)signUpWithFacebook:(NSDictionary *)parameters completionHandler:(METLogInCompletionHandler)completionHandler {
+  NSArray *params = @[parameters];
+  [self loginWithMethodName:@"facebookLoginWithAccessToken" parameters:params completionHandler:completionHandler];
+}
+
 #pragma mark - Helper Methods
 
 - (NSDictionary *)parametersForCreateUserMethodFromEmail:(NSString *)email password:(NSString *)password profile:(NSDictionary *)profile {

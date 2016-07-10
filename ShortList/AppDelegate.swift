@@ -12,6 +12,8 @@ import GoogleMaps
 import Fabric
 import Crashlytics
 import FLEX
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 
 @UIApplicationMain
@@ -38,7 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // set up google services
     GMSServices.provideAPIKey(googleMapsApiKey)
     
-    return true
+    // set up facebook login
+    return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
   }
   
   func applicationWillResignActive(application: UIApplication) {
@@ -58,12 +61,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationDidBecomeActive(application: UIApplication) {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
+    // activate Facebook
+    FBSDKAppEvents.activateApp()
+    
     // reset badge count when user re-opens app from background state
     self.resetBadgeCount()
   }
-
+  
   func applicationWillTerminate(application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+    // logout facebook
+    FBSDKLoginManager.init().logOut()
+  }
+  
+  func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+    
+    // call when user successfully logs in with facebook and returning to application
+    return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
   }
   
   // MARK: Class functions

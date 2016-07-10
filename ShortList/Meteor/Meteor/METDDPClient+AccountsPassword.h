@@ -38,6 +38,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)signUpWithEmail:(NSString *)email password:(NSString *)password profile:(nullable NSDictionary *)profile completionHandler:(nullable METLogInCompletionHandler)completionHandler;
 
+/// @name Signing Up with Facebook
+
+- (void)signUpWithFacebook:(nullable NSDictionary *)parameters completionHandler:(nullable METLogInCompletionHandler)completionHandler;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

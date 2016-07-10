@@ -23,7 +23,6 @@ extension METDDPClient {
     print("phone: \(phone)")
     print("name: \(name)")
     
-    
     let profile: [NSObject: AnyObject] = ["name" : name,
                                           "phones": [
                                                       ["number": phone, "verified": false]
@@ -31,6 +30,16 @@ extension METDDPClient {
                                          ]
     
     self.signUpWithEmail(email, password: password, profile: profile, completionHandler: completionHandler)
+  }
+  
+  func loginWithFacebook(id: String, token: String, completionHandler: METLogInCompletionHandler) {
+    print ("facebook id: \(id)")
+    print ("facebook token: \(token)")
+    
+    let params: [NSObject: AnyObject] = ["id" : id,
+                                         "accessToken" : token]
+    
+    self.signUpWithFacebook(params, completionHandler: completionHandler)
   }
   
 }

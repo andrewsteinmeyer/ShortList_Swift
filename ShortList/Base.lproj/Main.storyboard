@@ -106,6 +106,9 @@
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -252,7 +255,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1b-Ic-W2N">
                                                         <rect key="frame" x="0.0" y="89" width="273" height="32"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
-                                                        <state key="normal" title="Register">
+                                                        <state key="normal" title="Sign Up">
                                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
@@ -297,7 +300,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sQU-no-tcX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-818" y="-314"/>
+            <point key="canvasLocation" x="-818" y="-308"/>
         </scene>
         <!--Lists View Controller-->
         <scene sceneID="1KO-hf-hGm">
@@ -2620,7 +2623,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="1:05" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lay-6h-Fa9">
                                                     <rect key="frame" x="537" y="0.0" width="33" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -3236,6 +3239,116 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A4v-Ee-iXB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1866" y="4201"/>
+        </scene>
+        <!--Log In View Controller-->
+        <scene sceneID="nb3-w3-yIO">
+            <objects>
+                <viewController storyboardIdentifier="LogInViewController" id="cbe-Fg-kHp" customClass="LogInViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u88-qw-o6s"/>
+                        <viewControllerLayoutGuide type="bottom" id="SKO-ut-8xG"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="gkA-eH-acU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFS-aL-BPv" customClass="TPKeyboardAvoidingScrollView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="9uR-6D-jgc">
+                                        <rect key="frame" x="164" y="154" width="273" height="221"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="oV5-r2-KTc">
+                                                <rect key="frame" x="0.0" y="0.0" width="273" height="57"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="app-title" translatesAutoresizingMaskIntoConstraints="NO" id="bk2-4T-XcD">
+                                                        <rect key="frame" x="61" y="0.0" width="152" height="31"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Error Message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3G-II-veX">
+                                                        <rect key="frame" x="83" y="36" width="107" height="21"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                                        <color key="textColor" red="0.91756308080000004" green="0.33028072120000002" blue="0.34021648760000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="edc-Pp-6uO">
+                                                <rect key="frame" x="0.0" y="79" width="273" height="100"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QrK-OF-WtT" customClass="FBSDKLoginButton">
+                                                        <rect key="frame" x="0.0" y="0.0" width="273" height="47"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                        <state key="normal" title="Login with Facebook">
+                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lto-WK-GzU" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="52" width="273" height="48"/>
+                                                        <color key="backgroundColor" red="0.29803921570000003" green="0.58823529409999997" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                        <state key="normal" title="Login with Email"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="3"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" red="0.29803921570000003" green="0.58823529409999997" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <segue destination="9r5-U3-Ygi" kind="presentation" modalPresentationStyle="fullScreen" id="t6v-Yg-I21"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="273" id="J61-eu-ucY"/>
+                                                    <constraint firstAttribute="height" constant="100" id="pf6-t0-6vh"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="1BY-u6-snI">
+                                                <rect key="frame" x="0.0" y="201" width="273" height="20"/>
+                                                <subviews>
+                                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ez8-Nx-vyk">
+                                                        <rect key="frame" x="0.0" y="0.0" width="273" height="20"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </activityIndicatorView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="273" id="M8w-p4-ZYz"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="9uR-6D-jgc" firstAttribute="centerX" secondItem="sFS-aL-BPv" secondAttribute="centerX" id="q7F-iu-muX"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sFS-aL-BPv" firstAttribute="leading" secondItem="gkA-eH-acU" secondAttribute="leading" id="Yx0-Fz-dR3"/>
+                            <constraint firstAttribute="trailing" secondItem="sFS-aL-BPv" secondAttribute="trailing" id="cHW-9b-WeG"/>
+                            <constraint firstItem="SKO-ut-8xG" firstAttribute="top" secondItem="sFS-aL-BPv" secondAttribute="bottom" id="e0o-G7-vV2"/>
+                            <constraint firstItem="sFS-aL-BPv" firstAttribute="top" secondItem="gkA-eH-acU" secondAttribute="top" id="knr-jJ-Gpb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="ez8-Nx-vyk" id="Wv2-Vo-9j2"/>
+                        <outlet property="errorMessageLabel" destination="j3G-II-veX" id="e9B-Pq-5me"/>
+                        <outlet property="facebookLoginButton" destination="QrK-OF-WtT" id="NFH-mb-4Vu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h0V-wp-vHB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1472" y="-308"/>
         </scene>
     </scenes>
     <resources>

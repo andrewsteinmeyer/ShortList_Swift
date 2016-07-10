@@ -41,7 +41,7 @@ NS_INLINE BOOL METShouldLogDDPMessages() {
   self = [super init];
   if (self) {
     _serverURL = serverURL;
-    _timeoutInterval = 5.0;
+    _timeoutInterval = 15.0;
   }
   return self;
 }

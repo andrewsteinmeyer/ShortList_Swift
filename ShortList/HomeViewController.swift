@@ -26,7 +26,10 @@ class HomeViewController: FetchedResultsTableViewController {
     
     // present sign in screen if user is not already logged in
     guard AccountManager.defaultAccountManager.isUserLoggedIn else {
-      SignInViewController.presentSignInViewController(animated: false)
+      print("userId: \(AccountManager.defaultAccountManager.currentUserId))")
+      
+      //SignInViewController.presentSignInViewController(animated: false)
+      LogInViewController.presentLogInViewController(animated: false)
       
       return
     }

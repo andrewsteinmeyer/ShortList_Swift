@@ -83,6 +83,11 @@ final class AccountManager: NSObject {
     Meteor.loginWithEmail(email, password: password, completionHandler: completionHandler)
   }
   
+  // login with facebook (server registers user if first time)
+  func loginWithFacebook(id: String, token: String, completionHandler: METLogInCompletionHandler) {
+    Meteor.loginWithFacebook(id, token: token, completionHandler: completionHandler)
+  }
+  
   // email and name
   func signUpWithEmail(email: String, password: String, name: String, completionHandler: METLogInCompletionHandler) {
     Meteor.signUpWithEmail(email, password: password, name: name, completionHandler: completionHandler)
@@ -143,7 +148,7 @@ final class AccountManager: NSObject {
       else {
         // successfully logged out, present sign in
         dispatch_async(dispatch_get_main_queue()) {
-          SignInViewController.presentSignInViewController()
+          LogInViewController.presentLogInViewController()
         }
       }
     }
@@ -154,7 +159,7 @@ final class AccountManager: NSObject {
   // MARK: Notification observers
   
   private func addObservers() {
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "accountDidChange", name: METDDPClientDidChangeAccountNotification, object: Meteor)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AccountManager.accountDidChange), name: METDDPClientDidChangeAccountNotification, object: Meteor)
   }
   
   private func removeObservers() {

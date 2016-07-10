@@ -14,7 +14,7 @@ import PhoneNumberKit
 
 enum Screen: Int {
   case SignIn
-  case Register
+  case SignUp
 }
 
 class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDelegate {
@@ -88,7 +88,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
         passwordField.resignFirstResponder()
         signIn()
       }
-    case .Register:
+    case .SignUp:
       if textField == nameField {
         emailField.becomeFirstResponder()
       } else if textField == emailField {
@@ -115,7 +115,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
     switch currentScreen {
     case .SignIn:
       signIn()
-    case .Register:
+    case .SignUp:
       validate()
     }
   }
@@ -169,7 +169,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
           // log to Answers
           Answers.logLoginWithMethod("Email",
             success: true,
-            customAttributes: [:])
+            customAttributes: ["Success": "User logged in with email and password"])
         }
       }
     }
@@ -210,9 +210,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
           // log to Answers
           Answers.logSignUpWithMethod("Email",
             success: true,
-            customAttributes: [:])
+            customAttributes: ["Success": "User signed up with email and password"])
           
-          // log user in after signUp
+          // logIn user after signUp
           self.signIn()
         }
       }
@@ -224,7 +224,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
   private func toggleScreen() {
     switch currentScreen {
     case .SignIn:
-      currentScreen = .Register
+      currentScreen = .SignUp
       clearErrors()
       
       // unhide views and focus on nameField
@@ -232,10 +232,10 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
       nameField.becomeFirstResponder()
       
       // toggle button titles
-      actionButton.setTitle("Register", forState: .Normal)
+      actionButton.setTitle("Sign Up", forState: .Normal)
       toggleScreenButton.setTitle("Sign In", forState: .Normal)
       
-    case .Register:
+    case .SignUp:
       currentScreen = .SignIn
       clearErrors()
       
@@ -245,7 +245,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
       
       // toggle button titles
       actionButton.setTitle("Sign In", forState: .Normal)
-      toggleScreenButton.setTitle("Register", forState: .Normal)
+      toggleScreenButton.setTitle("Sign Up", forState: .Normal)
     }
     
   }
@@ -302,7 +302,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
   private func clearErrors() {
     errorMessageLabel.text = " "
   }
-
   
   private func animateViews(views: [UIView], toHidden hidden: Bool) {
     UIView.animateWithDuration(0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 10, options: UIViewAnimationOptions(), animations: { () -> Void in
