@@ -29,8 +29,6 @@ private let timeFormatter: NSDateFormatter = {
 class EventsViewController: FetchedResultsCollectionViewController {
   typealias NamedValues = [String:AnyObject]
   
-  @IBOutlet weak var menuButton: UIBarButtonItem!
-  
   private let PrivateEventsSubscriptionName = "PrivateEvents"
   private let ContactEventsSubscriptionName = "ContactEvents"
   private let modelName = "Event"
@@ -42,12 +40,6 @@ class EventsViewController: FetchedResultsCollectionViewController {
     
     // set CoreData context
     self.managedObjectContext = Meteor.mainQueueManagedObjectContext
-    
-    if self.revealViewController() != nil {
-      menuButton.target = self.revealViewController()
-      menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-      self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-    }
     
     // setup delegates for empty data
     self.collectionView?.emptyDataSetDelegate = self

@@ -185,6 +185,9 @@
 		4EA89FB71C25E0F200163C57 /* ListsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA89FB61C25E0F200163C57 /* ListsTabBarController.swift */; };
 		4EA89FBB1C261AD800163C57 /* CreateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA89FBA1C261AD800163C57 /* CreateListViewController.swift */; };
 		4EA89FBD1C27097900163C57 /* SelectContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA89FBC1C27097900163C57 /* SelectContactsViewController.swift */; };
+		4EC2F2DD1D35B61B0035FD7F /* MainTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2F2DC1D35B61B0035FD7F /* MainTabBar.storyboard */; };
+		4EC2F2E01D35CEB80035FD7F /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2F2DE1D35CEB80035FD7F /* Events.storyboard */; };
+		4EC2F2E21D35D49D0035FD7F /* Venues.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2F2E11D35D49D0035FD7F /* Venues.storyboard */; };
 		4EC403F31C7667FB0056D5F3 /* UIImage+Alpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC403F01C7667FB0056D5F3 /* UIImage+Alpha.swift */; };
 		4EC403F41C7667FB0056D5F3 /* UIImage+ReSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC403F11C7667FB0056D5F3 /* UIImage+ReSize.swift */; };
 		4EC403F51C7667FB0056D5F3 /* UIImage+RoundCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC403F21C7667FB0056D5F3 /* UIImage+RoundCorner.swift */; };
@@ -461,6 +464,9 @@
 		4EA89FB61C25E0F200163C57 /* ListsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsTabBarController.swift; sourceTree = "<group>"; };
 		4EA89FBA1C261AD800163C57 /* CreateListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateListViewController.swift; sourceTree = "<group>"; };
 		4EA89FBC1C27097900163C57 /* SelectContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectContactsViewController.swift; sourceTree = "<group>"; };
+		4EC2F2DC1D35B61B0035FD7F /* MainTabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainTabBar.storyboard; sourceTree = "<group>"; };
+		4EC2F2DF1D35CEB80035FD7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Events.storyboard; sourceTree = "<group>"; };
+		4EC2F2E11D35D49D0035FD7F /* Venues.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Venues.storyboard; sourceTree = "<group>"; };
 		4EC403F01C7667FB0056D5F3 /* UIImage+Alpha.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Alpha.swift"; sourceTree = "<group>"; };
 		4EC403F11C7667FB0056D5F3 /* UIImage+ReSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ReSize.swift"; sourceTree = "<group>"; };
 		4EC403F21C7667FB0056D5F3 /* UIImage+RoundCorner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+RoundCorner.swift"; sourceTree = "<group>"; };
@@ -816,6 +822,9 @@
 			isa = PBXGroup;
 			children = (
 				4E6312671C1FA7D500EB78F9 /* Main.storyboard */,
+				4EC2F2E11D35D49D0035FD7F /* Venues.storyboard */,
+				4EC2F2DE1D35CEB80035FD7F /* Events.storyboard */,
+				4EC2F2DC1D35B61B0035FD7F /* MainTabBar.storyboard */,
 				4E6312631C1FA7D500EB78F9 /* AppDelegate.swift */,
 				4E54FE341C599C3C00D89DAC /* AppDelegate+Push.swift */,
 				4E5010DE1C73419600CE3CF6 /* Utility */,
@@ -1466,7 +1475,10 @@
 				4E6313251C1FB28000EB78F9 /* Lato-Thin.ttf in Resources */,
 				4E6313001C1FB28000EB78F9 /* Info.plist in Resources */,
 				4E1C46E41C7DE53500C22101 /* Info.plist in Resources */,
+				4EC2F2E21D35D49D0035FD7F /* Venues.storyboard in Resources */,
+				4EC2F2E01D35CEB80035FD7F /* Events.storyboard in Resources */,
 				4E6313221C1FB28000EB78F9 /* Lato-Regular.ttf in Resources */,
+				4EC2F2DD1D35B61B0035FD7F /* MainTabBar.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1807,6 +1819,14 @@
 				4E63126D1C1FA7D500EB78F9 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4EC2F2DE1D35CEB80035FD7F /* Events.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EC2F2DF1D35CEB80035FD7F /* Base */,
+			);
+			name = Events.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

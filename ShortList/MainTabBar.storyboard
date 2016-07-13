@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8ho-q5-XnJ">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <scenes>
+        <!--Events-->
+        <scene sceneID="NYF-Fh-eSl">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Events" id="fVz-i8-a4T" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="olc-zU-XuH"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="etc-R6-wFC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1547.5" y="-2018"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="MRN-mJ-XbQ">
+            <objects>
+                <navigationController storyboardIdentifier="HomeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="DGF-fU-pQY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="cJb-Qd-mse"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fej-pq-yXM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TaF-6e-k9A" kind="relationship" relationship="rootViewController" id="eZx-k6-a4f"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gfz-q1-6ia" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1850" y="-1607"/>
+        </scene>
+        <!--Venues-->
+        <scene sceneID="5Wy-UN-kBU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Venues" id="ypr-mn-egr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="9uK-OI-6Hs"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f5W-Ox-1aM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1467.5" y="-1207"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="MYx-kI-3I6">
+            <objects>
+                <tableViewController storyboardIdentifier="HomeViewController" title="Home View Controller" clearsSelectionOnViewWillAppear="NO" id="TaF-6e-k9A" customClass="HomeViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="k6L-Hy-haH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="90" id="zc4-0n-s6S" userLabel="AlertsTableViewCell" customClass="AlertsTableViewCell" customModule="ShortList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="86" width="600" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zc4-0n-s6S" id="Udw-AX-WDl">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="90"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="BH0-r7-PfD">
+                                            <rect key="frame" x="10" y="10" width="580" height="70"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" image="calendar_2-outline" translatesAutoresizingMaskIntoConstraints="NO" id="X4x-wc-9KS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                    <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="24" id="K5Z-4s-7gI"/>
+                                                        <constraint firstAttribute="height" constant="24" id="pJg-r5-cbA"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="0NO-QB-KgR">
+                                                    <rect key="frame" x="0.0" y="24" width="580" height="46"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="You are invited to party at the Alley!  It's going to be a good time." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bV-ex-nrh" customClass="TTTAttributedLabel">
+                                                            <rect key="frame" x="0.0" y="0.0" width="429" height="22"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 minutes ago" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qq3-M6-Xix">
+                                                            <rect key="frame" x="0.0" y="31" width="81" height="15"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="0NO-QB-KgR" secondAttribute="trailing" id="Sqd-8Y-rKl"/>
+                                                <constraint firstItem="0NO-QB-KgR" firstAttribute="leading" secondItem="BH0-r7-PfD" secondAttribute="leading" id="V6V-Pv-76F"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="BH0-r7-PfD" firstAttribute="leading" secondItem="Udw-AX-WDl" secondAttribute="leading" constant="10" id="JNa-ok-F81"/>
+                                        <constraint firstAttribute="bottom" secondItem="BH0-r7-PfD" secondAttribute="bottom" constant="10" id="YtM-iB-jK2"/>
+                                        <constraint firstItem="BH0-r7-PfD" firstAttribute="top" secondItem="Udw-AX-WDl" secondAttribute="top" constant="10" id="clg-bM-2j5"/>
+                                        <constraint firstAttribute="trailing" secondItem="BH0-r7-PfD" secondAttribute="trailing" constant="10" id="iqP-Ai-4LO"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="alertIcon" destination="X4x-wc-9KS" id="1Lh-CN-Exa"/>
+                                    <outlet property="alertTitle" destination="5bV-ex-nrh" id="baU-N5-cHd"/>
+                                    <outlet property="timeSinceAlert" destination="qq3-M6-Xix" id="9af-x7-VT5"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="TaF-6e-k9A" id="yBl-7f-Kog"/>
+                            <outlet property="delegate" destination="TaF-6e-k9A" id="xoR-Y7-GM5"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Home" id="Qoc-yy-oam">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="HaZ-eH-E2D"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="HaZ-eH-E2D" id="QRa-NT-NFv"/>
+                        <segue destination="Nrf-mT-MsW" kind="show" identifier="showAlertLink" id="yWh-y7-wRa"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Fg-N1-Q6J" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2662" y="-1607"/>
+        </scene>
+        <!--Invitation Activity View Controller-->
+        <scene sceneID="cm3-v6-73r">
+            <objects>
+                <viewController storyboardIdentifier="AlertLinkViewController" title="Invitation Activity View Controller" extendedLayoutIncludesOpaqueBars="YES" id="Nrf-mT-MsW" customClass="AlertLinkViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kab-si-poT"/>
+                        <viewControllerLayoutGuide type="bottom" id="qb6-mg-8Wz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gmg-YA-S7A">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Alert Title" id="vI3-H7-S1V"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ewi-5e-P3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3383" y="-1607"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="WG8-J3-SV4">
+            <objects>
+                <tabBarController storyboardIdentifier="MainTabBar" automaticallyAdjustsScrollViewInsets="NO" id="8ho-q5-XnJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="dI5-A3-NDv">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="fVz-i8-a4T" kind="relationship" relationship="viewControllers" id="ObV-s0-AqJ"/>
+                        <segue destination="ypr-mn-egr" kind="relationship" relationship="viewControllers" id="PSj-Qo-s7p"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ohx-9M-ZBt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1038" y="-1607"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="calendar_2-outline" width="32" height="32"/>
+        <image name="menu" width="22" height="22"/>
+    </resources>
+</document>
