@@ -9,15 +9,33 @@
 import UIKit
 import CoreData
 import DZNEmptyDataSet
+import DZNSegmentedControl
 
 class ListsViewController: FetchedResultsTableViewController {
-  
-  @IBOutlet weak var menuButton: UIBarButtonItem!
   
   private let PrivateListSubscriptionName = "PrivateLists"
   private let PublicListSubscriptionName = "PublicLists"
   private let ContactListSubscriptionName = "ContactLists"
   private let modelName = "List"
+  
+  private enum ListType: Int {
+    case Owned = 0
+    case Joined
+  }
+  
+  lazy var control: DZNSegmentedControl = {
+    let menuItems = ["Owned", "Joined"]
+    
+    var tempControl = DZNSegmentedControl.init(items: menuItems)
+    tempControl.selectedSegmentIndex = 0
+    tempControl.height = 60
+    tempControl.delegate = self
+    
+    // call didChangeSegment when user taps segment control
+    tempControl.addTarget(self, action: #selector(ListsViewController.didChangeSegment), forControlEvents: .ValueChanged)
+    
+    return tempControl
+  }()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,11 +43,8 @@ class ListsViewController: FetchedResultsTableViewController {
     // set CoreData context
     self.managedObjectContext = Meteor.mainQueueManagedObjectContext
     
-    if self.revealViewController() != nil {
-      menuButton.target = self.revealViewController()
-      menuButton.action = "revealToggle:"
-      self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-    }
+    // set DZNSegmentControl header
+    self.tableView.tableHeaderView = self.control
     
     // setup delegates for empty data
     self.tableView.emptyDataSetDelegate = self
@@ -59,8 +74,40 @@ class ListsViewController: FetchedResultsTableViewController {
   
   override func createFetchedResultsController() -> NSFetchedResultsController? {
     let fetchRequest = NSFetchRequest(entityName: modelName)
-    fetchRequest.predicate = NSPredicate(format: "userId == %@", AccountManager.defaultAccountManager.currentUserId!)
-    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "insertedOn", ascending: false)]
+    
+    if let activeList = ListType(rawValue: self.control.selectedSegmentIndex) {
+      switch activeList {
+        case .Owned:
+          fetchRequest.predicate = NSPredicate(format: "userId == %@", AccountManager.defaultAccountManager.currentUserId!)
+          fetchRequest.sortDescriptors = [NSSortDescriptor(key: "insertedOn", ascending: false)]
+        case .Joined:
+          // find lists that the user has joined by searching for the user's email address
+          let emailPredicate = NSPredicate { (evaluatedObject, _) in
+            if let listContacts = (evaluatedObject as! List).contacts as NSSet? {
+              let JSONContacts = JSON(listContacts)
+              
+              for (_,contact):(String, JSON) in JSONContacts {
+                let email = contact["email"].string ?? ""
+                
+                // found user's email in the list contacts
+                if email == AccountManager.defaultAccountManager.currentUser?.emailAddress {
+                  return true
+                }
+              }
+            }
+            
+            // could not evaluate contacts in list
+            return false
+          }
+          
+          // find lists where the user is not the owner
+          let userPredicate = NSPredicate(format: "userId != %@", AccountManager.defaultAccountManager.currentUserId!)
+        
+          // combine the predicates and sort by date inserted
+          fetchRequest.predicate = NSCompoundPredicate(type: .AndPredicateType, subpredicates: [userPredicate, emailPredicate])
+          fetchRequest.sortDescriptors = [NSSortDescriptor(key: "insertedOn", ascending: false)]
+      }
+    }
     
     return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
   }
@@ -108,6 +155,10 @@ class ListsViewController: FetchedResultsTableViewController {
     self.navigationItem.rightBarButtonItem?.tintColor = Theme.NavigationBarActionButtonTextColor.toUIColor()
   }
   
+  func didChangeSegment() {
+    self.setNeedsLoadContent()
+  }
+  
 }
 
 extension ListsViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
@@ -140,6 +191,14 @@ extension ListsViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
   
   func verticalOffsetForEmptyDataSet(scrollView: UIScrollView!) -> CGFloat {
     return -40.0
+  }
+  
+}
+
+extension ListsViewController: DZNSegmentedControlDelegate {
+  
+  func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
+    return UIBarPosition.Top
   }
   
 }

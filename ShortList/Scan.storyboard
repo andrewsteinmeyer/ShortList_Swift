@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wam-BX-U75">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <scenes>
+        <!--Scan-->
+        <scene sceneID="Uea-jy-zgh">
+            <objects>
+                <viewController id="wam-BX-U75" customClass="ScanViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lGI-f8-C8j"/>
+                        <viewControllerLayoutGuide type="bottom" id="4re-GM-Mbl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WaC-jB-gKX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fhT-8p-zG3">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <color key="backgroundColor" red="0.92156862745098034" green="0.30196078431372547" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Ede-Lm-McM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelScanButtonDidPress:" destination="wam-BX-U75" eventType="touchUpInside" id="NQS-Pf-RNP"/>
+                                </connections>
+                            </button>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lPs-0n-DQb">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="wmV-34-SnM">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w1D-Fo-61D" customClass="DesignableView" customModule="ShortList" customModuleProvider="target">
+                                            <rect key="frame" x="157" y="125" width="287" height="353"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode" translatesAutoresizingMaskIntoConstraints="NO" id="GDi-Wj-ogV">
+                                                    <rect key="frame" x="80" y="31" width="128" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="128" id="As4-lU-4sP"/>
+                                                        <constraint firstAttribute="height" constant="128" id="gjW-H4-mxm"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="SCAN A CONTACT" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ig8-Pr-1uh">
+                                                    <rect key="frame" x="54" y="170" width="179" height="40"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="6jK-uW-3fu"/>
+                                                        <constraint firstAttribute="width" constant="179" id="nfx-gB-Y2a"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.25882352941176473" green="0.54509803921568623" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="to save someone's info." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ypV-pg-VNP">
+                                                    <rect key="frame" x="67" y="198" width="153" height="33"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="153" id="5hq-JW-OUL"/>
+                                                        <constraint firstAttribute="height" constant="33" id="Ni5-IM-4bx"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="SCAN A LIST" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ctR-Yg-MA4">
+                                                    <rect key="frame" x="81" y="225" width="124" height="40"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="GnZ-w4-hXD"/>
+                                                        <constraint firstAttribute="width" constant="124" id="sVm-c6-FaX"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.25882352939999997" green="0.5450980392" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="to join in on the fun!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BXm-KX-bn2">
+                                                    <rect key="frame" x="76" y="253" width="135" height="33"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="135" id="2pm-38-EhW"/>
+                                                        <constraint firstAttribute="height" constant="33" id="hYu-5i-1EQ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaO-RU-zfF">
+                                                    <rect key="frame" x="247" y="0.0" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="NO1-fm-A3I"/>
+                                                        <constraint firstAttribute="height" constant="40" id="eX5-hZ-OgQ"/>
+                                                    </constraints>
+                                                    <state key="normal" image="cancel-button"/>
+                                                    <connections>
+                                                        <action selector="modalCancelScanButtonDidPress:" destination="wam-BX-U75" eventType="touchUpInside" id="r1m-5n-Rnj"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3da-Gg-ZtA" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="301" width="249" height="44"/>
+                                                    <color key="backgroundColor" red="0.29803921568627451" green="0.58823529411764708" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="DRJ-Le-t8c"/>
+                                                        <constraint firstAttribute="width" constant="249" id="jQf-oT-1tx"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                                    <state key="normal" title="Start">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="modalStartScanButtonDidPress:" destination="wam-BX-U75" eventType="touchUpInside" id="gTT-Wn-Q9d"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="GDi-Wj-ogV" firstAttribute="centerX" secondItem="w1D-Fo-61D" secondAttribute="centerX" id="2My-CD-ixq"/>
+                                                <constraint firstAttribute="trailing" secondItem="XaO-RU-zfF" secondAttribute="trailing" id="2yQ-rn-1FA"/>
+                                                <constraint firstItem="3da-Gg-ZtA" firstAttribute="centerX" secondItem="GDi-Wj-ogV" secondAttribute="centerX" id="3xB-lg-rDp"/>
+                                                <constraint firstItem="XaO-RU-zfF" firstAttribute="top" secondItem="w1D-Fo-61D" secondAttribute="top" id="7Sf-hc-rrh"/>
+                                                <constraint firstItem="ypV-pg-VNP" firstAttribute="top" secondItem="GDi-Wj-ogV" secondAttribute="bottom" constant="39" id="IbY-wT-ZwB"/>
+                                                <constraint firstItem="BXm-KX-bn2" firstAttribute="centerX" secondItem="w1D-Fo-61D" secondAttribute="centerX" id="MKn-27-sgj"/>
+                                                <constraint firstItem="3da-Gg-ZtA" firstAttribute="bottom" secondItem="w1D-Fo-61D" secondAttribute="bottomMargin" id="PXI-jN-Ngw"/>
+                                                <constraint firstItem="ypV-pg-VNP" firstAttribute="centerX" secondItem="w1D-Fo-61D" secondAttribute="centerX" id="SrZ-tm-wwQ"/>
+                                                <constraint firstItem="Ig8-Pr-1uh" firstAttribute="centerX" secondItem="w1D-Fo-61D" secondAttribute="centerX" id="TdT-6U-68j"/>
+                                                <constraint firstItem="ctR-Yg-MA4" firstAttribute="top" secondItem="Ig8-Pr-1uh" secondAttribute="bottom" constant="15" id="bL8-G1-D2p"/>
+                                                <constraint firstItem="GDi-Wj-ogV" firstAttribute="top" secondItem="w1D-Fo-61D" secondAttribute="top" constant="31" id="euz-Ul-GNP"/>
+                                                <constraint firstItem="Ig8-Pr-1uh" firstAttribute="top" secondItem="GDi-Wj-ogV" secondAttribute="bottom" constant="11" id="fzk-Fo-kCw"/>
+                                                <constraint firstAttribute="width" constant="287" id="huO-dS-hTw"/>
+                                                <constraint firstItem="ctR-Yg-MA4" firstAttribute="centerX" secondItem="w1D-Fo-61D" secondAttribute="centerX" id="t40-Lo-Em6"/>
+                                                <constraint firstItem="BXm-KX-bn2" firstAttribute="top" secondItem="ypV-pg-VNP" secondAttribute="bottom" constant="22" id="uq9-VA-zFp"/>
+                                                <constraint firstAttribute="height" constant="353" id="ybF-gV-AX8"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideUp"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                                    <real key="value" value="0.0"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="w1D-Fo-61D" firstAttribute="centerY" secondItem="wmV-34-SnM" secondAttribute="centerY" constant="1.5" id="R30-8Q-Tab"/>
+                                        <constraint firstItem="w1D-Fo-61D" firstAttribute="centerX" secondItem="wmV-34-SnM" secondAttribute="centerX" id="S9X-3i-6FY"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lPs-0n-DQb" firstAttribute="top" secondItem="WaC-jB-gKX" secondAttribute="top" id="EWj-VS-TsW"/>
+                            <constraint firstItem="4re-GM-Mbl" firstAttribute="top" secondItem="fhT-8p-zG3" secondAttribute="bottom" id="MLh-vm-I4g"/>
+                            <constraint firstAttribute="trailing" secondItem="lPs-0n-DQb" secondAttribute="trailing" id="bSP-Kv-tfX"/>
+                            <constraint firstItem="fhT-8p-zG3" firstAttribute="leading" secondItem="WaC-jB-gKX" secondAttribute="leading" id="bu2-vC-9fk"/>
+                            <constraint firstItem="lPs-0n-DQb" firstAttribute="leading" secondItem="WaC-jB-gKX" secondAttribute="leading" id="ftK-td-jnm"/>
+                            <constraint firstItem="4re-GM-Mbl" firstAttribute="top" secondItem="lPs-0n-DQb" secondAttribute="bottom" id="rrc-zq-0qP"/>
+                            <constraint firstAttribute="trailing" secondItem="fhT-8p-zG3" secondAttribute="trailing" id="tPd-QL-44e"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Scan" id="BAZ-4I-W8Z"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="blurView" destination="lPs-0n-DQb" id="Y7w-Ge-Jlk"/>
+                        <outlet property="cancelScanButton" destination="fhT-8p-zG3" id="yxh-u9-elE"/>
+                        <outlet property="modalCancelScanButton" destination="XaO-RU-zfF" id="4yL-Nz-cd2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p1y-MU-1HB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-90" y="1686"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cancel-button" width="18" height="17"/>
+        <image name="qrcode" width="128" height="128"/>
+    </resources>
+</document>

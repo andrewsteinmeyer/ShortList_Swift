@@ -1,5 +1,5 @@
 //
-//  ListsTabBarController.swift
+//  MainTabBarController.swift
 //  ShortList
 //
 //  Created by Andrew Steinmeyer on 12/19/15.
@@ -8,12 +8,7 @@
 
 import UIKit
 
-enum ListsTabBar: Int {
-  case MyLists = 0
-  case JoinedLists
-}
-
-class ListsTabBarController: UITabBarController {
+class MainTabBarController: UITabBarController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
