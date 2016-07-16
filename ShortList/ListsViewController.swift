@@ -29,6 +29,7 @@ class ListsViewController: FetchedResultsTableViewController {
     var tempControl = DZNSegmentedControl.init(items: menuItems)
     tempControl.selectedSegmentIndex = 0
     tempControl.height = 60
+    tempControl.showsCount = false
     tempControl.delegate = self
     
     // call didChangeSegment when user taps segment control
@@ -160,6 +161,20 @@ class ListsViewController: FetchedResultsTableViewController {
   
   func didChangeSegment() {
     self.setNeedsLoadContent()
+  }
+  
+  // MARK: - Static functions
+  
+  static func presentListsViewController() {
+    
+    // find the reveal controller
+    if let revealVC = AppDelegate.getRootViewController() as? SWRevealViewController {
+      
+      // update menu sidebar
+      if let menuVC = revealVC.rightViewController as? MenuTableViewController {
+        menuVC.performSegueWithIdentifier("showLists", sender: ListsViewController())
+      }
+    }
   }
   
 }
