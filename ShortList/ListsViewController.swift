@@ -153,6 +153,9 @@ class ListsViewController: FetchedResultsTableViewController {
   
   private func setupAppearance() {
     self.navigationItem.rightBarButtonItem?.tintColor = Theme.NavigationBarActionButtonTextColor.toUIColor()
+    
+    let textColor = Theme.NavigationBarTintColor.toUIColor()
+    self.navigationController?.navigationBar.titleTextAttributes =   ([NSFontAttributeName: UIFont(name: "Lato", size: 23)!, NSForegroundColorAttributeName: textColor])
   }
   
   func didChangeSegment() {

@@ -85,8 +85,8 @@
         <!--Lists-->
         <scene sceneID="i3q-xV-0p7">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nfv-nH-50t" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Lists" image="bullet_list" id="O9X-xW-GxQ"/>
+                <navigationController storyboardIdentifier="ListsNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="nfv-nH-50t" customClass="ListsNavigationViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="1" title="Lists" image="bullet_list" id="O9X-xW-GxQ"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4z3-I0-Yla">

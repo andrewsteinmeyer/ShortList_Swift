@@ -172,6 +172,9 @@
 		4E7C60821C3B5F420042CE4F /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7C60811C3B5F420042CE4F /* EventsViewController.swift */; };
 		4E7C60841C3B5FD30042CE4F /* EventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7C60831C3B5FD30042CE4F /* EventsTableViewCell.swift */; };
 		4E7C60861C3B62F70042CE4F /* EventsNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7C60851C3B62F70042CE4F /* EventsNavigationViewController.swift */; };
+		4E7FB3CE1D37AAA4005A4043 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7FB3CD1D37AAA4005A4043 /* MainTabBarController.swift */; };
+		4E7FB3D01D37F68D005A4043 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7FB3CF1D37F68D005A4043 /* MoreViewController.swift */; };
+		4E7FB3D21D395058005A4043 /* ListsNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7FB3D11D395058005A4043 /* ListsNavigationViewController.swift */; };
 		4E8979F11D31358500B0E5E7 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8979F01D31358500B0E5E7 /* LogInViewController.swift */; };
 		4E8D889F1C83A87A00A8B68B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8D889E1C83A87A00A8B68B /* Alert.swift */; };
 		4E8D88A11C83B17200A8B68B /* AlertsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8D88A01C83B17200A8B68B /* AlertsTableViewCell.swift */; };
@@ -182,7 +185,6 @@
 		4EA365301C2380BD00C90249 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA3652F1C2380BD00C90249 /* AccountManager.swift */; };
 		4EA365321C23AFCA00C90249 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA365311C23AFCA00C90249 /* ContactsViewController.swift */; };
 		4EA365361C23C44A00C90249 /* MeteorContactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA365351C23C44A00C90249 /* MeteorContactService.swift */; };
-		4EA89FB71C25E0F200163C57 /* ListsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA89FB61C25E0F200163C57 /* ListsTabBarController.swift */; };
 		4EA89FBB1C261AD800163C57 /* CreateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA89FBA1C261AD800163C57 /* CreateListViewController.swift */; };
 		4EA89FBD1C27097900163C57 /* SelectContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA89FBC1C27097900163C57 /* SelectContactsViewController.swift */; };
 		4EC2F2DD1D35B61B0035FD7F /* MainTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2F2DC1D35B61B0035FD7F /* MainTabBar.storyboard */; };
@@ -453,6 +455,9 @@
 		4E7C60811C3B5F420042CE4F /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		4E7C60831C3B5FD30042CE4F /* EventsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewCell.swift; sourceTree = "<group>"; };
 		4E7C60851C3B62F70042CE4F /* EventsNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsNavigationViewController.swift; sourceTree = "<group>"; };
+		4E7FB3CD1D37AAA4005A4043 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		4E7FB3CF1D37F68D005A4043 /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		4E7FB3D11D395058005A4043 /* ListsNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsNavigationViewController.swift; sourceTree = "<group>"; };
 		4E8979F01D31358500B0E5E7 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		4E8D889E1C83A87A00A8B68B /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		4E8D88A01C83B17200A8B68B /* AlertsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsTableViewCell.swift; sourceTree = "<group>"; };
@@ -463,7 +468,6 @@
 		4EA3652F1C2380BD00C90249 /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		4EA365311C23AFCA00C90249 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		4EA365351C23C44A00C90249 /* MeteorContactService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorContactService.swift; sourceTree = "<group>"; };
-		4EA89FB61C25E0F200163C57 /* ListsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsTabBarController.swift; sourceTree = "<group>"; };
 		4EA89FBA1C261AD800163C57 /* CreateListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateListViewController.swift; sourceTree = "<group>"; };
 		4EA89FBC1C27097900163C57 /* SelectContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectContactsViewController.swift; sourceTree = "<group>"; };
 		4EC2F2DC1D35B61B0035FD7F /* MainTabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainTabBar.storyboard; sourceTree = "<group>"; };
@@ -869,7 +873,8 @@
 			children = (
 				4EA365291C2224B500C90249 /* SignInViewController.swift */,
 				4E8979F01D31358500B0E5E7 /* LogInViewController.swift */,
-				4EA89FB61C25E0F200163C57 /* ListsTabBarController.swift */,
+				4E7FB3CD1D37AAA4005A4043 /* MainTabBarController.swift */,
+				4E7FB3CF1D37F68D005A4043 /* MoreViewController.swift */,
 				4E60A0DD1C30851900D66A9A /* PlacePickerViewController.swift */,
 				4E3CDE0A1C5EE79A0005A5F7 /* MenuTableViewController.swift */,
 				4EA89FBE1C27099F00163C57 /* Home */,
@@ -1128,6 +1133,7 @@
 		4EA89FBF1C2709B200163C57 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				4E7FB3D11D395058005A4043 /* ListsNavigationViewController.swift */,
 				4E63134D1C1FBAED00EB78F9 /* ListsViewController.swift */,
 				4E5AF2291C45E5CE00192C40 /* JoinedListsViewController.swift */,
 				4EA89FBA1C261AD800163C57 /* CreateListViewController.swift */,
@@ -1601,6 +1607,7 @@
 				4E5925811C97925A00755323 /* ShareListsViewController.swift in Sources */,
 				4EA365361C23C44A00C90249 /* MeteorContactService.swift in Sources */,
 				4EF32A401C80943E0078B69A /* README.md in Sources */,
+				4E7FB3CE1D37AAA4005A4043 /* MainTabBarController.swift in Sources */,
 				4E6313011C1FB28000EB78F9 /* KeyboardLayoutConstraint.swift in Sources */,
 				4EA3652A1C2224B500C90249 /* SignInViewController.swift in Sources */,
 				4E1C46F01C7DE53500C22101 /* MaxLengthRule.swift in Sources */,
@@ -1663,7 +1670,6 @@
 				4E1C46F51C7DE53500C22101 /* RequiredRule.swift in Sources */,
 				4E63132B1C1FB2DE00EB78F9 /* User.swift in Sources */,
 				4EF329F31C80931C0078B69A /* METAleaRandomValueGenerator.m in Sources */,
-				4EA89FB71C25E0F200163C57 /* ListsTabBarController.swift in Sources */,
 				4EF32A4C1C8094490078B69A /* A0SimpleKeychain+KeyPair.m in Sources */,
 				4EA365301C2380BD00C90249 /* AccountManager.swift in Sources */,
 				4EC403F31C7667FB0056D5F3 /* UIImage+Alpha.swift in Sources */,
@@ -1680,6 +1686,7 @@
 				4E3288C51C24B99C00F936DF /* CreateContactViewController.swift in Sources */,
 				4E3CDE0B1C5EE79A0005A5F7 /* MenuTableViewController.swift in Sources */,
 				4EF32A0A1C80931C0078B69A /* METNetworkReachabilityManager.m in Sources */,
+				4E7FB3D01D37F68D005A4043 /* MoreViewController.swift in Sources */,
 				4E6312F91C1FB28000EB78F9 /* DesignableImageView.swift in Sources */,
 				4E719C0D1C3F60C3009989AC /* SelectListViewController.swift in Sources */,
 				4E8FA7361CB20175003FC81C /* AttendeeCollectionViewCell.swift in Sources */,
@@ -1775,6 +1782,7 @@
 				4E1C46C41C7DE28200C22101 /* OrderedDictionary.swift in Sources */,
 				4E1C46F61C7DE53500C22101 /* Rule.swift in Sources */,
 				4E1C46F71C7DE53500C22101 /* ValidationRule.swift in Sources */,
+				4E7FB3D21D395058005A4043 /* ListsNavigationViewController.swift in Sources */,
 				4EF329FF1C80931C0078B69A /* METDocument.m in Sources */,
 				4E51AB881C945A0F00260D82 /* NSTimeInterval.swift in Sources */,
 				4E1C46EC1C7DE53500C22101 /* FullNameRule.swift in Sources */,

@@ -13,13 +13,12 @@ class EventsNavigationViewController: UINavigationController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // Do any additional setup after loading the view.
+    let textColor = Theme.NavigationBarTintColor.toUIColor()
+    self.navigationBar.titleTextAttributes =   ([NSFontAttributeName: UIFont(name: "Lato", size: 23)!, NSForegroundColorAttributeName: textColor])
   }
   
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+  override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    return .LightContent
   }
-  
-  
+
 }

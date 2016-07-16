@@ -14,9 +14,11 @@ enum Theme {
   private struct Palette {
     
     //static let mainThemeColor             = "F5D76E"
-    static let mainThemeColor               = "FFD673"
+    ///static let mainThemeColor               = "FFD673"
+    static let mainThemeColor               = "639DD4"
     static let mainThemeBackgroundColor     = "303E4D"
-    static let mainThemeTextColor           = "333333"
+    ///static let mainThemeTextColor           = "333333"
+    static let mainThemeTextColor           = "FFFFFF"
     static let mainThemeErrorColor          = "EB4D5C"
     //static let mainThemeErrorColor          = "DE495B"
     static let mainThemeButtonTextColor     = "007AFF"
@@ -24,6 +26,9 @@ enum Theme {
     
     static let menuTextColor                = "FFECDB"
     //static let menuIconColor              = "FCE353"  //brighter yellow
+    
+    static let activeTabBarItemColor        = "639DD4"
+    static let navBarActionButtonColor      = "FFD673"
     
     static let tableCellBackgroundColor     = "FFFFFF"
     static let tableCellSelectedColor       = "4C9689"
@@ -130,16 +135,16 @@ enum Theme {
     // Navigation
     case .NavigationBarTintColor:                        return HexColor(Palette.mainThemeTextColor)
     case .NavigationBarBackgroundColor:                  return HexColor(Palette.mainThemeColor)
-    case .NavigationBarActionButtonTextColor:            return HexColor(Palette.mainThemeButtonTextColor)
+    case .NavigationBarActionButtonTextColor:            return HexColor(Palette.navBarActionButtonColor)
     
     // TabBar
-    case .TabBarButtonTintColor:                         return HexColor(Palette.mainThemeTextColor)
+    case .TabBarButtonTintColor:                         return HexColor(Palette.activeTabBarItemColor)
       
     // Menu
     case .MenuHeaderViewBackgroundColor:                 return HexColor(Palette.mainThemeBackgroundColor)
     case .MenuHeaderViewTextColor:                       return HexColor(Palette.menuTextColor)
     case .MenuTableViewCellBackgroundColor:              return HexColor(Palette.mainThemeBackgroundColor)
-    case .MenuTableViewCellBackgroundSelectedColor:      return HexColor(Palette.mainThemeColor)
+    case .MenuTableViewCellBackgroundSelectedColor:      return HexColor(Palette.mainThemeBackgroundColor)
     case .MenuTableViewCellTextColor:                    return HexColor(Palette.menuTextColor)
     case .MenuTableViewCellTextSelectedColor:            return ContrastColorOf(Theme.MenuTableViewCellBackgroundSelectedColor.toUIColor(), returnFlat: true)
     case .MenuTableViewIconColor:                        return HexColor(Palette.mainThemeColor)

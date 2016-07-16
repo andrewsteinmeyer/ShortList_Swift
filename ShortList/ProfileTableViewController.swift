@@ -87,8 +87,10 @@ class ProfileTableViewController: UITableViewController {
   private func setupAppearance() {
     // set button color
     let buttonTextColor = Theme.ProfileLogoutButtonTextColor.toUIColor()
-
     logoutButton.setTitleColor(buttonTextColor, forState: .Normal)
+    
+    let textColor = Theme.NavigationBarTintColor.toUIColor()
+    self.navigationController?.navigationBar.titleTextAttributes =   ([NSFontAttributeName: UIFont(name: "Lato", size: 23)!, NSForegroundColorAttributeName: textColor])
   }
   
   //MARK: UITableViewDelegate

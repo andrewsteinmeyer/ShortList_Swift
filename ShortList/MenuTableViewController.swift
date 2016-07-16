@@ -10,69 +10,35 @@ import UIKit
 import ChameleonFramework
 
 enum Menu: Int {
-  case Home = 0
-  case Lists
-  case Venues
-  case Events
+  case Venues = 0
   case Contacts
-  case Scan
-  case Share
-  case Spacer
+  case Notifications
   case Profile
 }
 
 class MenuTableViewController: UITableViewController {
-
-  // Header
-  @IBOutlet weak var headerView: UIView!
-  @IBOutlet weak var nameLabel: UILabel!
-  @IBOutlet weak var emailLabel: UILabel!
- 
-  // Home
-  @IBOutlet weak var homeTableViewCell: UITableViewCell!
-  @IBOutlet weak var homeTitleLabel: UILabel!
-  @IBOutlet weak var homeIconImageView: UIImageView!
-  
-  // Lists
-  @IBOutlet weak var listsTableViewCell: UITableViewCell!
-  @IBOutlet weak var listsTitleLabel: UILabel!
-  @IBOutlet weak var listsIconImageView: UIImageView!
   
   // Venues
   @IBOutlet weak var venuesTableViewCell: UITableViewCell!
   @IBOutlet weak var venuesTitleLabel: UILabel!
   @IBOutlet weak var venuesIconImageView: UIImageView!
   
-  // Events
-  @IBOutlet weak var eventsTableViewCell: UITableViewCell!
-  @IBOutlet weak var eventsTitleLabel: UILabel!
-  @IBOutlet weak var eventsIconImageView: UIImageView!
-  
   // Contacts
   @IBOutlet weak var contactsTableViewCell: UITableViewCell!
   @IBOutlet weak var contactsTitleLabel: UILabel!
   @IBOutlet weak var contactsIconImageView: UIImageView!
   
-  // Scan
-  @IBOutlet weak var scanTableViewCell: UITableViewCell!
-  @IBOutlet weak var scanTitleLabel: UILabel!
-  @IBOutlet weak var scanIconImageView: UIImageView!
-  
-  @IBOutlet weak var shareTableViewCell: UITableViewCell!
-  @IBOutlet weak var shareTitleLabel: UILabel!
-  @IBOutlet weak var shareIconImageView: UIImageView!
-  
-  // Spacer
-  @IBOutlet weak var spacerTableViewCell: UITableViewCell!
+  // Notifications
+  @IBOutlet weak var notificationsTableViewCell: UITableViewCell!
+  @IBOutlet weak var notificationsTitleLabel: UILabel!
+  @IBOutlet weak var notificationsIconImageView: UIImageView!
   
   // Profile
   @IBOutlet weak var profileTableViewCell: UITableViewCell!
   @IBOutlet weak var profileTitleLabel: UILabel!
   @IBOutlet weak var profileIconImageView: UIImageView!
   
-  
-  // initial selected row is .Home
-  var selectedRow: Menu = .Home
+  var selectedRow: Menu = .Venues
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -81,21 +47,7 @@ class MenuTableViewController: UITableViewController {
     setupMenuAppearance()
   }
   
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
-    
-    // set user details
-    // TODO: add event listener for when user has successfully logged in.
-    //       update the emailAddress and name when notified of succesful log in.
-    if let user = AccountManager.defaultAccountManager.currentUser {
-      emailLabel.text = user.emailAddress
-      nameLabel.text = user.fullName
-    }
-    
-    // set the selected row before the view appears
-    setSelectedRow(selectedRow)
-  }
-  
+  /*
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if let identifier = segue.identifier {
       if identifier == "showContacts" && sender!.isKindOfClass(ContactsViewController) {
@@ -109,15 +61,13 @@ class MenuTableViewController: UITableViewController {
       }
     }
   }
+  */
   
   //MARK: - Private methods
   
   private func setupMenuAppearance() {
     // set main background color
     view.backgroundColor = Theme.MenuTableViewCellBackgroundColor.toUIColor()
-    
-    // set colors on header
-    setupHeaderAppearance()
     
     // set colors on menu rows
     setupMenuTableViewCells()
@@ -136,81 +86,50 @@ class MenuTableViewController: UITableViewController {
   private func setCellBackgroundColor() {
     let backgroundColor = Theme.MenuTableViewCellBackgroundColor.toUIColor()
   
-    homeTableViewCell.backgroundColor = backgroundColor
-    listsTableViewCell.backgroundColor = backgroundColor
     venuesTableViewCell.backgroundColor = backgroundColor
-    eventsTableViewCell.backgroundColor = backgroundColor
     contactsTableViewCell.backgroundColor = backgroundColor
-    scanTableViewCell.backgroundColor = backgroundColor
-    shareTableViewCell.backgroundColor = backgroundColor
-    spacerTableViewCell.backgroundColor = backgroundColor
+    notificationsTableViewCell.backgroundColor = backgroundColor
     profileTableViewCell.backgroundColor = backgroundColor
   }
   
   private func setSelectedCellColor() {
     // create the selected color view
-    let selectedColorView = UIView(frame: homeTableViewCell.bounds)
+    let selectedColorView = UIView(frame: venuesTableViewCell.bounds)
     selectedColorView.backgroundColor = Theme.MenuTableViewCellBackgroundSelectedColor.toUIColor()
     
     // set the selected color view
     // this color appears when the user selects a row
-    homeTableViewCell.selectedBackgroundView = selectedColorView
-    listsTableViewCell.selectedBackgroundView = selectedColorView
     venuesTableViewCell.selectedBackgroundView = selectedColorView
-    eventsTableViewCell.selectedBackgroundView = selectedColorView
     contactsTableViewCell.selectedBackgroundView = selectedColorView
-    scanTableViewCell.selectedBackgroundView = selectedColorView
-    shareTableViewCell.selectedBackgroundView = selectedColorView
+    notificationsTableViewCell.selectedBackgroundView = selectedColorView
     profileTableViewCell.selectedBackgroundView = selectedColorView
   }
   
   private func setInitialTextColor() {
     let initialTextColor = Theme.MenuTableViewCellTextColor.toUIColor()
-    homeTitleLabel.textColor = initialTextColor
-    listsTitleLabel.textColor = initialTextColor
     venuesTitleLabel.textColor = initialTextColor
-    eventsTitleLabel.textColor = initialTextColor
     contactsTitleLabel.textColor = initialTextColor
-    scanTitleLabel.textColor = initialTextColor
-    shareTitleLabel.textColor = initialTextColor
+    notificationsTitleLabel.textColor = initialTextColor
     profileTitleLabel.textColor = initialTextColor
   }
   
   private func setInitialIconColor() {
     let initialIconColor = Theme.MenuTableViewIconColor.toUIColor()
     
-    let homeImage = homeIconImageView.image?.imageWithColor(initialIconColor)
-    homeIconImageView.image = homeImage
-    
-    let listImage = listsIconImageView.image?.imageWithColor(initialIconColor)
-    listsIconImageView.image = listImage
-    
     let venueImage = venuesIconImageView.image?.imageWithColor(initialIconColor)
     venuesIconImageView.image = venueImage
-    
-    let eventImage = eventsIconImageView.image?.imageWithColor(initialIconColor)
-    eventsIconImageView.image = eventImage
     
     let contactImage = contactsIconImageView.image?.imageWithColor(initialIconColor)
     contactsIconImageView.image = contactImage
     
-    let scanImage = scanIconImageView.image?.imageWithColor(initialIconColor)
-    scanIconImageView.image = scanImage
-    
-    let shareImage = shareIconImageView.image?.imageWithColor(initialIconColor)
-    shareIconImageView.image = shareImage
+    let notificationsImage = notificationsIconImageView.image?.imageWithColor(initialIconColor)
+    notificationsIconImageView.image = notificationsImage
     
     let profileImage = profileIconImageView.image?.imageWithColor(initialIconColor)
     profileIconImageView.image = profileImage
   }
   
-  private func setupHeaderAppearance() {
-    headerView.backgroundColor = Theme.MenuHeaderViewBackgroundColor.toUIColor()
-    emailLabel.textColor = Theme.MenuHeaderViewTextColor.toUIColor()
-    nameLabel.textColor = Theme.MenuHeaderViewTextColor.toUIColor()
-  }
-  
-  private func setSelectedRow(row: Menu = .Home) {
+  private func setSelectedRow(row: Menu = .Venues) {
     // if a previous row was selected,
     // then set its colors back to unselected
     let previousRow = selectedRow
@@ -241,43 +160,21 @@ class MenuTableViewController: UITableViewController {
   private func updateRow(menuRow: Menu, imageColor: UIColor, textColor: UIColor, selected: Bool) {
     // update corresponding row
     switch menuRow {
-    case .Home:
-      let image = homeIconImageView.image?.imageWithColor(imageColor)
-      homeIconImageView.image = image
-      homeTitleLabel.textColor = textColor
-      homeTableViewCell.selected = selected
-    case .Lists:
-      let image = listsIconImageView.image?.imageWithColor(imageColor)
-      listsIconImageView.image = image
-      listsTitleLabel.textColor = textColor
-      listsTableViewCell.selected = selected
     case .Venues:
       let image = venuesIconImageView.image?.imageWithColor(imageColor)
       venuesIconImageView.image = image
       venuesTitleLabel.textColor = textColor
       venuesTableViewCell.selected = selected
-    case .Events:
-      let image = eventsIconImageView.image?.imageWithColor(imageColor)
-      eventsIconImageView.image = image
-      eventsTitleLabel.textColor = textColor
-      eventsTableViewCell.selected = selected
     case .Contacts:
       let image = contactsIconImageView.image?.imageWithColor(imageColor)
       contactsIconImageView.image = image
       contactsTitleLabel.textColor = textColor
       contactsTableViewCell.selected = selected
-    case .Scan:
-      let image = scanIconImageView.image?.imageWithColor(imageColor)
-      scanIconImageView.image = image
-      scanTitleLabel.textColor = textColor
-      scanTableViewCell.selected = selected
-    case .Share:
-      let image = shareIconImageView.image?.imageWithColor(imageColor)
-      shareIconImageView.image = image
-      shareTitleLabel.textColor = textColor
-      shareTableViewCell.selected = selected
-    case .Spacer:
-      break
+    case .Notifications:
+      let image = notificationsIconImageView.image?.imageWithColor(imageColor)
+      notificationsIconImageView.image = image
+      notificationsTitleLabel.textColor = textColor
+      notificationsTableViewCell.selected = selected
     case .Profile:
       let image = profileIconImageView.image?.imageWithColor(imageColor)
       profileIconImageView.image = image

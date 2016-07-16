@@ -1,15 +1,15 @@
 //
-//  VenuesNavigationViewController.swift
+//  ListsNavigationViewController.swift
 //  ShortList
 //
-//  Created by Andrew Steinmeyer on 12/24/15.
-//  Copyright © 2015 Andrew Steinmeyer. All rights reserved.
+//  Created by Andrew Steinmeyer on 7/15/16.
+//  Copyright © 2016 Andrew Steinmeyer. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class VenuesNavigationViewController: UINavigationController {
-
+class ListsNavigationViewController: UINavigationController {
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -20,5 +20,6 @@ class VenuesNavigationViewController: UINavigationController {
   override func preferredStatusBarStyle() -> UIStatusBarStyle {
     return .LightContent
   }
-
+  
 }
+

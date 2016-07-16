@@ -19,7 +19,7 @@
         <!--Scan-->
         <scene sceneID="Uea-jy-zgh">
             <objects>
-                <viewController id="wam-BX-U75" customClass="ScanViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScanViewController" id="wam-BX-U75" customClass="ScanViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lGI-f8-C8j"/>
                         <viewControllerLayoutGuide type="bottom" id="4re-GM-Mbl"/>
@@ -100,17 +100,6 @@
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaO-RU-zfF">
-                                                    <rect key="frame" x="247" y="0.0" width="40" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="NO1-fm-A3I"/>
-                                                        <constraint firstAttribute="height" constant="40" id="eX5-hZ-OgQ"/>
-                                                    </constraints>
-                                                    <state key="normal" image="cancel-button"/>
-                                                    <connections>
-                                                        <action selector="modalCancelScanButtonDidPress:" destination="wam-BX-U75" eventType="touchUpInside" id="r1m-5n-Rnj"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3da-Gg-ZtA" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="301" width="249" height="44"/>
                                                     <color key="backgroundColor" red="0.29803921568627451" green="0.58823529411764708" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
@@ -135,9 +124,7 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="GDi-Wj-ogV" firstAttribute="centerX" secondItem="w1D-Fo-61D" secondAttribute="centerX" id="2My-CD-ixq"/>
-                                                <constraint firstAttribute="trailing" secondItem="XaO-RU-zfF" secondAttribute="trailing" id="2yQ-rn-1FA"/>
                                                 <constraint firstItem="3da-Gg-ZtA" firstAttribute="centerX" secondItem="GDi-Wj-ogV" secondAttribute="centerX" id="3xB-lg-rDp"/>
-                                                <constraint firstItem="XaO-RU-zfF" firstAttribute="top" secondItem="w1D-Fo-61D" secondAttribute="top" id="7Sf-hc-rrh"/>
                                                 <constraint firstItem="ypV-pg-VNP" firstAttribute="top" secondItem="GDi-Wj-ogV" secondAttribute="bottom" constant="39" id="IbY-wT-ZwB"/>
                                                 <constraint firstItem="BXm-KX-bn2" firstAttribute="centerX" secondItem="w1D-Fo-61D" secondAttribute="centerX" id="MKn-27-sgj"/>
                                                 <constraint firstItem="3da-Gg-ZtA" firstAttribute="bottom" secondItem="w1D-Fo-61D" secondAttribute="bottomMargin" id="PXI-jN-Ngw"/>
@@ -163,11 +150,13 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="w1D-Fo-61D" firstAttribute="centerY" secondItem="wmV-34-SnM" secondAttribute="centerY" constant="1.5" id="R30-8Q-Tab"/>
                                         <constraint firstItem="w1D-Fo-61D" firstAttribute="centerX" secondItem="wmV-34-SnM" secondAttribute="centerX" id="S9X-3i-6FY"/>
                                     </constraints>
                                 </view>
+                                <color key="backgroundColor" red="0.25882352939999997" green="0.5450980392" blue="0.79215686269999996" alpha="0.50201480263157894" colorSpace="calibratedRGB"/>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
                         </subviews>
@@ -182,12 +171,11 @@
                             <constraint firstAttribute="trailing" secondItem="fhT-8p-zG3" secondAttribute="trailing" id="tPd-QL-44e"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Scan" id="BAZ-4I-W8Z"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Scan" image="qrcode_tabbar" id="BAZ-4I-W8Z"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="blurView" destination="lPs-0n-DQb" id="Y7w-Ge-Jlk"/>
                         <outlet property="cancelScanButton" destination="fhT-8p-zG3" id="yxh-u9-elE"/>
-                        <outlet property="modalCancelScanButton" destination="XaO-RU-zfF" id="4yL-Nz-cd2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p1y-MU-1HB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -196,7 +184,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cancel-button" width="18" height="17"/>
         <image name="qrcode" width="128" height="128"/>
+        <image name="qrcode_tabbar" width="25" height="25"/>
     </resources>
 </document>

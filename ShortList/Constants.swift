@@ -30,12 +30,12 @@ struct Constants {
   struct EmptyDataSet {
     
     struct Title {
-      static let FontName = "Lato-Regular"
+      static let FontName = "Lato"
       static let FontSize: CGFloat = 28.0
     }
     
     struct Description {
-      static let FontName = "Lato-Regular"
+      static let FontName = "Lato"
       static let FontSize: CGFloat = 18.0
     }
     
