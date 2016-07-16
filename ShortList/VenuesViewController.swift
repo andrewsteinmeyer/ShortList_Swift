@@ -13,8 +13,6 @@ import DZNEmptyDataSet
 class VenuesViewController: FetchedResultsTableViewController {
   typealias NamedValues = [String:AnyObject]
   
-  @IBOutlet weak var menuButton: UIBarButtonItem!
-  
   private let subscriptionName = "PrivateVenues"
   private let modelName = "Venue"
   
@@ -23,12 +21,6 @@ class VenuesViewController: FetchedResultsTableViewController {
     
     // set CoreData context
     self.managedObjectContext = Meteor.mainQueueManagedObjectContext
-    
-    if self.revealViewController() != nil {
-      menuButton.target = self.revealViewController()
-      menuButton.action = "revealToggle:"
-      self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-    }
     
     // setup delegates for empty data
     self.tableView.emptyDataSetDelegate = self

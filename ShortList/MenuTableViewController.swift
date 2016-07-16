@@ -9,14 +9,14 @@
 import UIKit
 import ChameleonFramework
 
-enum Menu: Int {
-  case Venues = 0
-  case Contacts
-  case Notifications
-  case Profile
-}
-
 class MenuTableViewController: UITableViewController {
+  
+  private enum Menu: Int {
+    case Venues = 0
+    case Contacts
+    case Notifications
+    case Profile
+  }
   
   // Header
   @IBOutlet weak var headerView: UIView!
@@ -41,7 +41,7 @@ class MenuTableViewController: UITableViewController {
   @IBOutlet weak var profileTitleLabel: UILabel!
   @IBOutlet weak var profileIconImageView: UIImageView!
   
-  var selectedRow: Menu = .Venues
+  private var selectedRow: Menu = .Venues
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -185,7 +185,7 @@ class MenuTableViewController: UITableViewController {
   
   // highlighted row is the same color as the background for now
   // keeping this functionality in here in case that changes
-  func selectRow(row: Menu) {
+  private func selectRow(row: Menu) {
     let previousRow = selectedRow
     unhighlightRow(previousRow)
     
@@ -201,6 +201,28 @@ class MenuTableViewController: UITableViewController {
     }
     
     return true
+  }
+  
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    if let selectedRow = Menu(rawValue: indexPath.row) {
+      switch selectedRow {
+      case .Venues:
+        postVenuesRowPressedNotification()
+      case .Profile:
+        postProfileRowPressedNotification()
+      default: ()
+      }
+    }
+  }
+  
+  //MARK: - Notifications
+  
+  private func postProfileRowPressedNotification() {
+    NSNotificationCenter.defaultCenter().postNotificationName(Constants.MenuNotification.ProfileRowPressed, object: nil)
+  }
+  
+  private func postVenuesRowPressedNotification() {
+    NSNotificationCenter.defaultCenter().postNotificationName(Constants.MenuNotification.VenuesRowPressed, object: nil)
   }
   
 

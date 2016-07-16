@@ -96,4 +96,10 @@ struct Constants {
     static let TimeoutCellIdentifier = "TimeoutTableViewCell"
   }
   
+  // Menu Action Notifications
+  struct MenuNotification {
+    static let ProfileRowPressed = "shortlist.menu.profile.notification"
+    static let VenuesRowPressed = "shortlist.menu.venue.notification"
+  }
+  
 }

@@ -27,7 +27,7 @@ enum Theme {
     static let menuTextColor                = "FFECDB"
     //static let menuIconColor              = "FCE353"  //brighter yellow
     
-    static let navBarActionButtonColor      = "FFD673"
+    static let navBarActionButtonColor      = "FFFFFF"
     
     static let tableCellBackgroundColor     = "FFFFFF"
     static let tableCellSelectedColor       = "4C9689"

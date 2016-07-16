@@ -154,8 +154,6 @@ final class AccountManager: NSObject {
     }
   }
   
-
-  
   // MARK: Notification observers
   
   private func addObservers() {
