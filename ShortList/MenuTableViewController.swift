@@ -18,6 +18,9 @@ enum Menu: Int {
 
 class MenuTableViewController: UITableViewController {
   
+  // Header
+  @IBOutlet weak var headerView: UIView!
+  
   // Venues
   @IBOutlet weak var venuesTableViewCell: UITableViewCell!
   @IBOutlet weak var venuesTitleLabel: UILabel!
@@ -47,27 +50,14 @@ class MenuTableViewController: UITableViewController {
     setupMenuAppearance()
   }
   
-  /*
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if let identifier = segue.identifier {
-      if identifier == "showContacts" && sender!.isKindOfClass(ContactsViewController) {
-        selectRow(.Contacts)
-      }
-      else if identifier == "showHome" && sender!.isKindOfClass(HomeViewController) {
-        // make sure view is loaded for initial login/signup
-        if self.isViewLoaded() {
-          selectRow(.Home)
-        }
-      }
-    }
-  }
-  */
-  
   //MARK: - Private methods
   
   private func setupMenuAppearance() {
     // set main background color
     view.backgroundColor = Theme.MenuTableViewCellBackgroundColor.toUIColor()
+    
+    // set colors on header
+    setupHeaderAppearance()
     
     // set colors on menu rows
     setupMenuTableViewCells()
@@ -79,7 +69,7 @@ class MenuTableViewController: UITableViewController {
     setInitialTextColor()
     setInitialIconColor()
     
-    // trigger layoutSubviews() to set the new background views to the correct size
+    // trigger layoutSubviews() to refresh and set the new background views
     view.layoutSubviews()
   }
   
@@ -129,6 +119,10 @@ class MenuTableViewController: UITableViewController {
     profileIconImageView.image = profileImage
   }
   
+  private func setupHeaderAppearance() {
+    headerView.backgroundColor = Theme.MenuHeaderViewBackgroundColor.toUIColor()
+  }
+  
   private func setSelectedRow(row: Menu = .Venues) {
     // if a previous row was selected,
     // then set its colors back to unselected
@@ -142,6 +136,9 @@ class MenuTableViewController: UITableViewController {
     // store new selected row
     selectedRow = row
   }
+  
+  // highlighted row is the same color as the background for now
+  // keeping this functionality in here in case that changes
   
   private func unhighlightRow(row: Menu) {
     let imageColor = Theme.MenuTableViewIconColor.toUIColor()
@@ -186,6 +183,8 @@ class MenuTableViewController: UITableViewController {
   
   //MARK: - Helper methods
   
+  // highlighted row is the same color as the background for now
+  // keeping this functionality in here in case that changes
   func selectRow(row: Menu) {
     let previousRow = selectedRow
     unhighlightRow(previousRow)
@@ -196,7 +195,6 @@ class MenuTableViewController: UITableViewController {
   //MARK: - UITableViewDelegate
   
   override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    
     // update selected row
     if let selectedRow = Menu(rawValue: indexPath.row) {
       setSelectedRow(selectedRow)

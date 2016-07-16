@@ -27,7 +27,6 @@ enum Theme {
     static let menuTextColor                = "FFECDB"
     //static let menuIconColor              = "FCE353"  //brighter yellow
     
-    static let activeTabBarItemColor        = "639DD4"
     static let navBarActionButtonColor      = "FFD673"
     
     static let tableCellBackgroundColor     = "FFFFFF"
@@ -138,7 +137,7 @@ enum Theme {
     case .NavigationBarActionButtonTextColor:            return HexColor(Palette.navBarActionButtonColor)
     
     // TabBar
-    case .TabBarButtonTintColor:                         return HexColor(Palette.activeTabBarItemColor)
+    case .TabBarButtonTintColor:                         return HexColor(Palette.mainThemeColor)
       
     // Menu
     case .MenuHeaderViewBackgroundColor:                 return HexColor(Palette.mainThemeBackgroundColor)

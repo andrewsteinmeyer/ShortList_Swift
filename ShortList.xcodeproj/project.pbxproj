@@ -73,7 +73,6 @@
 		4E59257C1C96E6C300755323 /* ShareContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E59257B1C96E6C300755323 /* ShareContactsViewController.swift */; };
 		4E59257F1C9724D300755323 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E59257E1C9724D300755323 /* QRCodeViewController.swift */; };
 		4E5925811C97925A00755323 /* ShareListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5925801C97925A00755323 /* ShareListsViewController.swift */; };
-		4E5AF22A1C45E5CE00192C40 /* JoinedListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5AF2291C45E5CE00192C40 /* JoinedListsViewController.swift */; };
 		4E5AF22C1C47540300192C40 /* ContactsViewController+Import.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5AF22B1C47540300192C40 /* ContactsViewController+Import.swift */; };
 		4E5CB3611CA5D7CF00ED785B /* EventDetailCollectionViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E5CB3601CA5D7CF00ED785B /* EventDetailCollectionViewHeaderView.xib */; };
 		4E5CB3641CA5E8F700ED785B /* EventDetailCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5CB3631CA5E8F700ED785B /* EventDetailCollectionViewController.swift */; };
@@ -175,6 +174,7 @@
 		4E7FB3CE1D37AAA4005A4043 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7FB3CD1D37AAA4005A4043 /* MainTabBarController.swift */; };
 		4E7FB3D01D37F68D005A4043 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7FB3CF1D37F68D005A4043 /* MoreViewController.swift */; };
 		4E7FB3D21D395058005A4043 /* ListsNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7FB3D11D395058005A4043 /* ListsNavigationViewController.swift */; };
+		4E7FB3D41D39D5AE005A4043 /* ProfileNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7FB3D31D39D5AE005A4043 /* ProfileNavigationViewController.swift */; };
 		4E8979F11D31358500B0E5E7 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8979F01D31358500B0E5E7 /* LogInViewController.swift */; };
 		4E8D889F1C83A87A00A8B68B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8D889E1C83A87A00A8B68B /* Alert.swift */; };
 		4E8D88A11C83B17200A8B68B /* AlertsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8D88A01C83B17200A8B68B /* AlertsTableViewCell.swift */; };
@@ -345,7 +345,6 @@
 		4E59257B1C96E6C300755323 /* ShareContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareContactsViewController.swift; sourceTree = "<group>"; };
 		4E59257E1C9724D300755323 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		4E5925801C97925A00755323 /* ShareListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareListsViewController.swift; sourceTree = "<group>"; };
-		4E5AF2291C45E5CE00192C40 /* JoinedListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinedListsViewController.swift; sourceTree = "<group>"; };
 		4E5AF22B1C47540300192C40 /* ContactsViewController+Import.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ContactsViewController+Import.swift"; sourceTree = "<group>"; };
 		4E5CB3601CA5D7CF00ED785B /* EventDetailCollectionViewHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailCollectionViewHeaderView.xib; sourceTree = "<group>"; };
 		4E5CB3631CA5E8F700ED785B /* EventDetailCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailCollectionViewController.swift; sourceTree = "<group>"; };
@@ -458,6 +457,7 @@
 		4E7FB3CD1D37AAA4005A4043 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		4E7FB3CF1D37F68D005A4043 /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		4E7FB3D11D395058005A4043 /* ListsNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsNavigationViewController.swift; sourceTree = "<group>"; };
+		4E7FB3D31D39D5AE005A4043 /* ProfileNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileNavigationViewController.swift; sourceTree = "<group>"; };
 		4E8979F01D31358500B0E5E7 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		4E8D889E1C83A87A00A8B68B /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		4E8D88A01C83B17200A8B68B /* AlertsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsTableViewCell.swift; sourceTree = "<group>"; };
@@ -737,6 +737,7 @@
 			isa = PBXGroup;
 			children = (
 				4E5010DB1C73407F00CE3CF6 /* ProfileTableViewController.swift */,
+				4E7FB3D31D39D5AE005A4043 /* ProfileNavigationViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -1135,7 +1136,6 @@
 			children = (
 				4E7FB3D11D395058005A4043 /* ListsNavigationViewController.swift */,
 				4E63134D1C1FBAED00EB78F9 /* ListsViewController.swift */,
-				4E5AF2291C45E5CE00192C40 /* JoinedListsViewController.swift */,
 				4EA89FBA1C261AD800163C57 /* CreateListViewController.swift */,
 				4E5590F91C8C9BC5000388FC /* CreateListViewController+Import.swift */,
 				4EA89FBC1C27097900163C57 /* SelectContactsViewController.swift */,
@@ -1616,7 +1616,6 @@
 				4E3CDE2F1C60D9AF0005A5F7 /* Theme.swift in Sources */,
 				4E6313121C1FB28000EB78F9 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				4E6312A11C1FAF2D00EB78F9 /* UIApplication.swift in Sources */,
-				4E5AF22A1C45E5CE00192C40 /* JoinedListsViewController.swift in Sources */,
 				4E6313441C1FB60A00EB78F9 /* FetchedResultsTableViewDataSource.swift in Sources */,
 				4EC403F41C7667FB0056D5F3 /* UIImage+ReSize.swift in Sources */,
 				4E6312FC1C1FB28000EB78F9 /* DesignableTextField.swift in Sources */,
@@ -1762,6 +1761,7 @@
 				4E6313431C1FB60A00EB78F9 /* FetchedResultsDataSource.swift in Sources */,
 				4EF32A0D1C80931C0078B69A /* METRetryStrategy.m in Sources */,
 				4EF32A3E1C80943E0078B69A /* TTTStringInflector.m in Sources */,
+				4E7FB3D41D39D5AE005A4043 /* ProfileNavigationViewController.swift in Sources */,
 				4E1C46EA1C7DE53500C22101 /* ExactLengthRule.swift in Sources */,
 				4E6313061C1FB28000EB78F9 /* Spring.swift in Sources */,
 				4E60A0DE1C30851900D66A9A /* PlacePickerViewController.swift in Sources */,

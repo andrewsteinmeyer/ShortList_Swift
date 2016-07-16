@@ -10,7 +10,6 @@ import UIKit
 
 class ProfileTableViewController: UITableViewController {
   
-  @IBOutlet weak var menuButton: UIBarButtonItem!
   @IBOutlet weak var firstNameLabel: UILabel!
   @IBOutlet weak var lastNameLabel: UILabel!
   @IBOutlet weak var emailAddressLabel: UILabel!
@@ -22,12 +21,6 @@ class ProfileTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    if self.revealViewController() != nil {
-      menuButton.target = self.revealViewController()
-      menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-      self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-    }
     
     setupAppearance()
   }

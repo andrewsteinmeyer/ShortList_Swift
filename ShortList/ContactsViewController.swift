@@ -24,12 +24,6 @@ class ContactsViewController: FetchedResultsTableViewController {
     // set CoreData context
     self.managedObjectContext = Meteor.mainQueueManagedObjectContext
     
-    if self.revealViewController() != nil {
-      menuButton.target = self.revealViewController()
-      menuButton.action = "revealToggle:"
-      self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-    }
-    
     // setup delegates for empty data
     self.tableView.emptyDataSetDelegate = self
     self.tableView.emptyDataSetSource = self

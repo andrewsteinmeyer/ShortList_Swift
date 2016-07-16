@@ -1,15 +1,15 @@
 //
-//  ContactsNavigationViewController.swift
+//  ProfileNavigationViewController.swift
 //  ShortList
 //
-//  Created by Andrew Steinmeyer on 12/24/15.
-//  Copyright © 2015 Andrew Steinmeyer. All rights reserved.
+//  Created by Andrew Steinmeyer on 7/15/16.
+//  Copyright © 2016 Andrew Steinmeyer. All rights reserved.
 //
 
 import UIKit
 
-class ContactsNavigationViewController: UINavigationController {
-
+class ProfileNavigationViewController: UINavigationController {
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -20,5 +20,5 @@ class ContactsNavigationViewController: UINavigationController {
   override func preferredStatusBarStyle() -> UIStatusBarStyle {
     return .LightContent
   }
-
+  
 }

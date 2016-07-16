@@ -101,8 +101,8 @@ class ScanViewController: UIViewController {
           AppDelegate.getAppDelegate().showMessage(errorMessage!)
         } else {
           self.dismissViewControllerAnimated(true) {
-            // navigate to contacts page
-            JoinedListsViewController.presentJoinedListsViewController()
+            // navigate to lists page to show added user
+            ListsViewController.presentListsViewController()
           }
         }
       }
