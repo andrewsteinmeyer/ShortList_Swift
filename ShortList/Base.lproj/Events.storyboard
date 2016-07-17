@@ -109,7 +109,7 @@
                                     <constraint firstAttribute="height" constant="21" id="XFr-GH-PXt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                <color key="textColor" red="0.91756308080000004" green="0.33028072120000002" blue="0.34021648760000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.92156862745098034" green="0.30196078431372547" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Venue" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iV4-ub-cjg" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
@@ -478,10 +478,10 @@
             </objects>
             <point key="canvasLocation" x="1707" y="2043"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Events Navigation View Controller-->
         <scene sceneID="B9Y-YJ-vkj">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KvS-AU-wzW" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KvS-AU-wzW" customClass="EventsNavigationViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EcZ-pF-enx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -496,13 +496,13 @@
             </objects>
             <point key="canvasLocation" x="2336" y="2043"/>
         </scene>
-        <!--UIViewController-v4F-F6-THp-->
+        <!--PlacePicker-->
         <scene sceneID="ble-Qk-eXw">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="UIViewController-v4F-F6-THp" id="kl2-g0-ULL" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="PlacePicker" id="kl2-g0-ULL" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h56-jc-CUB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3592" y="2048"/>
+            <point key="canvasLocation" x="3550" y="2043"/>
         </scene>
         <!--Venues-->
         <scene sceneID="2gi-be-WN9">
@@ -510,20 +510,20 @@
                 <viewControllerPlaceholder storyboardIdentifier="SelectVenueViewController" storyboardName="Venues" id="pDA-H8-xAd" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cfw-qs-5T3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3630.5" y="1696"/>
+            <point key="canvasLocation" x="3473.5" y="1851"/>
         </scene>
         <!--SelectListViewController-->
         <scene sceneID="oEK-vP-jcK">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="SelectListViewController" storyboardName="Main" referencedIdentifier="SelectListViewController" id="9y8-LX-IhU" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="SelectListViewController" storyboardName="Login" referencedIdentifier="SelectListViewController" id="9y8-LX-IhU" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hd6-PB-XHj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3614.5" y="2329"/>
+            <point key="canvasLocation" x="3534.5" y="2217"/>
         </scene>
         <!--EventDetailCollectionViewController-->
         <scene sceneID="ol1-vO-aMn">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="EventDetailCollectionViewController" storyboardName="Main" referencedIdentifier="EventDetailCollectionViewController" id="Dk3-Al-FE8" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="EventDetailCollectionViewController" storyboardName="Login" referencedIdentifier="EventDetailCollectionViewController" id="Dk3-Al-FE8" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vAB-pG-4eZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1707" y="2522"/>

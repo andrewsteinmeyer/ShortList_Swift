@@ -28,8 +28,10 @@ class ListsViewController: FetchedResultsTableViewController {
     
     var tempControl = DZNSegmentedControl.init(items: menuItems)
     tempControl.selectedSegmentIndex = 0
+    tempControl.backgroundColor = Theme.DZNSegmentBackgroundColor.toUIColor()
     tempControl.height = 60
     tempControl.showsCount = false
+    tempControl.font = UIFont(name: "Lato", size: 20)!
     tempControl.delegate = self
     
     // call didChangeSegment when user taps segment control

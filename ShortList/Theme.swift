@@ -13,21 +13,24 @@ enum Theme {
   
   private struct Palette {
     
-    //static let mainThemeColor             = "F5D76E"
-    ///static let mainThemeColor               = "FFD673"
+    //static let mainThemeColor               = "F5D76E"
+    //static let mainThemeColor               = "FFD673"
+    //static let mainThemeErrorColor          = "DE495B"
+    //static let mainThemeButtonTextColor     = "428BCA"
+    //static let scannerOutlineColor          = "65A0D6"
+    
     static let mainThemeColor               = "639DD4"
     static let mainThemeBackgroundColor     = "303E4D"
-    ///static let mainThemeTextColor           = "333333"
-    static let mainThemeTextColor           = "FFFFFF"
+    static let mainThemeTextColor           = "333333"
     static let mainThemeErrorColor          = "EB4D5C"
-    //static let mainThemeErrorColor          = "DE495B"
     static let mainThemeButtonTextColor     = "007AFF"
-    //static let mainThemeButtonTextColor     = "428BCA"
     
-    static let menuTextColor                = "FFECDB"
-    //static let menuIconColor              = "FCE353"  //brighter yellow
+    static let secondaryHeaderColor         = "FFD673"
+    
+    static let segmentBackgroundColor       = "EDEDED"
     
     static let navBarActionButtonColor      = "FFFFFF"
+    static let navBarTintColor              = "FFFFFF"
     
     static let tableCellBackgroundColor     = "FFFFFF"
     static let tableCellSelectedColor       = "4C9689"
@@ -42,7 +45,6 @@ enum Theme {
     static let eventAlertIconColor          = "EB4D5C"
     
     static let scannerOutlineColor          = "FFD673"
-    //static let scannerOutlineColor          = "65A0D6"
   }
   
   // Base Table View Cell
@@ -68,16 +70,6 @@ enum Theme {
   // TabBar
   case TabBarButtonTintColor
   
-  // Menu
-  case MenuHeaderViewBackgroundColor
-  case MenuHeaderViewTextColor
-  case MenuTableViewCellBackgroundColor
-  case MenuTableViewCellBackgroundSelectedColor
-  case MenuTableViewCellTextColor
-  case MenuTableViewCellTextSelectedColor
-  case MenuTableViewIconColor
-  case MenuTableViewIconSelectedColor
-  
   // Contact
   case CreateContactButtonBackgroundColor
   case CreateContactButtonTextColor
@@ -90,6 +82,7 @@ enum Theme {
   case ContactsTableViewCellSeparatorSelectedColor
   case SelectContactsHeaderViewBackgroundColor
   case SelectContactsHeaderViewTextColor
+  case DZNSegmentBackgroundColor
   
   // Venue
   case CreateVenueButtonBackgroundColor
@@ -132,22 +125,12 @@ enum Theme {
     case .SignInViewTextFieldPlaceholderColor:           return HexColor(Palette.mainThemeTextColor)
       
     // Navigation
-    case .NavigationBarTintColor:                        return HexColor(Palette.mainThemeTextColor)
+    case .NavigationBarTintColor:                        return HexColor(Palette.navBarTintColor)
     case .NavigationBarBackgroundColor:                  return HexColor(Palette.mainThemeColor)
     case .NavigationBarActionButtonTextColor:            return HexColor(Palette.navBarActionButtonColor)
     
     // TabBar
     case .TabBarButtonTintColor:                         return HexColor(Palette.mainThemeColor)
-      
-    // Menu
-    case .MenuHeaderViewBackgroundColor:                 return HexColor(Palette.mainThemeBackgroundColor)
-    case .MenuHeaderViewTextColor:                       return HexColor(Palette.menuTextColor)
-    case .MenuTableViewCellBackgroundColor:              return HexColor(Palette.mainThemeBackgroundColor)
-    case .MenuTableViewCellBackgroundSelectedColor:      return HexColor(Palette.mainThemeBackgroundColor)
-    case .MenuTableViewCellTextColor:                    return HexColor(Palette.menuTextColor)
-    case .MenuTableViewCellTextSelectedColor:            return ContrastColorOf(Theme.MenuTableViewCellBackgroundSelectedColor.toUIColor(), returnFlat: true)
-    case .MenuTableViewIconColor:                        return HexColor(Palette.mainThemeColor)
-    case .MenuTableViewIconSelectedColor:                return ContrastColorOf(Theme.MenuTableViewCellBackgroundSelectedColor.toUIColor(), returnFlat: true)
       
     // Contact
     case .CreateContactButtonBackgroundColor:            return HexColor(Palette.mainThemeColor)
@@ -159,8 +142,9 @@ enum Theme {
     case .ContactsTableViewCellTextColor:                return HexColor(Palette.mainThemeTextColor)
     case .ContactsTableViewCellTextSelectedColor:        return HexColor(Palette.tableCellTextSelectedColor)
     case .ContactsTableViewCellSeparatorSelectedColor:   return HexColor(Palette.tableCellTextSelectedColor)
-    case .SelectContactsHeaderViewBackgroundColor:       return HexColor(Palette.mainThemeColor)
+    case .SelectContactsHeaderViewBackgroundColor:       return HexColor(Palette.secondaryHeaderColor)
     case .SelectContactsHeaderViewTextColor:             return HexColor(Palette.mainThemeTextColor)
+    case .DZNSegmentBackgroundColor:                     return HexColor(Palette.segmentBackgroundColor)
       
     // Venue
     case .CreateVenueButtonBackgroundColor:              return HexColor(Palette.mainThemeColor)
@@ -173,7 +157,7 @@ enum Theme {
       
     // Profile
     case .ProfileTableViewHeaderTextColor:               return HexColor(Palette.mainThemeTextColor)
-    case .ProfileLogoutButtonTextColor:                  return HexColor(Palette.mainThemeErrorColor)
+    case .ProfileLogoutButtonTextColor:                  return UIColor.whiteColor()
     
     // Alert
     case .AlertEventInviteIconColor:                     return HexColor(Palette.eventInviteIconColor)

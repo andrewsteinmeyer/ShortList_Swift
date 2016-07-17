@@ -15,7 +15,7 @@
         <scene sceneID="MRN-mJ-XbQ">
             <objects>
                 <navigationController storyboardIdentifier="NotificationsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="DGF-fU-pQY" customClass="NotificationsNavigationViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notifications" image="alarm-outline" id="XVD-LN-cBy"/>
+                    <tabBarItem key="tabBarItem" title="Notifications" image="notification-tabitem" id="XVD-LN-cBy"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fej-pq-yXM">
@@ -134,7 +134,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="alarm-outline" width="32" height="32"/>
         <image name="calendar_2-outline" width="32" height="32"/>
+        <image name="notification-tabitem" width="24" height="26"/>
     </resources>
 </document>

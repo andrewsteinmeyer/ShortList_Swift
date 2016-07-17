@@ -171,7 +171,7 @@
                             <constraint firstAttribute="trailing" secondItem="fhT-8p-zG3" secondAttribute="trailing" id="tPd-QL-44e"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="2" title="Scan" image="qrcode_tabbar" id="BAZ-4I-W8Z"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Scan" image="qrcode-tabitem" id="BAZ-4I-W8Z"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="blurView" destination="lPs-0n-DQb" id="Y7w-Ge-Jlk"/>
@@ -185,6 +185,6 @@
     </scenes>
     <resources>
         <image name="qrcode" width="128" height="128"/>
-        <image name="qrcode_tabbar" width="25" height="25"/>
+        <image name="qrcode-tabitem" width="25" height="25"/>
     </resources>
 </document>

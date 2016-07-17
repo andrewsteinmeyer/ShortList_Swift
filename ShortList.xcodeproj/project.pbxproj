@@ -177,6 +177,7 @@
 		4E7FB3D91D3AB0CC005A4043 /* Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E7FB3D81D3AB0CC005A4043 /* Contacts.storyboard */; };
 		4E7FB3DC1D3B1B07005A4043 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E7FB3DB1D3B1B07005A4043 /* Notifications.storyboard */; };
 		4E7FB3DE1D3B2132005A4043 /* NotificationsNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7FB3DD1D3B2132005A4043 /* NotificationsNavigationViewController.swift */; };
+		4E7FB3E11D3B2DCE005A4043 /* PlacePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E7FB3DF1D3B2DCE005A4043 /* PlacePicker.storyboard */; };
 		4E8979F11D31358500B0E5E7 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8979F01D31358500B0E5E7 /* LogInViewController.swift */; };
 		4E8D889F1C83A87A00A8B68B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8D889E1C83A87A00A8B68B /* Alert.swift */; };
 		4E8D88A11C83B17200A8B68B /* AlertsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8D88A01C83B17200A8B68B /* AlertsTableViewCell.swift */; };
@@ -462,6 +463,7 @@
 		4E7FB3D81D3AB0CC005A4043 /* Contacts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contacts.storyboard; sourceTree = "<group>"; };
 		4E7FB3DB1D3B1B07005A4043 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		4E7FB3DD1D3B2132005A4043 /* NotificationsNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsNavigationViewController.swift; sourceTree = "<group>"; };
+		4E7FB3E01D3B2DCE005A4043 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PlacePicker.storyboard; sourceTree = "<group>"; };
 		4E8979F01D31358500B0E5E7 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		4E8D889E1C83A87A00A8B68B /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		4E8D88A01C83B17200A8B68B /* AlertsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsTableViewCell.swift; sourceTree = "<group>"; };
@@ -1020,7 +1022,6 @@
 			isa = PBXGroup;
 			children = (
 				4E63126A1C1FA7D500EB78F9 /* Assets.xcassets */,
-				4E63126C1C1FA7D500EB78F9 /* LaunchScreen.storyboard */,
 				4E63126F1C1FA7D500EB78F9 /* Info.plist */,
 				4E3288C01C24B19A00F936DF /* UIMaterialTextField.swift */,
 				4E6313331C1FB56D00EB78F9 /* SwiftyJSON.swift */,
@@ -1103,9 +1104,11 @@
 		4E7FB3DA1D3AB424005A4043 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				4E63126C1C1FA7D500EB78F9 /* LaunchScreen.storyboard */,
 				4EC2F2DC1D35B61B0035FD7F /* Main.storyboard */,
-				4E7FB3DB1D3B1B07005A4043 /* Notifications.storyboard */,
 				4E6312671C1FA7D500EB78F9 /* Login.storyboard */,
+				4E7FB3DF1D3B2DCE005A4043 /* PlacePicker.storyboard */,
+				4E7FB3DB1D3B1B07005A4043 /* Notifications.storyboard */,
 				4E7FB3D81D3AB0CC005A4043 /* Contacts.storyboard */,
 				4E7FB3D51D39DE1A005A4043 /* Profile.storyboard */,
 				4EC2F2E61D35F95C0035FD7F /* Scan.storyboard */,
@@ -1509,6 +1512,7 @@
 				4EC2F2E01D35CEB80035FD7F /* Events.storyboard in Resources */,
 				4EC2F2E71D35F95C0035FD7F /* Scan.storyboard in Resources */,
 				4E6313221C1FB28000EB78F9 /* Lato-Regular.ttf in Resources */,
+				4E7FB3E11D3B2DCE005A4043 /* PlacePicker.storyboard in Resources */,
 				4EC2F2DD1D35B61B0035FD7F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1859,6 +1863,14 @@
 				4E7FB3D61D39DE1A005A4043 /* Base */,
 			);
 			name = Profile.storyboard;
+			sourceTree = "<group>";
+		};
+		4E7FB3DF1D3B2DCE005A4043 /* PlacePicker.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E7FB3E01D3B2DCE005A4043 /* Base */,
+			);
+			name = PlacePicker.storyboard;
 			sourceTree = "<group>";
 		};
 		4EC2F2DE1D35CEB80035FD7F /* Events.storyboard */ = {
