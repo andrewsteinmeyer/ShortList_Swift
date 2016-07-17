@@ -28,6 +28,9 @@ class ContactsViewController: FetchedResultsTableViewController {
     self.tableView.emptyDataSetDelegate = self
     self.tableView.emptyDataSetSource = self
     
+    // load the contacts when the contactVC is added to the MainTabBarVC
+    loadContentIfNeeded()
+    
     setupAppearance()
   }
   

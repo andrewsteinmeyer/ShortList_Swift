@@ -22,14 +22,18 @@ class MainTabBarController: UITabBarController {
   // the foreignController is used to load the selected controller
   // into the tab bar controller view
   var foreignController: UIViewController! {
-    willSet {
-      if newValue != nil {
-        let reducedHeight = newValue.view.frame.size.height - self.tabBar.frame.size.height
-        newValue.view.frame = CGRectMake(0.0, 0.0, self.view.bounds.width, reducedHeight);
+    didSet {
+      if foreignController != nil {
+        let reducedHeight = foreignController.view.frame.size.height - self.tabBar.frame.size.height
+        foreignController.view.frame = CGRectMake(0.0, 0.0, self.view.bounds.width, reducedHeight);
         
-        self.view.addSubview(newValue.view)
+        self.addChildViewController(foreignController)
+        self.view.addSubview(foreignController.view)
+        foreignController.didMoveToParentViewController(self)
       } else {
-        foreignController.view.removeFromSuperview()
+        oldValue.willMoveToParentViewController(nil)
+        oldValue.view.removeFromSuperview()
+        oldValue.removeFromParentViewController()
       }
     }
   }
@@ -43,9 +47,6 @@ class MainTabBarController: UITabBarController {
     // set tab bar color and font
     self.tabBar.tintColor = Theme.TabBarButtonTintColor.toUIColor()
     self.tabBarItem.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Lato-Regular", size: 5)!], forState: .Normal)
-    
-    // add pan gesture for right menu bar
-    self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     
     // register observers
     addObservers()
@@ -75,21 +76,6 @@ class MainTabBarController: UITabBarController {
     self.presentViewController(scanViewController, animated: false, completion: nil)
   }
   
-  func profileRowPressed() {
-    // add profile view controller
-    let storyboard = UIStoryboard(name: "Profile", bundle: nil)
-    
-    // load profile controller
-    let profileTableViewController = storyboard.instantiateViewControllerWithIdentifier("ProfileTableViewController") as! ProfileTableViewController
-    let profileNavigationVC = ProfileNavigationViewController(rootViewController: profileTableViewController)
-    
-    // set profile controller as the foreign controller
-    // this controller will be loaded in the tabBarControllerView
-    foreignController = profileNavigationVC
-    
-    // close the right side view menu
-    self.revealViewController().rightRevealToggleAnimated(true)
-  }
   
   func venuesRowPressed() {
     // add venues view controller
@@ -107,6 +93,42 @@ class MainTabBarController: UITabBarController {
     self.revealViewController().rightRevealToggleAnimated(true)
   }
   
+  func contactsRowPressed() {
+    // add contacts view controller
+    let storyboard = UIStoryboard(name: "Contacts", bundle: nil)
+    
+    // load contacts controller
+    let contactsViewController = storyboard.instantiateViewControllerWithIdentifier("ContactsViewController") as! ContactsViewController
+    let contactsNavigationVC = ContactsNavigationViewController(rootViewController: contactsViewController)
+    
+    // set contacts controller as the foreign controller
+    // this controller will be loaded in the tabBarControllerView
+    foreignController = contactsNavigationVC
+    
+    // close the right side view menu
+    self.revealViewController().rightRevealToggleAnimated(true)
+  }
+  
+  func profileRowPressed() {
+    // add profile view controller
+    let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+    
+    // load profile controller
+    let profileTableViewController = storyboard.instantiateViewControllerWithIdentifier("ProfileTableViewController") as! ProfileTableViewController
+    let profileNavigationVC = ProfileNavigationViewController(rootViewController: profileTableViewController)
+    
+    // set profile controller as the foreign controller
+    // this controller will be loaded in the tabBarControllerView
+    foreignController = profileNavigationVC
+    
+    // close the right side view menu
+    self.revealViewController().rightRevealToggleAnimated(true)
+  }
+  
+  func clearForeignViewController() {
+  
+  }
+  
   override func preferredStatusBarStyle() -> UIStatusBarStyle {
     return UIStatusBarStyle.LightContent
   }
@@ -115,19 +137,14 @@ class MainTabBarController: UITabBarController {
     return .Fade
   }
   
-  override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
-    guard foreignController != nil else { return }
-    
-    // clear out foreign controller when a regular tab bar item is selected
-    foreignController = nil
-  }
-  
   // MARK: Notification observers
   
   private func addObservers() {
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainTabBarController.profileRowPressed), name: Constants.MenuNotification.ProfileRowPressed, object: nil)
-    
     NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainTabBarController.venuesRowPressed), name: Constants.MenuNotification.VenuesRowPressed, object: nil)
+    
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainTabBarController.contactsRowPressed), name: Constants.MenuNotification.ContactsRowPressed, object: nil)
+    
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainTabBarController.profileRowPressed), name: Constants.MenuNotification.ProfileRowPressed, object: nil)
   }
   
   private func removeObservers() {
@@ -147,6 +164,9 @@ extension MainTabBarController: UITabBarControllerDelegate {
       moreTabItemSelected()
       return false
     default:
+      if foreignController != nil {
+        foreignController = nil
+      }
       return true
     }
   }

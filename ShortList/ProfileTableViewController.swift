@@ -22,11 +22,12 @@ class ProfileTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    loadUserProfile()
+    
     setupAppearance()
   }
   
-  override func viewDidAppear(animated: Bool) {
-    super.viewDidAppear(animated)
+  private func loadUserProfile() {
     
     // retrieve profile details
     let user = AccountManager.defaultAccountManager.currentUser

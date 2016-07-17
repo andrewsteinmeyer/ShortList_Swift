@@ -98,8 +98,9 @@ struct Constants {
   
   // Menu Action Notifications
   struct MenuNotification {
-    static let ProfileRowPressed = "shortlist.menu.profile.notification"
     static let VenuesRowPressed = "shortlist.menu.venue.notification"
+    static let ContactsRowPressed = "shortlist.menu.contacts.notification"
+    static let ProfileRowPressed = "shortlist.menu.profile.notification"
   }
   
 }

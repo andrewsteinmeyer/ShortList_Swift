@@ -208,6 +208,8 @@ class MenuTableViewController: UITableViewController {
       switch selectedRow {
       case .Venues:
         postVenuesRowPressedNotification()
+      case .Contacts:
+        postContactsRowPressedNotification()
       case .Profile:
         postProfileRowPressedNotification()
       default: ()
@@ -217,13 +219,16 @@ class MenuTableViewController: UITableViewController {
   
   //MARK: - Notifications
   
-  private func postProfileRowPressedNotification() {
-    NSNotificationCenter.defaultCenter().postNotificationName(Constants.MenuNotification.ProfileRowPressed, object: nil)
-  }
-  
   private func postVenuesRowPressedNotification() {
     NSNotificationCenter.defaultCenter().postNotificationName(Constants.MenuNotification.VenuesRowPressed, object: nil)
   }
   
+  private func postContactsRowPressedNotification() {
+    NSNotificationCenter.defaultCenter().postNotificationName(Constants.MenuNotification.ContactsRowPressed, object: nil)
+  }
+  
+  private func postProfileRowPressedNotification() {
+    NSNotificationCenter.defaultCenter().postNotificationName(Constants.MenuNotification.ProfileRowPressed, object: nil)
+  }
 
 }
