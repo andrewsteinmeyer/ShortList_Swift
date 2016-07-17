@@ -23,10 +23,24 @@ class LogInViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    // if Facebook token is still valid, go ahead and login
+    if let token = FBSDKAccessToken.currentAccessToken(),
+      accessToken = token.tokenString,
+      userID = token.userID {
+      
+      // start indicator
+      self.toggleIndicator()
+      
+      // login to Meteor with Facebook
+      loginWithFacebook(userID, accessToken: accessToken)
+      
+      return
+    }
+    
     setupAppearance()
     
     // setup Facebook for login
-    configureFacebook()
+    configureFacebookLoginButton()
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -35,9 +49,47 @@ class LogInViewController: UIViewController {
     clearErrors()
   }
   
+  func loginWithFacebook(userID: String, accessToken: String) {
+    AccountManager.defaultAccountManager.loginWithFacebook(userID, token: accessToken) { (error) -> Void in
+      dispatch_async(dispatch_get_main_queue()) {
+        
+        // stop activity indicator
+        self.toggleIndicator()
+        
+        if let error = error {
+          let errorMessage = error.localizedFailureReason
+          self.displayError(errorMessage!)
+          
+          Answers.logLoginWithMethod("Facebook",
+                                     success: false,
+                                     customAttributes: ["Error": error.localizedDescription])
+        } else {
+          // dismiss login controller
+          self.dismissViewControllerAnimated(true, completion: nil)
+          
+          // send device token to Meteor for APNS
+          AccountManager.defaultAccountManager.setUserNotificationToken()
+          
+          // register for APNS
+          AppDelegate.getAppDelegate().registerForPushNotifications()
+          
+          // reset badge count
+          // the reset in applicationDidBecomeActive only handles when the user is already logged in to app
+          // we reset here to handle the case when the user opens the app but isn't logged in yet
+          AppDelegate.getAppDelegate().resetBadgeCount()
+          
+          // log to Answers
+          Answers.logLoginWithMethod("Facebook",
+                                     success: true,
+                                     customAttributes: ["Success": "User logged in using Facebook"])
+        }
+      }
+    }
+  }
+  
   //MARK: Helper functions
   
-  private func configureFacebook() {
+  private func configureFacebookLoginButton() {
     // set read permissions
     facebookLoginButton.readPermissions = ["public_profile", "email", "user_friends"]
     
@@ -63,6 +115,7 @@ class LogInViewController: UIViewController {
     // configure facebook button text
     facebookLoginButton.titleLabel?.font = UIFont(name: "Lato-Regular", size: 18)
     
+    // hide activity indicator
     activityIndicator.hidden = true
   }
   
@@ -70,6 +123,7 @@ class LogInViewController: UIViewController {
     // clear out previous errors
     clearErrors()
     
+    // show error message
     errorMessageLabel.text = message
     errorMessageLabel.alpha = 1
     
@@ -92,7 +146,7 @@ class LogInViewController: UIViewController {
   //MARK: - Static methods
   
   static func presentLogInViewController(animated animated: Bool = true) {
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let storyboard = UIStoryboard(name: "Login", bundle: nil)
     
     let logInViewController = storyboard.instantiateViewControllerWithIdentifier("LogInViewController") as! LogInViewController
     
@@ -154,8 +208,8 @@ extension LogInViewController: FBSDKLoginButtonDelegate {
       else {
         // verify token and id from Facebook
         guard let token = result.token,
-          let accessToken = token.tokenString,
-          let userID = token.userID else {
+          accessToken = token.tokenString,
+          userID = token.userID else {
           
           let errorMessage = "Facebook did not provide accessToken or userID"
           self.displayError(errorMessage)
@@ -167,44 +221,9 @@ extension LogInViewController: FBSDKLoginButtonDelegate {
           return
         }
         
-        AccountManager.defaultAccountManager.loginWithFacebook(userID, token: accessToken) { (error) -> Void in
-          dispatch_async(dispatch_get_main_queue()) {
-            
-            // stop activity indicator
-            self.toggleIndicator()
-            
-            if let error = error {
-              let errorMessage = error.localizedFailureReason
-              self.displayError(errorMessage!)
-              
-              Answers.logLoginWithMethod("Facebook",
-                                         success: false,
-                                         customAttributes: ["Error": error.localizedDescription])
-            } else {
-              // dismiss login controller
-              self.dismissViewControllerAnimated(true, completion: nil)
-              
-              // send device token to Meteor for APNS
-              AccountManager.defaultAccountManager.setUserNotificationToken()
-              
-              // register for APNS
-              AppDelegate.getAppDelegate().registerForPushNotifications()
-              
-              // reset badge count
-              // the reset in applicationDidBecomeActive only handles when the user is already logged in to app
-              // we reset here to handle the case when the user opens the app but isn't logged in yet
-              AppDelegate.getAppDelegate().resetBadgeCount()
-              
-              // present home screen
-              HomeViewController.presentHomeViewController()
-              
-              // log to Answers
-              Answers.logLoginWithMethod("Facebook",
-                                         success: true,
-                                         customAttributes: ["Success": "User logged in using Facebook"])
-            }
-          }
-        }
+        // facebook resolved successfully
+        // use facebook credentials to log in to Meteor
+        loginWithFacebook(userID, accessToken: accessToken)
       }
     }
   }

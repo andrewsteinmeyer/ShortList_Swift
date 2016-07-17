@@ -26,9 +26,6 @@ class VenuesViewController: FetchedResultsTableViewController {
     self.tableView.emptyDataSetDelegate = self
     self.tableView.emptyDataSetSource = self
     
-    // load the venues when the venueVC is added to the MainTabBarVC
-    loadContentIfNeeded()
-    
     setupAppearance()
   }
   

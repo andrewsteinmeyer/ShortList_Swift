@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  NotificationsViewController.swift
 //  ShortList
 //
 //  Created by Andrew Steinmeyer on 12/14/15.
@@ -11,10 +11,8 @@ import CoreData
 import DZNEmptyDataSet
 import DateTools
 
-class HomeViewController: FetchedResultsTableViewController {
+class NotificationsViewController: FetchedResultsTableViewController {
 
-  @IBOutlet weak var menuButton: UIBarButtonItem!
-  
   private let subscriptionName = "PrivateAlerts"
   private let modelName = "Alert"
   
@@ -24,20 +22,13 @@ class HomeViewController: FetchedResultsTableViewController {
     // set CoreData context
     self.managedObjectContext = Meteor.mainQueueManagedObjectContext
     
-    // present sign in screen if user is not already logged in
+    // present login screen if user is not already logged in
     guard AccountManager.defaultAccountManager.isUserLoggedIn else {
       print("userId: \(AccountManager.defaultAccountManager.currentUserId))")
       
-      //SignInViewController.presentSignInViewController(animated: false)
       LogInViewController.presentLogInViewController(animated: false)
       
       return
-    }
-    
-    if self.revealViewController() != nil {
-      menuButton.target = self.revealViewController()
-      menuButton.action = "revealToggle:"
-      self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     
     // setup delegates for empty data
@@ -139,21 +130,9 @@ class HomeViewController: FetchedResultsTableViewController {
     */
   }
   
-  static func presentHomeViewController() {
-    
-    // find the reveal controller
-    if let revealVC = AppDelegate.getRootViewController() as? SWRevealViewController {
-      
-      // update menu sidebar
-      if let menuVC = revealVC.rearViewController as? MenuTableViewController {
-        menuVC.performSegueWithIdentifier("showHome", sender: HomeViewController())
-      }
-    }
-  }
-  
 }
 
-extension HomeViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+extension NotificationsViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 
   func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
     let title = Constants.EmptyDataSet.Home.Title

@@ -28,7 +28,6 @@ class ProfileTableViewController: UITableViewController {
   }
   
   private func loadUserProfile() {
-    
     // retrieve profile details
     let user = AccountManager.defaultAccountManager.currentUser
     
@@ -67,7 +66,6 @@ class ProfileTableViewController: UITableViewController {
     
     // activate the new constraints
     NSLayoutConstraint.activateConstraints([horizontalConstraints, verticalConstraints])
-    
   }
   
   //MARK: IBAction
@@ -101,12 +99,11 @@ class ProfileTableViewController: UITableViewController {
     // adjust separator insets
     let section = indexPath.section
     if section == 0 {
-      if (cell.respondsToSelector("setSeparatorInset:")) {
+      if (cell.respondsToSelector(Selector("setSeparatorInset:"))) {
         cell.separatorInset = UIEdgeInsets(top: 0, left: 125, bottom: 0, right: 0)
       }
       
-      if (cell.respondsToSelector("setLayoutMargins:")) {
-        
+      if (cell.respondsToSelector(Selector("setLayoutMargins:"))) {
         cell.layoutMargins = UIEdgeInsets(top: 0, left: 125, bottom: 0, right: 0)
       }
     }
@@ -118,7 +115,6 @@ class ProfileTableViewController: UITableViewController {
     let height = Constants.ProfileTableView.SectionHeaderView.Height
     let fontName = Constants.ProfileTableView.SectionHeaderView.FontName
     let fontSize = Constants.ProfileTableView.SectionHeaderView.FontSize
-    
     
     // create section header view
     let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: height))

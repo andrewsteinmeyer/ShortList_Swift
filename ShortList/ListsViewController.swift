@@ -167,14 +167,6 @@ class ListsViewController: FetchedResultsTableViewController {
   
   static func presentListsViewController() {
     
-    // find the reveal controller
-    if let revealVC = AppDelegate.getRootViewController() as? SWRevealViewController {
-      
-      // update menu sidebar
-      if let menuVC = revealVC.rightViewController as? MenuTableViewController {
-        menuVC.performSegueWithIdentifier("showLists", sender: ListsViewController())
-      }
-    }
   }
   
 }

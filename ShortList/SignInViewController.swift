@@ -163,9 +163,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
           // we reset here to handle the case when the user opens the app but isn't logged in yet
           AppDelegate.getAppDelegate().resetBadgeCount()
           
-           // present home screen
-          HomeViewController.presentHomeViewController()
-          
           // log to Answers
           Answers.logLoginWithMethod("Email",
             success: true,
@@ -352,7 +349,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
   //MARK: - Static methods
   
   static func presentSignInViewController(animated animated: Bool = true) {
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let storyboard = UIStoryboard(name: "Login", bundle: nil)
     
     let signInViewController = storyboard.instantiateViewControllerWithIdentifier("SignInViewController") as! SignInViewController
     

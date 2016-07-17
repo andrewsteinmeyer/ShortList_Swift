@@ -28,9 +28,6 @@ class ContactsViewController: FetchedResultsTableViewController {
     self.tableView.emptyDataSetDelegate = self
     self.tableView.emptyDataSetSource = self
     
-    // load the contacts when the contactVC is added to the MainTabBarVC
-    loadContentIfNeeded()
-    
     setupAppearance()
   }
   
@@ -142,14 +139,6 @@ class ContactsViewController: FetchedResultsTableViewController {
   
   static func presentContactsViewController() {
     
-    // find the reveal controller
-    if let revealVC = AppDelegate.getRootViewController() as? SWRevealViewController {
-      
-      // update menu sidebar
-      if let menuVC = revealVC.rearViewController as? MenuTableViewController {
-        menuVC.performSegueWithIdentifier("showContacts", sender: ContactsViewController())
-      }
-    }
   }
   
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8ho-q5-XnJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DGF-fU-pQY">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -11,22 +11,13 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Events-->
-        <scene sceneID="NYF-Fh-eSl">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Events" id="fVz-i8-a4T" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="olc-zU-XuH"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="etc-R6-wFC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1547.5" y="-2130"/>
-        </scene>
-        <!--Item-->
+        <!--Notifications-->
         <scene sceneID="MRN-mJ-XbQ">
             <objects>
-                <navigationController storyboardIdentifier="HomeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="DGF-fU-pQY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="cJb-Qd-mse"/>
+                <navigationController storyboardIdentifier="NotificationsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="DGF-fU-pQY" customClass="NotificationsNavigationViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Notifications" image="alarm-outline" id="XVD-LN-cBy"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fej-pq-yXM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -38,51 +29,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gfz-q1-6ia" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="980" y="-665"/>
-        </scene>
-        <!--Lists-->
-        <scene sceneID="Bid-X4-vuW">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Lists" id="OXo-SN-f1b" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="XVW-bs-5fp"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Rb-Hp-TQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1542" y="-1927"/>
-        </scene>
-        <!--Scan-->
-        <scene sceneID="oV5-Bf-nst">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Scan" id="H59-5a-IWO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="OOd-ql-xPK"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="j1P-ZO-P06" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1542" y="-1797"/>
-        </scene>
-        <!--More View Controller-->
-        <scene sceneID="NhS-xn-4JP">
-            <objects>
-                <viewController storyboardIdentifier="MoreViewController" id="9iN-k8-lVg" customClass="MoreViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="WCe-aY-sP5"/>
-                        <viewControllerLayoutGuide type="bottom" id="83d-dJ-jz4"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bOg-LE-Yfn">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" tag="3" systemItem="more" id="aLD-Cf-AK8"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FQT-SO-nXF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1967" y="-1505"/>
+            <point key="canvasLocation" x="1028" y="-665"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="MYx-kI-3I6">
             <objects>
-                <tableViewController storyboardIdentifier="HomeViewController" title="Home View Controller" clearsSelectionOnViewWillAppear="NO" id="TaF-6e-k9A" customClass="HomeViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="NotificationsViewController" title="Home View Controller" clearsSelectionOnViewWillAppear="NO" id="TaF-6e-k9A" customClass="NotificationsViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="k6L-Hy-haH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -152,11 +104,8 @@
                             <outlet property="delegate" destination="TaF-6e-k9A" id="xoR-Y7-GM5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Home" id="Qoc-yy-oam">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="HaZ-eH-E2D"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Notifications" id="Qoc-yy-oam"/>
                     <connections>
-                        <outlet property="menuButton" destination="HaZ-eH-E2D" id="QRa-NT-NFv"/>
                         <segue destination="Nrf-mT-MsW" kind="show" identifier="showAlertLink" id="yWh-y7-wRa"/>
                     </connections>
                 </tableViewController>
@@ -183,29 +132,9 @@
             </objects>
             <point key="canvasLocation" x="2513" y="-665"/>
         </scene>
-        <!--Main Tab Bar Controller-->
-        <scene sceneID="WG8-J3-SV4">
-            <objects>
-                <tabBarController storyboardIdentifier="MainTabBar" automaticallyAdjustsScrollViewInsets="NO" id="8ho-q5-XnJ" customClass="MainTabBarController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="dI5-A3-NDv">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="fVz-i8-a4T" kind="relationship" relationship="viewControllers" id="ObV-s0-AqJ"/>
-                        <segue destination="OXo-SN-f1b" kind="relationship" relationship="viewControllers" id="KTp-Ju-fIn"/>
-                        <segue destination="H59-5a-IWO" kind="relationship" relationship="viewControllers" id="N8t-dH-S0d"/>
-                        <segue destination="9iN-k8-lVg" kind="relationship" relationship="viewControllers" id="Kxw-J0-llU"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ohx-9M-ZBt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="980" y="-1721"/>
-        </scene>
     </scenes>
     <resources>
+        <image name="alarm-outline" width="32" height="32"/>
         <image name="calendar_2-outline" width="32" height="32"/>
-        <image name="menu" width="22" height="22"/>
     </resources>
 </document>
