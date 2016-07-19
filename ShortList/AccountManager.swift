@@ -6,6 +6,7 @@
 //  Copyright © 2015 Andrew Steinmeyer. All rights reserved.
 //
 
+import FBSDKLoginKit
 
 // Meteor setup
 let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: Constants.Meteor.DDPUrl)!)
@@ -17,6 +18,8 @@ final class AccountManager: NSObject {
   
   static var defaultAccountManager: AccountManager!
   private var managedObjectContext: NSManagedObjectContext!
+  
+  private var facebookManager = FBSDKLoginManager()
   
   private enum Message: String {
     case FindCurrentUser = "findCurrentUser"
@@ -146,12 +149,24 @@ final class AccountManager: NSObject {
         print("Error logging out: \(error?.localizedDescription)")
       }
       else {
+        self.logoutFacebook()
+        
         // successfully logged out, present sign in
         dispatch_async(dispatch_get_main_queue()) {
           LogInViewController.presentLogInViewController()
         }
       }
     }
+  }
+  
+  func isLoggedInWithFacebook() -> Bool {
+    return FBSDKAccessToken.currentAccessToken() != nil
+  }
+  
+  func logoutFacebook() {
+    guard isLoggedInWithFacebook() else { return }
+    
+    self.facebookManager.logOut()
   }
   
   // MARK: Notification observers

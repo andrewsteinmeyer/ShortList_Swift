@@ -40,8 +40,8 @@ struct Constants {
     }
     
     struct Home {
-      static let Title = "Home Feed"
-      static let Description = "There is no activity to display.\nGet started by adding some contacts."
+      static let Title = "No Notifications"
+      static let Description = "There is no activity to display.\nGet started by creating an event."
     }
     
     struct List {

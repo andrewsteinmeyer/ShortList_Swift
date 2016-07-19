@@ -62,7 +62,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5O-U8-RrJ">
                                                         <rect key="frame" x="83" y="36" width="107" height="21"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                                        <color key="textColor" red="0.92156862745098034" green="0.30196078431372547" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" red="0.87450980392156863" green="0.61960784313725492" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -935,7 +935,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <segue destination="9r5-U3-Ygi" kind="presentation" modalPresentationStyle="fullScreen" id="t6v-Yg-I21"/>
+                                                            <segue destination="9r5-U3-Ygi" kind="presentation" id="t6v-Yg-I21"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>

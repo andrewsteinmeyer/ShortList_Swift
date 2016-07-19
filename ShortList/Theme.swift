@@ -16,16 +16,17 @@ enum Theme {
     //static let mainThemeColor               = "F5D76E"
     //static let mainThemeColor               = "FFD673"
     //static let mainThemeErrorColor          = "DE495B"
+    //static let mainThemeErrorColor          = "EB4D5C"
     //static let mainThemeButtonTextColor     = "428BCA"
     //static let scannerOutlineColor          = "65A0D6"
     
-    static let mainThemeColor               = "639DD4"
-    static let mainThemeBackgroundColor     = "303E4D"
-    static let mainThemeTextColor           = "333333"
-    static let mainThemeErrorColor          = "EB4D5C"
-    static let mainThemeButtonTextColor     = "007AFF"
+    static let mainThemeColor               = "639DD4" //light blue
+    static let mainThemeTextColor           = "333333" //dark gray
+    static let mainThemeErrorColor          = "D46365" //light red/pink
+    static let mainThemeButtonTextColor     = "333333"
+    static let mainThemeButtonColor         = "FFD673" //yellow
     
-    static let secondaryHeaderColor         = "FFD673"
+    static let secondaryHeaderColor         = "FFD673" //yellow
     
     static let segmentBackgroundColor       = "EDEDED"
     
@@ -119,8 +120,8 @@ enum Theme {
     case .EmptyDataSetDescriptionColor:                  return HexColor(Palette.emptyDataSetDescriptionColor)
     
     // Sign In
-    case .SignInViewBackgroundColor:                     return HexColor(Palette.mainThemeBackgroundColor)
-    case .SignInViewThemeColor:                          return HexColor(Palette.mainThemeColor)
+    case .SignInViewBackgroundColor:                     return HexColor(Palette.mainThemeColor)
+    case .SignInViewThemeColor:                          return HexColor(Palette.mainThemeButtonColor)
     case .SignInViewErrorColor:                          return HexColor(Palette.mainThemeErrorColor)
     case .SignInViewTextFieldPlaceholderColor:           return HexColor(Palette.mainThemeTextColor)
       

@@ -873,8 +873,8 @@
 		4E6312931C1FAD0300EB78F9 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				4EA365291C2224B500C90249 /* SignInViewController.swift */,
 				4E8979F01D31358500B0E5E7 /* LogInViewController.swift */,
+				4EA365291C2224B500C90249 /* SignInViewController.swift */,
 				4E7FB3CD1D37AAA4005A4043 /* MainTabBarController.swift */,
 				4E60A0DD1C30851900D66A9A /* PlacePickerViewController.swift */,
 				4EA89FBE1C27099F00163C57 /* Notifications */,

@@ -174,7 +174,7 @@ extension LogInViewController: FBSDKLoginButtonDelegate {
   
   //TODO: Handle case when FB logs out user - just kicking user off app for now
   func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-    //AccountManager.defaultAccountManager.signOut()
+    AccountManager.defaultAccountManager.signOut()
   }
   
   // FB Delegate method callback after login
@@ -236,7 +236,7 @@ extension LogInViewController: FBSDKLoginButtonDelegate {
    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
    
    FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields":"first_name, last_name, email, picture.type(large)"]).startWithCompletionHandler {
-   (connection, result, error) -> Void in
+    (connection, result, error) -> Void in
    
    if let error = error {
    let errorMessage = error.localizedFailureReason
