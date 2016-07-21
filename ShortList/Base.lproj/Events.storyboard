@@ -29,6 +29,8 @@
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -54,184 +56,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RF6-Cx-j9H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1072" y="2048"/>
-        </scene>
-        <!--New Event-->
-        <scene sceneID="hz4-2J-fQ2">
-            <objects>
-                <viewController id="5r5-oQ-tbG" customClass="CreateEventViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NQL-zY-5rn"/>
-                        <viewControllerLayoutGuide type="bottom" id="vRt-mH-5ro"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="XV3-pa-1sA">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9DU-kK-QbY" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
-                                <rect key="frame" x="20" y="117" width="560" height="40"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="32s-hj-Kpn"/>
-                                </constraints>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bGf-lP-Z2Z" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
-                                <rect key="frame" x="20" y="171" width="331" height="40"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="aYz-wI-aet"/>
-                                </constraints>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <action selector="dateTextFieldDidPress:" destination="5r5-oQ-tbG" eventType="touchDown" id="maJ-hN-raF"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="List" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nfy-le-90f" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
-                                <rect key="frame" x="20" y="225" width="560" height="40"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="GNW-Dy-0c1"/>
-                                </constraints>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <action selector="listTextFieldPressed:" destination="5r5-oQ-tbG" eventType="touchDown" id="Ns1-f6-gsm"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sai-Jc-ABj">
-                                <rect key="frame" x="20" y="87" width="560" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="XFr-GH-PXt"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                <color key="textColor" red="0.92156862745098034" green="0.30196078431372547" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Venue" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iV4-ub-cjg" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
-                                <rect key="frame" x="20" y="279" width="560" height="40"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="wfA-aD-lRX"/>
-                                </constraints>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <action selector="venueTextFieldPressed:" destination="5r5-oQ-tbG" eventType="touchDown" id="myY-M6-htB"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1IZ-tO-ELm" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
-                                <rect key="frame" x="20" y="333" width="560" height="40"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Prc-qr-T5X"/>
-                                </constraints>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <action selector="locationTextFieldPressed:" destination="5r5-oQ-tbG" eventType="touchDown" id="pAF-bi-Gky"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Min. Guests" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hia-w2-LLy" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
-                                <rect key="frame" x="20" y="387" width="279" height="40"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="ddW-0R-Xmi"/>
-                                </constraints>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Max. Guests" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="egZ-O7-H9x" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
-                                <rect key="frame" x="302" y="387" width="278" height="40"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="WGY-5f-vbh"/>
-                                </constraints>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fmQ-yc-LkS" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
-                                <rect key="frame" x="359" y="171" width="221" height="40"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="sZf-dQ-lQS"/>
-                                </constraints>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="fmQ-yc-LkS" firstAttribute="trailing" secondItem="XV3-pa-1sA" secondAttribute="trailingMargin" id="1hf-Ol-jUF"/>
-                            <constraint firstItem="Hia-w2-LLy" firstAttribute="leading" secondItem="XV3-pa-1sA" secondAttribute="leadingMargin" id="5CS-HR-bge"/>
-                            <constraint firstItem="Nfy-le-90f" firstAttribute="top" secondItem="fmQ-yc-LkS" secondAttribute="bottom" constant="14" id="5Tl-hZ-i4B"/>
-                            <constraint firstItem="Nfy-le-90f" firstAttribute="trailing" secondItem="XV3-pa-1sA" secondAttribute="trailingMargin" id="76Y-KF-RwW"/>
-                            <constraint firstItem="Hia-w2-LLy" firstAttribute="top" secondItem="1IZ-tO-ELm" secondAttribute="bottom" constant="14" id="CEo-vr-jYO"/>
-                            <constraint firstItem="egZ-O7-H9x" firstAttribute="trailing" secondItem="XV3-pa-1sA" secondAttribute="trailingMargin" id="EKe-P4-DnD"/>
-                            <constraint firstItem="1IZ-tO-ELm" firstAttribute="trailing" secondItem="XV3-pa-1sA" secondAttribute="trailingMargin" id="HZ6-uS-KMe"/>
-                            <constraint firstItem="fmQ-yc-LkS" firstAttribute="top" secondItem="9DU-kK-QbY" secondAttribute="bottom" constant="14" id="QM4-vl-Wc3"/>
-                            <constraint firstItem="1IZ-tO-ELm" firstAttribute="leading" secondItem="XV3-pa-1sA" secondAttribute="leadingMargin" id="Qft-d1-M6E"/>
-                            <constraint firstItem="iV4-ub-cjg" firstAttribute="trailing" secondItem="XV3-pa-1sA" secondAttribute="trailingMargin" id="Rcy-15-Ucw"/>
-                            <constraint firstItem="iV4-ub-cjg" firstAttribute="leading" secondItem="XV3-pa-1sA" secondAttribute="leadingMargin" id="US3-XJ-SZC"/>
-                            <constraint firstItem="9DU-kK-QbY" firstAttribute="top" secondItem="sai-Jc-ABj" secondAttribute="bottom" constant="9" id="WUj-Pr-dmv"/>
-                            <constraint firstItem="sai-Jc-ABj" firstAttribute="trailing" secondItem="XV3-pa-1sA" secondAttribute="trailingMargin" id="WeL-bd-c3i"/>
-                            <constraint firstItem="iV4-ub-cjg" firstAttribute="top" secondItem="Nfy-le-90f" secondAttribute="bottom" constant="14" id="Znu-1V-m55"/>
-                            <constraint firstItem="bGf-lP-Z2Z" firstAttribute="leading" secondItem="XV3-pa-1sA" secondAttribute="leadingMargin" id="ZtZ-4n-zPa"/>
-                            <constraint firstItem="fmQ-yc-LkS" firstAttribute="width" secondItem="bGf-lP-Z2Z" secondAttribute="width" multiplier="1:1.5" id="bug-ys-hcT"/>
-                            <constraint firstItem="fmQ-yc-LkS" firstAttribute="leading" secondItem="bGf-lP-Z2Z" secondAttribute="trailing" constant="8" id="dnx-ul-VR2"/>
-                            <constraint firstItem="1IZ-tO-ELm" firstAttribute="top" secondItem="iV4-ub-cjg" secondAttribute="bottom" constant="14" id="edZ-9r-700"/>
-                            <constraint firstItem="Nfy-le-90f" firstAttribute="leading" secondItem="XV3-pa-1sA" secondAttribute="leadingMargin" id="fn8-M1-je9"/>
-                            <constraint firstItem="9DU-kK-QbY" firstAttribute="leading" secondItem="XV3-pa-1sA" secondAttribute="leadingMargin" id="gzF-Q6-i29"/>
-                            <constraint firstItem="bGf-lP-Z2Z" firstAttribute="top" secondItem="9DU-kK-QbY" secondAttribute="bottom" constant="14" id="iZa-mu-of5"/>
-                            <constraint firstItem="sai-Jc-ABj" firstAttribute="leading" secondItem="XV3-pa-1sA" secondAttribute="leadingMargin" id="ntl-pf-Jsv"/>
-                            <constraint firstItem="egZ-O7-H9x" firstAttribute="leading" secondItem="Hia-w2-LLy" secondAttribute="trailing" constant="3" id="pTD-wh-LeA"/>
-                            <constraint firstItem="egZ-O7-H9x" firstAttribute="top" secondItem="1IZ-tO-ELm" secondAttribute="bottom" constant="14" id="pmj-nO-Ib4"/>
-                            <constraint firstItem="9DU-kK-QbY" firstAttribute="trailing" secondItem="XV3-pa-1sA" secondAttribute="trailingMargin" id="q78-6I-DCf"/>
-                            <constraint firstItem="Nfy-le-90f" firstAttribute="trailing" secondItem="XV3-pa-1sA" secondAttribute="trailingMargin" id="qDH-9Q-J71"/>
-                            <constraint firstItem="Nfy-le-90f" firstAttribute="leading" secondItem="XV3-pa-1sA" secondAttribute="leadingMargin" id="te1-fP-CzJ"/>
-                            <constraint firstItem="egZ-O7-H9x" firstAttribute="width" secondItem="Hia-w2-LLy" secondAttribute="width" multiplier="1:1" id="wBc-RW-xlD"/>
-                            <constraint firstItem="sai-Jc-ABj" firstAttribute="top" secondItem="NQL-zY-5rn" secondAttribute="bottom" constant="23" id="wsl-y7-TgA"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="New Event" id="b5t-Nd-cep">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Myc-eL-uc9">
-                            <connections>
-                                <action selector="createEventDidCancel:" destination="5r5-oQ-tbG" id="xJ7-bW-Gyz"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Create" id="kBO-k5-IWF">
-                            <connections>
-                                <action selector="createEventButtonPressed:" destination="5r5-oQ-tbG" id="PyP-sZ-t6F"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="dateTextField" destination="bGf-lP-Z2Z" id="CPl-yc-tbM"/>
-                        <outlet property="errorMessageLabel" destination="sai-Jc-ABj" id="fzM-nN-VHB"/>
-                        <outlet property="listTextField" destination="Nfy-le-90f" id="85v-rk-Yj5"/>
-                        <outlet property="locationTextField" destination="1IZ-tO-ELm" id="8Yy-Lu-vBm"/>
-                        <outlet property="maxGuestTextField" destination="egZ-O7-H9x" id="mBH-gN-kZi"/>
-                        <outlet property="minGuestTextField" destination="Hia-w2-LLy" id="hjq-CP-Aq2"/>
-                        <outlet property="nameTextField" destination="9DU-kK-QbY" id="xLC-k6-g2d"/>
-                        <outlet property="timeTextField" destination="fmQ-yc-LkS" id="l14-sm-Jvf"/>
-                        <outlet property="venueTextField" destination="iV4-ub-cjg" id="7rk-8o-2cr"/>
-                        <segue destination="kl2-g0-ULL" kind="show" identifier="showPlacePicker" id="9ei-mx-GRh"/>
-                        <segue destination="pDA-H8-xAd" kind="show" identifier="selectVenue" id="3ik-Gb-DUC"/>
-                        <segue destination="9y8-LX-IhU" kind="show" identifier="selectList" id="7Xg-ks-ce9"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="V2F-NC-bOO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2984" y="2043"/>
         </scene>
         <!--Events-->
         <scene sceneID="qRs-kl-9jD">
@@ -265,16 +89,16 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9eR-1C-1Zb">
                                                     <rect key="frame" x="0.0" y="0.0" width="264" height="52"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="X5s-cJ-OeQ">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="X5s-cJ-OeQ">
                                                             <rect key="frame" x="0.0" y="0.0" width="264" height="21"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" misplaced="YES" text="Wed, Mar 23" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6K-94-qL6">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Wed, Mar 23" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6K-94-qL6">
                                                                     <rect key="frame" x="0.0" y="0.0" width="174" height="21"/>
                                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="7:30 PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Eg-gw-HH9">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7:30 PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Eg-gw-HH9">
                                                                     <rect key="frame" x="199" y="0.0" width="65" height="21"/>
                                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -282,13 +106,13 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1kp-E9-5dC">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1kp-E9-5dC">
                                                             <rect key="frame" x="0.0" y="31" width="264" height="21"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="4R8-Yb-Qsq">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="4R8-Yb-Qsq">
                                                                     <rect key="frame" x="0.0" y="0.0" width="264" height="21"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" misplaced="YES" text="Shortlist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlN-vY-x3o">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Shortlist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlN-vY-x3o">
                                                                             <rect key="frame" x="0.0" y="0.0" width="264" height="21"/>
                                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                                             <nil key="highlightedColor"/>
@@ -324,7 +148,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="W6y-jF-l6L">
                                                             <rect key="frame" x="0.0" y="119" width="264" height="24"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9ap-fK-wcp">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9ap-fK-wcp">
                                                                     <rect key="frame" x="0.0" y="0.0" width="75" height="24"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="4" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywx-RJ-3t4">
@@ -333,7 +157,7 @@
                                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Accepted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbz-5K-rFN">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accepted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbz-5K-rFN">
                                                                             <rect key="frame" x="21" y="0.0" width="54" height="24"/>
                                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
                                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -341,7 +165,7 @@
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="r3g-Fv-1ra">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="r3g-Fv-1ra">
                                                                     <rect key="frame" x="104" y="0.0" width="72" height="24"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCR-PC-kHa">
@@ -358,7 +182,7 @@
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="hdy-WV-CUT">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="hdy-WV-CUT">
                                                                     <rect key="frame" x="216" y="0.0" width="48" height="24"/>
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="chats-outline" translatesAutoresizingMaskIntoConstraints="NO" id="F5w-ya-lJZ">
@@ -368,7 +192,7 @@
                                                                                 <constraint firstAttribute="height" constant="24" id="tcz-4d-94c"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" misplaced="YES" text="15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJ1-S8-iGC">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJ1-S8-iGC">
                                                                             <rect key="frame" x="28" y="0.0" width="20" height="24"/>
                                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -408,13 +232,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ddF-MO-ey1">
                                                     <rect key="frame" x="0.0" y="12" width="264" height="41"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hackathon" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZP8-Um-9J4">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hackathon" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZP8-Um-9J4">
                                                             <rect key="frame" x="0.0" y="0.0" width="96" height="24"/>
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hacker Dojo Studios" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Tu-Ml-p3c">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hacker Dojo Studios" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Tu-Ml-p3c">
                                                             <rect key="frame" x="0.0" y="24" width="126" height="17"/>
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -466,7 +290,7 @@
                     <navigationItem key="navigationItem" title="Events" id="Ptg-E7-mhM">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="la8-lK-9LZ">
                             <connections>
-                                <segue destination="KvS-AU-wzW" kind="presentation" id="dlA-16-eAY"/>
+                                <segue destination="ssB-lC-AvB" kind="show" id="etq-q5-mKY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -478,31 +302,105 @@
             </objects>
             <point key="canvasLocation" x="1707" y="2043"/>
         </scene>
-        <!--Events Navigation View Controller-->
-        <scene sceneID="B9Y-YJ-vkj">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KvS-AU-wzW" customClass="EventsNavigationViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EcZ-pF-enx">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="5r5-oQ-tbG" kind="relationship" relationship="rootViewController" id="Ola-R4-ob8"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bxS-0M-3tN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2336" y="2043"/>
-        </scene>
         <!--PlacePicker-->
         <scene sceneID="ble-Qk-eXw">
             <objects>
                 <viewControllerPlaceholder storyboardName="PlacePicker" id="kl2-g0-ULL" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h56-jc-CUB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3550" y="2043"/>
+            <point key="canvasLocation" x="2849.5" y="2897"/>
+        </scene>
+        <!--Create Invitation View Controller-->
+        <scene sceneID="T4L-1P-aqt">
+            <objects>
+                <viewController storyboardIdentifier="CreateInvitationViewController" id="ssB-lC-AvB" customClass="CreateInvitationViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FGw-q3-3WO"/>
+                        <viewControllerLayoutGuide type="bottom" id="CGZ-VZ-sFH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BOk-9O-xOM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSm-Ob-wmu">
+                                <rect key="frame" x="8" y="72" width="584" height="471"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CY5-Rz-fF4">
+                                        <rect key="frame" x="0.0" y="0.0" width="584" height="471"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRL-Oe-8Sk" userLabel="Instruction View">
+                                                <rect key="frame" x="0.0" y="0.0" width="584" height="37"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FOLLOW THE STEPS TO CREATE INVITATIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irn-O0-aTj">
+                                                        <rect key="frame" x="0.0" y="21" width="584" height="16"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="Irn-O0-aTj" firstAttribute="leading" secondItem="DRL-Oe-8Sk" secondAttribute="leading" id="6gi-WF-ecR"/>
+                                                    <constraint firstItem="Irn-O0-aTj" firstAttribute="top" secondItem="DRL-Oe-8Sk" secondAttribute="top" constant="21" id="coj-rB-vBv"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Irn-O0-aTj" secondAttribute="bottom" id="oNq-wT-ma2"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Irn-O0-aTj" secondAttribute="trailing" id="vBO-me-1nK"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXI-Tv-723" userLabel="Progress View" customClass="InvitationProgressView" customModule="ShortList" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="37" width="584" height="113"/>
+                                                <color key="backgroundColor" red="1" green="0.84313725490000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVp-q2-U6F" userLabel="Title View">
+                                                <rect key="frame" x="0.0" y="150" width="584" height="37"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invitations Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvF-YU-rNG">
+                                                        <rect key="frame" x="0.0" y="8" width="584" height="21"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                                        <color key="textColor" red="0.38823529410000002" green="0.61568627450000002" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="WvF-YU-rNG" firstAttribute="leading" secondItem="zVp-q2-U6F" secondAttribute="leading" id="83e-7I-uRO"/>
+                                                    <constraint firstAttribute="trailing" secondItem="WvF-YU-rNG" secondAttribute="trailing" id="aQd-6X-eNJ"/>
+                                                    <constraint firstItem="WvF-YU-rNG" firstAttribute="centerY" secondItem="zVp-q2-U6F" secondAttribute="centerY" id="sJ3-bt-IWE"/>
+                                                </constraints>
+                                            </view>
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PzL-J3-3TB">
+                                                <rect key="frame" x="0.0" y="187" width="584" height="284"/>
+                                                <connections>
+                                                    <segue destination="3Kt-Sp-DlX" kind="embed" id="sbR-LE-nns"/>
+                                                </connections>
+                                            </containerView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="PzL-J3-3TB" firstAttribute="top" secondItem="CY5-Rz-fF4" secondAttribute="top" constant="187" id="QBF-e1-s7F"/>
+                                            <constraint firstItem="zVp-q2-U6F" firstAttribute="top" secondItem="CY5-Rz-fF4" secondAttribute="top" constant="150" id="av1-ao-WmE"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="CY5-Rz-fF4" firstAttribute="leading" secondItem="aSm-Ob-wmu" secondAttribute="leading" id="CA4-NU-u5S"/>
+                                    <constraint firstItem="CY5-Rz-fF4" firstAttribute="top" secondItem="aSm-Ob-wmu" secondAttribute="top" id="R7b-5Q-LNf"/>
+                                    <constraint firstAttribute="trailing" secondItem="CY5-Rz-fF4" secondAttribute="trailing" id="dHn-Qo-SaI"/>
+                                    <constraint firstAttribute="bottom" secondItem="CY5-Rz-fF4" secondAttribute="bottom" id="u7R-go-TLK"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aSm-Ob-wmu" firstAttribute="top" secondItem="FGw-q3-3WO" secondAttribute="bottom" constant="8" symbolic="YES" id="0TI-Xf-N1I"/>
+                            <constraint firstItem="CGZ-VZ-sFH" firstAttribute="top" secondItem="aSm-Ob-wmu" secondAttribute="bottom" constant="8" symbolic="YES" id="2fe-2k-ug1"/>
+                            <constraint firstItem="aSm-Ob-wmu" firstAttribute="centerX" secondItem="BOk-9O-xOM" secondAttribute="centerX" id="8Dk-o6-oW1"/>
+                            <constraint firstItem="aSm-Ob-wmu" firstAttribute="leading" secondItem="BOk-9O-xOM" secondAttribute="leadingMargin" constant="-12" id="k0h-g4-vFn"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hxF-8e-EMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2350" y="2151"/>
         </scene>
         <!--Venues-->
         <scene sceneID="2gi-be-WN9">
@@ -510,7 +408,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="SelectVenueViewController" storyboardName="Venues" id="pDA-H8-xAd" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cfw-qs-5T3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3473.5" y="1851"/>
+            <point key="canvasLocation" x="2885.5" y="2677"/>
         </scene>
         <!--SelectListViewController-->
         <scene sceneID="oEK-vP-jcK">
@@ -518,7 +416,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="SelectListViewController" storyboardName="Login" referencedIdentifier="SelectListViewController" id="9y8-LX-IhU" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hd6-PB-XHj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3534.5" y="2217"/>
+            <point key="canvasLocation" x="2868.5" y="3071"/>
         </scene>
         <!--EventDetailCollectionViewController-->
         <scene sceneID="ol1-vO-aMn">
@@ -527,6 +425,197 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vAB-pG-4eZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1707" y="2522"/>
+        </scene>
+        <!--Backup-->
+        <scene sceneID="B8n-Fe-Nme">
+            <objects>
+                <viewController storyboardIdentifier="Backup" title="Backup" id="d5h-4k-qC0" customClass="CreateEventViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tYI-wb-SrM"/>
+                        <viewControllerLayoutGuide type="bottom" id="uHV-KP-gHn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ieC-yL-oBh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ffj-ku-86V" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                <rect key="frame" x="20" y="117" width="560" height="40"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2f2-eP-eHC"/>
+                                </constraints>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jzv-jA-HXt" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                <rect key="frame" x="20" y="171" width="331" height="40"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="o4H-Oq-gBQ"/>
+                                </constraints>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="dateTextFieldDidPress:" destination="d5h-4k-qC0" eventType="touchDown" id="qDY-OI-4ly"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="List" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zRO-BT-ZZC" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                <rect key="frame" x="20" y="225" width="560" height="40"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="4cI-lL-Faa"/>
+                                </constraints>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="listTextFieldPressed:" destination="d5h-4k-qC0" eventType="touchDown" id="7rF-dy-plE"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Error Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGR-Uo-wIS">
+                                <rect key="frame" x="20" y="87" width="560" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="p3G-9e-CbB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                <color key="textColor" red="0.92156862750000001" green="0.30196078430000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Venue" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mGs-yj-bNQ" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                <rect key="frame" x="20" y="279" width="560" height="40"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="VY8-7d-45r"/>
+                                </constraints>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="venueTextFieldPressed:" destination="d5h-4k-qC0" eventType="touchDown" id="wh3-Qm-smK"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nzM-0g-bFJ" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                <rect key="frame" x="20" y="333" width="560" height="40"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="7nO-e1-Mdw"/>
+                                </constraints>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="locationTextFieldPressed:" destination="d5h-4k-qC0" eventType="touchDown" id="lF1-wL-Cas"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Min. Guests" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="itg-JX-1v1" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                <rect key="frame" x="20" y="387" width="279" height="40"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ij7-sC-Cpd"/>
+                                </constraints>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Max. Guests" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wZt-52-Lit" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                <rect key="frame" x="302" y="387" width="278" height="40"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="7AS-VE-fiP"/>
+                                </constraints>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H3W-dy-mLG" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                <rect key="frame" x="359" y="171" width="221" height="40"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="9Jp-f1-YOI"/>
+                                </constraints>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="H3W-dy-mLG" firstAttribute="top" secondItem="ffj-ku-86V" secondAttribute="bottom" constant="14" id="0Fl-xO-WUo"/>
+                            <constraint firstItem="mGs-yj-bNQ" firstAttribute="trailing" secondItem="ieC-yL-oBh" secondAttribute="trailingMargin" id="1Gm-cf-Oj4"/>
+                            <constraint firstItem="wZt-52-Lit" firstAttribute="leading" secondItem="itg-JX-1v1" secondAttribute="trailing" constant="3" id="407-Pc-zWH"/>
+                            <constraint firstItem="wZt-52-Lit" firstAttribute="width" secondItem="itg-JX-1v1" secondAttribute="width" multiplier="1:1" id="4DE-vP-eXM"/>
+                            <constraint firstItem="wZt-52-Lit" firstAttribute="top" secondItem="nzM-0g-bFJ" secondAttribute="bottom" constant="14" id="5eC-K5-rdd"/>
+                            <constraint firstItem="H3W-dy-mLG" firstAttribute="width" secondItem="Jzv-jA-HXt" secondAttribute="width" multiplier="1:1.5" id="5n9-NU-WaK"/>
+                            <constraint firstItem="nzM-0g-bFJ" firstAttribute="top" secondItem="mGs-yj-bNQ" secondAttribute="bottom" constant="14" id="6h8-6m-ISa"/>
+                            <constraint firstItem="wZt-52-Lit" firstAttribute="trailing" secondItem="ieC-yL-oBh" secondAttribute="trailingMargin" id="Acg-oE-MGS"/>
+                            <constraint firstItem="itg-JX-1v1" firstAttribute="top" secondItem="nzM-0g-bFJ" secondAttribute="bottom" constant="14" id="AkB-a8-N5n"/>
+                            <constraint firstItem="itg-JX-1v1" firstAttribute="leading" secondItem="ieC-yL-oBh" secondAttribute="leadingMargin" id="GcJ-it-OQH"/>
+                            <constraint firstItem="ffj-ku-86V" firstAttribute="leading" secondItem="ieC-yL-oBh" secondAttribute="leadingMargin" id="HB6-FY-SiS"/>
+                            <constraint firstItem="nzM-0g-bFJ" firstAttribute="trailing" secondItem="ieC-yL-oBh" secondAttribute="trailingMargin" id="V3E-SD-zKm"/>
+                            <constraint firstItem="zRO-BT-ZZC" firstAttribute="trailing" secondItem="ieC-yL-oBh" secondAttribute="trailingMargin" id="V6V-Un-2d5"/>
+                            <constraint firstItem="VGR-Uo-wIS" firstAttribute="trailing" secondItem="ieC-yL-oBh" secondAttribute="trailingMargin" id="WbO-tX-cZe"/>
+                            <constraint firstItem="Jzv-jA-HXt" firstAttribute="top" secondItem="ffj-ku-86V" secondAttribute="bottom" constant="14" id="Xzm-4D-BVp"/>
+                            <constraint firstItem="zRO-BT-ZZC" firstAttribute="top" secondItem="H3W-dy-mLG" secondAttribute="bottom" constant="14" id="YZY-KH-oSp"/>
+                            <constraint firstItem="nzM-0g-bFJ" firstAttribute="leading" secondItem="ieC-yL-oBh" secondAttribute="leadingMargin" id="Yxy-8f-h1T"/>
+                            <constraint firstItem="mGs-yj-bNQ" firstAttribute="leading" secondItem="ieC-yL-oBh" secondAttribute="leadingMargin" id="b7j-pF-bU4"/>
+                            <constraint firstItem="VGR-Uo-wIS" firstAttribute="top" secondItem="tYI-wb-SrM" secondAttribute="bottom" constant="23" id="bMK-QU-Zlf"/>
+                            <constraint firstItem="zRO-BT-ZZC" firstAttribute="leading" secondItem="ieC-yL-oBh" secondAttribute="leadingMargin" id="bhj-do-JpI"/>
+                            <constraint firstItem="zRO-BT-ZZC" firstAttribute="trailing" secondItem="ieC-yL-oBh" secondAttribute="trailingMargin" id="fYP-Mx-oir"/>
+                            <constraint firstItem="zRO-BT-ZZC" firstAttribute="leading" secondItem="ieC-yL-oBh" secondAttribute="leadingMargin" id="gna-HO-cgk"/>
+                            <constraint firstItem="H3W-dy-mLG" firstAttribute="trailing" secondItem="ieC-yL-oBh" secondAttribute="trailingMargin" id="iHD-jS-dFd"/>
+                            <constraint firstItem="H3W-dy-mLG" firstAttribute="leading" secondItem="Jzv-jA-HXt" secondAttribute="trailing" constant="8" id="lfM-Hw-2eq"/>
+                            <constraint firstItem="Jzv-jA-HXt" firstAttribute="leading" secondItem="ieC-yL-oBh" secondAttribute="leadingMargin" id="p1z-b0-pda"/>
+                            <constraint firstItem="ffj-ku-86V" firstAttribute="top" secondItem="VGR-Uo-wIS" secondAttribute="bottom" constant="9" id="pA7-AB-Zaa"/>
+                            <constraint firstItem="VGR-Uo-wIS" firstAttribute="leading" secondItem="ieC-yL-oBh" secondAttribute="leadingMargin" id="vAm-tZ-JG3"/>
+                            <constraint firstItem="ffj-ku-86V" firstAttribute="trailing" secondItem="ieC-yL-oBh" secondAttribute="trailingMargin" id="wOE-Pg-1vE"/>
+                            <constraint firstItem="mGs-yj-bNQ" firstAttribute="top" secondItem="zRO-BT-ZZC" secondAttribute="bottom" constant="14" id="zD6-32-q0Z"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create Invitations" id="Epn-T5-fjw">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pBA-Kl-sjX">
+                            <connections>
+                                <action selector="createEventDidCancel:" destination="d5h-4k-qC0" id="QpL-VE-XnY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dateTextField" destination="Jzv-jA-HXt" id="Hwr-yy-C2q"/>
+                        <outlet property="errorMessageLabel" destination="VGR-Uo-wIS" id="1Ix-jH-u69"/>
+                        <outlet property="listTextField" destination="zRO-BT-ZZC" id="32a-uU-K6K"/>
+                        <outlet property="locationTextField" destination="nzM-0g-bFJ" id="8Qw-OS-uor"/>
+                        <outlet property="maxGuestTextField" destination="wZt-52-Lit" id="p5U-Kx-qu0"/>
+                        <outlet property="minGuestTextField" destination="itg-JX-1v1" id="CHb-ey-Gbd"/>
+                        <outlet property="nameTextField" destination="ffj-ku-86V" id="xgc-q1-0yk"/>
+                        <outlet property="timeTextField" destination="H3W-dy-mLG" id="aCp-nA-t2C"/>
+                        <outlet property="venueTextField" destination="mGs-yj-bNQ" id="jMx-jD-Owh"/>
+                        <segue destination="pDA-H8-xAd" kind="show" identifier="selectVenue" id="HgL-fU-zxE"/>
+                        <segue destination="kl2-g0-ULL" kind="show" identifier="showPlacePicker" id="6wX-FN-ulN"/>
+                        <segue destination="9y8-LX-IhU" kind="show" identifier="selectList" id="gFJ-9n-xKw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yzr-kY-osz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2379" y="2883"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="awH-hT-bZE">
+            <objects>
+                <viewController id="3Kt-Sp-DlX" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ndT-2o-ceQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="fDF-HP-SOe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Td6-fK-HgU">
+                        <rect key="frame" x="0.0" y="0.0" width="584" height="284"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Afh-x6-9wH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2523" y="1606"/>
         </scene>
     </scenes>
     <resources>

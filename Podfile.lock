@@ -25,6 +25,7 @@ PODS:
   - Groot (1.2):
     - Groot/Swift (= 1.2)
   - Groot/Swift (1.2)
+  - KYCircularProgress (0.5.1)
   - ObjectMapper (1.1.5)
   - PhoneNumberKit (0.8.4)
   - SwiftQRCode (2.0.1)
@@ -43,6 +44,7 @@ DEPENDENCIES:
   - FLEX (~> 2.0)
   - GoogleMaps (= 1.12.1)
   - Groot (= 1.2)
+  - KYCircularProgress
   - ObjectMapper (= 1.1.5)
   - PhoneNumberKit (~> 0.6)
   - SwiftQRCode (= 2.0.1)
@@ -62,6 +64,7 @@ SPEC CHECKSUMS:
   FLEX: ba80ea13d2c784e85e616137fd4eff164781e364
   GoogleMaps: d4e7526e96e78faf7131ea95f13dd5411cc2916d
   Groot: 86c2c820d619f18586b2d1dcfd90e908339f00bc
+  KYCircularProgress: 69a6d6852d96ca2be2830cc659b85aab3bb1cee6
   ObjectMapper: 528b1a6677a6acac7747edd508576983e76a9148
   PhoneNumberKit: ec93d8c5e4614ecfc1ef333eb89f7eaadedcaa17
   SwiftQRCode: ce939b2f3ceba3a4b89a99c981cba70604e480cf

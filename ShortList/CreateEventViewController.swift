@@ -9,6 +9,7 @@
 import UIKit
 import ObjectMapper
 import Groot
+import KYCircularProgress
 
 private let dateFormatter: NSDateFormatter = {
   let formatter = NSDateFormatter()
@@ -27,6 +28,7 @@ private let timeFormatter: NSDateFormatter = {
 
 class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   
+  @IBOutlet weak var invitationProgressBar: UIProgressView!
   @IBOutlet weak var errorMessageLabel: UILabel!
   @IBOutlet weak var nameTextField: UIMaterialTextField!
   @IBOutlet weak var dateTextField: UIMaterialTextField!
@@ -180,10 +182,6 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   @IBAction func createEventDidCancel(sender: AnyObject) {
     self.view.endEditing(true)
     self.dismissViewControllerAnimated(true, completion: nil)
-  }
-  
-  @IBAction func createEventButtonPressed(sender: AnyObject) {
-    createEvent()
   }
   
   @IBAction func listTextFieldPressed(sender: AnyObject) {

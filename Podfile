@@ -16,6 +16,7 @@ pod 'DZNSegmentedControl', '1.3.3'
 pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'
+pod 'KYCircularProgress'
 
 post_install do |installer|
     `rm -rf Pods/Headers/Private`

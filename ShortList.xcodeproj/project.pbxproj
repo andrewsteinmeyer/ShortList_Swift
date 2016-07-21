@@ -164,6 +164,7 @@
 		4E63134B1C1FB60A00EB78F9 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6313411C1FB60A00EB78F9 /* FoundationExtensions.swift */; };
 		4E63134E1C1FBAED00EB78F9 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E63134D1C1FBAED00EB78F9 /* ListsViewController.swift */; };
 		4E6313501C1FBB3300EB78F9 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E63134F1C1FBB3300EB78F9 /* ListDetailViewController.swift */; };
+		4E66C43A1D4061F300865222 /* InvitationProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66C4391D4061F300865222 /* InvitationProgressView.swift */; };
 		4E719C0D1C3F60C3009989AC /* SelectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E719C0C1C3F60C3009989AC /* SelectListViewController.swift */; };
 		4E719C0F1C407087009989AC /* EventConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E719C0E1C407087009989AC /* EventConfiguration.swift */; };
 		4E719C131C4075C2009989AC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E719C121C4075C2009989AC /* Date.swift */; };
@@ -183,6 +184,7 @@
 		4E8D88A11C83B17200A8B68B /* AlertsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8D88A01C83B17200A8B68B /* AlertsTableViewCell.swift */; };
 		4E8FA7361CB20175003FC81C /* AttendeeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8FA7351CB20174003FC81C /* AttendeeCollectionViewCell.swift */; };
 		4E8FA73A1CB208FE003FC81C /* EventDetailCollectionViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8FA7391CB208FE003FC81C /* EventDetailCollectionViewSectionHeader.swift */; };
+		4E95FC731D3DC6D50003CAD0 /* CreateInvitationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E95FC721D3DC6D50003CAD0 /* CreateInvitationViewController.swift */; };
 		4E96E4801CB96BA50039BFF2 /* StatusCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96E47F1CB96BA50039BFF2 /* StatusCategoryCollectionViewCell.swift */; };
 		4EA3652A1C2224B500C90249 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA365291C2224B500C90249 /* SignInViewController.swift */; };
 		4EA365301C2380BD00C90249 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA3652F1C2380BD00C90249 /* AccountManager.swift */; };
@@ -450,6 +452,7 @@
 		4E6313411C1FB60A00EB78F9 /* FoundationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
 		4E63134D1C1FBAED00EB78F9 /* ListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
 		4E63134F1C1FBB3300EB78F9 /* ListDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
+		4E66C4391D4061F300865222 /* InvitationProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationProgressView.swift; sourceTree = "<group>"; };
 		4E719C0C1C3F60C3009989AC /* SelectListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectListViewController.swift; sourceTree = "<group>"; };
 		4E719C0E1C407087009989AC /* EventConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventConfiguration.swift; sourceTree = "<group>"; };
 		4E719C121C4075C2009989AC /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -469,6 +472,7 @@
 		4E8D88A01C83B17200A8B68B /* AlertsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsTableViewCell.swift; sourceTree = "<group>"; };
 		4E8FA7351CB20174003FC81C /* AttendeeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendeeCollectionViewCell.swift; sourceTree = "<group>"; };
 		4E8FA7391CB208FE003FC81C /* EventDetailCollectionViewSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailCollectionViewSectionHeader.swift; sourceTree = "<group>"; };
+		4E95FC721D3DC6D50003CAD0 /* CreateInvitationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateInvitationViewController.swift; sourceTree = "<group>"; };
 		4E96E47F1CB96BA50039BFF2 /* StatusCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		4EA365291C2224B500C90249 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		4EA3652F1C2380BD00C90249 /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
@@ -877,6 +881,7 @@
 				4EA365291C2224B500C90249 /* SignInViewController.swift */,
 				4E7FB3CD1D37AAA4005A4043 /* MainTabBarController.swift */,
 				4E60A0DD1C30851900D66A9A /* PlacePickerViewController.swift */,
+				4E95FC741D3DC6DD0003CAD0 /* Invitations */,
 				4EA89FBE1C27099F00163C57 /* Notifications */,
 				4EA89FBF1C2709B200163C57 /* List */,
 				4E60A0D61C2C6E4400D66A9A /* Venue */,
@@ -910,6 +915,7 @@
 				4E6312B21C1FAFCA00EB78F9 /* TableViewCell */,
 				4E430FC81CA23849008BC34F /* CollectionViewCell */,
 				4E430FC51CA2374B008BC34F /* UITextField */,
+				4E66C4391D4061F300865222 /* InvitationProgressView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1136,6 +1142,14 @@
 				4E4AEE201CCBF75000C43A7F /* GuestListTableViewController.swift */,
 			);
 			name = EventDetails;
+			sourceTree = "<group>";
+		};
+		4E95FC741D3DC6DD0003CAD0 /* Invitations */ = {
+			isa = PBXGroup;
+			children = (
+				4E95FC721D3DC6D50003CAD0 /* CreateInvitationViewController.swift */,
+			);
+			name = Invitations;
 			sourceTree = "<group>";
 		};
 		4EA89FBE1C27099F00163C57 /* Notifications */ = {
@@ -1697,6 +1711,7 @@
 				4EF93D1A1C7C9FF900FBB18C /* PhoneTextField.swift in Sources */,
 				4EF32A4B1C8094490078B69A /* README.md in Sources */,
 				4EF32A031C80931C0078B69A /* METDynamicVariable.m in Sources */,
+				4E66C43A1D4061F300865222 /* InvitationProgressView.swift in Sources */,
 				4E066E051C5D6BE400003143 /* SWRevealViewController.m in Sources */,
 				4E1C46F31C7DE53500C22101 /* PhoneNumberRule.swift in Sources */,
 				4E63132C1C1FB2DE00EB78F9 /* List.swift in Sources */,
@@ -1754,6 +1769,7 @@
 				4E233C8F1C3CBDAC00FDC1B9 /* PopDateViewController.swift in Sources */,
 				4EF32A4D1C8094490078B69A /* A0SimpleKeychain.m in Sources */,
 				4E8D88A11C83B17200A8B68B /* AlertsTableViewCell.swift in Sources */,
+				4E95FC731D3DC6D50003CAD0 /* CreateInvitationViewController.swift in Sources */,
 				4E582A7B1C3F48AB00052399 /* SelectVenueViewController.swift in Sources */,
 				4E4AEE251CCD8D8A00C43A7F /* EventInvitationsViewController.swift in Sources */,
 				4E63130B1C1FB28000EB78F9 /* SpringTextField.swift in Sources */,
