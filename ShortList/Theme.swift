@@ -26,7 +26,7 @@ enum Theme {
     static let mainThemeButtonTextColor     = "333333"
     static let mainThemeButtonColor         = "FFD673" //yellow
     
-    static let secondaryHeaderColor         = "FFD673" //yellow
+    static let secondaryHeaderColor         = "FFD673"
     
     static let segmentBackgroundColor       = "EDEDED"
     
@@ -94,6 +94,9 @@ enum Theme {
   case CreateEventViewErrorColor
   case EventDetailCancelButtonColor
   
+  // Invitation
+  case InvitationProgressButtonColor
+  
   // Profile
   case ProfileTableViewHeaderTextColor
   case ProfileLogoutButtonTextColor
@@ -155,6 +158,9 @@ enum Theme {
     // Event
     case .CreateEventViewErrorColor:                     return HexColor(Palette.mainThemeErrorColor)
     case .EventDetailCancelButtonColor:                  return HexColor(Palette.mainThemeErrorColor)
+    
+    // Invitation
+    case InvitationProgressButtonColor:                  return HexColor(Palette.mainThemeColor)
       
     // Profile
     case .ProfileTableViewHeaderTextColor:               return HexColor(Palette.mainThemeTextColor)

@@ -10,7 +10,8 @@ import UIKit
 
 class InvitationProgressView: UIView {
   
-  let padding = 10
+  let buttonRatioToView: CGFloat = 0.6
+  let buttonImageRatioToView: CGFloat = 0.4
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -50,32 +51,41 @@ class InvitationProgressView: UIView {
   }
   
   private func layoutButtons() {
-    
+    // settings button
     let settingsButton = UIButton(type: .Custom)
     settingsButton.translatesAutoresizingMaskIntoConstraints = false
     settingsButton.layer.borderWidth = 1
     settingsButton.layer.cornerRadius = 3
     settingsButton.layer.borderColor = UIColor.lightGrayColor().CGColor
     settingsButton.backgroundColor = UIColor.whiteColor()
-    settingsButton.setImage(UIImage(named: "settings-two-cogs"), forState: .Normal)
+    
+    let settingsImage = UIImage(named: "settings-two-cogs")?.imageWithColor(Theme.InvitationProgressButtonColor.toUIColor())
+    settingsButton.setImage(settingsImage, forState: .Normal)
     self.addSubview(settingsButton)
     
+    
+    // details button
     let detailsButton = UIButton(type: .Custom)
     detailsButton.translatesAutoresizingMaskIntoConstraints = false
     detailsButton.layer.borderWidth = 1
     detailsButton.layer.cornerRadius = 3
     detailsButton.layer.borderColor = UIColor.lightGrayColor().CGColor
     detailsButton.backgroundColor = UIColor.whiteColor()
-    detailsButton.setImage(UIImage(named: "invite-details"), forState: .Normal)
+    
+    let detailsImage = UIImage(named: "invite-details")?.imageWithColor(Theme.InvitationProgressButtonColor.toUIColor())
+    detailsButton.setImage(detailsImage, forState: .Normal)
     self.addSubview(detailsButton)
     
+    // send button
     let sendButton = UIButton(type: .Custom)
     sendButton.translatesAutoresizingMaskIntoConstraints = false
     sendButton.layer.borderWidth = 1
     sendButton.layer.cornerRadius = 3
     sendButton.layer.borderColor = UIColor.lightGrayColor().CGColor
     sendButton.backgroundColor = UIColor.whiteColor()
-    sendButton.setImage(UIImage(named: "invite-send"), forState: .Normal)
+    
+    let sendImage = UIImage(named: "invite-send")?.imageWithColor(Theme.InvitationProgressButtonColor.toUIColor())
+    sendButton.setImage(sendImage, forState: .Normal)
     self.addSubview(sendButton)
     
     let leadingGuide = UILayoutGuide()
@@ -107,7 +117,7 @@ class InvitationProgressView: UIView {
     leadingGuide.widthAnchor.constraintEqualToAnchor(trailingGuide.widthAnchor).active = true
     firstBuffer.widthAnchor.constraintEqualToAnchor(secondBuffer.widthAnchor).active = true
     
-    leadingGuide.heightAnchor.constraintEqualToAnchor(self.heightAnchor, multiplier: 0.75).active = true
+    leadingGuide.heightAnchor.constraintEqualToAnchor(self.heightAnchor, multiplier: buttonRatioToView).active = true
     settingsButton.heightAnchor.constraintEqualToAnchor(leadingGuide.heightAnchor).active = true
     detailsButton.heightAnchor.constraintEqualToAnchor(settingsButton.heightAnchor).active = true
     settingsButton.heightAnchor.constraintEqualToAnchor(sendButton.heightAnchor).active = true
@@ -124,18 +134,4 @@ class InvitationProgressView: UIView {
     
   }
   
-  /*
-  private func layoutButtons() {
-    let width = self.bounds.width
-    
-    let leadingGuide = UILayoutGuide()
-    let settingsButton = UIButton(type: .Custom)
-    let firstGuide = UILayoutGuide()
-    let detailsButton = UIButton(type: .Custom)
-    let secondGuide = UILayoutGuide()
-    let sendButton = UIButton(type: .Custom)
-    let trailingGuide = UILayoutGuide()
-  }
-  */
-
 }

@@ -329,10 +329,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="584" height="471"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRL-Oe-8Sk" userLabel="Instruction View">
-                                                <rect key="frame" x="0.0" y="0.0" width="584" height="37"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="584" height="44"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FOLLOW THE STEPS TO CREATE INVITATIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irn-O0-aTj">
-                                                        <rect key="frame" x="0.0" y="21" width="584" height="16"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="FOLLOW THE STEPS TO CREATE INVITATIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irn-O0-aTj">
+                                                        <rect key="frame" x="0.0" y="21" width="584" height="17"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -346,14 +346,14 @@
                                                     <constraint firstAttribute="trailing" secondItem="Irn-O0-aTj" secondAttribute="trailing" id="vBO-me-1nK"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXI-Tv-723" userLabel="Progress View" customClass="InvitationProgressView" customModule="ShortList" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="37" width="584" height="113"/>
+                                            <view contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="lXI-Tv-723" userLabel="Progress View" customClass="InvitationProgressView" customModule="ShortList" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="44" width="584" height="132"/>
                                                 <color key="backgroundColor" red="1" green="0.84313725490000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVp-q2-U6F" userLabel="Title View">
-                                                <rect key="frame" x="0.0" y="150" width="584" height="37"/>
+                                                <rect key="frame" x="0.0" y="176" width="584" height="31"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invitations Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvF-YU-rNG">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Invitations Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvF-YU-rNG">
                                                         <rect key="frame" x="0.0" y="8" width="584" height="21"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                         <color key="textColor" red="0.38823529410000002" green="0.61568627450000002" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -368,15 +368,16 @@
                                                 </constraints>
                                             </view>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PzL-J3-3TB">
-                                                <rect key="frame" x="0.0" y="187" width="584" height="284"/>
+                                                <rect key="frame" x="0.0" y="207" width="584" height="264"/>
                                                 <connections>
                                                     <segue destination="3Kt-Sp-DlX" kind="embed" id="sbR-LE-nns"/>
                                                 </connections>
                                             </containerView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="PzL-J3-3TB" firstAttribute="top" secondItem="CY5-Rz-fF4" secondAttribute="top" constant="187" id="QBF-e1-s7F"/>
-                                            <constraint firstItem="zVp-q2-U6F" firstAttribute="top" secondItem="CY5-Rz-fF4" secondAttribute="top" constant="150" id="av1-ao-WmE"/>
+                                            <constraint firstItem="lXI-Tv-723" firstAttribute="height" secondItem="DRL-Oe-8Sk" secondAttribute="height" multiplier="3:1" id="Chq-sx-380"/>
+                                            <constraint firstItem="PzL-J3-3TB" firstAttribute="height" secondItem="DRL-Oe-8Sk" secondAttribute="height" multiplier="6:1" id="lvU-4B-W9Z"/>
+                                            <constraint firstItem="zVp-q2-U6F" firstAttribute="height" secondItem="DRL-Oe-8Sk" secondAttribute="height" multiplier="7:10" id="s7V-1b-Vqd"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -393,8 +394,8 @@
                         <constraints>
                             <constraint firstItem="aSm-Ob-wmu" firstAttribute="top" secondItem="FGw-q3-3WO" secondAttribute="bottom" constant="8" symbolic="YES" id="0TI-Xf-N1I"/>
                             <constraint firstItem="CGZ-VZ-sFH" firstAttribute="top" secondItem="aSm-Ob-wmu" secondAttribute="bottom" constant="8" symbolic="YES" id="2fe-2k-ug1"/>
-                            <constraint firstItem="aSm-Ob-wmu" firstAttribute="centerX" secondItem="BOk-9O-xOM" secondAttribute="centerX" id="8Dk-o6-oW1"/>
                             <constraint firstItem="aSm-Ob-wmu" firstAttribute="leading" secondItem="BOk-9O-xOM" secondAttribute="leadingMargin" constant="-12" id="k0h-g4-vFn"/>
+                            <constraint firstAttribute="trailing" secondItem="aSm-Ob-wmu" secondAttribute="trailing" constant="8" id="wwE-G3-znK"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -608,7 +609,7 @@
                         <viewControllerLayoutGuide type="bottom" id="fDF-HP-SOe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Td6-fK-HgU">
-                        <rect key="frame" x="0.0" y="0.0" width="584" height="284"/>
+                        <rect key="frame" x="0.0" y="0.0" width="584" height="264"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
