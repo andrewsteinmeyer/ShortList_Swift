@@ -31,6 +31,16 @@
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -323,16 +333,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSm-Ob-wmu">
-                                <rect key="frame" x="8" y="72" width="584" height="471"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="437"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CY5-Rz-fF4">
-                                        <rect key="frame" x="0.0" y="0.0" width="584" height="471"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="437"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRL-Oe-8Sk" userLabel="Instruction View">
-                                                <rect key="frame" x="0.0" y="0.0" width="584" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="FOLLOW THE STEPS TO CREATE INVITATIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irn-O0-aTj">
-                                                        <rect key="frame" x="0.0" y="21" width="584" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FOLLOW THE STEPS TO CREATE INVITATIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irn-O0-aTj">
+                                                        <rect key="frame" x="0.0" y="21" width="600" height="22"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -347,14 +357,14 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="lXI-Tv-723" userLabel="Progress View" customClass="InvitationProgressView" customModule="ShortList" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="44" width="584" height="132"/>
+                                                <rect key="frame" x="0.0" y="43" width="600" height="107"/>
                                                 <color key="backgroundColor" red="1" green="0.84313725490000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVp-q2-U6F" userLabel="Title View">
-                                                <rect key="frame" x="0.0" y="176" width="584" height="31"/>
+                                                <rect key="frame" x="0.0" y="150" width="600" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Invitations Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvF-YU-rNG">
-                                                        <rect key="frame" x="0.0" y="8" width="584" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invitations Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvF-YU-rNG">
+                                                        <rect key="frame" x="0.0" y="4" width="600" height="21"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                         <color key="textColor" red="0.38823529410000002" green="0.61568627450000002" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -368,14 +378,11 @@
                                                 </constraints>
                                             </view>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PzL-J3-3TB">
-                                                <rect key="frame" x="0.0" y="207" width="584" height="264"/>
-                                                <connections>
-                                                    <segue destination="3Kt-Sp-DlX" kind="embed" id="sbR-LE-nns"/>
-                                                </connections>
+                                                <rect key="frame" x="0.0" y="180" width="600" height="257"/>
                                             </containerView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="lXI-Tv-723" firstAttribute="height" secondItem="DRL-Oe-8Sk" secondAttribute="height" multiplier="3:1" id="Chq-sx-380"/>
+                                            <constraint firstItem="lXI-Tv-723" firstAttribute="height" secondItem="DRL-Oe-8Sk" secondAttribute="height" multiplier="2.5:1" id="Chq-sx-380"/>
                                             <constraint firstItem="PzL-J3-3TB" firstAttribute="height" secondItem="DRL-Oe-8Sk" secondAttribute="height" multiplier="6:1" id="lvU-4B-W9Z"/>
                                             <constraint firstItem="zVp-q2-U6F" firstAttribute="height" secondItem="DRL-Oe-8Sk" secondAttribute="height" multiplier="7:10" id="s7V-1b-Vqd"/>
                                         </constraints>
@@ -389,16 +396,31 @@
                                     <constraint firstAttribute="bottom" secondItem="CY5-Rz-fF4" secondAttribute="bottom" id="u7R-go-TLK"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="the-4Y-Zxn" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="501" width="600" height="50"/>
+                                <color key="backgroundColor" red="0.83137254901960789" green="0.60392156862745094" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="aSm-Ob-wmu" firstAttribute="top" secondItem="FGw-q3-3WO" secondAttribute="bottom" constant="8" symbolic="YES" id="0TI-Xf-N1I"/>
-                            <constraint firstItem="CGZ-VZ-sFH" firstAttribute="top" secondItem="aSm-Ob-wmu" secondAttribute="bottom" constant="8" symbolic="YES" id="2fe-2k-ug1"/>
-                            <constraint firstItem="aSm-Ob-wmu" firstAttribute="leading" secondItem="BOk-9O-xOM" secondAttribute="leadingMargin" constant="-12" id="k0h-g4-vFn"/>
-                            <constraint firstAttribute="trailing" secondItem="aSm-Ob-wmu" secondAttribute="trailing" constant="8" id="wwE-G3-znK"/>
+                            <constraint firstItem="CGZ-VZ-sFH" firstAttribute="top" secondItem="aSm-Ob-wmu" secondAttribute="bottom" constant="50" id="7GC-GS-RCH"/>
+                            <constraint firstItem="the-4Y-Zxn" firstAttribute="leading" secondItem="BOk-9O-xOM" secondAttribute="leading" id="84b-Sq-JXw"/>
+                            <constraint firstItem="aSm-Ob-wmu" firstAttribute="leading" secondItem="BOk-9O-xOM" secondAttribute="leading" id="AHu-pH-V7h"/>
+                            <constraint firstItem="aSm-Ob-wmu" firstAttribute="top" secondItem="FGw-q3-3WO" secondAttribute="bottom" id="KbN-xn-lyZ"/>
+                            <constraint firstAttribute="trailing" secondItem="aSm-Ob-wmu" secondAttribute="trailing" id="YCx-YV-mJi"/>
+                            <constraint firstItem="the-4Y-Zxn" firstAttribute="top" secondItem="aSm-Ob-wmu" secondAttribute="bottom" id="lUy-2q-cJI"/>
+                            <constraint firstItem="CGZ-VZ-sFH" firstAttribute="top" secondItem="the-4Y-Zxn" secondAttribute="bottom" id="pIG-x1-ai1"/>
+                            <constraint firstAttribute="trailing" secondItem="the-4Y-Zxn" secondAttribute="trailing" id="qtH-UI-5qo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create Invitation" id="NGs-Us-8Rk"/>
+                    <connections>
+                        <outlet property="containerView" destination="PzL-J3-3TB" id="Iq3-Zl-7af"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hxF-8e-EMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -601,23 +623,204 @@
             </objects>
             <point key="canvasLocation" x="2379" y="2883"/>
         </scene>
-        <!--View Controller-->
+        <!--Invitation Settings View Controller-->
         <scene sceneID="awH-hT-bZE">
             <objects>
-                <viewController id="3Kt-Sp-DlX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InvitationSettingsViewController" extendedLayoutIncludesOpaqueBars="YES" id="3Kt-Sp-DlX" customClass="InvitationSettingsViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ndT-2o-ceQ"/>
                         <viewControllerLayoutGuide type="bottom" id="fDF-HP-SOe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Td6-fK-HgU">
-                        <rect key="frame" x="0.0" y="0.0" width="584" height="264"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="257"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" distribution="fillEqually" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="Odm-IO-CIK">
+                                <rect key="frame" x="20" y="10" width="560" height="232"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="hjL-2C-Doi">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="54"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select List" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sa3-Sd-RYe" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="14" width="560" height="40"/>
+                                                <color key="tintColor" red="0.83137254900000002" green="0.60392156860000001" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="aUZ-tk-lwk"/>
+                                                </constraints>
+                                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                <connections>
+                                                    <action selector="listTextFieldPressed:" destination="d5h-4k-qC0" eventType="touchDown" id="4Pq-PC-Npt"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yUs-sO-vrs">
+                                        <rect key="frame" x="0.0" y="89" width="560" height="54"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="INVITE LIMITS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCI-ND-Jfa">
+                                                <rect key="frame" x="0.0" y="0.0" width="560" height="12"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="10"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="aI3-Pe-kUF">
+                                                <rect key="frame" x="0.0" y="12" width="560" height="42"/>
+                                                <subviews>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Minimum Guests" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Sx-0s-fV0" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="278" height="42"/>
+                                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                    </textField>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Maximium Guests" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b5e-le-eEW" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                                        <rect key="frame" x="283" y="0.0" width="277" height="42"/>
+                                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="9Sx-0s-fV0" firstAttribute="height" secondItem="b5e-le-eEW" secondAttribute="height" id="84h-zL-Hnf"/>
+                                                    <constraint firstItem="9Sx-0s-fV0" firstAttribute="width" secondItem="b5e-le-eEW" secondAttribute="width" id="DVM-ag-S25"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="aI3-Pe-kUF" secondAttribute="trailing" id="XPN-C2-oeX"/>
+                                            <constraint firstItem="aI3-Pe-kUF" firstAttribute="leading" secondItem="yUs-sO-vrs" secondAttribute="leading" id="uFu-yE-Tak"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Dso-7p-p5w">
+                                        <rect key="frame" x="0.0" y="178" width="560" height="54"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="INVITATION TIMER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIF-In-xkH">
+                                                <rect key="frame" x="0.0" y="0.0" width="560" height="12"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="10"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="dri-YV-5M6">
+                                                <rect key="frame" x="0.0" y="20" width="560" height="34"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bM-TO-8co" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="121" height="34"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="30 Min">
+                                                            <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="0.5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="13"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QW-5D-Gy7" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
+                                                        <rect key="frame" x="147" y="0.0" width="120" height="34"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="1 Hour">
+                                                            <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="0.5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="13"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Qt-tv-uBh" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
+                                                        <rect key="frame" x="293" y="0.0" width="121" height="34"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="1 Day">
+                                                            <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="0.5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="13"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAy-xu-Rif" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
+                                                        <rect key="frame" x="440" y="0.0" width="120" height="34"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="Custom">
+                                                            <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="0.5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="13"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="34" id="pv7-6h-2Qj"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="dri-YV-5M6" firstAttribute="leading" secondItem="Dso-7p-p5w" secondAttribute="leading" id="Mex-mH-R88"/>
+                                            <constraint firstAttribute="trailing" secondItem="dri-YV-5M6" secondAttribute="trailing" id="aOy-Gb-0U0"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="hjL-2C-Doi" secondAttribute="trailing" id="0US-kc-qG4"/>
+                                    <constraint firstItem="Dso-7p-p5w" firstAttribute="leading" secondItem="Odm-IO-CIK" secondAttribute="leading" id="BZG-Tf-hef"/>
+                                    <constraint firstAttribute="trailing" secondItem="Dso-7p-p5w" secondAttribute="trailing" id="IbK-ZX-b19"/>
+                                    <constraint firstAttribute="trailing" secondItem="yUs-sO-vrs" secondAttribute="trailing" id="QHm-4z-inE"/>
+                                    <constraint firstItem="hjL-2C-Doi" firstAttribute="leading" secondItem="Odm-IO-CIK" secondAttribute="leading" id="gZq-y7-Cxt"/>
+                                    <constraint firstItem="yUs-sO-vrs" firstAttribute="leading" secondItem="Odm-IO-CIK" secondAttribute="leading" id="wYd-G7-Hdv"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="Odm-IO-CIK" secondAttribute="leading" id="GgM-7D-thT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Odm-IO-CIK" secondAttribute="trailing" id="voj-hI-Hec"/>
+                        </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="257"/>
+                    <connections>
+                        <outlet property="listNameTextField" destination="Sa3-Sd-RYe" id="BRp-zR-hqV"/>
+                        <outlet property="maxGuestsTextField" destination="b5e-le-eEW" id="95H-Wv-ygi"/>
+                        <outlet property="minGuestsTextField" destination="9Sx-0s-fV0" id="1DM-Ks-dMq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Afh-x6-9wH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3003" y="2278"/>
+            <point key="canvasLocation" x="3003" y="2277.5"/>
         </scene>
     </scenes>
     <resources>

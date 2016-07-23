@@ -10,14 +10,15 @@ import UIKit
 
 class InvitationProgressView: UIView {
   
-  let buttonRatioToView: CGFloat      = 0.6
-  let buttonImageRatioToView: CGFloat = 0.4
+  let buttonRatioToView: CGFloat      = 0.75
   let buttonBorderWidth: CGFloat      = 0.5
   let buttonCornerRadius: CGFloat     = 3.0
   let progressViewHeight: CGFloat     = 0.25
   
   var buttonsArray = [UIButton]()
   var progressView: UIProgressView!
+  
+  var settingsButton: UIButton!
   
   enum ButtonType: Int {
     case Settings
@@ -89,7 +90,6 @@ class InvitationProgressView: UIView {
     settingsButton.setImage(settingsImage, forState: .Normal)
     self.addSubview(settingsButton)
     
-    
     // details button
     let detailsButton = UIButton(type: .Custom)
     detailsButton.translatesAutoresizingMaskIntoConstraints = false
@@ -117,12 +117,6 @@ class InvitationProgressView: UIView {
     let sendImage = UIImage(named: "invite-send")?.imageWithColor(Theme.InvitationProgressButtonColor.toUIColor())
     sendButton.setImage(sendImage, forState: .Normal)
     self.addSubview(sendButton)
-    
-    if firstTime {
-      // select settings button
-      //selectButton(settingsButton)
-      firstTime = false
-    }
     
     // add buttons to array
     buttonsArray = [settingsButton, detailsButton, sendButton]
@@ -179,7 +173,11 @@ class InvitationProgressView: UIView {
     updateProgressBar(sender)
   }
   
-  func updateProgressBar(sender: UIButton) {
+  func setInitialButton() {
+    selectButton(settingsButton)
+  }
+  
+  private func updateProgressBar(sender: UIButton) {
     if let buttonType = ButtonType(rawValue: sender.tag) {
       switch buttonType {
       case .Settings:
@@ -192,19 +190,21 @@ class InvitationProgressView: UIView {
     }
   }
   
-  func toggleButtonShadows(sender: UIButton) {
+  private func toggleButtonShadows(sender: UIButton) {
     let unselectedButtons = buttonsArray.filter( { $0.tag != sender.tag } )
     
     // unselect other buttons
     for button in unselectedButtons {
+      print("button: \(button.tag)")
       button.layer.borderWidth = buttonBorderWidth
       button.layer.shadowOpacity = 0
+      button.layer.shadowColor = UIColor.whiteColor().CGColor
     }
     
     selectButton(sender)
   }
   
-  func selectButton(button: UIButton) {
+  private func selectButton(button: UIButton) {
     // select button
     button.layer.shadowColor = UIColor.lightGrayColor().CGColor
     button.layer.shadowOpacity = 0.75

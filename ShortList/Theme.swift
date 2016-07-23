@@ -25,6 +25,7 @@ enum Theme {
     static let mainThemeErrorColor          = "D46365" //light red/pink
     static let mainThemeButtonTextColor     = "333333"
     static let mainThemeButtonColor         = "FFD673" //yellow
+    static let mainThemeActionColor         = "D49A63" //orange
     
     static let secondaryHeaderColor         = "FFD673"
     
@@ -97,6 +98,7 @@ enum Theme {
   // Invitation
   case InvitationProgressButtonColor
   case InvitationProgressViewTintColor
+  case InvitationActionColor
   
   // Profile
   case ProfileTableViewHeaderTextColor
@@ -163,6 +165,7 @@ enum Theme {
     // Invitation
     case InvitationProgressButtonColor:                  return HexColor(Palette.mainThemeColor)
     case InvitationProgressViewTintColor:                return HexColor(Palette.mainThemeColor)
+    case .InvitationActionColor:                         return HexColor(Palette.mainThemeActionColor)
       
     // Profile
     case .ProfileTableViewHeaderTextColor:               return HexColor(Palette.mainThemeTextColor)

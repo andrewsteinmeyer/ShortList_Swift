@@ -165,6 +165,7 @@
 		4E63134E1C1FBAED00EB78F9 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E63134D1C1FBAED00EB78F9 /* ListsViewController.swift */; };
 		4E6313501C1FBB3300EB78F9 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E63134F1C1FBB3300EB78F9 /* ListDetailViewController.swift */; };
 		4E66C43A1D4061F300865222 /* InvitationProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66C4391D4061F300865222 /* InvitationProgressView.swift */; };
+		4E66C43C1D43E29400865222 /* InvitationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66C43B1D43E29400865222 /* InvitationSettingsViewController.swift */; };
 		4E719C0D1C3F60C3009989AC /* SelectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E719C0C1C3F60C3009989AC /* SelectListViewController.swift */; };
 		4E719C0F1C407087009989AC /* EventConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E719C0E1C407087009989AC /* EventConfiguration.swift */; };
 		4E719C131C4075C2009989AC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E719C121C4075C2009989AC /* Date.swift */; };
@@ -453,6 +454,7 @@
 		4E63134D1C1FBAED00EB78F9 /* ListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
 		4E63134F1C1FBB3300EB78F9 /* ListDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
 		4E66C4391D4061F300865222 /* InvitationProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationProgressView.swift; sourceTree = "<group>"; };
+		4E66C43B1D43E29400865222 /* InvitationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationSettingsViewController.swift; sourceTree = "<group>"; };
 		4E719C0C1C3F60C3009989AC /* SelectListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectListViewController.swift; sourceTree = "<group>"; };
 		4E719C0E1C407087009989AC /* EventConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventConfiguration.swift; sourceTree = "<group>"; };
 		4E719C121C4075C2009989AC /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -1148,6 +1150,7 @@
 			isa = PBXGroup;
 			children = (
 				4E95FC721D3DC6D50003CAD0 /* CreateInvitationViewController.swift */,
+				4E66C43B1D43E29400865222 /* InvitationSettingsViewController.swift */,
 			);
 			name = Invitations;
 			sourceTree = "<group>";
@@ -1629,6 +1632,7 @@
 				4E1C46EB1C7DE53500C22101 /* FloatRule.swift in Sources */,
 				4E6313071C1FB28000EB78F9 /* SpringAnimation.swift in Sources */,
 				4E41D8D51CD840D0006C584A /* CSStickyHeaderFlowLayout.m in Sources */,
+				4E66C43C1D43E29400865222 /* InvitationSettingsViewController.swift in Sources */,
 				4E6312FA1C1FB28000EB78F9 /* DesignableLabel.swift in Sources */,
 				4E7C60841C3B5FD30042CE4F /* EventsTableViewCell.swift in Sources */,
 				4E5255A41C51CC8F00F6089D /* MeteorRouter.swift in Sources */,
