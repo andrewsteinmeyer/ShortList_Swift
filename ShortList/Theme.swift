@@ -96,6 +96,7 @@ enum Theme {
   
   // Invitation
   case InvitationProgressButtonColor
+  case InvitationProgressViewTintColor
   
   // Profile
   case ProfileTableViewHeaderTextColor
@@ -161,6 +162,7 @@ enum Theme {
     
     // Invitation
     case InvitationProgressButtonColor:                  return HexColor(Palette.mainThemeColor)
+    case InvitationProgressViewTintColor:                return HexColor(Palette.mainThemeColor)
       
     // Profile
     case .ProfileTableViewHeaderTextColor:               return HexColor(Palette.mainThemeTextColor)

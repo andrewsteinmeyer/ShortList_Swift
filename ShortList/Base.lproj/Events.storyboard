@@ -310,7 +310,7 @@
             </objects>
             <point key="canvasLocation" x="2849.5" y="2897"/>
         </scene>
-        <!--Create Invitation View Controller-->
+        <!--Create Invitation-->
         <scene sceneID="T4L-1P-aqt">
             <objects>
                 <viewController storyboardIdentifier="CreateInvitationViewController" id="ssB-lC-AvB" customClass="CreateInvitationViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
@@ -398,6 +398,7 @@
                             <constraint firstAttribute="trailing" secondItem="aSm-Ob-wmu" secondAttribute="trailing" constant="8" id="wwE-G3-znK"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Create Invitation" id="NGs-Us-8Rk"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hxF-8e-EMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -616,7 +617,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Afh-x6-9wH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2523" y="1606"/>
+            <point key="canvasLocation" x="3003" y="2278"/>
         </scene>
     </scenes>
     <resources>

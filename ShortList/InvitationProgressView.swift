@@ -10,20 +10,44 @@ import UIKit
 
 class InvitationProgressView: UIView {
   
-  let buttonRatioToView: CGFloat = 0.6
+  let buttonRatioToView: CGFloat      = 0.6
   let buttonImageRatioToView: CGFloat = 0.4
+  let buttonBorderWidth: CGFloat      = 0.5
+  let buttonCornerRadius: CGFloat     = 3.0
+  let progressViewHeight: CGFloat     = 0.25
+  
+  var buttonsArray = [UIButton]()
+  var progressView: UIProgressView!
+  
+  enum ButtonType: Int {
+    case Settings
+    case Details
+    case Send
+  }
+  
+  enum Progress: Float {
+    case Settings = 0
+    case Details  = 0.5
+    case Send     = 1.0
+  }
+  
+  private var firstTime = true
+  
+  //MARK: - Initialization
   
   override init(frame: CGRect) {
     super.init(frame: frame)
     
+    self.backgroundColor = UIColor.whiteColor()
   }
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     
     self.backgroundColor = UIColor.whiteColor()
-    
   }
+  
+  //MARK: - View layout
   
   override func layoutSubviews() {
     super.layoutSubviews()
@@ -37,10 +61,10 @@ class InvitationProgressView: UIView {
     let yCenter = self.center.y
     
     //turn off autoresizing so that we can set our own constraints
-    let progressView = UIProgressView(frame: CGRect(x: 0, y: yCenter, width: width, height: 0.5))
+    progressView = UIProgressView(frame: CGRect(x: 0, y: yCenter, width: width, height: progressViewHeight))
     progressView.translatesAutoresizingMaskIntoConstraints = false
     progressView.trackTintColor = UIColor.lightGrayColor()
-    progressView.progressTintColor = UIColor.darkGrayColor()
+    progressView.progressTintColor = Theme.InvitationProgressViewTintColor.toUIColor()
     self.addSubview(progressView)
     
     let margins = self.layoutMarginsGuide
@@ -54,10 +78,12 @@ class InvitationProgressView: UIView {
     // settings button
     let settingsButton = UIButton(type: .Custom)
     settingsButton.translatesAutoresizingMaskIntoConstraints = false
-    settingsButton.layer.borderWidth = 1
-    settingsButton.layer.cornerRadius = 3
+    settingsButton.layer.borderWidth = buttonBorderWidth
+    settingsButton.layer.cornerRadius = buttonCornerRadius
     settingsButton.layer.borderColor = UIColor.lightGrayColor().CGColor
     settingsButton.backgroundColor = UIColor.whiteColor()
+    settingsButton.addTarget(self, action: #selector(InvitationProgressView.buttonDidPress(_:)), forControlEvents: .TouchUpInside)
+    settingsButton.tag = ButtonType.Settings.rawValue
     
     let settingsImage = UIImage(named: "settings-two-cogs")?.imageWithColor(Theme.InvitationProgressButtonColor.toUIColor())
     settingsButton.setImage(settingsImage, forState: .Normal)
@@ -67,10 +93,12 @@ class InvitationProgressView: UIView {
     // details button
     let detailsButton = UIButton(type: .Custom)
     detailsButton.translatesAutoresizingMaskIntoConstraints = false
-    detailsButton.layer.borderWidth = 1
-    detailsButton.layer.cornerRadius = 3
+    detailsButton.layer.borderWidth = buttonBorderWidth
+    detailsButton.layer.cornerRadius = buttonCornerRadius
     detailsButton.layer.borderColor = UIColor.lightGrayColor().CGColor
     detailsButton.backgroundColor = UIColor.whiteColor()
+    detailsButton.addTarget(self, action: #selector(InvitationProgressView.buttonDidPress(_:)), forControlEvents: .TouchUpInside)
+    detailsButton.tag = ButtonType.Details.rawValue
     
     let detailsImage = UIImage(named: "invite-details")?.imageWithColor(Theme.InvitationProgressButtonColor.toUIColor())
     detailsButton.setImage(detailsImage, forState: .Normal)
@@ -79,15 +107,27 @@ class InvitationProgressView: UIView {
     // send button
     let sendButton = UIButton(type: .Custom)
     sendButton.translatesAutoresizingMaskIntoConstraints = false
-    sendButton.layer.borderWidth = 1
-    sendButton.layer.cornerRadius = 3
+    sendButton.layer.borderWidth = buttonBorderWidth
+    sendButton.layer.cornerRadius = buttonCornerRadius
     sendButton.layer.borderColor = UIColor.lightGrayColor().CGColor
     sendButton.backgroundColor = UIColor.whiteColor()
+    sendButton.addTarget(self, action: #selector(InvitationProgressView.buttonDidPress(_:)), forControlEvents: .TouchUpInside)
+    sendButton.tag = ButtonType.Send.rawValue
     
     let sendImage = UIImage(named: "invite-send")?.imageWithColor(Theme.InvitationProgressButtonColor.toUIColor())
     sendButton.setImage(sendImage, forState: .Normal)
     self.addSubview(sendButton)
     
+    if firstTime {
+      // select settings button
+      //selectButton(settingsButton)
+      firstTime = false
+    }
+    
+    // add buttons to array
+    buttonsArray = [settingsButton, detailsButton, sendButton]
+    
+    // add layouts for buttons
     let leadingGuide = UILayoutGuide()
     let firstBuffer = UILayoutGuide()
     let secondBuffer = UILayoutGuide()
@@ -122,7 +162,6 @@ class InvitationProgressView: UIView {
     detailsButton.heightAnchor.constraintEqualToAnchor(settingsButton.heightAnchor).active = true
     settingsButton.heightAnchor.constraintEqualToAnchor(sendButton.heightAnchor).active = true
     
-    
     // Center everything vertically in the super view
     leadingGuide.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor).active = true
     settingsButton.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor).active = true
@@ -131,7 +170,47 @@ class InvitationProgressView: UIView {
     secondBuffer.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor).active = true
     sendButton.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor).active = true
     trailingGuide.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor).active = true
+  }
+  
+  //MARK: - Button Actions
+  
+  func buttonDidPress(sender: UIButton) {
+    toggleButtonShadows(sender)
+    updateProgressBar(sender)
+  }
+  
+  func updateProgressBar(sender: UIButton) {
+    if let buttonType = ButtonType(rawValue: sender.tag) {
+      switch buttonType {
+      case .Settings:
+        progressView.progress = Progress.Settings.rawValue
+      case .Details:
+        progressView.progress = Progress.Details.rawValue
+      case .Send:
+        progressView.progress = Progress.Send.rawValue
+      }
+    }
+  }
+  
+  func toggleButtonShadows(sender: UIButton) {
+    let unselectedButtons = buttonsArray.filter( { $0.tag != sender.tag } )
     
+    // unselect other buttons
+    for button in unselectedButtons {
+      button.layer.borderWidth = buttonBorderWidth
+      button.layer.shadowOpacity = 0
+    }
+    
+    selectButton(sender)
+  }
+  
+  func selectButton(button: UIButton) {
+    // select button
+    button.layer.shadowColor = UIColor.lightGrayColor().CGColor
+    button.layer.shadowOpacity = 0.75
+    button.layer.shadowRadius = 10
+    button.layer.borderWidth = 0
+    button.layer.shadowOffset = CGSizeZero
   }
   
 }
