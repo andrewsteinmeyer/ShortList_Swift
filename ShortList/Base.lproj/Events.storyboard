@@ -561,17 +561,17 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4gF-wp-cDH" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="byp-ET-vYZ">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="byp-ET-vYZ">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CY5-Rz-fF4">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="437"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRL-Oe-8Sk" userLabel="Instruction View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="600" height="48"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FOLLOW THE STEPS TO CREATE INVITATIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irn-O0-aTj">
-                                                                <rect key="frame" x="0.0" y="21" width="600" height="22"/>
+                                                                <rect key="frame" x="0.0" y="21" width="600" height="27"/>
                                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
                                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
@@ -586,14 +586,14 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="lXI-Tv-723" userLabel="Progress View" customClass="InvitationProgressView" customModule="ShortList" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="43" width="600" height="107"/>
+                                                        <rect key="frame" x="0.0" y="48" width="600" height="119"/>
                                                         <color key="backgroundColor" red="1" green="0.84313725490000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVp-q2-U6F" userLabel="Title View">
-                                                        <rect key="frame" x="0.0" y="150" width="600" height="30"/>
+                                                        <rect key="frame" x="0.0" y="167" width="600" height="33"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invitation Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvF-YU-rNG">
-                                                                <rect key="frame" x="0.0" y="4" width="600" height="21"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Invitation Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvF-YU-rNG">
+                                                                <rect key="frame" x="0.0" y="5" width="600" height="21"/>
                                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                                 <color key="textColor" red="0.38823529410000002" green="0.61568627450000002" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -607,17 +607,17 @@
                                                         </constraints>
                                                     </view>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PzL-J3-3TB">
-                                                        <rect key="frame" x="0.0" y="180" width="600" height="257"/>
+                                                        <rect key="frame" x="0.0" y="200" width="600" height="287"/>
                                                     </containerView>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="lXI-Tv-723" firstAttribute="height" secondItem="DRL-Oe-8Sk" secondAttribute="height" multiplier="2.5:1" id="Chq-sx-380"/>
-                                                    <constraint firstAttribute="height" constant="437" id="JwB-s8-obo"/>
+                                                    <constraint firstAttribute="height" constant="487" id="JwB-s8-obo"/>
                                                     <constraint firstItem="PzL-J3-3TB" firstAttribute="height" secondItem="DRL-Oe-8Sk" secondAttribute="height" multiplier="6:1" id="lvU-4B-W9Z"/>
                                                     <constraint firstItem="zVp-q2-U6F" firstAttribute="height" secondItem="DRL-Oe-8Sk" secondAttribute="height" multiplier="7:10" id="s7V-1b-Vqd"/>
                                                 </constraints>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="the-4Y-Zxn" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="the-4Y-Zxn" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="437" width="600" height="50"/>
                                                 <color key="backgroundColor" red="0.83137254901960789" green="0.60392156862745094" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -632,7 +632,6 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="CY5-Rz-fF4" secondAttribute="trailing" id="9MI-ER-K4r"/>
-                                            <constraint firstAttribute="height" constant="487" id="LKS-JU-9gl"/>
                                             <constraint firstItem="the-4Y-Zxn" firstAttribute="leading" secondItem="byp-ET-vYZ" secondAttribute="leading" id="O3F-W4-ZGb"/>
                                             <constraint firstItem="CY5-Rz-fF4" firstAttribute="leading" secondItem="byp-ET-vYZ" secondAttribute="leading" id="Uuk-8H-y3L"/>
                                             <constraint firstItem="CY5-Rz-fF4" firstAttribute="top" secondItem="byp-ET-vYZ" secondAttribute="top" id="jkU-lA-ARd"/>
@@ -655,6 +654,7 @@
                             <constraint firstItem="80G-5x-IuO" firstAttribute="top" secondItem="4gF-wp-cDH" secondAttribute="bottom" id="BpG-1J-XDo"/>
                             <constraint firstItem="4gF-wp-cDH" firstAttribute="top" secondItem="aaJ-9A-bYo" secondAttribute="bottom" id="OjT-BW-wxg"/>
                             <constraint firstAttribute="trailing" secondItem="4gF-wp-cDH" secondAttribute="trailing" id="SZY-Pe-kKB"/>
+                            <constraint firstItem="80G-5x-IuO" firstAttribute="top" secondItem="byp-ET-vYZ" secondAttribute="bottom" id="acg-Lb-9er"/>
                             <constraint firstItem="4gF-wp-cDH" firstAttribute="leading" secondItem="1d2-yM-eAZ" secondAttribute="leading" id="pj1-gV-IOW"/>
                         </constraints>
                     </view>
