@@ -10,8 +10,8 @@ import UIKit
 
 class CreateInvitationViewController: UIViewController {
   
-  @IBOutlet weak var containerView: UIView!
   
+  @IBOutlet weak var containerView: UIView!
   weak var currentViewController: UIViewController?
   
   override func viewDidLoad() {

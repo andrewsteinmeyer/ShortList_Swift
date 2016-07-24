@@ -300,7 +300,7 @@
                     <navigationItem key="navigationItem" title="Events" id="Ptg-E7-mhM">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="la8-lK-9LZ">
                             <connections>
-                                <segue destination="ssB-lC-AvB" kind="show" id="etq-q5-mKY"/>
+                                <segue destination="cdd-HT-bP0" kind="show" id="rJ0-ca-kGr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -320,7 +320,7 @@
             </objects>
             <point key="canvasLocation" x="2849.5" y="2897"/>
         </scene>
-        <!--Create Invitation-->
+        <!--Create Invitation View Controller-->
         <scene sceneID="T4L-1P-aqt">
             <objects>
                 <viewController storyboardIdentifier="CreateInvitationViewController" id="ssB-lC-AvB" customClass="CreateInvitationViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
@@ -332,99 +332,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSm-Ob-wmu">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aSm-Ob-wmu">
                                 <rect key="frame" x="0.0" y="64" width="600" height="437"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CY5-Rz-fF4">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="437"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRL-Oe-8Sk" userLabel="Instruction View">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FOLLOW THE STEPS TO CREATE INVITATIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irn-O0-aTj">
-                                                        <rect key="frame" x="0.0" y="21" width="600" height="22"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
-                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstItem="Irn-O0-aTj" firstAttribute="leading" secondItem="DRL-Oe-8Sk" secondAttribute="leading" id="6gi-WF-ecR"/>
-                                                    <constraint firstItem="Irn-O0-aTj" firstAttribute="top" secondItem="DRL-Oe-8Sk" secondAttribute="top" constant="21" id="coj-rB-vBv"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Irn-O0-aTj" secondAttribute="bottom" id="oNq-wT-ma2"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Irn-O0-aTj" secondAttribute="trailing" id="vBO-me-1nK"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="lXI-Tv-723" userLabel="Progress View" customClass="InvitationProgressView" customModule="ShortList" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="43" width="600" height="107"/>
-                                                <color key="backgroundColor" red="1" green="0.84313725490000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVp-q2-U6F" userLabel="Title View">
-                                                <rect key="frame" x="0.0" y="150" width="600" height="30"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invitations Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvF-YU-rNG">
-                                                        <rect key="frame" x="0.0" y="4" width="600" height="21"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                                        <color key="textColor" red="0.38823529410000002" green="0.61568627450000002" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.74956825657894732" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstItem="WvF-YU-rNG" firstAttribute="leading" secondItem="zVp-q2-U6F" secondAttribute="leading" id="83e-7I-uRO"/>
-                                                    <constraint firstAttribute="trailing" secondItem="WvF-YU-rNG" secondAttribute="trailing" id="aQd-6X-eNJ"/>
-                                                    <constraint firstItem="WvF-YU-rNG" firstAttribute="centerY" secondItem="zVp-q2-U6F" secondAttribute="centerY" id="sJ3-bt-IWE"/>
-                                                </constraints>
-                                            </view>
-                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PzL-J3-3TB">
-                                                <rect key="frame" x="0.0" y="180" width="600" height="257"/>
-                                            </containerView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="lXI-Tv-723" firstAttribute="height" secondItem="DRL-Oe-8Sk" secondAttribute="height" multiplier="2.5:1" id="Chq-sx-380"/>
-                                            <constraint firstItem="PzL-J3-3TB" firstAttribute="height" secondItem="DRL-Oe-8Sk" secondAttribute="height" multiplier="6:1" id="lvU-4B-W9Z"/>
-                                            <constraint firstItem="zVp-q2-U6F" firstAttribute="height" secondItem="DRL-Oe-8Sk" secondAttribute="height" multiplier="7:10" id="s7V-1b-Vqd"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="CY5-Rz-fF4" firstAttribute="leading" secondItem="aSm-Ob-wmu" secondAttribute="leading" id="CA4-NU-u5S"/>
-                                    <constraint firstItem="CY5-Rz-fF4" firstAttribute="top" secondItem="aSm-Ob-wmu" secondAttribute="top" id="R7b-5Q-LNf"/>
-                                    <constraint firstAttribute="trailing" secondItem="CY5-Rz-fF4" secondAttribute="trailing" id="dHn-Qo-SaI"/>
-                                    <constraint firstAttribute="bottom" secondItem="CY5-Rz-fF4" secondAttribute="bottom" id="u7R-go-TLK"/>
-                                </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="the-4Y-Zxn" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="501" width="600" height="50"/>
-                                <color key="backgroundColor" red="0.83137254901960789" green="0.60392156862745094" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CGZ-VZ-sFH" firstAttribute="top" secondItem="aSm-Ob-wmu" secondAttribute="bottom" constant="50" id="7GC-GS-RCH"/>
-                            <constraint firstItem="the-4Y-Zxn" firstAttribute="leading" secondItem="BOk-9O-xOM" secondAttribute="leading" id="84b-Sq-JXw"/>
+                            <constraint firstItem="CGZ-VZ-sFH" firstAttribute="top" secondItem="aSm-Ob-wmu" secondAttribute="bottom" constant="50" id="2UB-eY-d0U"/>
                             <constraint firstItem="aSm-Ob-wmu" firstAttribute="leading" secondItem="BOk-9O-xOM" secondAttribute="leading" id="AHu-pH-V7h"/>
-                            <constraint firstItem="aSm-Ob-wmu" firstAttribute="top" secondItem="FGw-q3-3WO" secondAttribute="bottom" id="KbN-xn-lyZ"/>
+                            <constraint firstItem="aSm-Ob-wmu" firstAttribute="top" secondItem="FGw-q3-3WO" secondAttribute="bottom" id="JLR-z9-FRi"/>
                             <constraint firstAttribute="trailing" secondItem="aSm-Ob-wmu" secondAttribute="trailing" id="YCx-YV-mJi"/>
-                            <constraint firstItem="the-4Y-Zxn" firstAttribute="top" secondItem="aSm-Ob-wmu" secondAttribute="bottom" id="lUy-2q-cJI"/>
-                            <constraint firstItem="CGZ-VZ-sFH" firstAttribute="top" secondItem="the-4Y-Zxn" secondAttribute="bottom" id="pIG-x1-ai1"/>
-                            <constraint firstAttribute="trailing" secondItem="the-4Y-Zxn" secondAttribute="trailing" id="qtH-UI-5qo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Create Invitation" id="NGs-Us-8Rk"/>
-                    <connections>
-                        <outlet property="containerView" destination="PzL-J3-3TB" id="Iq3-Zl-7af"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hxF-8e-EMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2350" y="2151"/>
+            <point key="canvasLocation" x="2363" y="2398"/>
         </scene>
         <!--Venues-->
         <scene sceneID="2gi-be-WN9">
@@ -622,6 +546,127 @@
             </objects>
             <point key="canvasLocation" x="2379" y="2883"/>
         </scene>
+        <!--Create Invitation-->
+        <scene sceneID="bF0-Yw-GrX">
+            <objects>
+                <viewController id="cdd-HT-bP0" customClass="CreateInvitationViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aaJ-9A-bYo"/>
+                        <viewControllerLayoutGuide type="bottom" id="80G-5x-IuO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1d2-yM-eAZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4gF-wp-cDH" customClass="TPKeyboardAvoidingScrollView">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="byp-ET-vYZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CY5-Rz-fF4">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="437"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRL-Oe-8Sk" userLabel="Instruction View">
+                                                        <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FOLLOW THE STEPS TO CREATE INVITATIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irn-O0-aTj">
+                                                                <rect key="frame" x="0.0" y="21" width="600" height="22"/>
+                                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
+                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstItem="Irn-O0-aTj" firstAttribute="leading" secondItem="DRL-Oe-8Sk" secondAttribute="leading" id="6gi-WF-ecR"/>
+                                                            <constraint firstItem="Irn-O0-aTj" firstAttribute="top" secondItem="DRL-Oe-8Sk" secondAttribute="top" constant="21" id="coj-rB-vBv"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Irn-O0-aTj" secondAttribute="bottom" id="oNq-wT-ma2"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Irn-O0-aTj" secondAttribute="trailing" id="vBO-me-1nK"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="lXI-Tv-723" userLabel="Progress View" customClass="InvitationProgressView" customModule="ShortList" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="43" width="600" height="107"/>
+                                                        <color key="backgroundColor" red="1" green="0.84313725490000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVp-q2-U6F" userLabel="Title View">
+                                                        <rect key="frame" x="0.0" y="150" width="600" height="30"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invitation Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvF-YU-rNG">
+                                                                <rect key="frame" x="0.0" y="4" width="600" height="21"/>
+                                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                                                <color key="textColor" red="0.38823529410000002" green="0.61568627450000002" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.74956825657894732" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstItem="WvF-YU-rNG" firstAttribute="leading" secondItem="zVp-q2-U6F" secondAttribute="leading" id="83e-7I-uRO"/>
+                                                            <constraint firstAttribute="trailing" secondItem="WvF-YU-rNG" secondAttribute="trailing" id="aQd-6X-eNJ"/>
+                                                            <constraint firstItem="WvF-YU-rNG" firstAttribute="centerY" secondItem="zVp-q2-U6F" secondAttribute="centerY" id="sJ3-bt-IWE"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PzL-J3-3TB">
+                                                        <rect key="frame" x="0.0" y="180" width="600" height="257"/>
+                                                    </containerView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="lXI-Tv-723" firstAttribute="height" secondItem="DRL-Oe-8Sk" secondAttribute="height" multiplier="2.5:1" id="Chq-sx-380"/>
+                                                    <constraint firstAttribute="height" constant="437" id="JwB-s8-obo"/>
+                                                    <constraint firstItem="PzL-J3-3TB" firstAttribute="height" secondItem="DRL-Oe-8Sk" secondAttribute="height" multiplier="6:1" id="lvU-4B-W9Z"/>
+                                                    <constraint firstItem="zVp-q2-U6F" firstAttribute="height" secondItem="DRL-Oe-8Sk" secondAttribute="height" multiplier="7:10" id="s7V-1b-Vqd"/>
+                                                </constraints>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="the-4Y-Zxn" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="437" width="600" height="50"/>
+                                                <color key="backgroundColor" red="0.83137254901960789" green="0.60392156862745094" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="24L-7u-0os"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                                <state key="normal" title="Next">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="CY5-Rz-fF4" secondAttribute="trailing" id="9MI-ER-K4r"/>
+                                            <constraint firstAttribute="height" constant="487" id="LKS-JU-9gl"/>
+                                            <constraint firstItem="the-4Y-Zxn" firstAttribute="leading" secondItem="byp-ET-vYZ" secondAttribute="leading" id="O3F-W4-ZGb"/>
+                                            <constraint firstItem="CY5-Rz-fF4" firstAttribute="leading" secondItem="byp-ET-vYZ" secondAttribute="leading" id="Uuk-8H-y3L"/>
+                                            <constraint firstItem="CY5-Rz-fF4" firstAttribute="top" secondItem="byp-ET-vYZ" secondAttribute="top" id="jkU-lA-ARd"/>
+                                            <constraint firstAttribute="bottom" secondItem="the-4Y-Zxn" secondAttribute="bottom" id="k1C-tE-7Yv"/>
+                                            <constraint firstAttribute="trailing" secondItem="the-4Y-Zxn" secondAttribute="trailing" id="oMG-uE-9FE"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="byp-ET-vYZ" secondAttribute="trailing" id="UUO-fL-Ne2"/>
+                                    <constraint firstAttribute="bottom" secondItem="byp-ET-vYZ" secondAttribute="bottom" id="eg4-da-gbW"/>
+                                    <constraint firstItem="byp-ET-vYZ" firstAttribute="top" secondItem="4gF-wp-cDH" secondAttribute="top" id="nhx-BQ-ReQ"/>
+                                    <constraint firstItem="byp-ET-vYZ" firstAttribute="leading" secondItem="4gF-wp-cDH" secondAttribute="leading" id="sWJ-rt-JzK"/>
+                                    <constraint firstItem="byp-ET-vYZ" firstAttribute="centerX" secondItem="4gF-wp-cDH" secondAttribute="centerX" id="srb-da-2b7"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="80G-5x-IuO" firstAttribute="top" secondItem="4gF-wp-cDH" secondAttribute="bottom" id="BpG-1J-XDo"/>
+                            <constraint firstItem="4gF-wp-cDH" firstAttribute="top" secondItem="aaJ-9A-bYo" secondAttribute="bottom" id="OjT-BW-wxg"/>
+                            <constraint firstAttribute="trailing" secondItem="4gF-wp-cDH" secondAttribute="trailing" id="SZY-Pe-kKB"/>
+                            <constraint firstItem="4gF-wp-cDH" firstAttribute="leading" secondItem="1d2-yM-eAZ" secondAttribute="leading" id="pj1-gV-IOW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create Invitation" id="NGs-Us-8Rk"/>
+                    <connections>
+                        <outlet property="containerView" destination="PzL-J3-3TB" id="0Pz-vj-Sht"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6nm-uw-TmI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3000" y="1694"/>
+        </scene>
         <!--Invitation Settings View Controller-->
         <scene sceneID="awH-hT-bZE">
             <objects>
@@ -817,7 +862,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Afh-x6-9wH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3003" y="2277.5"/>
+            <point key="canvasLocation" x="3007" y="2387.5"/>
         </scene>
     </scenes>
     <resources>
