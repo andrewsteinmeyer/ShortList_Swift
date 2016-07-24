@@ -9,7 +9,6 @@
 import UIKit
 import ObjectMapper
 import Groot
-import KYCircularProgress
 
 private let dateFormatter: NSDateFormatter = {
   let formatter = NSDateFormatter()
@@ -132,8 +131,8 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
       }
       else if identifier == "selectList" {
         let selectListViewController = segue.destinationViewController as! SelectListViewController
-        selectListViewController.delegate = self
-        selectListViewController.selectedList = self.list
+        //selectListViewController.delegate = self
+        //selectListViewController.selectedList = self.list
       }
     }
   }

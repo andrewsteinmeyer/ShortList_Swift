@@ -370,7 +370,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.74956825657894732" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="WvF-YU-rNG" firstAttribute="leading" secondItem="zVp-q2-U6F" secondAttribute="leading" id="83e-7I-uRO"/>
                                                     <constraint firstAttribute="trailing" secondItem="WvF-YU-rNG" secondAttribute="trailing" id="aQd-6X-eNJ"/>
@@ -434,13 +434,13 @@
             </objects>
             <point key="canvasLocation" x="2885.5" y="2677"/>
         </scene>
-        <!--SelectListViewController-->
-        <scene sceneID="oEK-vP-jcK">
+        <!--SelectListNavigationViewController-->
+        <scene sceneID="FLk-kY-WM6">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="SelectListViewController" storyboardName="Login" referencedIdentifier="SelectListViewController" id="9y8-LX-IhU" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hd6-PB-XHj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Lists" referencedIdentifier="SelectListNavigationViewController" id="Oon-Bu-Rd4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Ny-9R-fPB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2868.5" y="3071"/>
+            <point key="canvasLocation" x="3477.5" y="2340"/>
         </scene>
         <!--EventDetailCollectionViewController-->
         <scene sceneID="ol1-vO-aMn">
@@ -616,7 +616,6 @@
                         <outlet property="venueTextField" destination="mGs-yj-bNQ" id="jMx-jD-Owh"/>
                         <segue destination="pDA-H8-xAd" kind="show" identifier="selectVenue" id="HgL-fU-zxE"/>
                         <segue destination="kl2-g0-ULL" kind="show" identifier="showPlacePicker" id="6wX-FN-ulN"/>
-                        <segue destination="9y8-LX-IhU" kind="show" identifier="selectList" id="gFJ-9n-xKw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yzr-kY-osz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -650,9 +649,6 @@
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
-                                                <connections>
-                                                    <action selector="listTextFieldPressed:" destination="d5h-4k-qC0" eventType="touchDown" id="4Pq-PC-Npt"/>
-                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -767,7 +763,7 @@
                                                         <rect key="frame" x="440" y="0.0" width="120" height="34"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <state key="normal" title="Custom">
+                                                        <state key="normal" title="1 Week">
                                                             <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -816,6 +812,7 @@
                         <outlet property="listNameTextField" destination="Sa3-Sd-RYe" id="BRp-zR-hqV"/>
                         <outlet property="maxGuestsTextField" destination="b5e-le-eEW" id="95H-Wv-ygi"/>
                         <outlet property="minGuestsTextField" destination="9Sx-0s-fV0" id="1DM-Ks-dMq"/>
+                        <segue destination="Oon-Bu-Rd4" kind="presentation" identifier="selectList" id="lou-hi-HEB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Afh-x6-9wH" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -23,8 +23,8 @@ class CreateInvitationViewController: UIViewController {
   func populateContainerView() {
     self.currentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("InvitationSettingsViewController")
     self.currentViewController!.view.translatesAutoresizingMaskIntoConstraints = false
+    self.addChildViewController(self.currentViewController!)
     self.addSubview(self.currentViewController!.view, toView: self.containerView)
-    self.containerView.addSubview(currentViewController!.view)
   }
   
   func addSubview(subView:UIView, toView parentView:UIView) {
@@ -34,29 +34,8 @@ class CreateInvitationViewController: UIViewController {
     subView.trailingAnchor.constraintEqualToAnchor(parentView.trailingAnchor).active = true
     subView.topAnchor.constraintEqualToAnchor(parentView.topAnchor).active = true
     subView.bottomAnchor.constraintEqualToAnchor(parentView.bottomAnchor).active = true
-    
-    
-    /*
-    var viewBindingsDict = [String: AnyObject]()
-    viewBindingsDict["subView"] = subView
-    parentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[subView]|",
-      options: [], metrics: nil, views: viewBindingsDict))
-    parentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[subView]|",
-      options: [], metrics: nil, views: viewBindingsDict))
-    */
   }
     
-  override func viewDidLayoutSubviews() {
-    super.viewDidLayoutSubviews()
-    
-    
-  }
-  
-  func didChangeSegment() {
-    
-  }
-  
-  
 }
 
 

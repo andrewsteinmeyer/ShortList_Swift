@@ -1,14 +1,15 @@
 //
-//  ListsNavigationViewController.swift
+//  SelectListNavigationViewController.swift
 //  ShortList
 //
-//  Created by Andrew Steinmeyer on 7/15/16.
+//  Created by Andrew Steinmeyer on 7/23/16.
 //  Copyright © 2016 Andrew Steinmeyer. All rights reserved.
 //
 
+
 import UIKit
 
-class ListsNavigationViewController: UINavigationController {
+class SelectListNavigationViewController: UINavigationController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -22,4 +23,3 @@ class ListsNavigationViewController: UINavigationController {
   }
   
 }
-

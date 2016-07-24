@@ -20,7 +20,7 @@ class SelectListViewController: FetchedResultsTableViewController {
   
   var selectedList: List?
   
-  weak var delegate: CreateEventViewController?
+  weak var delegate: InvitationSettingsViewController?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -75,12 +75,18 @@ class SelectListViewController: FetchedResultsTableViewController {
       if let selectedList = dataSource.objectAtIndexPath(indexPath) as? List {
         if cell?.highlight == true {
           delegate?.selectListViewControllerDidSelectList(selectedList)
-          self.navigationController?.popViewControllerAnimated(true)
+          self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
         }
       }
     }
   }
+  
+  // MARK: IBAction methods
     
+  @IBAction func selectListDidCancel(sender: AnyObject) {
+    self.dismissViewControllerAnimated(true, completion: nil)
+  }
+  
   // do not allow "Delete"
   override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
     return UITableViewCellEditingStyle.None

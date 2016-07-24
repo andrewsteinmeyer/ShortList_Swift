@@ -50,11 +50,18 @@ class InvitationProgressView: UIView {
   
   //MARK: - View layout
   
-  override func layoutSubviews() {
-    super.layoutSubviews()
+  override func awakeFromNib() {
+    super.awakeFromNib()
     
     setupProgressBar()
     layoutButtons()
+  }
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    
+    //setupProgressBar()
+    //layoutButtons()
   }
   
   private func setupProgressBar() {
@@ -117,6 +124,11 @@ class InvitationProgressView: UIView {
     let sendImage = UIImage(named: "invite-send")?.imageWithColor(Theme.InvitationProgressButtonColor.toUIColor())
     sendButton.setImage(sendImage, forState: .Normal)
     self.addSubview(sendButton)
+    
+    if firstTime {
+      selectButton(settingsButton)
+      firstTime = false
+    }
     
     // add buttons to array
     buttonsArray = [settingsButton, detailsButton, sendButton]
