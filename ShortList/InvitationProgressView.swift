@@ -13,7 +13,7 @@ class InvitationProgressView: UIView {
   let buttonRatioToView: CGFloat      = 0.75
   let buttonBorderWidth: CGFloat      = 0.5
   let buttonCornerRadius: CGFloat     = 3.0
-  let progressViewHeight: CGFloat     = 0.25
+  let progressViewWidthRatio: CGFloat = 0.70
   
   var buttonsArray = [UIButton]()
   var progressView: UIProgressView!
@@ -53,23 +53,18 @@ class InvitationProgressView: UIView {
   override func awakeFromNib() {
     super.awakeFromNib()
     
-    setupProgressBar()
-    layoutButtons()
+    layoutControls()
   }
   
-  override func layoutSubviews() {
-    super.layoutSubviews()
-    
-    //setupProgressBar()
-    //layoutButtons()
-  }
   
-  private func setupProgressBar() {
-    let width = bounds.size.width
+  private func layoutControls() {
+    let viewWidth = bounds.size.width
+    let progressViewWidth = viewWidth * progressViewWidthRatio
+    let bufferWidth = (viewWidth - progressViewWidth) / 2
     let yCenter = self.center.y
     
     //turn off autoresizing so that we can set our own constraints
-    progressView = UIProgressView(frame: CGRect(x: 0, y: yCenter, width: width, height: progressViewHeight))
+    progressView = UIProgressView(frame: CGRect(x: bufferWidth, y: yCenter, width: progressViewWidth, height: 1.0))
     progressView.translatesAutoresizingMaskIntoConstraints = false
     progressView.trackTintColor = UIColor.lightGrayColor()
     progressView.progressTintColor = Theme.InvitationProgressViewTintColor.toUIColor()
@@ -77,12 +72,10 @@ class InvitationProgressView: UIView {
     
     let margins = self.layoutMarginsGuide
     
-    progressView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor).active = true
-    progressView.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor).active = true
+    progressView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: bufferWidth).active = true
+    progressView.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: -bufferWidth).active = true
     progressView.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor).active = true
-  }
   
-  private func layoutButtons() {
     // settings button
     let settingsButton = UIButton(type: .Custom)
     settingsButton.translatesAutoresizingMaskIntoConstraints = false
@@ -111,71 +104,30 @@ class InvitationProgressView: UIView {
     detailsButton.setImage(detailsImage, forState: .Normal)
     self.addSubview(detailsButton)
     
-    // send button
-    let sendButton = UIButton(type: .Custom)
-    sendButton.translatesAutoresizingMaskIntoConstraints = false
-    sendButton.layer.borderWidth = buttonBorderWidth
-    sendButton.layer.cornerRadius = buttonCornerRadius
-    sendButton.layer.borderColor = UIColor.lightGrayColor().CGColor
-    sendButton.backgroundColor = UIColor.whiteColor()
-    sendButton.addTarget(self, action: #selector(InvitationProgressView.buttonDidPress(_:)), forControlEvents: .TouchUpInside)
-    sendButton.tag = ButtonType.Send.rawValue
-    
-    let sendImage = UIImage(named: "invite-send")?.imageWithColor(Theme.InvitationProgressButtonColor.toUIColor())
-    sendButton.setImage(sendImage, forState: .Normal)
-    self.addSubview(sendButton)
-    
     if firstTime {
       selectButton(settingsButton)
       firstTime = false
     }
     
     // add buttons to array
-    buttonsArray = [settingsButton, detailsButton, sendButton]
-    
-    // add layouts for buttons
-    let leadingGuide = UILayoutGuide()
-    let firstBuffer = UILayoutGuide()
-    let secondBuffer = UILayoutGuide()
-    let trailingGuide = UILayoutGuide()
-    
-    self.addLayoutGuide(leadingGuide)
-    self.addLayoutGuide(firstBuffer)
-    self.addLayoutGuide(secondBuffer)
-    self.addLayoutGuide(trailingGuide)
-    
-    let margins = self.layoutMarginsGuide
-    
-    margins.leadingAnchor.constraintEqualToAnchor(leadingGuide.leadingAnchor).active = true
-    leadingGuide.trailingAnchor.constraintEqualToAnchor(settingsButton.leadingAnchor).active = true
-    settingsButton.trailingAnchor.constraintEqualToAnchor(firstBuffer.leadingAnchor).active = true
-    firstBuffer.trailingAnchor.constraintEqualToAnchor(detailsButton.leadingAnchor).active = true
-    detailsButton.trailingAnchor.constraintEqualToAnchor(secondBuffer.leadingAnchor).active = true
-    secondBuffer.trailingAnchor.constraintEqualToAnchor(sendButton.leadingAnchor).active = true
-    sendButton.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor).active = true
+    buttonsArray = [settingsButton, detailsButton]
     
     // The buttons should have the same width
     settingsButton.widthAnchor.constraintEqualToAnchor(settingsButton.heightAnchor).active = true
     settingsButton.widthAnchor.constraintEqualToAnchor(detailsButton.widthAnchor).active = true
-    detailsButton.widthAnchor.constraintEqualToAnchor(sendButton.widthAnchor).active = true
     
-    // The guides should have the same width
-    leadingGuide.widthAnchor.constraintEqualToAnchor(trailingGuide.widthAnchor).active = true
-    firstBuffer.widthAnchor.constraintEqualToAnchor(secondBuffer.widthAnchor).active = true
-    
-    leadingGuide.heightAnchor.constraintEqualToAnchor(self.heightAnchor, multiplier: buttonRatioToView).active = true
-    settingsButton.heightAnchor.constraintEqualToAnchor(leadingGuide.heightAnchor).active = true
+    // The button height is a ratio of the view
+    settingsButton.heightAnchor.constraintEqualToAnchor(self.heightAnchor, multiplier: buttonRatioToView).active = true
     detailsButton.heightAnchor.constraintEqualToAnchor(settingsButton.heightAnchor).active = true
-    settingsButton.heightAnchor.constraintEqualToAnchor(sendButton.heightAnchor).active = true
     
     // Center everything vertically in the super view
-    leadingGuide.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor).active = true
     settingsButton.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor).active = true
-    firstBuffer.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor).active = true
     detailsButton.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor).active = true
-    secondBuffer.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor).active = true
-    sendButton.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor).active = true
-    trailingGuide.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor).active = true
+    
+    // Position buttons based upon the progress view
+    settingsButton.centerXAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: bufferWidth).active = true
+    detailsButton.centerXAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: -bufferWidth).active = true
+    
   }
   
   //MARK: - Button Actions

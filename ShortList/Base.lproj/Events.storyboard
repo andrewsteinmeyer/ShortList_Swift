@@ -320,36 +320,6 @@
             </objects>
             <point key="canvasLocation" x="2849.5" y="2897"/>
         </scene>
-        <!--Create Invitation View Controller-->
-        <scene sceneID="T4L-1P-aqt">
-            <objects>
-                <viewController storyboardIdentifier="CreateInvitationViewController" id="ssB-lC-AvB" customClass="CreateInvitationViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="FGw-q3-3WO"/>
-                        <viewControllerLayoutGuide type="bottom" id="CGZ-VZ-sFH"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="BOk-9O-xOM">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aSm-Ob-wmu">
-                                <rect key="frame" x="0.0" y="64" width="600" height="437"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="CGZ-VZ-sFH" firstAttribute="top" secondItem="aSm-Ob-wmu" secondAttribute="bottom" constant="50" id="2UB-eY-d0U"/>
-                            <constraint firstItem="aSm-Ob-wmu" firstAttribute="leading" secondItem="BOk-9O-xOM" secondAttribute="leading" id="AHu-pH-V7h"/>
-                            <constraint firstItem="aSm-Ob-wmu" firstAttribute="top" secondItem="FGw-q3-3WO" secondAttribute="bottom" id="JLR-z9-FRi"/>
-                            <constraint firstAttribute="trailing" secondItem="aSm-Ob-wmu" secondAttribute="trailing" id="YCx-YV-mJi"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hxF-8e-EMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2363" y="2398"/>
-        </scene>
         <!--Venues-->
         <scene sceneID="2gi-be-WN9">
             <objects>
@@ -364,7 +334,7 @@
                 <viewControllerPlaceholder storyboardName="Lists" referencedIdentifier="SelectListNavigationViewController" id="Oon-Bu-Rd4" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ny-9R-fPB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3477.5" y="2340"/>
+            <point key="canvasLocation" x="3526.5" y="2384"/>
         </scene>
         <!--EventDetailCollectionViewController-->
         <scene sceneID="ol1-vO-aMn">
@@ -549,7 +519,7 @@
         <!--Create Invitation-->
         <scene sceneID="bF0-Yw-GrX">
             <objects>
-                <viewController id="cdd-HT-bP0" customClass="CreateInvitationViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="CreateInvitationViewController" storyboardIdentifier="CreateInvitationViewController" id="cdd-HT-bP0" customClass="CreateInvitationViewController" customModule="ShortList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aaJ-9A-bYo"/>
                         <viewControllerLayoutGuide type="bottom" id="80G-5x-IuO"/>
@@ -655,6 +625,7 @@
                             <constraint firstItem="4gF-wp-cDH" firstAttribute="top" secondItem="aaJ-9A-bYo" secondAttribute="bottom" id="OjT-BW-wxg"/>
                             <constraint firstAttribute="trailing" secondItem="4gF-wp-cDH" secondAttribute="trailing" id="SZY-Pe-kKB"/>
                             <constraint firstItem="80G-5x-IuO" firstAttribute="top" secondItem="byp-ET-vYZ" secondAttribute="bottom" id="acg-Lb-9er"/>
+                            <constraint firstItem="80G-5x-IuO" firstAttribute="top" secondItem="the-4Y-Zxn" secondAttribute="bottom" id="eHX-32-Njj"/>
                             <constraint firstItem="4gF-wp-cDH" firstAttribute="leading" secondItem="1d2-yM-eAZ" secondAttribute="leading" id="pj1-gV-IOW"/>
                         </constraints>
                     </view>
@@ -665,7 +636,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6nm-uw-TmI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3000" y="1694"/>
+            <point key="canvasLocation" x="2493" y="2043"/>
         </scene>
         <!--Invitation Settings View Controller-->
         <scene sceneID="awH-hT-bZE">
@@ -693,7 +664,7 @@
                                                 </constraints>
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -714,14 +685,14 @@
                                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Maximium Guests" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b5e-le-eEW" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
                                                         <rect key="frame" x="283" y="0.0" width="277" height="42"/>
                                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
@@ -862,7 +833,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Afh-x6-9wH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3007" y="2387.5"/>
+            <point key="canvasLocation" x="3129" y="2165.5"/>
         </scene>
     </scenes>
     <resources>
