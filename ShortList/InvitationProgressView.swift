@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol InvitationProgressViewDelegate: class {
+  func invitationProgressViewDidPressButton(buttonType: Int)
+}
+
 class InvitationProgressView: UIView {
   
   let buttonRatioToView: CGFloat      = 0.75
@@ -18,18 +22,16 @@ class InvitationProgressView: UIView {
   var buttonsArray = [UIButton]()
   var progressView: UIProgressView!
   
-  var settingsButton: UIButton!
+  weak var delegate: CreateInvitationViewController?
   
   enum ButtonType: Int {
     case Settings
     case Details
-    case Send
   }
   
   enum Progress: Float {
     case Settings = 0
-    case Details  = 0.5
-    case Send     = 1.0
+    case Details  = 1.0
   }
   
   private var firstTime = true
@@ -55,7 +57,6 @@ class InvitationProgressView: UIView {
     
     layoutControls()
   }
-  
   
   private func layoutControls() {
     let viewWidth = bounds.size.width
@@ -135,10 +136,8 @@ class InvitationProgressView: UIView {
   func buttonDidPress(sender: UIButton) {
     toggleButtonShadows(sender)
     updateProgressBar(sender)
-  }
-  
-  func setInitialButton() {
-    selectButton(settingsButton)
+    
+    delegate?.invitationProgressViewDidPressButton(sender.tag)
   }
   
   private func updateProgressBar(sender: UIButton) {
@@ -148,8 +147,6 @@ class InvitationProgressView: UIView {
         progressView.progress = Progress.Settings.rawValue
       case .Details:
         progressView.progress = Progress.Details.rawValue
-      case .Send:
-        progressView.progress = Progress.Send.rawValue
       }
     }
   }
@@ -159,7 +156,6 @@ class InvitationProgressView: UIView {
     
     // unselect other buttons
     for button in unselectedButtons {
-      print("button: \(button.tag)")
       button.layer.borderWidth = buttonBorderWidth
       button.layer.shadowOpacity = 0
       button.layer.shadowColor = UIColor.whiteColor().CGColor

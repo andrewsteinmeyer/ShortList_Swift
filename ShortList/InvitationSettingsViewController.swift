@@ -25,7 +25,6 @@ class InvitationSettingsViewController: UIViewController {
     super.viewDidLoad()
     
     setupTextFields()
-   
   }
   
   private func setupTextFields() {
