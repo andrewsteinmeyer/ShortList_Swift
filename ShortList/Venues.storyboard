@@ -35,7 +35,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vK4-h6-Xr3">
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vK4-h6-Xr3">
                                             <rect key="frame" x="10" y="12" width="580" height="37"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pc6-f2-GpD">
@@ -44,7 +44,7 @@
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laW-gF-5vJ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laW-gF-5vJ">
                                                     <rect key="frame" x="0.0" y="22" width="580" height="15"/>
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -308,13 +308,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IN7-wz-IOD" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3037" y="2078"/>
+            <point key="canvasLocation" x="2579" y="1984"/>
         </scene>
     </scenes>
     <resources>
         <image name="venues-tabitem" width="30" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Y9v-gy-3bC"/>
+        <segue reference="adx-sL-IMq"/>
     </inferredMetricsTieBreakers>
 </document>
