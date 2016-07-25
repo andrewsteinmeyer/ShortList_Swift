@@ -75,7 +75,7 @@ extension CreateInvitationViewController: InvitationProgressViewDelegate {
         self.cycleFromViewController(self.currentViewController!, toViewController: newViewController!)
         self.currentViewController = newViewController
       case .Details:
-        let newViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Test")
+        let newViewController = self.storyboard?.instantiateViewControllerWithIdentifier("InvitationDetailsViewController")
         newViewController!.view.translatesAutoresizingMaskIntoConstraints = false
         self.cycleFromViewController(self.currentViewController!, toViewController: newViewController!)
         self.currentViewController = newViewController

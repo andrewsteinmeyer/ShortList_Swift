@@ -167,6 +167,7 @@
 		4E66C43A1D4061F300865222 /* InvitationProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66C4391D4061F300865222 /* InvitationProgressView.swift */; };
 		4E66C43C1D43E29400865222 /* InvitationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66C43B1D43E29400865222 /* InvitationSettingsViewController.swift */; };
 		4E66C43E1D44554400865222 /* SelectListNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66C43D1D44554400865222 /* SelectListNavigationViewController.swift */; };
+		4E66C4401D45ABF600865222 /* InvitationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66C43F1D45ABF600865222 /* InvitationDetailsViewController.swift */; };
 		4E719C0D1C3F60C3009989AC /* SelectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E719C0C1C3F60C3009989AC /* SelectListViewController.swift */; };
 		4E719C0F1C407087009989AC /* EventConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E719C0E1C407087009989AC /* EventConfiguration.swift */; };
 		4E719C131C4075C2009989AC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E719C121C4075C2009989AC /* Date.swift */; };
@@ -457,6 +458,7 @@
 		4E66C4391D4061F300865222 /* InvitationProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationProgressView.swift; sourceTree = "<group>"; };
 		4E66C43B1D43E29400865222 /* InvitationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationSettingsViewController.swift; sourceTree = "<group>"; };
 		4E66C43D1D44554400865222 /* SelectListNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectListNavigationViewController.swift; sourceTree = "<group>"; };
+		4E66C43F1D45ABF600865222 /* InvitationDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationDetailsViewController.swift; sourceTree = "<group>"; };
 		4E719C0C1C3F60C3009989AC /* SelectListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectListViewController.swift; sourceTree = "<group>"; };
 		4E719C0E1C407087009989AC /* EventConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventConfiguration.swift; sourceTree = "<group>"; };
 		4E719C121C4075C2009989AC /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -1152,6 +1154,7 @@
 			children = (
 				4E95FC721D3DC6D50003CAD0 /* CreateInvitationViewController.swift */,
 				4E66C43B1D43E29400865222 /* InvitationSettingsViewController.swift */,
+				4E66C43F1D45ABF600865222 /* InvitationDetailsViewController.swift */,
 			);
 			name = Invitations;
 			sourceTree = "<group>";
@@ -1641,6 +1644,7 @@
 				4E5255A41C51CC8F00F6089D /* MeteorRouter.swift in Sources */,
 				4E5590F81C8A82FA000388FC /* AlertLinkViewController.swift in Sources */,
 				4EF329F41C80931C0078B69A /* METBufferedDocument.m in Sources */,
+				4E66C4401D45ABF600865222 /* InvitationDetailsViewController.swift in Sources */,
 				4E1C46EE1C7DE53500C22101 /* IPV4Rule.swift in Sources */,
 				4E6313051C1FB28000EB78F9 /* SoundPlayer.swift in Sources */,
 				4EF329F51C80931C0078B69A /* METCollection.m in Sources */,
