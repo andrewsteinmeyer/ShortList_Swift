@@ -10,6 +10,7 @@ import UIKit
 
 class InvitationSettingsViewController: UIViewController {
   
+  @IBOutlet weak var titleTextField: UIMaterialTextField!
   @IBOutlet weak var listNameTextField: UIMaterialTextField!
   @IBOutlet weak var minGuestsTextField: UIMaterialTextField!
   @IBOutlet weak var maxGuestsTextField: UIMaterialTextField!
@@ -30,6 +31,10 @@ class InvitationSettingsViewController: UIViewController {
   private func setupTextFields() {
     let titleColor = UIColor.clearColor()
     let lineColor = Theme.InvitationActionColor.toUIColor()
+    
+    titleTextField.activeTitleColor = titleColor
+    titleTextField.inactiveTitleColor = titleColor
+    titleTextField.lineColor = titleColor //remove line
     
     listNameTextField.lineColor = lineColor
     listNameTextField.activeTitleColor = titleColor
@@ -67,6 +72,7 @@ extension InvitationSettingsViewController: UIMaterialTextFieldDelegate {
     // stop keyboard from showing
     self.view.endEditing(true)
     
+    // present list modal
     performSegueWithIdentifier("selectList", sender: nil)
     return false
     }

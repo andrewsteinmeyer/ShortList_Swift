@@ -10,7 +10,6 @@ import UIKit
 
 class InvitationDetailsViewController: UIViewController {
 
-  @IBOutlet weak var titleTextField: UIMaterialTextField!
   @IBOutlet weak var locationTextField: UIMaterialTextField!
   @IBOutlet weak var detailsTextField: UIMaterialTextField!
   
@@ -22,10 +21,6 @@ class InvitationDetailsViewController: UIViewController {
   
   private func setupTextFields() {
     let titleColor = UIColor.clearColor()
-    
-    titleTextField.lineColor = UIColor.clearColor()
-    titleTextField.activeTitleColor = titleColor
-    titleTextField.inactiveTitleColor = titleColor
     
     locationTextField.activeTitleColor = titleColor
     locationTextField.inactiveTitleColor = titleColor
