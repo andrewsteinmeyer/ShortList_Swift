@@ -235,12 +235,14 @@ class EventDetailCollectionViewController: UICollectionViewController {
       
       return cell
     case CSStickyHeaderParallaxHeader:
-      let cell = self.collectionView!.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: Constants.EventDetailCollection.HeaderViewIdentifier, forIndexPath: indexPath) as! EventDetailCollectionViewHeaderView
+      let cell = self.collectionView?.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: Constants.EventDetailCollection.HeaderViewIdentifier, forIndexPath: indexPath) as! EventDetailCollectionViewHeaderView
       
       return cell
     default:
       assert(false, "Unexpected element kind")
     }
+    
+    return UICollectionReusableView()
   }
   
   // MARK: - UICollectionViewDelegate

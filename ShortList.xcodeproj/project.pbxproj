@@ -164,6 +164,8 @@
 		4E63134B1C1FB60A00EB78F9 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6313411C1FB60A00EB78F9 /* FoundationExtensions.swift */; };
 		4E63134E1C1FBAED00EB78F9 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E63134D1C1FBAED00EB78F9 /* ListsViewController.swift */; };
 		4E6313501C1FBB3300EB78F9 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E63134F1C1FBB3300EB78F9 /* ListDetailViewController.swift */; };
+		4E636B131D49A6FE00D672FD /* InvitationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E636B121D49A6FE00D672FD /* InvitationViewController.swift */; };
+		4E636B151D49BD3700D672FD /* InvitationSettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E636B141D49BD3700D672FD /* InvitationSettingButton.swift */; };
 		4E66C43A1D4061F300865222 /* InvitationProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66C4391D4061F300865222 /* InvitationProgressView.swift */; };
 		4E66C43C1D43E29400865222 /* InvitationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66C43B1D43E29400865222 /* InvitationSettingsViewController.swift */; };
 		4E66C43E1D44554400865222 /* SelectListNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66C43D1D44554400865222 /* SelectListNavigationViewController.swift */; };
@@ -455,6 +457,8 @@
 		4E6313411C1FB60A00EB78F9 /* FoundationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
 		4E63134D1C1FBAED00EB78F9 /* ListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
 		4E63134F1C1FBB3300EB78F9 /* ListDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
+		4E636B121D49A6FE00D672FD /* InvitationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationViewController.swift; sourceTree = "<group>"; };
+		4E636B141D49BD3700D672FD /* InvitationSettingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationSettingButton.swift; sourceTree = "<group>"; };
 		4E66C4391D4061F300865222 /* InvitationProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationProgressView.swift; sourceTree = "<group>"; };
 		4E66C43B1D43E29400865222 /* InvitationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationSettingsViewController.swift; sourceTree = "<group>"; };
 		4E66C43D1D44554400865222 /* SelectListNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectListNavigationViewController.swift; sourceTree = "<group>"; };
@@ -922,6 +926,7 @@
 				4E430FC81CA23849008BC34F /* CollectionViewCell */,
 				4E430FC51CA2374B008BC34F /* UITextField */,
 				4E66C4391D4061F300865222 /* InvitationProgressView.swift */,
+				4E636B141D49BD3700D672FD /* InvitationSettingButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1153,6 +1158,7 @@
 			isa = PBXGroup;
 			children = (
 				4E95FC721D3DC6D50003CAD0 /* CreateInvitationViewController.swift */,
+				4E636B121D49A6FE00D672FD /* InvitationViewController.swift */,
 				4E66C43B1D43E29400865222 /* InvitationSettingsViewController.swift */,
 				4E66C43F1D45ABF600865222 /* InvitationDetailsViewController.swift */,
 			);
@@ -1735,6 +1741,7 @@
 				4E719C0D1C3F60C3009989AC /* SelectListViewController.swift in Sources */,
 				4E8FA7361CB20175003FC81C /* AttendeeCollectionViewCell.swift in Sources */,
 				4E41D8D61CD840D0006C584A /* CSStickyHeaderFlowLayoutAttributes.m in Sources */,
+				4E636B151D49BD3700D672FD /* InvitationSettingButton.swift in Sources */,
 				4E8979F11D31358500B0E5E7 /* LogInViewController.swift in Sources */,
 				4EF32A2F1C8093B70078B69A /* PSWebSocketDriver.m in Sources */,
 				4EF32A0B1C80931C0078B69A /* METRandomStream.m in Sources */,
@@ -1832,6 +1839,7 @@
 				4E1C46F71C7DE53500C22101 /* ValidationRule.swift in Sources */,
 				4E7FB3D21D395058005A4043 /* ListsNavigationViewController.swift in Sources */,
 				4EF329FF1C80931C0078B69A /* METDocument.m in Sources */,
+				4E636B131D49A6FE00D672FD /* InvitationViewController.swift in Sources */,
 				4E51AB881C945A0F00260D82 /* NSTimeInterval.swift in Sources */,
 				4E1C46EC1C7DE53500C22101 /* FullNameRule.swift in Sources */,
 			);

@@ -345,7 +345,7 @@
                 <viewControllerPlaceholder storyboardName="Lists" referencedIdentifier="SelectListNavigationViewController" id="Oon-Bu-Rd4" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ny-9R-fPB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3526.5" y="2384"/>
+            <point key="canvasLocation" x="3721.5" y="1866"/>
         </scene>
         <!--EventDetailCollectionViewController-->
         <scene sceneID="ol1-vO-aMn">
@@ -744,7 +744,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dri-YV-5M6">
                                                         <rect key="frame" x="0.0" y="22" width="560" height="34"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bM-TO-8co" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bM-TO-8co" customClass="InvitationSettingButton" customModule="ShortList" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="34"/>
                                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -762,8 +762,11 @@
                                                                         <real key="value" value="18"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="didSelectInvitationItem:" destination="3Kt-Sp-DlX" eventType="touchUpInside" id="wrE-E4-Bwd"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QW-5D-Gy7" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QW-5D-Gy7" customClass="InvitationSettingButton" customModule="ShortList" customModuleProvider="target">
                                                                 <rect key="frame" x="141" y="0.0" width="137" height="34"/>
                                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -781,8 +784,11 @@
                                                                         <real key="value" value="18"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="didSelectInvitationItem:" destination="3Kt-Sp-DlX" eventType="touchUpInside" id="jcD-yM-gHN"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Qt-tv-uBh" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
+                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Qt-tv-uBh" customClass="InvitationSettingButton" customModule="ShortList" customModuleProvider="target">
                                                                 <rect key="frame" x="283" y="0.0" width="136" height="34"/>
                                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -800,8 +806,11 @@
                                                                         <real key="value" value="18"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="didSelectInvitationItem:" destination="3Kt-Sp-DlX" eventType="touchUpInside" id="w5M-Ef-1BP"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAy-xu-Rif" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
+                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAy-xu-Rif" customClass="InvitationSettingButton" customModule="ShortList" customModuleProvider="target">
                                                                 <rect key="frame" x="424" y="0.0" width="136" height="34"/>
                                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -819,6 +828,9 @@
                                                                         <real key="value" value="18"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="didSelectInvitationItem:" destination="3Kt-Sp-DlX" eventType="touchUpInside" id="wKl-dQ-9bL"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -863,13 +875,17 @@
                         <outlet property="listNameTextField" destination="D8E-Lu-TTy" id="7kG-7k-kli"/>
                         <outlet property="maxGuestsTextField" destination="b5e-le-eEW" id="95H-Wv-ygi"/>
                         <outlet property="minGuestsTextField" destination="9Sx-0s-fV0" id="1DM-Ks-dMq"/>
+                        <outlet property="oneDayButton" destination="7Qt-tv-uBh" id="5mK-e7-Yid"/>
+                        <outlet property="oneHourButton" destination="1QW-5D-Gy7" id="h7n-Ga-ntF"/>
+                        <outlet property="oneWeekButton" destination="UAy-xu-Rif" id="8jp-jV-OID"/>
+                        <outlet property="thirtyMinuteButton" destination="0bM-TO-8co" id="IfY-81-LjU"/>
                         <outlet property="titleTextField" destination="Sa3-Sd-RYe" id="9WS-nv-Vxy"/>
                         <segue destination="Oon-Bu-Rd4" kind="presentation" identifier="selectList" id="lou-hi-HEB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Afh-x6-9wH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3141" y="2177.5"/>
+            <point key="canvasLocation" x="3182" y="1866"/>
         </scene>
         <!--Invitation Details View Controller-->
         <scene sceneID="jml-EY-g3I">
@@ -901,7 +917,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dcR-E7-FUM">
                                                         <rect key="frame" x="0.0" y="20" width="560" height="34"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1s-W9-rs7" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1s-W9-rs7" customClass="InvitationSettingButton" customModule="ShortList" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="278" height="34"/>
                                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -920,7 +936,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CCF-uw-VLQ" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CCF-uw-VLQ" customClass="InvitationSettingButton" customModule="ShortList" customModuleProvider="target">
                                                                 <rect key="frame" x="283" y="0.0" width="277" height="34"/>
                                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -965,7 +981,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="UyB-ye-6pr">
                                                                 <rect key="frame" x="0.0" y="20" width="560" height="34"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLl-DJ-nk3" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLl-DJ-nk3" customClass="InvitationSettingButton" customModule="ShortList" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="183" height="34"/>
                                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -984,7 +1000,7 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ha1-Yj-GwM" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ha1-Yj-GwM" customClass="InvitationSettingButton" customModule="ShortList" customModuleProvider="target">
                                                                         <rect key="frame" x="188" y="0.0" width="184" height="34"/>
                                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1003,7 +1019,7 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fp1-SX-NXA" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fp1-SX-NXA" customClass="InvitationSettingButton" customModule="ShortList" customModuleProvider="target">
                                                                         <rect key="frame" x="377" y="0.0" width="183" height="34"/>
                                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1099,7 +1115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P5C-LX-u5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3235" y="2646.5"/>
+            <point key="canvasLocation" x="3182" y="2279"/>
         </scene>
     </scenes>
     <resources>

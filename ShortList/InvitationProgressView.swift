@@ -105,6 +105,7 @@ class InvitationProgressView: UIView {
     detailsButton.setImage(detailsImage, forState: .Normal)
     self.addSubview(detailsButton)
     
+    // set to settings if first time
     if firstTime {
       selectButton(settingsButton)
       firstTime = false

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InvitationDetailsViewController: UIViewController {
+class InvitationDetailsViewController: InvitationViewController {
 
   @IBOutlet weak var locationTextField: UIMaterialTextField!
   @IBOutlet weak var detailsTextField: UIMaterialTextField!
