@@ -126,8 +126,8 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
       }
       else if identifier == "selectVenue" {
         let selectVenueViewController = segue.destinationViewController as! SelectVenueViewController
-        selectVenueViewController.delegate = self
-        selectVenueViewController.selectedVenue = self.venue
+        //selectVenueViewController.delegate = self
+        //selectVenueViewController.selectedVenue = self.venue
       }
       else if identifier == "selectList" {
         let selectListViewController = segue.destinationViewController as! SelectListViewController
@@ -246,7 +246,7 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
     //      Set eventConfiguration.attendanceType and eventConfiguration.status
     
     eventConfiguration.attendanceType = EventConfiguration.AttendanceType.Rank.rawValue
-    eventConfiguration.status = EventConfiguration.Status.On.rawValue
+    //eventConfiguration.status = EventConfiguration.Status.On.description
     
     // use Groot for core location objects
     let listID = Meteor.documentKeyForObjectID(list.objectID).documentID

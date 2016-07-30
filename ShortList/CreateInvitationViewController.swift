@@ -19,10 +19,7 @@ class CreateInvitationViewController: UIViewController {
   var settingsViewController: InvitationSettingsViewController!
   var detailsViewController: InvitationDetailsViewController!
   
-  private var eventTitle: String?
-  private var list: List?
-  private var minGuests: String?
-  private var maxGuests: String?
+  var eventDetails: EventDetails!
   
   enum ButtonType: Int {
     case Settings
@@ -39,6 +36,9 @@ class CreateInvitationViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    // initialize event details
+    self.eventDetails = EventDetails()
+    
     settingsViewController = self.storyboard?.instantiateViewControllerWithIdentifier(ButtonType.Settings.AssociatedViewControllerName) as! InvitationSettingsViewController
     detailsViewController = self.storyboard?.instantiateViewControllerWithIdentifier(ButtonType.Details.AssociatedViewControllerName) as! InvitationDetailsViewController
     
@@ -50,8 +50,7 @@ class CreateInvitationViewController: UIViewController {
   
   func populateContainerView() {
     self.currentViewController = settingsViewController
-    self.currentViewController?.delegate = self
-    self.currentViewController?.populateEventSettings(eventTitle, list: list, minGuests: minGuests, maxGuests: maxGuests)
+    self.currentViewController?.eventDetails = self.eventDetails
     self.currentViewController?.view.translatesAutoresizingMaskIntoConstraints = false
     self.addChildViewController(self.currentViewController!)
     self.addSubview(self.currentViewController!.view, toView: self.containerView)
@@ -86,27 +85,6 @@ class CreateInvitationViewController: UIViewController {
   
 }
 
-extension CreateInvitationViewController: InvitationSettingsDelegate {
-  
-  func invitationSettingsDidSelectList(list: List) {
-    self.list = list
-  }
-  
-  func invitationSettingsDidSetTitle(title: String) {
-    self.eventTitle = title
-  }
-  
-  func invitationSettingsDidSetMinGuests(minGuests: String) {
-    self.minGuests = minGuests
-    
-  }
-  
-  func invitationSettingsDidSetMaxGuests(maxGuests: String) {
-    self.maxGuests = maxGuests
-  }
-  
-}
-
 extension CreateInvitationViewController: InvitationProgressViewDelegate {
   
   func invitationProgressViewDidPressButton(buttonType: Int) {
@@ -115,18 +93,16 @@ extension CreateInvitationViewController: InvitationProgressViewDelegate {
       case .Settings:
         let newViewController = settingsViewController
         newViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        newViewController.delegate = self
-        newViewController.populateEventSettings(eventTitle, list: self.list, minGuests: self.minGuests, maxGuests: self.maxGuests)
+        newViewController.eventDetails = self.eventDetails
         self.cycleFromViewController(self.currentViewController!, toViewController: newViewController)
         self.currentViewController = newViewController
       case .Details:
         let newViewController = detailsViewController
         newViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        newViewController.eventDetails = self.eventDetails
         self.cycleFromViewController(self.currentViewController!, toViewController: newViewController)
         self.currentViewController = newViewController
         
-        // set this controller as the delegate
-        self.currentViewController?.delegate = self
       }
     }
   }

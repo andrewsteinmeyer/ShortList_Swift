@@ -35,8 +35,10 @@ enum Theme {
     static let navBarTintColor              = "FFFFFF"
     
     static let tableCellBackgroundColor     = "FFFFFF"
-    static let tableCellSelectedColor       = "4C9689"
-    static let tableCellTextSelectedColor   = "FFECDB"
+    static let tableCellSelectedColor       = "FFD673"
+    static let tableCellTextSelectedColor   = "333333"
+    //static let tableCellSelectedColor       = "4C9689"
+    //static let tableCellTextSelectedColor   = "FFECDB"
     static let tableCellSeparatorColor      = "AAAAAA"
     
     static let emptyDataSetTitleColor       = "C9C9C9"

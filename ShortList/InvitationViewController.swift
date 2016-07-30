@@ -11,9 +11,9 @@ import UIKit
 // parent shell class for Invitation View Controllers
 class InvitationViewController: UIViewController {
 
-  weak var delegate: CreateInvitationViewController?
+  var eventDetails: EventDetails!
   
-  func populateEventSettings(title: String?, list: List?, minGuests: String?, maxGuests: String?) {
+  func populateEventSettings() {
     
   }
 

@@ -49,7 +49,7 @@ class UIMaterialTextField: UITextField, UITextFieldDelegate {
     private var PlaceHolderText = UILabel()
     // The Placeholder label that fades out when a text is entered.
     
-    private var TitleText = UILabel()
+    var TitleText = UILabel()
     // The Title label that fades in when a text is entered.
     
     private var placeHolderString: String = ""

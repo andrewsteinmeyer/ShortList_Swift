@@ -12,15 +12,33 @@ class EventConfiguration: Mappable {
   var minimumGuests: String?
   var maximumGuests: String?
   var attendanceType: String?
-  var status: String?
   var duration: String?
   
-  enum Status: String {
-    case On = "on"
-    case Minimum = "minimum"
-    case Tentative = "tentative"
-    case Postponed = "postponed"
-    case Cancelled = "cancelled"
+  private (set) var status: String?
+  
+  enum Status: Int {
+    case On
+    case Tentative
+    case Minimum
+    case Postponed
+    case Cancelled
+    
+    var description: String {
+      switch self {
+      case .On:        return "on"
+      case .Tentative: return "tentative"
+      case .Minimum:   return "minimum"
+      case .Postponed: return "postponed"
+      case .Cancelled: return "cancelled"
+      }
+    }
+  }
+  
+  // set default to "On"
+  var currentStatus: Status = .On {
+    didSet {
+      self.status = currentStatus.description
+    }
   }
   
   enum AttendanceType: String {

@@ -9,6 +9,9 @@
 import UIKit
 import WebKit
 
+
+// OLD WAY: Brings up Invitation information in webview
+
 class InvitationActivityViewController: UIViewController {
   
   var url: String!

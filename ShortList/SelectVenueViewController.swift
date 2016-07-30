@@ -22,7 +22,7 @@ class SelectVenueViewController: FetchedResultsTableViewController {
   
   var selectedVenue: Venue?
   
-  weak var delegate: CreateEventViewController?
+  weak var delegate: InvitationDetailsViewController?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -78,7 +78,7 @@ class SelectVenueViewController: FetchedResultsTableViewController {
     
     // user picked same venue
     if cell?.highlight == true {
-      self.navigationController?.popViewControllerAnimated(true)
+      self.dismissViewControllerAnimated(true, completion: nil)
     }
     // user picked new venue
     else {
@@ -87,7 +87,7 @@ class SelectVenueViewController: FetchedResultsTableViewController {
       if let selectedVenue = dataSource.objectAtIndexPath(indexPath) as? Venue {
         if cell?.highlight == true {
           delegate?.selectVenueViewControllerDidSelectVenue(selectedVenue)
-          self.navigationController?.popViewControllerAnimated(true)
+          self.dismissViewControllerAnimated(true, completion: nil)
         }
       }
     }

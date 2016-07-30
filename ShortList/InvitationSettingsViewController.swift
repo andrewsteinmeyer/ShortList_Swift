@@ -8,13 +8,6 @@
 
 import UIKit
 
-protocol InvitationSettingsDelegate: class {
-  func invitationSettingsDidSelectList(list: List)
-  func invitationSettingsDidSetTitle(title: String)
-  func invitationSettingsDidSetMinGuests(minGuests: String)
-  func invitationSettingsDidSetMaxGuests(maxGuests: String)
-  //func invitationSettingsDidSelectTimer(
-}
 
 class InvitationSettingsViewController: InvitationViewController {
   
@@ -28,30 +21,14 @@ class InvitationSettingsViewController: InvitationViewController {
   @IBOutlet weak var oneDayButton: InvitationSettingButton!
   @IBOutlet weak var oneWeekButton: InvitationSettingButton!
   
-  var timerButtonsArray = [UIButton]()
-  
-  private enum InvitationTimer: Int {
-    case ThirtyMinutes
-    case OneHour
-    case OneDay
-    case OneWeek
-    
-    private var durationInSeconds: Int {
-      switch self {
-      case .ThirtyMinutes: return 1800
-      case .OneHour:       return 3600
-      case .OneDay:        return 86400
-      case .OneWeek:       return 604800
-      }
-    }
-  }
-  
-  // set default to one hour
-  private var InvitationDuration: InvitationTimer = .OneHour
+  var timerButtonsArray: [InvitationSettingButton]!
   
   private var list: List? {
     didSet {
       guard let list = list else { return }
+      
+      // set list
+      self.eventDetails.list = list
       
       // set list name
       listNameTextField.text = list.name
@@ -65,31 +42,23 @@ class InvitationSettingsViewController: InvitationViewController {
     timerButtonsArray = [thirtyMinuteButton, oneHourButton, oneDayButton, oneWeekButton]
     
     setupTextFields()
-  }
-  
-  // populate controller if data exists
-  override func populateEventSettings(title: String?, list: List?, minGuests: String?, maxGuests: String?) {
-    // set settings
-    titleTextField?.text = title
-    minGuestsTextField?.text = minGuests
-    maxGuestsTextField?.text = maxGuests
-    
-    // set list
-    self.list = list
+    populateEventSettings()
   }
   
   private func setupTextFields() {
     let titleColor = UIColor.clearColor()
     let lineColor = Theme.InvitationActionColor.toUIColor()
     
-    titleTextField.activeTitleColor = titleColor
-    titleTextField.inactiveTitleColor = titleColor
+    //titleTextField.activeTitleColor = titleColor
+    //titleTextField.inactiveTitleColor = titleColor
+    titleTextField.TitleText.text = "Title"
     titleTextField.lineColor = titleColor //remove line
     titleTextField.materialDelegate = self
     
-    listNameTextField.lineColor = lineColor
-    listNameTextField.activeTitleColor = titleColor
-    listNameTextField.inactiveTitleColor = titleColor
+    //listNameTextField.activeTitleColor = titleColor
+    //listNameTextField.inactiveTitleColor = titleColor
+    listNameTextField.TitleText.text = "List"
+    listNameTextField.lineColor = lineColor //orange line
     listNameTextField.materialDelegate = self
     
     minGuestsTextField.activeTitleColor = titleColor
@@ -99,6 +68,23 @@ class InvitationSettingsViewController: InvitationViewController {
     maxGuestsTextField.activeTitleColor = titleColor
     maxGuestsTextField.inactiveTitleColor = titleColor
     maxGuestsTextField.materialDelegate = self
+  }
+  
+  // populate existing settings
+  override func populateEventSettings() {
+    guard eventDetails != nil else { return }
+    
+    // set settings
+    titleTextField?.text = eventDetails.title
+    minGuestsTextField?.text = eventDetails.configuration.minimumGuests
+    maxGuestsTextField?.text = eventDetails.configuration.maximumGuests
+    
+    // set list
+    self.list = eventDetails.list
+    
+    // set timer button
+    let selectedButton = timerButtonsArray.filter { $0.tag == eventDetails.invitationDuration.rawValue }
+    selectedButton.first?.selectButton()
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -113,29 +99,28 @@ class InvitationSettingsViewController: InvitationViewController {
     }
   }
   
-  private func toggleButtons(sender: UIButton) {
-    let unselectedButtons = timerButtonsArray.filter( { $0.tag != sender.tag } ) as! [InvitationSettingButton]
+  private func toggleTimerButtons(sender: InvitationSettingButton) {
+    let unselectedButtons = timerButtonsArray.filter( { $0.tag != sender.tag } )
     
     // unselect other buttons
     for button in unselectedButtons {
       button.unselectButton()
     }
    
-    // select the correct button
-    if let settingsButton = sender as? InvitationSettingButton {
-      settingsButton.selectButton()
-    }
+    // select the correct timer button
+    sender.selectButton()
   }
   
   // MARK: IBAction Methods
   
-  @IBAction func didSelectInvitationItem(sender: AnyObject) {
+  @IBAction func didSelectTimerButton(sender: InvitationSettingButton) {
     // user selected duration for invitation
-    if let duration = InvitationTimer(rawValue: sender.tag) {
-      InvitationDuration = duration
+    if let duration = EventDetails.InvitationTimer(rawValue: sender.tag) {
+      self.eventDetails.invitationDuration = duration
     }
     
-    toggleButtons(sender as! UIButton)
+    // update highlighted button
+    toggleTimerButtons(sender)
   }
   
 }
@@ -160,11 +145,11 @@ extension InvitationSettingsViewController: UIMaterialTextFieldDelegate {
   func materialTextFieldShouldEndEditing(textField: UITextField) -> Bool {
     switch textField {
     case titleTextField:
-      delegate?.invitationSettingsDidSetTitle(textField.text!)
+      self.eventDetails.title = titleTextField.text!
     case minGuestsTextField:
-      delegate?.invitationSettingsDidSetMinGuests(textField.text!)
+      self.eventDetails.configuration.minimumGuests = minGuestsTextField.text!
     case maxGuestsTextField:
-      delegate?.invitationSettingsDidSetMaxGuests(textField.text!)
+      self.eventDetails.configuration.maximumGuests = maxGuestsTextField.text!
     default: ()
     }
     
@@ -176,11 +161,9 @@ extension InvitationSettingsViewController: UIMaterialTextFieldDelegate {
 
 extension InvitationSettingsViewController: SelectListViewControllerDelegate {
   
+  // list was picked by user
   func selectListViewControllerDidSelectList(list: List) {
     self.list = list
-    
-    // send list information to delegate
-    delegate?.invitationSettingsDidSelectList(list)
   }
 }
 

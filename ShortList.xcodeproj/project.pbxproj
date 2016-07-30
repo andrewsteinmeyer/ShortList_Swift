@@ -202,6 +202,8 @@
 		4EC2F2E21D35D49D0035FD7F /* Venues.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2F2E11D35D49D0035FD7F /* Venues.storyboard */; };
 		4EC2F2E51D35E1CF0035FD7F /* Lists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2F2E31D35E1CF0035FD7F /* Lists.storyboard */; };
 		4EC2F2E71D35F95C0035FD7F /* Scan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2F2E61D35F95C0035FD7F /* Scan.storyboard */; };
+		4EC300F51D4BC207003C7FA8 /* EventDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC300F41D4BC207003C7FA8 /* EventDetails.swift */; };
+		4EC300F81D4BF307003C7FA8 /* Invitations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC300F61D4BF307003C7FA8 /* Invitations.storyboard */; };
 		4EC403F31C7667FB0056D5F3 /* UIImage+Alpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC403F01C7667FB0056D5F3 /* UIImage+Alpha.swift */; };
 		4EC403F41C7667FB0056D5F3 /* UIImage+ReSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC403F11C7667FB0056D5F3 /* UIImage+ReSize.swift */; };
 		4EC403F51C7667FB0056D5F3 /* UIImage+RoundCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC403F21C7667FB0056D5F3 /* UIImage+RoundCorner.swift */; };
@@ -495,6 +497,8 @@
 		4EC2F2E11D35D49D0035FD7F /* Venues.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Venues.storyboard; sourceTree = "<group>"; };
 		4EC2F2E41D35E1CF0035FD7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Lists.storyboard; sourceTree = "<group>"; };
 		4EC2F2E61D35F95C0035FD7F /* Scan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Scan.storyboard; sourceTree = "<group>"; };
+		4EC300F41D4BC207003C7FA8 /* EventDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetails.swift; sourceTree = "<group>"; };
+		4EC300F71D4BF307003C7FA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Invitations.storyboard; sourceTree = "<group>"; };
 		4EC403F01C7667FB0056D5F3 /* UIImage+Alpha.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Alpha.swift"; sourceTree = "<group>"; };
 		4EC403F11C7667FB0056D5F3 /* UIImage+ReSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ReSize.swift"; sourceTree = "<group>"; };
 		4EC403F21C7667FB0056D5F3 /* UIImage+RoundCorner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+RoundCorner.swift"; sourceTree = "<group>"; };
@@ -821,6 +825,7 @@
 				4E60A0D21C2C6D7F00D66A9A /* VenuesNavigationViewController.swift */,
 				4E60A0D41C2C6DA400D66A9A /* VenuesViewController.swift */,
 				4E60A0DF1C35A6FA00D66A9A /* CreateVenueViewController.swift */,
+				4E582A7A1C3F48AB00052399 /* SelectVenueViewController.swift */,
 			);
 			name = Venue;
 			sourceTree = "<group>";
@@ -1028,6 +1033,7 @@
 				4E6F95511C789E820022F5B2 /* ManagedObjects */,
 				4E6313271C1FB2DE00EB78F9 /* User.swift */,
 				4E60A0D71C2F1C7800D66A9A /* Location.swift */,
+				4EC300F41D4BC207003C7FA8 /* EventDetails.swift */,
 				4E4AEE221CCD461500C43A7F /* EventInvitation.swift */,
 				4E719C0E1C407087009989AC /* EventConfiguration.swift */,
 				4E6313301C1FB30400EB78F9 /* ShortList.xcdatamodeld */,
@@ -1110,7 +1116,6 @@
 				4E7C60851C3B62F70042CE4F /* EventsNavigationViewController.swift */,
 				4E7C60811C3B5F420042CE4F /* EventsViewController.swift */,
 				4E233C881C3CA61700FDC1B9 /* CreateEventViewController.swift */,
-				4E582A7A1C3F48AB00052399 /* SelectVenueViewController.swift */,
 				4E94F4CC1CC445EF00D823A2 /* EventDetails */,
 				4E94F4CB1CC445AC00D823A2 /* Old Detail Page */,
 			);
@@ -1131,6 +1136,7 @@
 				4EC2F2E31D35E1CF0035FD7F /* Lists.storyboard */,
 				4EC2F2E11D35D49D0035FD7F /* Venues.storyboard */,
 				4EC2F2DE1D35CEB80035FD7F /* Events.storyboard */,
+				4EC300F61D4BF307003C7FA8 /* Invitations.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -1533,6 +1539,7 @@
 				4E63131F1C1FB28000EB78F9 /* Lato-LightItalic.ttf in Resources */,
 				4E6312691C1FA7D500EB78F9 /* Login.storyboard in Resources */,
 				4E6313211C1FB28000EB78F9 /* Lato-MediumItalic.ttf in Resources */,
+				4EC300F81D4BF307003C7FA8 /* Invitations.storyboard in Resources */,
 				4E6313251C1FB28000EB78F9 /* Lato-Thin.ttf in Resources */,
 				4E6313001C1FB28000EB78F9 /* Info.plist in Resources */,
 				4E1C46E41C7DE53500C22101 /* Info.plist in Resources */,
@@ -1639,6 +1646,7 @@
 				4E41D8D71CD840D0006C584A /* CSSCollectionSeparator.m in Sources */,
 				4E6313041C1FB28000EB78F9 /* Misc.swift in Sources */,
 				4E1C46E91C7DE53500C22101 /* EmailRule.swift in Sources */,
+				4EC300F51D4BC207003C7FA8 /* EventDetails.swift in Sources */,
 				4E6313341C1FB56D00EB78F9 /* SwiftyJSON.swift in Sources */,
 				4E63132E1C1FB2DE00EB78F9 /* Venue.swift in Sources */,
 				4E1C46EB1C7DE53500C22101 /* FloatRule.swift in Sources */,
@@ -1923,6 +1931,14 @@
 				4EC2F2E41D35E1CF0035FD7F /* Base */,
 			);
 			name = Lists.storyboard;
+			sourceTree = "<group>";
+		};
+		4EC300F61D4BF307003C7FA8 /* Invitations.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EC300F71D4BF307003C7FA8 /* Base */,
+			);
+			name = Invitations.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
