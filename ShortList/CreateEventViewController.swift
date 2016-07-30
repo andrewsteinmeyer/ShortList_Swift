@@ -109,7 +109,7 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
     maxGuestTextField.materialDelegate = self
     
     // setup popup date picker
-    popDatePicker = PopDatePicker(forTextField: dateTextField)
+    //popDatePicker = PopDatePicker(forTextField: dateTextField)
     
     // assign first responder
     nameTextField.becomeFirstResponder()
@@ -153,7 +153,7 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   func materialTextFieldShouldReturn(textField: UITextField) -> Bool {
     if textField == nameTextField {
       dateTextField.becomeFirstResponder()
-      showDatePicker()
+      //showDatePicker()
     }
     else if textField == minGuestTextField {
       maxGuestTextField.becomeFirstResponder()
@@ -175,7 +175,7 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   // MARK: IBAction methods
   
   @IBAction func dateTextFieldDidPress(sender: AnyObject) {
-    showDatePicker()
+    //showDatePicker()
   }
   
   @IBAction func createEventDidCancel(sender: AnyObject) {
@@ -197,6 +197,7 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
   
   // MARK: Private methods
   
+  /*
   private func showDatePicker() {
     // show previously selected date if there is one
     // default to current date/time
@@ -213,6 +214,7 @@ class CreateEventViewController: UIViewController, UIMaterialTextFieldDelegate {
     
     popDatePicker!.pick(self, initDate: initDate, dataChanged: dataChangedCallback)
   }
+  */
   
   private func showPlacePicker() {
     performSegueWithIdentifier("showPlacePicker", sender: nil)
@@ -330,7 +332,7 @@ extension CreateEventViewController: SelectVenueViewControllerDelegate {
 
 extension CreateEventViewController: PlacePickerViewControllerDelegate {
   
-  func placePickerDidSelectLocation(location: Location) {
+  func placePickerDidSelectLocation(location: Location?) {
     self.location = location
     
   }

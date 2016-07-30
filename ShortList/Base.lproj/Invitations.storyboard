@@ -31,6 +31,8 @@
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -597,12 +599,29 @@
                                                             <constraint firstItem="UyB-ye-6pr" firstAttribute="leading" secondItem="nzs-k5-l80" secondAttribute="leading" id="YSF-1M-1EN"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="July 26, 2016 at 5:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fx1-jt-dkl">
-                                                        <rect key="frame" x="208" y="61" width="144" height="16"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2rD-52-9IV">
+                                                        <rect key="frame" x="214" y="61" width="133" height="16"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Thu, Jun 8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fx1-jt-dkl">
+                                                                <rect key="frame" x="0.0" y="0.0" width="62" height="16"/>
+                                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
+                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="at" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XZ-mG-qm3">
+                                                                <rect key="frame" x="67" y="0.0" width="12" height="16"/>
+                                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
+                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="5:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8d-i3-K6t">
+                                                                <rect key="frame" x="84" y="0.0" width="49" height="16"/>
+                                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
+                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="nzs-k5-l80" secondAttribute="trailing" id="N0y-E9-dWP"/>
@@ -665,6 +684,7 @@
                         <outlet property="maybeButton" destination="CCF-uw-VLQ" id="fOS-cJ-fvz"/>
                         <outlet property="nowButton" destination="tLl-DJ-nk3" id="tw2-gR-3D4"/>
                         <outlet property="oneHourButton" destination="Ha1-Yj-GwM" id="Zk2-Y2-HpB"/>
+                        <outlet property="timeLabel" destination="v8d-i3-K6t" id="ruD-sm-Ays"/>
                         <segue destination="pDA-H8-xAd" kind="presentation" identifier="selectVenue" id="xDa-rd-Wd4"/>
                         <segue destination="kl2-g0-ULL" kind="presentation" identifier="showPlacePicker" id="yWL-Na-DRx"/>
                     </connections>

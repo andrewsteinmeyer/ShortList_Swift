@@ -11,19 +11,19 @@ import UIKit
 
 public class PopDatePicker : NSObject, UIPopoverPresentationControllerDelegate, DatePickerViewControllerDelegate {
     
-    public typealias PopDatePickerCallback = (newDate : NSDate, forTextField : UITextField)->()
+    public typealias PopDatePickerCallback = (newDate : NSDate, forButton : UIButton)->()
     
     var datePickerVC : PopDateViewController
     var popover : UIPopoverPresentationController?
-    var textField : UITextField!
+    var button : UIButton!
     var dataChanged : PopDatePickerCallback?
     var presented = false
     var offset : CGFloat = 8.0
     
-    public init(forTextField: UITextField) {
+    public init(forButton: UIButton) {
         
         datePickerVC = PopDateViewController()
-        self.textField = forTextField
+        self.button = forButton
         super.init()
     }
     
@@ -40,8 +40,8 @@ public class PopDatePicker : NSObject, UIPopoverPresentationControllerDelegate, 
         
         popover = datePickerVC.popoverPresentationController
         if let _popover = popover {
-            _popover.sourceView = textField
-            _popover.sourceRect = CGRectMake(self.offset,textField.bounds.size.height,0,0)
+            _popover.sourceView = button
+            _popover.sourceRect = CGRectMake(self.offset,button.bounds.size.height,0,0)
             _popover.permittedArrowDirections = .Up
             _popover.delegate = self
             self.dataChanged = dataChanged
@@ -57,7 +57,7 @@ public class PopDatePicker : NSObject, UIPopoverPresentationControllerDelegate, 
     func datePickerVCDismissed(date : NSDate?) {
         if let _dataChanged = dataChanged {
             if let _date = date {
-                _dataChanged(newDate: _date, forTextField: textField)
+                _dataChanged(newDate: _date, forButton: button)
             }
         }
         presented = false

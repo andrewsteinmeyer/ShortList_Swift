@@ -1,10 +1,10 @@
 PODS:
-  - Bolts (1.8.1):
-    - Bolts/AppLinks (= 1.8.1)
-    - Bolts/Tasks (= 1.8.1)
-  - Bolts/AppLinks (1.8.1):
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
-  - Bolts/Tasks (1.8.1)
+  - Bolts/Tasks (1.8.4)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
@@ -14,20 +14,30 @@ PODS:
   - DZNEmptyDataSet (1.7.3)
   - DZNSegmentedControl (1.3.3)
   - Fabric (1.6.7)
-  - FBSDKCoreKit (4.13.1):
+  - FBSDKCoreKit (4.14.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.13.1):
+  - FBSDKLoginKit (4.14.0):
     - FBSDKCoreKit
-  - FBSDKShareKit (4.13.1):
+  - FBSDKShareKit (4.14.0):
     - FBSDKCoreKit
   - FLEX (2.3.0)
-  - GoogleMaps (1.12.1)
+  - GoogleMaps (2.0.1):
+    - GoogleMaps/Maps (= 2.0.1)
+  - GoogleMaps/Base (2.0.1)
+  - GoogleMaps/Maps (2.0.1):
+    - GoogleMaps/Base (= 2.0.1)
+  - GooglePlacePicker (2.0.1):
+    - GoogleMaps (= 2.0.1)
+    - GooglePlaces (= 2.0.1)
+  - GooglePlaces (2.0.1):
+    - GoogleMaps/Base (= 2.0.1)
   - Groot (1.2):
     - Groot/Swift (= 1.2)
   - Groot/Swift (1.2)
   - KYCircularProgress (0.5.1)
   - ObjectMapper (1.1.5)
   - PhoneNumberKit (0.8.4)
+  - SwiftDate (3.0.8)
   - SwiftQRCode (2.0.1)
   - TTTAttributedLabel (1.13.4)
 
@@ -42,31 +52,36 @@ DEPENDENCIES:
   - FBSDKLoginKit
   - FBSDKShareKit
   - FLEX (~> 2.0)
-  - GoogleMaps (= 1.12.1)
+  - GoogleMaps
+  - GooglePlacePicker
   - Groot (= 1.2)
   - KYCircularProgress
   - ObjectMapper (= 1.1.5)
   - PhoneNumberKit (~> 0.6)
+  - SwiftDate
   - SwiftQRCode (= 2.0.1)
   - TTTAttributedLabel (= 1.13.4)
 
 SPEC CHECKSUMS:
-  Bolts: 89c0c6dd1b9c975a3452a62d57a6be6739e5f433
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   DZNEmptyDataSet: dd7cca17c1d07dfa78956859b1e70a52505678ef
   DZNSegmentedControl: ecc2f31c5581cce10c4d766ea4bd2d0781814c1f
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
-  FBSDKCoreKit: 2807fe0da2ddb49a1469da6d6ff597f99912980f
-  FBSDKLoginKit: 6d350cb6a22d6956e9d078885de6ee8a0ebc51b4
-  FBSDKShareKit: c9438df7573b33780ac8c3451201c5ebb260ffca
+  FBSDKCoreKit: 6e020b5db0b5bd1e01f5fb0902131befd129a502
+  FBSDKLoginKit: da563567a108050ef83739c8c8c001ee9e25fa13
+  FBSDKShareKit: e8e5d4ccef69b41132fe33acda26db1e33143e33
   FLEX: ba80ea13d2c784e85e616137fd4eff164781e364
-  GoogleMaps: d4e7526e96e78faf7131ea95f13dd5411cc2916d
+  GoogleMaps: f09da64fc987c1aa29394567c3cab5a3df83c402
+  GooglePlacePicker: e7b11b732e40dbe76e8ab4c5fc2f4a7c32b96578
+  GooglePlaces: 72fab1d1651c6df0322f2aad245ffb15b80d3c56
   Groot: 86c2c820d619f18586b2d1dcfd90e908339f00bc
   KYCircularProgress: 69a6d6852d96ca2be2830cc659b85aab3bb1cee6
   ObjectMapper: 528b1a6677a6acac7747edd508576983e76a9148
   PhoneNumberKit: ec93d8c5e4614ecfc1ef333eb89f7eaadedcaa17
+  SwiftDate: 971f8b9394f664f2226b9c3ab64e801a7291c612
   SwiftQRCode: ce939b2f3ceba3a4b89a99c981cba70604e480cf
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
 

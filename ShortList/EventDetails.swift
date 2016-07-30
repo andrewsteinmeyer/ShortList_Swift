@@ -37,6 +37,7 @@ class EventDetails {
   var location: Location?
   var configuration: EventConfiguration
   var invitationDuration: InvitationTimer
+  var startTime: EventStartTime
   
   var venue: Venue? {
     didSet {
@@ -60,8 +61,8 @@ class EventDetails {
   // MARK: - Initialization
   
   init() {
-    // set default to one hour
     self.invitationDuration = .OneHour
+    self.startTime          = .Now
     self.configuration      = EventConfiguration()
   }
   

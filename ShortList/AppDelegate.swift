@@ -9,6 +9,7 @@
 import UIKit
 import Contacts
 import GoogleMaps
+import GooglePlaces
 import Fabric
 import Crashlytics
 import FLEX
@@ -39,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // set up google services
     GMSServices.provideAPIKey(googleMapsApiKey)
+    GMSPlacesClient.provideAPIKey(googleMapsApiKey)
     
     // set up facebook login
     return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

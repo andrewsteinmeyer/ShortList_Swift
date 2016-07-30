@@ -9,10 +9,11 @@
 import UIKit
 import CoreLocation
 import GoogleMaps
+import GooglePlacePicker
 import ObjectMapper
 
 protocol PlacePickerViewControllerDelegate {
-  func placePickerDidSelectLocation(location: Location)
+  func placePickerDidSelectLocation(location: Location?)
 }
 
 class PlacePickerViewController: UIViewController {
@@ -35,7 +36,7 @@ class PlacePickerViewController: UIViewController {
         
         if let error = error {
           print("Error occurred: \(error.localizedDescription)")
-          self.navigationController?.popViewControllerAnimated(true)
+          self.delegate?.placePickerDidSelectLocation(nil)
           return
         }
         
@@ -47,12 +48,11 @@ class PlacePickerViewController: UIViewController {
           location.longitude = place.coordinate.longitude
           
           self.delegate?.placePickerDidSelectLocation(location)
-          self.navigationController?.popViewControllerAnimated(true)
           
           
         } else {
           print("No place was selected")
-          self.navigationController?.popViewControllerAnimated(true)
+          self.delegate?.placePickerDidSelectLocation(nil)
         }
       }
     }

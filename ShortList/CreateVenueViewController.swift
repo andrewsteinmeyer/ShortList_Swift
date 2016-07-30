@@ -141,9 +141,14 @@ class CreateVenueViewController: UIViewController, UIMaterialTextFieldDelegate {
 
 extension CreateVenueViewController: PlacePickerViewControllerDelegate {
   
-  func placePickerDidSelectLocation(location: Location) {
+  func placePickerDidSelectLocation(location: Location?) {
+    //dismiss the place picker
+    self.navigationController?.popViewControllerAnimated(true)
+    
+    guard location != nil else { return }
+    
     self.location = location
-    self.locationTextField.text = location.address
+    self.locationTextField.text = location?.address
     
   }
   

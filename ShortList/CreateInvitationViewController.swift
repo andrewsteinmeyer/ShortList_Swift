@@ -102,7 +102,6 @@ extension CreateInvitationViewController: InvitationProgressViewDelegate {
         newViewController.eventDetails = self.eventDetails
         self.cycleFromViewController(self.currentViewController!, toViewController: newViewController)
         self.currentViewController = newViewController
-        
       }
     }
   }

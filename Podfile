@@ -1,7 +1,9 @@
 use_frameworks!
 
 pod 'Groot', '1.2'
-pod 'GoogleMaps', '1.12.1'
+pod 'GoogleMaps'
+pod 'SwiftDate'
+pod 'GooglePlacePicker'
 pod 'ObjectMapper', '1.1.5'
 pod 'ChameleonFramework/Swift', '2.1.0'
 pod 'DZNEmptyDataSet', '1.7.3'

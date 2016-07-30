@@ -7,6 +7,22 @@
 //
 
 import UIKit
+import SwiftDate
+
+private let dateFormatter: NSDateFormatter = {
+  let formatter = NSDateFormatter()
+  formatter.dateFormat = "EEE, MMM d" // ie. Thu, Jun 8
+  
+  return formatter
+}()
+
+private let timeFormatter: NSDateFormatter = {
+  let formatter = NSDateFormatter()
+  formatter.dateStyle = .NoStyle
+  formatter.timeStyle = .ShortStyle // ie. 11:10 PM
+  
+  return formatter
+}()
 
 class InvitationDetailsViewController: InvitationViewController {
 
@@ -17,12 +33,29 @@ class InvitationDetailsViewController: InvitationViewController {
   @IBOutlet weak var oneHourButton: InvitationSettingButton!
   @IBOutlet weak var laterButton: InvitationSettingButton!
   @IBOutlet weak var dateLabel: UILabel!
+  @IBOutlet weak var timeLabel: UILabel!
   
   @IBOutlet weak var locationTextField: UIMaterialTextField!
   @IBOutlet weak var detailsTextField: UIMaterialTextField!
   
   var statusButtonsArray: [InvitationSettingButton]!
   var timeButtonsArray: [InvitationSettingButton]!
+  
+  private var popDatePicker: PopDatePicker?
+  private var selectedDate: NSDate? {
+    didSet {
+      guard selectedDate != nil else {
+        return
+      }
+      
+      // set date and time labels
+      dateLabel.text = dateFormatter.stringFromDate(selectedDate!) as String
+      timeLabel.text = timeFormatter.stringFromDate(selectedDate!) as String
+      
+      // save date to details
+      eventDetails?.date = selectedDate!
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -33,7 +66,12 @@ class InvitationDetailsViewController: InvitationViewController {
     // save time buttons
     timeButtonsArray = [nowButton, oneHourButton, laterButton]
     
+    // setup popup date picker
+    popDatePicker = PopDatePicker(forButton: laterButton)
+    selectedDate = NSDate()
+    
     setupTextFields()
+    populateEventSettings()
   }
   
   private func setupTextFields() {
@@ -42,6 +80,33 @@ class InvitationDetailsViewController: InvitationViewController {
     
     detailsTextField.TitleText.text = "Details"
     detailsTextField.materialDelegate = self
+  }
+  
+  // populate existing settings
+  override func populateEventSettings() {
+    guard eventDetails != nil else { return }
+    
+    // set location with venue if venue exists
+    if let venue = eventDetails?.venue {
+      setLocationField(venue.name)
+    }
+    // otherwise see if location exists
+    else if eventDetails?.location != nil {
+      setLocationField("Location")
+    }
+    
+    if let date = eventDetails.date {
+      self.selectedDate = date
+    }
+    
+    // set status button
+    let selectedButton = statusButtonsArray.filter { $0.tag == eventDetails.configuration.currentStatus.rawValue }
+    selectedButton.first?.selectButton()
+    
+    // set start time button
+    let selectedTimeButton = timeButtonsArray.filter { $0.tag == eventDetails.startTime.rawValue }
+    
+    selectedTimeButton.first?.selectButton()
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -81,10 +146,25 @@ class InvitationDetailsViewController: InvitationViewController {
     
     // select the correct time button
     sender.selectButton()
+    
+    // set date based upon user selection
+    if let eventStartTime = EventDetails.EventStartTime(rawValue: sender.tag) {
+      switch eventStartTime {
+      case .Now:
+        selectedDate = NSDate()
+      case .OneHour:
+        selectedDate = 1.hours.fromNow
+      case .Later:
+        presentDatePicker()
+      }
+      
+      // save enum for startTime
+      eventDetails.startTime = eventStartTime
+    }
   }
   
-  func setLocationField(name: String = "") {
-    self.locationTextField.TitleText.text = name ?? "Location"
+  func setLocationField(title: String?) {
+    self.locationTextField.TitleText.text = title ?? "Location"
     self.locationTextField.text = eventDetails.location?.address ?? ""
   }
   
@@ -95,6 +175,24 @@ class InvitationDetailsViewController: InvitationViewController {
   
   private func createLocation() {
     performSegueWithIdentifier("showPlacePicker", sender: nil)
+  }
+  
+  // MARK: Private methods
+  
+  private func presentDatePicker() {
+    // show previously selected date if there is one
+    // default to current date/time
+    let initDate = ( selectedDate != nil ? selectedDate : NSDate() )
+    
+    let dataChangedCallback : PopDatePicker.PopDatePickerCallback = { [weak self]
+      (newDate : NSDate, forButton : UIButton) -> () in
+      
+      if let strongSelf = self {
+        strongSelf.selectedDate = newDate
+      }
+    }
+    
+    popDatePicker!.pick(self, initDate: initDate, dataChanged: dataChangedCallback)
   }
   
   func presentVenueSelectionMenu() {
@@ -168,9 +266,11 @@ extension InvitationDetailsViewController: UIMaterialTextFieldDelegate {
 extension InvitationDetailsViewController: SelectVenueViewControllerDelegate {
   
   func selectVenueViewControllerDidSelectVenue(venue: Venue) {
+    // save venue
     self.eventDetails.venue = venue
     
-    setLocationField(venue.name ?? "")
+    // update location text field
+    setLocationField(venue.name ?? "Location")
   }
 }
 
@@ -178,10 +278,15 @@ extension InvitationDetailsViewController: SelectVenueViewControllerDelegate {
 
 extension InvitationDetailsViewController: PlacePickerViewControllerDelegate {
   
-  func placePickerDidSelectLocation(location: Location) {
-    self.eventDetails.location = location
+  func placePickerDidSelectLocation(location: Location?) {
+    // dismiss the place picker
+    self.dismissViewControllerAnimated(true, completion: nil)
     
-    setLocationField()
+    guard location != nil else { return }
+    
+    // save location and update location text field
+    self.eventDetails.location = location
+    setLocationField("Location")
   }
   
 }
