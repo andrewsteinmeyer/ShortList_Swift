@@ -70,7 +70,10 @@ class EventDetails {
     return (self.list != nil)
   }
   
-  
-  
+  func detailsVerified() -> Bool {
+    return (settingsVerified()
+            && date != nil
+            && location != nil)
+  }
   
 }

@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import CoreData
+import ObjectMapper
+import Groot
 
 class CreateInvitationViewController: UIViewController {
   
@@ -119,8 +120,69 @@ class CreateInvitationViewController: UIViewController {
         AppDelegate.getAppDelegate().showMessage(message, title: "Invitation Settings")
       }
     case .Details:
-      break
+      if eventDetails.detailsVerified() {
+        createEvent()
+      }
+      else {
+        let message = "Please select a date and location to proceed."
+        AppDelegate.getAppDelegate().showMessage(message, title: "Invitation Details")
+      }
     }
+  }
+  
+  private func createEvent() {
+    guard let date = eventDetails.date,
+      let list = eventDetails.list,
+      let location = eventDetails.location else {
+        
+        let message = "Please fill out all required fields."
+        AppDelegate.getAppDelegate().showMessage(message, title: "Could Not Create Event")
+        return
+    }
+    
+    // dismiss keyboard
+    self.dismissKeyboard()
+    
+    let eventName = eventDetails?.title ?? ""
+    let eventConfiguration = eventDetails.configuration
+    
+    // use Groot for core location objects
+    let listID = Meteor.documentKeyForObjectID(list.objectID).documentID
+    var JSONList = JSONDictionaryFromObject(list)
+    JSONList["_id"] = listID
+    
+    var JSONVenue: JSONDictionary = [:]
+    
+    // set venue data if one exists
+    if let venue = eventDetails.venue {
+      let venueID = Meteor.documentKeyForObjectID(venue.objectID).documentID
+      JSONVenue = JSONDictionaryFromObject(venue)
+      JSONVenue["_id"] = venueID
+    }
+    
+    // use ObjectMapper for regular models
+    let JSONLocation = Mapper().toJSON(location)
+    let JSONEventConfiguration = Mapper().toJSON(eventConfiguration)
+    
+    // format date to play nice with web and android epoch unix
+    let epochDate = date.convertToEpochMilliseconds()
+    
+    MeteorEventService.sharedInstance.create([ eventName, epochDate, JSONList, JSONVenue, JSONLocation, JSONEventConfiguration ]) {
+      result, error in
+      
+      dispatch_async(dispatch_get_main_queue()) {
+        if let error = error {
+          let errorMessage = error.localizedFailureReason
+          AppDelegate.getAppDelegate().showMessage(errorMessage!, title: "Error")
+        } else {
+          self.dismissViewControllerAnimated(true, completion: nil)
+        }
+      }
+    }
+  }
+  
+  private func dismissKeyboard() {
+    self.view.endEditing(true)
   }
   
   // MARK: - IBAction methods
