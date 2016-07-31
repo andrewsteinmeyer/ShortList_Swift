@@ -66,6 +66,10 @@ class EventDetails {
     self.configuration      = EventConfiguration()
   }
   
+  func settingsVerified() -> Bool {
+    return (self.list != nil)
+  }
+  
   
   
   

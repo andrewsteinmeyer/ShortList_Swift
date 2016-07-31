@@ -13,6 +13,7 @@ class CreateInvitationViewController: UIViewController {
   
   @IBOutlet weak var invitationProgressView: InvitationProgressView!
   @IBOutlet weak var containerView: UIView!
+  @IBOutlet weak var actionButton: DesignableButton!
   
   // controller being displayed in the containerView
   weak var currentViewController: InvitationViewController?
@@ -33,30 +34,46 @@ class CreateInvitationViewController: UIViewController {
     }
   }
   
+  private var currentScreen: ButtonType = .Settings {
+    didSet {
+      if currentScreen == ButtonType.Settings {
+        actionButton.setTitle("Next", forState: .Normal)
+        actionButton.setNeedsLayout()
+      }
+      else if currentScreen == ButtonType.Details {
+        actionButton.setTitle("Create Event", forState: .Normal)
+        actionButton.setNeedsLayout()
+      }
+    }
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // initialize event details
+    // initialize event details object
     self.eventDetails = EventDetails()
     
+    // initialize child view controllers
     settingsViewController = self.storyboard?.instantiateViewControllerWithIdentifier(ButtonType.Settings.AssociatedViewControllerName) as! InvitationSettingsViewController
     detailsViewController = self.storyboard?.instantiateViewControllerWithIdentifier(ButtonType.Details.AssociatedViewControllerName) as! InvitationDetailsViewController
     
     // set this controller as the delegate
     invitationProgressView.delegate = self
     
+    // populate container view with invitation settings
     populateContainerView()
   }
   
-  func populateContainerView() {
+  private func populateContainerView() {
     self.currentViewController = settingsViewController
+    self.currentViewController!.delegate = self
     self.currentViewController?.eventDetails = self.eventDetails
     self.currentViewController?.view.translatesAutoresizingMaskIntoConstraints = false
     self.addChildViewController(self.currentViewController!)
     self.addSubview(self.currentViewController!.view, toView: self.containerView)
   }
   
-  func addSubview(subView:UIView, toView parentView:UIView) {
+  private func addSubview(subView:UIView, toView parentView:UIView) {
     parentView.addSubview(subView)
     
     // set view constraints
@@ -66,7 +83,7 @@ class CreateInvitationViewController: UIViewController {
     subView.bottomAnchor.constraintEqualToAnchor(parentView.bottomAnchor).active = true
   }
   
-  func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController) {
+  private func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController) {
     oldViewController.willMoveToParentViewController(nil)
     self.addChildViewController(newViewController)
     self.addSubview(newViewController.view, toView:self.containerView!)
@@ -83,6 +100,35 @@ class CreateInvitationViewController: UIViewController {
     })
   }
   
+  private func proceedToController(newViewController: InvitationViewController) {
+    newViewController.delegate = self
+    newViewController.eventDetails = self.eventDetails
+    newViewController.view.translatesAutoresizingMaskIntoConstraints = false
+    self.cycleFromViewController(self.currentViewController!, toViewController: newViewController)
+    self.currentViewController = newViewController
+  }
+  
+  private func validateFields() {
+    switch self.currentScreen {
+    case .Settings:
+      if eventDetails.settingsVerified() {
+        invitationProgressView.proceedToDetails()
+      }
+      else {
+        let message = "Please select a list in order to proceed."
+        AppDelegate.getAppDelegate().showMessage(message, title: "Invitation Settings")
+      }
+    case .Details:
+      break
+    }
+  }
+  
+  // MARK: - IBAction methods
+  
+  @IBAction func actionButtonDidPress(sender: AnyObject) {
+    validateFields()
+  }
+  
 }
 
 extension CreateInvitationViewController: InvitationProgressViewDelegate {
@@ -91,17 +137,27 @@ extension CreateInvitationViewController: InvitationProgressViewDelegate {
     if let type = ButtonType(rawValue: buttonType) {
       switch type {
       case .Settings:
-        let newViewController = settingsViewController
-        newViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        newViewController.eventDetails = self.eventDetails
-        self.cycleFromViewController(self.currentViewController!, toViewController: newViewController)
-        self.currentViewController = newViewController
+        if self.currentScreen == .Details {
+          self.proceedToController(settingsViewController)
+        }
       case .Details:
-        let newViewController = detailsViewController
-        newViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        newViewController.eventDetails = self.eventDetails
-        self.cycleFromViewController(self.currentViewController!, toViewController: newViewController)
-        self.currentViewController = newViewController
+        if self.currentScreen == .Settings {
+          self.proceedToController(detailsViewController)
+        }
+      }
+      
+      // set the current screen type
+      self.currentScreen = type
+    }
+  }
+}
+
+extension CreateInvitationViewController: InvitationViewControllerDelegate {
+  
+  func invitationViewControllerDidUpdateEventDetails() {
+    if self.currentScreen == .Settings {
+      if eventDetails.list != nil {
+        self.invitationProgressView.detailsButton.enabled = true
       }
     }
   }

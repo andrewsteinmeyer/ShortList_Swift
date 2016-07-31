@@ -22,6 +22,9 @@ class InvitationProgressView: UIView {
   var buttonsArray = [UIButton]()
   var progressView: UIProgressView!
   
+  var settingsButton: UIButton!
+  var detailsButton: UIButton!
+  
   weak var delegate: CreateInvitationViewController?
   
   enum ButtonType: Int {
@@ -33,8 +36,6 @@ class InvitationProgressView: UIView {
     case Settings = 0
     case Details  = 1.0
   }
-  
-  private var firstTime = true
   
   //MARK: - Initialization
   
@@ -78,7 +79,7 @@ class InvitationProgressView: UIView {
     progressView.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor).active = true
   
     // settings button
-    let settingsButton = UIButton(type: .Custom)
+    settingsButton = UIButton(type: .Custom)
     settingsButton.translatesAutoresizingMaskIntoConstraints = false
     settingsButton.layer.borderWidth = buttonBorderWidth
     settingsButton.layer.cornerRadius = buttonCornerRadius
@@ -92,7 +93,7 @@ class InvitationProgressView: UIView {
     self.addSubview(settingsButton)
     
     // details button
-    let detailsButton = UIButton(type: .Custom)
+    detailsButton = UIButton(type: .Custom)
     detailsButton.translatesAutoresizingMaskIntoConstraints = false
     detailsButton.layer.borderWidth = buttonBorderWidth
     detailsButton.layer.cornerRadius = buttonCornerRadius
@@ -106,11 +107,11 @@ class InvitationProgressView: UIView {
     self.addSubview(detailsButton)
     
     // set to settings if first time
-    if firstTime {
-      selectButton(settingsButton)
-      firstTime = false
-    }
-    
+    selectButton(settingsButton)
+      
+    // disable initially
+    detailsButton.enabled = false
+      
     // add buttons to array
     buttonsArray = [settingsButton, detailsButton]
     
@@ -138,7 +139,12 @@ class InvitationProgressView: UIView {
     toggleButtonShadows(sender)
     updateProgressBar(sender)
     
+    // notify create invitation view controller
     delegate?.invitationProgressViewDidPressButton(sender.tag)
+  }
+  
+  func proceedToDetails() {
+    buttonDidPress(detailsButton)
   }
   
   private func updateProgressBar(sender: UIButton) {

@@ -68,7 +68,9 @@ class InvitationDetailsViewController: InvitationViewController {
     
     // setup popup date picker
     popDatePicker = PopDatePicker(forButton: laterButton)
-    selectedDate = NSDate()
+    
+    // default event start time to five minutes fromNow
+    selectedDate = 5.minutes.fromNow
     
     setupTextFields()
     populateEventSettings()
@@ -105,7 +107,6 @@ class InvitationDetailsViewController: InvitationViewController {
     
     // set start time button
     let selectedTimeButton = timeButtonsArray.filter { $0.tag == eventDetails.startTime.rawValue }
-    
     selectedTimeButton.first?.selectButton()
   }
   
@@ -151,7 +152,7 @@ class InvitationDetailsViewController: InvitationViewController {
     if let eventStartTime = EventDetails.EventStartTime(rawValue: sender.tag) {
       switch eventStartTime {
       case .Now:
-        selectedDate = NSDate()
+        selectedDate = 5.minutes.fromNow
       case .OneHour:
         selectedDate = 1.hours.fromNow
       case .Later:

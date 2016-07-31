@@ -103,8 +103,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   // MARK: Helpers
   
-  func showMessage(message: String) {
-    let alertController = UIAlertController(title: "ShortList", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+  func showMessage(message: String, title: String = "ShortList") {
+    let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
     let dismissAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action) -> Void in
     }
     

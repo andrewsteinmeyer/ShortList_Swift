@@ -120,7 +120,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
     }
   }
   
-  //MARK: - Sign in and Sign up
+  // MARK: - Sign in and Sign up
   
   private func signIn() {
     guard let email = emailField.text where !email.isEmpty,
@@ -216,7 +216,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
     }
   }
   
-  //MARK: Helper functions
+  // MARK: Helper functions
   
   private func toggleScreen() {
     switch currentScreen {
@@ -283,6 +283,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
     activityIndicator.hidden = true
   }
   
+  // MARK: - Error handling
+  
   private func displayError(message: String) {
     // clear out previous errors
     clearErrors()
@@ -300,13 +302,15 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
     errorMessageLabel.text = " "
   }
   
+  // MARK: - Hide/unhide stack views with animation
+  
   private func animateViews(views: [UIView], toHidden hidden: Bool) {
     UIView.animateWithDuration(0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 10, options: UIViewAnimationOptions(), animations: { () -> Void in
       let _ = views.map { $0.hidden = hidden }
       }, completion: nil)
   }
   
-  //MARK: Validation
+  // MARK: Validation
   
   private func validate() {
     validator.validate(self)
@@ -340,13 +344,13 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
     validator.registerField(nameField, errorLabel: errorMessageLabel, rules: [RequiredRule(message: "Name is required."), FullNameRule()])
   }
   
-  //MARK: Status Bar
+  // MARK: Status Bar
   
   override func preferredStatusBarStyle() -> UIStatusBarStyle {
     return .LightContent
   }
   
-  //MARK: - Static methods
+  // MARK: - Static methods
   
   static func presentSignInViewController(animated animated: Bool = true) {
     let storyboard = UIStoryboard(name: "Login", bundle: nil)

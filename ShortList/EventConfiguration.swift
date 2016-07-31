@@ -48,6 +48,9 @@ class EventConfiguration: Mappable {
     case NoLimit = "nolimit"
   }
   
+  // set default attendance type
+  var selectedAttendanceType: AttendanceType = .Rank
+  
   required init() {
   }
   

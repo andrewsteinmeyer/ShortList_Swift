@@ -32,6 +32,8 @@ class InvitationSettingsViewController: InvitationViewController {
       
       // set list name
       listNameTextField.text = list.name
+      
+      self.delegate?.invitationViewControllerDidUpdateEventDetails()
     }
   }
   

@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol InvitationViewControllerDelegate: class {
+  func invitationViewControllerDidUpdateEventDetails()
+}
+
 // parent shell class for Invitation View Controllers
 class InvitationViewController: UIViewController {
 
   var eventDetails: EventDetails!
+  weak var delegate: CreateInvitationViewController?
   
+  // parent shell function
   func populateEventSettings() {
     
   }
