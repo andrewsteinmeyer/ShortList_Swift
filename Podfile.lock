@@ -5,6 +5,7 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
+  - BSKeyboardControls (2.2)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
@@ -42,6 +43,7 @@ PODS:
   - TTTAttributedLabel (1.13.4)
 
 DEPENDENCIES:
+  - BSKeyboardControls (~> 2.2)
   - ChameleonFramework/Swift (= 2.1.0)
   - Crashlytics (= 3.7.0)
   - DateTools (= 1.7.0)
@@ -64,6 +66,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  BSKeyboardControls: b701935e789961102e3f20063bba7185800a2d3f
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60

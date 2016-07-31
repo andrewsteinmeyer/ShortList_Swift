@@ -202,7 +202,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Th1-4h-z4V">
-                                <rect key="frame" x="20" y="28" width="560" height="245"/>
+                                <rect key="frame" x="20" y="24" width="560" height="251"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title (Optional)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sa3-Sd-RYe" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="40"/>
@@ -212,10 +212,10 @@
                                         </constraints>
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="Odm-IO-CIK">
-                                        <rect key="frame" x="0.0" y="52" width="560" height="193"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Odm-IO-CIK">
+                                        <rect key="frame" x="0.0" y="52" width="560" height="199"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="tE5-wi-e6a">
                                                 <rect key="frame" x="0.0" y="0.0" width="560" height="40"/>
@@ -233,7 +233,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="yUs-sO-vrs">
-                                                <rect key="frame" x="0.0" y="62" width="560" height="53"/>
+                                                <rect key="frame" x="0.0" y="65" width="560" height="53"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INVITE LIMITS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCI-ND-Jfa">
                                                         <rect key="frame" x="0.0" y="0.0" width="560" height="12"/>
@@ -249,14 +249,14 @@
                                                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                                             </textField>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Maximium Guests" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b5e-le-eEW" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
                                                                 <rect key="frame" x="283" y="0.0" width="277" height="40"/>
                                                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                             </textField>
                                                         </subviews>
                                                         <constraints>
@@ -272,7 +272,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Dso-7p-p5w">
-                                                <rect key="frame" x="0.0" y="137" width="560" height="56"/>
+                                                <rect key="frame" x="0.0" y="143" width="560" height="56"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INVITATION TIMER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIF-In-xkH">
                                                         <rect key="frame" x="0.0" y="0.0" width="560" height="12"/>
@@ -439,10 +439,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="n5D-zQ-uvM">
-                                <rect key="frame" x="20" y="25" width="560" height="251"/>
+                                <rect key="frame" x="20" y="23" width="560" height="255"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="vGt-NU-lDa">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="143"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="vGt-NU-lDa">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="145"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Aeg-6V-V7r">
                                                 <rect key="frame" x="0.0" y="0.0" width="560" height="54"/>
@@ -512,7 +512,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="UKN-im-1tl">
-                                                <rect key="frame" x="0.0" y="66" width="560" height="77"/>
+                                                <rect key="frame" x="0.0" y="68" width="560" height="77"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nzs-k5-l80">
                                                         <rect key="frame" x="0.0" y="0.0" width="560" height="54"/>
@@ -603,25 +603,25 @@
                                                             <constraint firstItem="UyB-ye-6pr" firstAttribute="leading" secondItem="nzs-k5-l80" secondAttribute="leading" id="YSF-1M-1EN"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2rD-52-9IV">
-                                                        <rect key="frame" x="215" y="61" width="131" height="16"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="2rD-52-9IV">
+                                                        <rect key="frame" x="216" y="61" width="129" height="16"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thu, Jun 8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fx1-jt-dkl">
                                                                 <rect key="frame" x="0.0" y="0.0" width="59" height="16"/>
                                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
-                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="at" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XZ-mG-qm3">
-                                                                <rect key="frame" x="64" y="0.0" width="12" height="16"/>
+                                                                <rect key="frame" x="63" y="0.0" width="12" height="16"/>
                                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
-                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8d-i3-K6t">
-                                                                <rect key="frame" x="81" y="0.0" width="50" height="16"/>
+                                                                <rect key="frame" x="79" y="0.0" width="50" height="16"/>
                                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
-                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -642,8 +642,8 @@
                                             <constraint firstItem="UKN-im-1tl" firstAttribute="leading" secondItem="vGt-NU-lDa" secondAttribute="leading" id="yDs-Q0-rHC"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="V9x-2J-s77">
-                                        <rect key="frame" x="0.0" y="156" width="560" height="95"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="V9x-2J-s77">
+                                        <rect key="frame" x="0.0" y="158" width="560" height="97"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location (Optional)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zmZ-v3-Yfe" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="560" height="40"/>
@@ -656,14 +656,14 @@
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Details (Optional)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZAY-2x-qqi" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="55" width="560" height="40"/>
+                                                <rect key="frame" x="0.0" y="57" width="560" height="40"/>
                                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="KNK-Lk-88i"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                         </subviews>
                                     </stackView>

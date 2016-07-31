@@ -66,7 +66,7 @@ class SelectListViewController: FetchedResultsTableViewController {
     
     // user picked same list
     if cell?.highlight == true {
-      self.navigationController?.popViewControllerAnimated(true)
+      self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
     // user picked new list
     else {
@@ -74,7 +74,9 @@ class SelectListViewController: FetchedResultsTableViewController {
       
       if let selectedList = dataSource.objectAtIndexPath(indexPath) as? List {
         if cell?.highlight == true {
+          // pass selected list back to delegate
           delegate?.selectListViewControllerDidSelectList(selectedList)
+          
           self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
         }
       }

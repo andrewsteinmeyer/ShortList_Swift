@@ -116,6 +116,9 @@ enum Theme {
   case QRScannerOutlineColor
   case CancelScanButtonTextColor
   
+  // Keyboard Accessory View
+  case AccessoryViewButtonTintColor
+  
   func toUIColor() -> UIColor {
     switch self {
       
@@ -166,10 +169,10 @@ enum Theme {
     case .EventDetailCancelButtonColor:                  return HexColor(Palette.mainThemeErrorColor)
     
     // Invitation
-    case InvitationProgressButtonColor:                  return HexColor(Palette.mainThemeColor)
-    case InvitationProgressViewTintColor:                return HexColor(Palette.mainThemeColor)
-    case InvitationActionColor:                          return HexColor(Palette.mainThemeActionColor)
-    case InvitationSettingsButtonColor:                  return HexColor(Palette.mainThemeColor)
+    case .InvitationProgressButtonColor:                 return HexColor(Palette.mainThemeColor)
+    case .InvitationProgressViewTintColor:               return HexColor(Palette.mainThemeColor)
+    case .InvitationActionColor:                         return HexColor(Palette.mainThemeActionColor)
+    case .InvitationSettingsButtonColor:                 return HexColor(Palette.mainThemeColor)
       
     // Profile
     case .ProfileTableViewHeaderTextColor:               return HexColor(Palette.mainThemeTextColor)
@@ -181,8 +184,11 @@ enum Theme {
     case .AlertDefaultIconColor:                         return HexColor(Palette.eventAlertIconColor)
       
     // Scan
-    case QRScannerOutlineColor:                          return HexColor(Palette.scannerOutlineColor)
-    case CancelScanButtonTextColor:                      return HexColor(Palette.mainThemeTextColor)
+    case .QRScannerOutlineColor:                         return HexColor(Palette.scannerOutlineColor)
+    case .CancelScanButtonTextColor:                     return HexColor(Palette.mainThemeTextColor)
+      
+    // Keyboard button tint color
+    case .AccessoryViewButtonTintColor:                  return HexColor(Palette.mainThemeColor)
     }
   }
 }

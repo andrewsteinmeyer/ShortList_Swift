@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftDate
+import BSKeyboardControls
 
 private let dateFormatter: NSDateFormatter = {
   let formatter = NSDateFormatter()
@@ -40,6 +41,7 @@ class InvitationDetailsViewController: InvitationViewController {
   
   var statusButtonsArray: [InvitationSettingButton]!
   var timeButtonsArray: [InvitationSettingButton]!
+  var keyboardControls: BSKeyboardControls!
   
   private var popDatePicker: PopDatePicker?
   private var selectedDate: NSDate? {
@@ -82,6 +84,8 @@ class InvitationDetailsViewController: InvitationViewController {
     
     detailsTextField.TitleText.text = "Details"
     detailsTextField.materialDelegate = self
+    
+    setupKeyboardControls()
   }
   
   // populate existing settings
@@ -164,7 +168,7 @@ class InvitationDetailsViewController: InvitationViewController {
     }
   }
   
-  func setLocationField(title: String?) {
+  private func setLocationField(title: String?) {
     self.locationTextField.TitleText.text = title ?? "Location"
     self.locationTextField.text = eventDetails.location?.address ?? ""
   }
@@ -178,7 +182,11 @@ class InvitationDetailsViewController: InvitationViewController {
     performSegueWithIdentifier("showPlacePicker", sender: nil)
   }
   
-  // MARK: Private methods
+  private func setupKeyboardControls() {
+    let fields = [self.detailsTextField]
+    self.keyboardControls = BSKeyboardControls(fields: fields)
+    self.keyboardControls.delegate = self
+  }
   
   private func presentDatePicker() {
     // show previously selected date if there is one
@@ -196,7 +204,7 @@ class InvitationDetailsViewController: InvitationViewController {
     popDatePicker!.pick(self, initDate: initDate, dataChanged: dataChangedCallback)
   }
   
-  func presentVenueSelectionMenu() {
+  private func presentVenueSelectionMenu() {
     let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
     
     let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
@@ -209,6 +217,10 @@ class InvitationDetailsViewController: InvitationViewController {
     alertController.addAction(importContactsAction)
     
     presentViewController(alertController, animated: true, completion: nil)
+  }
+  
+  private func dismissKeyboard() {
+    self.view.endEditing(true)
   }
 
   // MARK: - IBActions
@@ -251,6 +263,10 @@ extension InvitationDetailsViewController: UIMaterialTextFieldDelegate {
     return true
   }
   
+  func materialTextFieldDidBeginEditing(textField: UITextField) {
+    self.keyboardControls.activeField = textField
+  }
+  
   func materialTextFieldShouldEndEditing(textField: UITextField) -> Bool {
     switch textField {
     case detailsTextField:
@@ -260,6 +276,8 @@ extension InvitationDetailsViewController: UIMaterialTextFieldDelegate {
     
     return true
   }
+  
+
 }
 
 //MARK: - SelectVenueViewControllerDelegate
@@ -272,6 +290,15 @@ extension InvitationDetailsViewController: SelectVenueViewControllerDelegate {
     
     // update location text field
     setLocationField(venue.name ?? "Location")
+  }
+}
+
+// MARK: - KeyboardControls Delegate
+
+extension InvitationDetailsViewController: BSKeyboardControlsDelegate {
+  
+  func keyboardControlsDonePressed(keyboardControls: BSKeyboardControls!) {
+    self.dismissKeyboard()
   }
 }
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import BSKeyboardControls
 
 
 class InvitationSettingsViewController: InvitationViewController {
@@ -22,6 +23,7 @@ class InvitationSettingsViewController: InvitationViewController {
   @IBOutlet weak var oneWeekButton: InvitationSettingButton!
   
   var timerButtonsArray: [InvitationSettingButton]!
+  var keyboardControls: BSKeyboardControls!
   
   private var list: List? {
     didSet {
@@ -33,6 +35,7 @@ class InvitationSettingsViewController: InvitationViewController {
       // set list name
       listNameTextField.text = list.name
       
+      // notify delegate that event details updated
       self.delegate?.invitationViewControllerDidUpdateEventDetails()
     }
   }
@@ -70,6 +73,8 @@ class InvitationSettingsViewController: InvitationViewController {
     maxGuestsTextField.activeTitleColor = titleColor
     maxGuestsTextField.inactiveTitleColor = titleColor
     maxGuestsTextField.materialDelegate = self
+    
+    setupKeyboardControls()
   }
   
   // populate existing settings
@@ -113,6 +118,16 @@ class InvitationSettingsViewController: InvitationViewController {
     sender.selectButton()
   }
   
+  func setupKeyboardControls() {
+    let fields = [self.titleTextField, self.minGuestsTextField, self.maxGuestsTextField]
+    self.keyboardControls = BSKeyboardControls(fields: fields)
+    self.keyboardControls.delegate = self
+  }
+  
+  private func dismissKeyboard() {
+    self.view.endEditing(true)
+  }
+  
   // MARK: IBAction Methods
   
   @IBAction func didSelectTimerButton(sender: InvitationSettingButton) {
@@ -144,6 +159,10 @@ extension InvitationSettingsViewController: UIMaterialTextFieldDelegate {
     return true
   }
   
+  func materialTextFieldDidBeginEditing(textField: UITextField) {
+    self.keyboardControls.activeField = textField
+  }
+  
   func materialTextFieldShouldEndEditing(textField: UITextField) -> Bool {
     switch textField {
     case titleTextField:
@@ -159,7 +178,16 @@ extension InvitationSettingsViewController: UIMaterialTextFieldDelegate {
   }
 }
 
-//MARK: - SelectListViewControllerDelegate
+// MARK: - KeyboardControls Delegate
+
+extension InvitationSettingsViewController: BSKeyboardControlsDelegate {
+  
+  func keyboardControlsDonePressed(keyboardControls: BSKeyboardControls!) {
+    self.dismissKeyboard()
+  }
+}
+
+// MARK: - SelectListViewControllerDelegate
 
 extension InvitationSettingsViewController: SelectListViewControllerDelegate {
   

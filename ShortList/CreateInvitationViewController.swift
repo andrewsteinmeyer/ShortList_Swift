@@ -217,6 +217,7 @@ extension CreateInvitationViewController: InvitationProgressViewDelegate {
 extension CreateInvitationViewController: InvitationViewControllerDelegate {
   
   func invitationViewControllerDidUpdateEventDetails() {
+    // unlock details if user has selected a list
     if self.currentScreen == .Settings {
       if eventDetails.list != nil {
         self.invitationProgressView.detailsButton.enabled = true

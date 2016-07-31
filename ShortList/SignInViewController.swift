@@ -71,7 +71,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate, ValidationDel
     emailField.becomeFirstResponder()
   }
   
-  
   // MARK: UITextFieldDelegate
   
   // text field navigation
