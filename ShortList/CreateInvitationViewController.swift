@@ -167,15 +167,35 @@ class CreateInvitationViewController: UIViewController {
     // format date to play nice with web and android epoch unix
     let epochDate = date.convertToEpochMilliseconds()
     
+    // create event and receive eventId from server
     MeteorEventService.sharedInstance.create([ eventName, epochDate, JSONList, JSONVenue, JSONLocation, JSONEventConfiguration ]) {
       result, error in
+      
+      print("result: \(result)")
       
       dispatch_async(dispatch_get_main_queue()) {
         if let error = error {
           let errorMessage = error.localizedFailureReason
           AppDelegate.getAppDelegate().showMessage(errorMessage!, title: "Error")
         } else {
-          self.dismissViewControllerAnimated(true, completion: nil)
+          // use eventId to find the event
+          if let eventId = result {
+            self.performSegueWithIdentifier("showInvitationsManager", sender: eventId)
+            /*
+            MeteorEventService.sharedInstance.findEventInfoById( [eventId] ) {
+              result, error in
+              
+              // present to UI on main thread
+              dispatch_async(dispatch_get_main_queue()) {
+                if let event = result {
+                  print("event: \(event)")
+                  self.performSegueWithIdentifier("showInvitationsManager", sender: event.us)
+                  
+                }
+              }
+            }
+            */
+          }
         }
       }
     }
@@ -183,6 +203,22 @@ class CreateInvitationViewController: UIViewController {
   
   private func dismissKeyboard() {
     self.view.endEditing(true)
+  }
+  
+  // MARK: - Segue
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if (segue.identifier == "showInvitationsManager") {
+      let eventId = sender as! String
+      
+      let documentKey = METDocumentKey(collectionName: "Event", documentID: eventId)
+      let objectId = Meteor.objectIDForDocumentKey(documentKey)
+      
+      // set event on Invitations Manager
+      let invitationsManagerNavVC = segue.destinationViewController as! InvitationsManagerNavigationViewController
+      let invitationsManagerVC = invitationsManagerNavVC.topViewController as! InvitationsManagerCollectionViewController
+      invitationsManagerVC.eventId = objectId
+    }
   }
   
   // MARK: - IBAction methods

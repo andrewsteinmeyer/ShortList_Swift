@@ -103,4 +103,12 @@ struct Constants {
     static let ProfileRowPressed = "shortlist.menu.profile.notification"
   }
   
+  // Event Detail Collection Settings
+  struct InvitationManagerCollection {
+    static let InvitationManagerCellIdentifier = "InvitationManagerCollectionViewCell"
+    static let HeaderViewIdentifier = "InvitationManagerCollectionViewHeaderView"
+    static let SectionHeaderIdentifier = "InvitationManagerCollectionViewSectionHeader"
+    static let HeaderViewHeight: CGFloat = 125
+  }
+  
 }

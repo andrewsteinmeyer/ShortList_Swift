@@ -35,7 +35,6 @@
 		4E1C46F71C7DE53500C22101 /* ValidationRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1C46DE1C7DE53500C22101 /* ValidationRule.swift */; };
 		4E1C46F81C7DE53500C22101 /* ZipCodeRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1C46DF1C7DE53500C22101 /* ZipCodeRule.swift */; };
 		4E233C871C3CA46400FDC1B9 /* MeteorEventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E233C861C3CA46400FDC1B9 /* MeteorEventService.swift */; };
-		4E233C891C3CA61700FDC1B9 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E233C881C3CA61700FDC1B9 /* CreateEventViewController.swift */; };
 		4E233C8D1C3CBDAC00FDC1B9 /* PopDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E233C8A1C3CBDAC00FDC1B9 /* PopDateViewController.xib */; };
 		4E233C8E1C3CBDAC00FDC1B9 /* PopDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E233C8B1C3CBDAC00FDC1B9 /* PopDatePicker.swift */; };
 		4E233C8F1C3CBDAC00FDC1B9 /* PopDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E233C8C1C3CBDAC00FDC1B9 /* PopDateViewController.swift */; };
@@ -173,6 +172,9 @@
 		4E719C0D1C3F60C3009989AC /* SelectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E719C0C1C3F60C3009989AC /* SelectListViewController.swift */; };
 		4E719C0F1C407087009989AC /* EventConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E719C0E1C407087009989AC /* EventConfiguration.swift */; };
 		4E719C131C4075C2009989AC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E719C121C4075C2009989AC /* Date.swift */; };
+		4E74E9FC1D516E94008CE26B /* InvitationManagerCollectionViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74E9FB1D516E94008CE26B /* InvitationManagerCollectionViewHeaderView.swift */; };
+		4E74E9FE1D517795008CE26B /* InvitationManagerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74E9FD1D517795008CE26B /* InvitationManagerCollectionViewCell.swift */; };
+		4E74EA001D518E11008CE26B /* InvitationsManagerNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74E9FF1D518E11008CE26B /* InvitationsManagerNavigationViewController.swift */; };
 		4E7C60821C3B5F420042CE4F /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7C60811C3B5F420042CE4F /* EventsViewController.swift */; };
 		4E7C60841C3B5FD30042CE4F /* EventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7C60831C3B5FD30042CE4F /* EventsTableViewCell.swift */; };
 		4E7C60861C3B62F70042CE4F /* EventsNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7C60851C3B62F70042CE4F /* EventsNavigationViewController.swift */; };
@@ -197,6 +199,9 @@
 		4EA365361C23C44A00C90249 /* MeteorContactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA365351C23C44A00C90249 /* MeteorContactService.swift */; };
 		4EA89FBB1C261AD800163C57 /* CreateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA89FBA1C261AD800163C57 /* CreateListViewController.swift */; };
 		4EA89FBD1C27097900163C57 /* SelectContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA89FBC1C27097900163C57 /* SelectContactsViewController.swift */; };
+		4EB285961D502F9900FCA7C8 /* InvitationsManagerCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB285951D502F9900FCA7C8 /* InvitationsManagerCollectionViewController.swift */; };
+		4EB285981D50332500FCA7C8 /* InvitationManagerDetailCollectionViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB285971D50332500FCA7C8 /* InvitationManagerDetailCollectionViewSectionHeader.swift */; };
+		4EB2859A1D50453800FCA7C8 /* InvitationManagerCollectionViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EB285991D50453800FCA7C8 /* InvitationManagerCollectionViewHeaderView.xib */; };
 		4EC2F2DD1D35B61B0035FD7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2F2DC1D35B61B0035FD7F /* Main.storyboard */; };
 		4EC2F2E01D35CEB80035FD7F /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2F2DE1D35CEB80035FD7F /* Events.storyboard */; };
 		4EC2F2E21D35D49D0035FD7F /* Venues.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2F2E11D35D49D0035FD7F /* Venues.storyboard */; };
@@ -316,7 +321,6 @@
 		4E1C46DF1C7DE53500C22101 /* ZipCodeRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipCodeRule.swift; sourceTree = "<group>"; };
 		4E1C46E01C7DE53500C22101 /* SwiftValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftValidator.h; sourceTree = "<group>"; };
 		4E233C861C3CA46400FDC1B9 /* MeteorEventService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorEventService.swift; sourceTree = "<group>"; };
-		4E233C881C3CA61700FDC1B9 /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		4E233C8A1C3CBDAC00FDC1B9 /* PopDateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopDateViewController.xib; sourceTree = "<group>"; };
 		4E233C8B1C3CBDAC00FDC1B9 /* PopDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopDatePicker.swift; sourceTree = "<group>"; };
 		4E233C8C1C3CBDAC00FDC1B9 /* PopDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopDateViewController.swift; sourceTree = "<group>"; };
@@ -468,6 +472,9 @@
 		4E719C0C1C3F60C3009989AC /* SelectListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectListViewController.swift; sourceTree = "<group>"; };
 		4E719C0E1C407087009989AC /* EventConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventConfiguration.swift; sourceTree = "<group>"; };
 		4E719C121C4075C2009989AC /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		4E74E9FB1D516E94008CE26B /* InvitationManagerCollectionViewHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationManagerCollectionViewHeaderView.swift; sourceTree = "<group>"; };
+		4E74E9FD1D517795008CE26B /* InvitationManagerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationManagerCollectionViewCell.swift; sourceTree = "<group>"; };
+		4E74E9FF1D518E11008CE26B /* InvitationsManagerNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationsManagerNavigationViewController.swift; sourceTree = "<group>"; };
 		4E7C60811C3B5F420042CE4F /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		4E7C60831C3B5FD30042CE4F /* EventsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewCell.swift; sourceTree = "<group>"; };
 		4E7C60851C3B62F70042CE4F /* EventsNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsNavigationViewController.swift; sourceTree = "<group>"; };
@@ -492,6 +499,9 @@
 		4EA365351C23C44A00C90249 /* MeteorContactService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorContactService.swift; sourceTree = "<group>"; };
 		4EA89FBA1C261AD800163C57 /* CreateListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateListViewController.swift; sourceTree = "<group>"; };
 		4EA89FBC1C27097900163C57 /* SelectContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectContactsViewController.swift; sourceTree = "<group>"; };
+		4EB285951D502F9900FCA7C8 /* InvitationsManagerCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationsManagerCollectionViewController.swift; sourceTree = "<group>"; };
+		4EB285971D50332500FCA7C8 /* InvitationManagerDetailCollectionViewSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationManagerDetailCollectionViewSectionHeader.swift; sourceTree = "<group>"; };
+		4EB285991D50453800FCA7C8 /* InvitationManagerCollectionViewHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvitationManagerCollectionViewHeaderView.xib; sourceTree = "<group>"; };
 		4EC2F2DC1D35B61B0035FD7F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4EC2F2DF1D35CEB80035FD7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Events.storyboard; sourceTree = "<group>"; };
 		4EC2F2E11D35D49D0035FD7F /* Venues.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Venues.storyboard; sourceTree = "<group>"; };
@@ -750,6 +760,7 @@
 			children = (
 				4E430FC61CA237A9008BC34F /* EventsCollectionViewCell.swift */,
 				4E8FA7351CB20174003FC81C /* AttendeeCollectionViewCell.swift */,
+				4E74E9FD1D517795008CE26B /* InvitationManagerCollectionViewCell.swift */,
 				4E96E47F1CB96BA50039BFF2 /* StatusCategoryCollectionViewCell.swift */,
 				4E5A3A5C1CB70E42003D7F89 /* HeaderView */,
 				4E5A3A5D1CB70E81003D7F89 /* SectionHeaderView */,
@@ -799,6 +810,7 @@
 			isa = PBXGroup;
 			children = (
 				4E51E3B71CAD497B00AFBA3A /* EventDetailCollectionViewHeaderView.swift */,
+				4E74E9FB1D516E94008CE26B /* InvitationManagerCollectionViewHeaderView.swift */,
 			);
 			name = HeaderView;
 			sourceTree = "<group>";
@@ -807,6 +819,7 @@
 			isa = PBXGroup;
 			children = (
 				4E8FA7391CB208FE003FC81C /* EventDetailCollectionViewSectionHeader.swift */,
+				4EB285971D50332500FCA7C8 /* InvitationManagerDetailCollectionViewSectionHeader.swift */,
 			);
 			name = SectionHeaderView;
 			sourceTree = "<group>";
@@ -815,6 +828,7 @@
 			isa = PBXGroup;
 			children = (
 				4E5CB3601CA5D7CF00ED785B /* EventDetailCollectionViewHeaderView.xib */,
+				4EB285991D50453800FCA7C8 /* InvitationManagerCollectionViewHeaderView.xib */,
 			);
 			name = Nibs;
 			sourceTree = "<group>";
@@ -1115,7 +1129,6 @@
 			children = (
 				4E7C60851C3B62F70042CE4F /* EventsNavigationViewController.swift */,
 				4E7C60811C3B5F420042CE4F /* EventsViewController.swift */,
-				4E233C881C3CA61700FDC1B9 /* CreateEventViewController.swift */,
 				4E94F4CC1CC445EF00D823A2 /* EventDetails */,
 				4E94F4CB1CC445AC00D823A2 /* Old Detail Page */,
 			);
@@ -1167,6 +1180,8 @@
 				4E636B121D49A6FE00D672FD /* InvitationViewController.swift */,
 				4E66C43B1D43E29400865222 /* InvitationSettingsViewController.swift */,
 				4E66C43F1D45ABF600865222 /* InvitationDetailsViewController.swift */,
+				4E74E9FF1D518E11008CE26B /* InvitationsManagerNavigationViewController.swift */,
+				4EB285951D502F9900FCA7C8 /* InvitationsManagerCollectionViewController.swift */,
 			);
 			name = Invitations;
 			sourceTree = "<group>";
@@ -1534,6 +1549,7 @@
 				4E6313161C1FB28000EB78F9 /* Lato-BlackItalic.ttf in Resources */,
 				4E6313031C1FB28000EB78F9 /* LoadingView.xib in Resources */,
 				4E63126E1C1FA7D500EB78F9 /* LaunchScreen.storyboard in Resources */,
+				4EB2859A1D50453800FCA7C8 /* InvitationManagerCollectionViewHeaderView.xib in Resources */,
 				4E63126B1C1FA7D500EB78F9 /* Assets.xcassets in Resources */,
 				4E7FB3D91D3AB0CC005A4043 /* Contacts.storyboard in Resources */,
 				4E63131F1C1FB28000EB78F9 /* Lato-LightItalic.ttf in Resources */,
@@ -1643,6 +1659,7 @@
 				4EF329FE1C80931C0078B69A /* METDDPMessage.m in Sources */,
 				4E1A68FA1C5082FB00E55D64 /* InvitationActivityViewController.swift in Sources */,
 				4E60A0DC1C30750300D66A9A /* MeteorVenueService.swift in Sources */,
+				4E74EA001D518E11008CE26B /* InvitationsManagerNavigationViewController.swift in Sources */,
 				4E41D8D71CD840D0006C584A /* CSSCollectionSeparator.m in Sources */,
 				4E6313041C1FB28000EB78F9 /* Misc.swift in Sources */,
 				4E1C46E91C7DE53500C22101 /* EmailRule.swift in Sources */,
@@ -1653,6 +1670,8 @@
 				4E6313071C1FB28000EB78F9 /* SpringAnimation.swift in Sources */,
 				4E41D8D51CD840D0006C584A /* CSStickyHeaderFlowLayout.m in Sources */,
 				4E66C43C1D43E29400865222 /* InvitationSettingsViewController.swift in Sources */,
+				4EB285961D502F9900FCA7C8 /* InvitationsManagerCollectionViewController.swift in Sources */,
+				4EB285981D50332500FCA7C8 /* InvitationManagerDetailCollectionViewSectionHeader.swift in Sources */,
 				4E6312FA1C1FB28000EB78F9 /* DesignableLabel.swift in Sources */,
 				4E7C60841C3B5FD30042CE4F /* EventsTableViewCell.swift in Sources */,
 				4E5255A41C51CC8F00F6089D /* MeteorRouter.swift in Sources */,
@@ -1691,6 +1710,7 @@
 				4E430FC01CA16EE7008BC34F /* FetchedResultsCollectionViewController.swift in Sources */,
 				4EE878CA1C551C3C00BABF15 /* NSData.swift in Sources */,
 				4E6312F81C1FB28000EB78F9 /* DesignableButton.swift in Sources */,
+				4E74E9FC1D516E94008CE26B /* InvitationManagerCollectionViewHeaderView.swift in Sources */,
 				4E430FC21CA17032008BC34F /* FetchedResultsCollectionViewDataSource.swift in Sources */,
 				4E63134A1C1FB60A00EB78F9 /* MeteorExtensions.swift in Sources */,
 				4E63130A1C1FB28000EB78F9 /* SpringLabel.swift in Sources */,
@@ -1763,6 +1783,7 @@
 				4EF32A101C80931C0078B69A /* METTimer.m in Sources */,
 				4E1C46E11C7DE53500C22101 /* ValidationDelegate.swift in Sources */,
 				4EF32A311C8093B70078B69A /* PSWebSocketNetworkThread.m in Sources */,
+				4E74E9FE1D517795008CE26B /* InvitationManagerCollectionViewCell.swift in Sources */,
 				4E8FA73A1CB208FE003FC81C /* EventDetailCollectionViewSectionHeader.swift in Sources */,
 				4E6313491C1FB60A00EB78F9 /* FunctionalAdditions.swift in Sources */,
 				4E60A0DA1C2F1E7100D66A9A /* VenuesTableViewCell.swift in Sources */,
@@ -1784,7 +1805,6 @@
 				4EF32A2D1C8093B70078B69A /* PSWebSocketBuffer.m in Sources */,
 				4E54FE351C599C3C00D89DAC /* AppDelegate+Push.swift in Sources */,
 				4EF32A071C80931C0078B69A /* METMethodInvocation.m in Sources */,
-				4E233C891C3CA61700FDC1B9 /* CreateEventViewController.swift in Sources */,
 				4E6313461C1FB60A00EB78F9 /* ManagedObjectObserver.swift in Sources */,
 				4E6312F71C1FB28000EB78F9 /* BlurView.swift in Sources */,
 				4E60A0E01C35A6FA00D66A9A /* CreateVenueViewController.swift in Sources */,
