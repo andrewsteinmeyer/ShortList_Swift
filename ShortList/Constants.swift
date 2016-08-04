@@ -108,7 +108,7 @@ struct Constants {
     static let InvitationManagerCellIdentifier = "InvitationManagerCollectionViewCell"
     static let HeaderViewIdentifier = "InvitationManagerCollectionViewHeaderView"
     static let SectionHeaderIdentifier = "InvitationManagerCollectionViewSectionHeader"
-    static let HeaderViewHeight: CGFloat = 125
+    static let HeaderViewHeight: CGFloat = 157
   }
   
 }

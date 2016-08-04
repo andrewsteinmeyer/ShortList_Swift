@@ -127,7 +127,8 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
       }
     }
     
-    // refresh data
+    // TODO: only refresh contacts that changed
+    // refresh collectionView data
     collectionView?.reloadData()
   }
   
@@ -154,27 +155,6 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
   }
   
   // MARK: - Helper methods
-  
-  private func getCountForCategory(category: String) -> Int {
-    guard let event = event else { return 0 }
-    
-    if let status = EventInvitation.Status(rawValue: category) {
-      switch status {
-      case .Active:
-        return Int(event.contactCount!) ?? 0
-      case .Accepted:
-        return Int(event.acceptedCount!) ?? 0
-      case .Declined:
-        return Int(event.declinedCount!) ?? 0
-      case .Timeout:
-        return Int(event.timeoutCount!) ?? 0
-      default:
-        return 0
-      }
-    }
-    
-    return 0
-  }
   
   private func isEventOwner(eventId: String?) -> Bool {
     return (eventId == AccountManager.defaultAccountManager.currentUserId)

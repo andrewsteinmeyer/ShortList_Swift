@@ -49,7 +49,6 @@
 		4E430FC01CA16EE7008BC34F /* FetchedResultsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E430FBF1CA16EE7008BC34F /* FetchedResultsCollectionViewController.swift */; };
 		4E430FC21CA17032008BC34F /* FetchedResultsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E430FC11CA17032008BC34F /* FetchedResultsCollectionViewDataSource.swift */; };
 		4E430FC71CA237A9008BC34F /* EventsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E430FC61CA237A9008BC34F /* EventsCollectionViewCell.swift */; };
-		4E4AEE211CCBF75000C43A7F /* GuestListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4AEE201CCBF75000C43A7F /* GuestListTableViewController.swift */; };
 		4E4AEE231CCD461500C43A7F /* EventInvitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4AEE221CCD461500C43A7F /* EventInvitation.swift */; };
 		4E4AEE251CCD8D8A00C43A7F /* EventInvitationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4AEE241CCD8D8A00C43A7F /* EventInvitationsViewController.swift */; };
 		4E4AEE271CCDA8F000C43A7F /* Invitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4AEE261CCDA8F000C43A7F /* Invitation.swift */; };
@@ -338,7 +337,6 @@
 		4E430FBF1CA16EE7008BC34F /* FetchedResultsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsCollectionViewController.swift; sourceTree = "<group>"; };
 		4E430FC11CA17032008BC34F /* FetchedResultsCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		4E430FC61CA237A9008BC34F /* EventsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsCollectionViewCell.swift; sourceTree = "<group>"; };
-		4E4AEE201CCBF75000C43A7F /* GuestListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestListTableViewController.swift; sourceTree = "<group>"; };
 		4E4AEE221CCD461500C43A7F /* EventInvitation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInvitation.swift; sourceTree = "<group>"; };
 		4E4AEE241CCD8D8A00C43A7F /* EventInvitationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInvitationsViewController.swift; sourceTree = "<group>"; };
 		4E4AEE261CCDA8F000C43A7F /* Invitation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invitation.swift; sourceTree = "<group>"; };
@@ -1168,7 +1166,6 @@
 			children = (
 				4E5CB3631CA5E8F700ED785B /* EventDetailCollectionViewController.swift */,
 				4E4AEE241CCD8D8A00C43A7F /* EventInvitationsViewController.swift */,
-				4E4AEE201CCBF75000C43A7F /* GuestListTableViewController.swift */,
 			);
 			name = EventDetails;
 			sourceTree = "<group>";
@@ -1792,7 +1789,6 @@
 				4E1C46F81C7DE53500C22101 /* ZipCodeRule.swift in Sources */,
 				4EA365321C23AFCA00C90249 /* ContactsViewController.swift in Sources */,
 				4E6313141C1FB28000EB78F9 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
-				4E4AEE211CCBF75000C43A7F /* GuestListTableViewController.swift in Sources */,
 				4E1C46E61C7DE53500C22101 /* AlphaRule.swift in Sources */,
 				4E6312641C1FA7D500EB78F9 /* AppDelegate.swift in Sources */,
 				4E6313021C1FB28000EB78F9 /* LoadingView.swift in Sources */,

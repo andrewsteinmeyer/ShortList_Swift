@@ -178,23 +178,9 @@ class CreateInvitationViewController: UIViewController {
           let errorMessage = error.localizedFailureReason
           AppDelegate.getAppDelegate().showMessage(errorMessage!, title: "Error")
         } else {
-          // use eventId to find the event
+          // present inviations manager for this eventId
           if let eventId = result {
             self.performSegueWithIdentifier("showInvitationsManager", sender: eventId)
-            /*
-            MeteorEventService.sharedInstance.findEventInfoById( [eventId] ) {
-              result, error in
-              
-              // present to UI on main thread
-              dispatch_async(dispatch_get_main_queue()) {
-                if let event = result {
-                  print("event: \(event)")
-                  self.performSegueWithIdentifier("showInvitationsManager", sender: event.us)
-                  
-                }
-              }
-            }
-            */
           }
         }
       }
@@ -211,7 +197,8 @@ class CreateInvitationViewController: UIViewController {
     if (segue.identifier == "showInvitationsManager") {
       let eventId = sender as! String
       
-      let documentKey = METDocumentKey(collectionName: "Event", documentID: eventId)
+      // find the core data object for this eventId
+      let documentKey = METDocumentKey(collectionName: "events", documentID: eventId)
       let objectId = Meteor.objectIDForDocumentKey(documentKey)
       
       // set event on Invitations Manager
