@@ -205,6 +205,7 @@ class CreateInvitationViewController: UIViewController {
       let invitationsManagerNavVC = segue.destinationViewController as! InvitationsManagerNavigationViewController
       let invitationsManagerVC = invitationsManagerNavVC.topViewController as! InvitationsManagerCollectionViewController
       invitationsManagerVC.eventId = objectId
+      invitationsManagerVC.invitationDuration = eventDetails.invitationDuration.durationInSeconds
     }
   }
   

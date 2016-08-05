@@ -64,6 +64,9 @@
                                             <real key="value" value="5"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="didPressAutoInviteButton:" destination="80r-Ev-8Hz" eventType="touchUpInside" id="6wl-VN-IM8"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <constraints>
@@ -91,7 +94,10 @@
                 <constraint firstItem="GOy-Nr-OpJ" firstAttribute="top" secondItem="80r-Ev-8Hz" secondAttribute="top" id="aPw-kX-JXr"/>
                 <constraint firstItem="GOy-Nr-OpJ" firstAttribute="leading" secondItem="80r-Ev-8Hz" secondAttribute="leading" id="tuh-eV-csw"/>
             </constraints>
-            <point key="canvasLocation" x="-31.5" y="336.5"/>
+            <connections>
+                <outlet property="autoInviteButton" destination="wv6-in-CpG" id="6CQ-pv-bkH"/>
+            </connections>
+            <point key="canvasLocation" x="-284.5" y="279.5"/>
         </collectionReusableView>
     </objects>
 </document>

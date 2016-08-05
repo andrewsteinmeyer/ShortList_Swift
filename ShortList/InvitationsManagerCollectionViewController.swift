@@ -10,6 +10,7 @@
 import CoreData
 import PhoneNumberKit
 
+
 class InvitationsManagerCollectionViewController: UICollectionViewController {
   typealias NamedValues = [String:AnyObject]
   typealias Contacts = [String:String]
@@ -17,12 +18,21 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
   private var contacts = [Contacts]()
   private var isEventOwner = false
   
+  var invitationDuration: Int?
+  
+  private var subscriptionLoader: SubscriptionLoader?
+  private let subscriptionName = "EventInvitations"
+  private let modelName = "Invitation"
+  
+  private var fetchedResultsController: NSFetchedResultsController?
+  var invitations: [Invitation]?
+  
   // MARK: - Model
   
-  var managedObjectContext: NSManagedObjectContext!
+  private var managedObjectContext: NSManagedObjectContext!
   private var eventObserver: ManagedObjectObserver?
   
-  var eventId: NSManagedObjectID? {
+  var eventId: NSManagedObjectID! {
     didSet {
       managedObjectContext = Meteor.mainQueueManagedObjectContext
       
@@ -70,13 +80,70 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
     }
   }
   
+  // MARK: - Content Loading (Invitations)
+  
+  private(set) var needsLoadContent: Bool = true
+  
+  func setNeedsLoadContent() {
+    needsLoadContent = true
+    if isViewLoaded() {
+      loadContentIfNeeded()
+    }
+  }
+  
+  func loadContentIfNeeded() {
+    if needsLoadContent {
+      loadContent()
+    }
+  }
+  
+  func loadContent() {
+    subscriptionLoader = SubscriptionLoader()
+    configureSubscriptionLoader(subscriptionLoader!)
+    
+    subscriptionLoader!.whenReady { [weak self] in
+      if let fetchedResultsController = self?.createFetchedResultsController() {
+        self?.fetchedResultsController = fetchedResultsController
+        self?.performFetch()
+      }
+    }
+  }
+  
+  // MARK: - Invitation Subscription
+  
+  func configureSubscriptionLoader(subscriptionLoader: SubscriptionLoader) {
+    subscriptionLoader.addSubscriptionWithName(self.modelName, parameters: eventId!)
+  }
+  
+  func createFetchedResultsController() -> NSFetchedResultsController? {
+    let fetchRequest = NSFetchRequest(entityName: modelName)
+    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "insertedOn", ascending: false)]
+    
+    return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+  }
+  
+  func performFetch() {
+    var error: NSError?
+    do {
+      try fetchedResultsController!.performFetch()
+      fetchedResultsController!.delegate = self
+    } catch let error1 as NSError {
+      error = error1
+      if error != nil {
+        //didFailWithError(error!)
+      }
+    }
+  }
   
   // MARK: - View Lifecycle
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
-    // refresh
+    // load invitations
+    loadContentIfNeeded()
+    
+    // refresh view with event info
     updateViewWithModel()
   }
   
@@ -160,7 +227,34 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
     return (eventId == AccountManager.defaultAccountManager.currentUserId)
   }
   
-  // MARK: - UICollectionViewDataSource
+  // MARK: - Invitation Actions
+  
+  func inviteContacts() {
+    // set invite duration
+    let invitationDuration = self.invitationDuration ?? 3600
+    
+    // TODO: make this not random all the time
+    MeteorEventService.sharedInstance.invite([eventId, invitationDuration]) { result, error in
+      dispatch_async(dispatch_get_main_queue()) {
+        
+        if error != nil {
+          if let failureReason = error?.localizedFailureReason {
+            AppDelegate.getAppDelegate().showMessage(failureReason)
+            print("error: \(failureReason)")
+          }
+        } else {
+          print("success: contacts invited")
+          //self.dismissViewControllerAnimated(true, completion: nil)
+        }
+      }
+    }
+  }
+
+}
+
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
+
+extension InvitationsManagerCollectionViewController {
   
   override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
     return 1
@@ -188,6 +282,9 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
     case CSStickyHeaderParallaxHeader:
       let cell = self.collectionView?.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: Constants.InvitationManagerCollection.HeaderViewIdentifier, forIndexPath: indexPath) as! InvitationManagerCollectionViewHeaderView
       
+      // set delegate
+      cell.delegate = self
+      
       return cell
     default:
       assert(false, "Unexpected element kind")
@@ -197,10 +294,35 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
   }
   
   // MARK: - UICollectionViewDelegate
-  
+
   override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     performSegueWithIdentifier("showInviteeDetails", sender: indexPath)
   }
+
+}
+
+// MARK: - NSFetchedResultsControllerDelegate
+
+extension InvitationsManagerCollectionViewController: NSFetchedResultsControllerDelegate {
   
+  func controllerDidChangeContent(controller: NSFetchedResultsController) {
+    self.invitations = controller.fetchedObjects as? [Invitation]
+    
+    print("got here yeah go invites: \(invitations)")
+  }
+  
+}
+
+// MARK: - Invitation Manager Delegate
+
+extension InvitationsManagerCollectionViewController: InvitationManagerDelegate {
+  
+  func invitationManagerDidAutoInvite() {
+    inviteContacts()
+  }
+  
+  func invitationManagerDidCancelAutoInvite() {
+    //TODO: Add cancel
+  }
   
 }

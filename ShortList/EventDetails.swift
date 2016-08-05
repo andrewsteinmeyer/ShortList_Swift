@@ -15,7 +15,7 @@ class EventDetails {
     case OneDay
     case OneWeek
     
-    private var durationInSeconds: Int {
+    var durationInSeconds: Int {
       switch self {
       case .ThirtyMinutes: return 1800
       case .OneHour:       return 3600

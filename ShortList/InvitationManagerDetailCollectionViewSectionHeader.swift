@@ -6,6 +6,8 @@
 //  Copyright © 2016 Andrew Steinmeyer. All rights reserved.
 //
 
+import UIKit
+
 
 
 class InvitationManagerCollectionViewSectionHeader: UICollectionReusableView {
@@ -82,6 +84,11 @@ class InvitationManagerCollectionViewSectionHeader: UICollectionReusableView {
     acceptedCountLabel.text = String(event.acceptedCount!) ?? "0"
     declinedCountLabel.text = String(event.declinedCount!) ?? "0"
     timeoutCountLabel.text = String(event.timeoutCount!) ?? "0"
+    skippedCountLabel.text = "0"
+    invitedCountLabel.text = "0"
+    
+    // reload view
+    self.setNeedsDisplay()
   }
   
 }

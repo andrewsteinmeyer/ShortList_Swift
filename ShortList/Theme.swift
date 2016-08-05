@@ -29,6 +29,7 @@ enum Theme {
     
     static let secondaryHeaderColor         = "FFD673"
     
+    //DZNSegmentControl
     static let segmentBackgroundColor       = "EDEDED"
     
     static let navBarActionButtonColor      = "FFFFFF"
@@ -49,6 +50,8 @@ enum Theme {
     static let eventAlertIconColor          = "EB4D5C"
     
     static let scannerOutlineColor          = "FFD673"
+    
+    static let inviteActionColor            = "4C9589" // green
   }
   
   // Base Table View Cell
@@ -102,6 +105,8 @@ enum Theme {
   case InvitationProgressViewTintColor
   case InvitationActionColor
   case InvitationSettingsButtonColor
+  case InvitationCancelButtonColor
+  case InvitationInviteButtonColor
   
   // Profile
   case ProfileTableViewHeaderTextColor
@@ -173,6 +178,8 @@ enum Theme {
     case .InvitationProgressViewTintColor:               return HexColor(Palette.mainThemeColor)
     case .InvitationActionColor:                         return HexColor(Palette.mainThemeActionColor)
     case .InvitationSettingsButtonColor:                 return HexColor(Palette.mainThemeColor)
+    case .InvitationCancelButtonColor:                   return HexColor(Palette.mainThemeErrorColor)
+    case .InvitationInviteButtonColor:                   return HexColor(Palette.inviteActionColor)
       
     // Profile
     case .ProfileTableViewHeaderTextColor:               return HexColor(Palette.mainThemeTextColor)
