@@ -31,8 +31,7 @@ class InvitationManagerCollectionViewSectionHeader: UICollectionReusableView {
             case .Deleted, .Invalidated:
               self.event = nil
             case .Updated, .Refreshed:
-              // TODO: Example updated here and below, this one seems redundant.  Think this through
-              // self.eventDidChange()
+              self.eventDidChange()
               break
             default:
               break

@@ -35,7 +35,6 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
   var eventId: NSManagedObjectID! {
     didSet {
       managedObjectContext = Meteor.mainQueueManagedObjectContext
-      
       assert(managedObjectContext != nil)
       
       if eventId != nil {
@@ -57,8 +56,7 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
             case .Deleted, .Invalidated:
               self.event = nil
             case .Updated, .Refreshed:
-              // TODO: Example updated here and below, this one seems redundant.  Think this through
-              // self.eventDidChange()
+              self.eventDidChange()
               break
             default:
               break
@@ -112,7 +110,7 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
   // MARK: - Invitation Subscription
   
   func configureSubscriptionLoader(subscriptionLoader: SubscriptionLoader) {
-    subscriptionLoader.addSubscriptionWithName(self.modelName, parameters: eventId!)
+    subscriptionLoader.addSubscriptionWithName(subscriptionName, parameters: eventId!)
   }
   
   func createFetchedResultsController() -> NSFetchedResultsController? {
