@@ -81,7 +81,7 @@ class InviteeTableViewCell : BaseTableViewCell {
     // time has updated
     if keyPath == "readableTimeRemaining" {
       self.timeRemainingLabel?.text? = readableTimeRemaining
-      self.timeRemainingLabel?.layer.setNeedsDisplay()
+      self.timeRemainingLabel?.setNeedsDisplay()
     }
   }
 }

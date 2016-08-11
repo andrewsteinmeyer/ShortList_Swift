@@ -10,22 +10,30 @@
 import CoreData
 import PhoneNumberKit
 
+protocol InvitationManagerDelegate: class {
+  func invitationManagerDidStartAutoInvite()
+  func invitationManagerDidCancelAutoInvite()
+}
 
 class InvitationsManagerCollectionViewController: UICollectionViewController {
   typealias NamedValues = [String:AnyObject]
-  typealias Contacts = [String:String]
+  typealias EventContact = [String:AnyObject?]
   
-  private var contacts = [Contacts]()
+  private var contacts = [EventContact]()
   private var isEventOwner = false
-  
-  var invitationDuration: Int?
   
   private var subscriptionLoader: SubscriptionLoader?
   private let subscriptionName = "EventInvitations"
   private let modelName = "Invitation"
   
   private var fetchedResultsController: NSFetchedResultsController?
-  var invitations: [Invitation]?
+  var invitationDuration: Int?
+  
+  var invitations: [Invitation]? {
+    didSet {
+      eventDidChange()
+    }
+  }
   
   // MARK: - Model
   
@@ -99,6 +107,7 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
     subscriptionLoader = SubscriptionLoader()
     configureSubscriptionLoader(subscriptionLoader!)
     
+    // subscribe to invitations
     subscriptionLoader!.whenReady { [weak self] in
       if let fetchedResultsController = self?.createFetchedResultsController() {
         self?.fetchedResultsController = fetchedResultsController
@@ -107,7 +116,7 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
     }
   }
   
-  // MARK: - Invitation Subscription
+  // MARK: - Invitations Subscription
   
   func configureSubscriptionLoader(subscriptionLoader: SubscriptionLoader) {
     subscriptionLoader.addSubscriptionWithName(subscriptionName, parameters: eventId!)
@@ -178,13 +187,33 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
           
           let name = contact["name"].string ?? ""
           let score = contact["score"].int ?? 0
+          let status = contact["status"].string ?? ""
+          let added = contact["addedToList"].double ?? 0.0
+          let invitationId = contact["invitationId"].string ?? ""
+          
+          // filter invitations and grab the first match
+          let matchedInvitation = self.invitations?.filter {
+            invitation($0, matchesContactInvitationId: invitationId)
+          }.first
+          
+          // if we found an invitation, then unwrap it
+          var unwrappedInvitation: Invitation?
+          if let invitation = matchedInvitation {
+            unwrappedInvitation = invitation
+          }
+          else {
+            unwrappedInvitation = nil
+          }
           
           // make sure there is at least a name for the contact
           guard !name.isEmpty else { continue }
           
           // build contact
-          let newContact = ["name": name,
-                            "score": String(score)]
+          let newContact: EventContact = ["name": name,
+                                          "score": score,
+                                          "status": status,
+                                          "addedToList": added,
+                                          "invitation": unwrappedInvitation]
           
           // add contact to list
           contacts.append(newContact)
@@ -195,6 +224,14 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
     // TODO: only refresh contacts that changed
     // refresh collectionView data
     collectionView?.reloadData()
+  }
+  
+  private func invitation(invite: Invitation, matchesContactInvitationId id: String) -> Bool {
+    // get documentID for invitation
+    let invitationId = Meteor.documentKeyForObjectID(invite.objectID).documentID as! String
+    
+    // check if they match
+    return (invitationId == id)
   }
   
   private func eventDidChange() {
@@ -212,7 +249,7 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
       layout.enableDecorationView = true
       layout.minimumLineSpacing = 0.50
       
-      // set up sizes
+      // set up sizes for header and items
       layout.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.width, Constants.InvitationManagerCollection.HeaderViewHeight)
       layout.itemSize = CGSizeMake(self.view.frame.width, layout.itemSize.height)
       layout.disableStickyHeaders = false
@@ -228,10 +265,9 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
   // MARK: - Invitation Actions
   
   func inviteContacts() {
-    // set invite duration
+    // set invite duration, default to 60 minutes
     let invitationDuration = self.invitationDuration ?? 3600
     
-    // TODO: make this not random all the time
     MeteorEventService.sharedInstance.invite([eventId, invitationDuration]) { result, error in
       dispatch_async(dispatch_get_main_queue()) {
         
@@ -242,7 +278,6 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
           }
         } else {
           print("success: contacts invited")
-          //self.dismissViewControllerAnimated(true, completion: nil)
         }
       }
     }
@@ -265,6 +300,16 @@ extension InvitationsManagerCollectionViewController {
   override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.InvitationManagerCollection.InvitationManagerCellIdentifier, forIndexPath: indexPath) as! InvitationManagerCollectionViewCell
     
+    let contact = contacts[indexPath.row]
+    let name = contact["name"] as? String ?? ""
+    let status = contact["status"] as? String ?? ""
+    let score = contact["score"] as? Int ?? 0
+    let added = contact["addedToList"] as? Double ?? 0
+    let invitation = contact["invitation"] as? Invitation ?? nil
+    
+    let data = EventContactCollectionViewCellData(name: name, status: status, score: score, addedToList: added, invitation: invitation)
+    cell.setData(data)
+    
     return cell
   }
   
@@ -280,14 +325,16 @@ extension InvitationsManagerCollectionViewController {
     case CSStickyHeaderParallaxHeader:
       let cell = self.collectionView?.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: Constants.InvitationManagerCollection.HeaderViewIdentifier, forIndexPath: indexPath) as! InvitationManagerCollectionViewHeaderView
       
-      // set delegate
+      // set delegate and event
       cell.delegate = self
+      cell.event = event
       
       return cell
     default:
       assert(false, "Unexpected element kind")
     }
     
+    // default
     return UICollectionReusableView()
   }
   
@@ -306,7 +353,7 @@ extension InvitationsManagerCollectionViewController: NSFetchedResultsController
   func controllerDidChangeContent(controller: NSFetchedResultsController) {
     self.invitations = controller.fetchedObjects as? [Invitation]
     
-    print("got here yeah go invites: \(invitations)")
+    print("invites updated: \(invitations)")
   }
   
 }
@@ -315,7 +362,7 @@ extension InvitationsManagerCollectionViewController: NSFetchedResultsController
 
 extension InvitationsManagerCollectionViewController: InvitationManagerDelegate {
   
-  func invitationManagerDidAutoInvite() {
+  func invitationManagerDidStartAutoInvite() {
     inviteContacts()
   }
   

@@ -28,6 +28,6 @@ func timeStamp() -> String {
   return String(Int(NSDate().timeIntervalSince1970))
 }
 
-func secondsToMinutesSeconds (seconds : Int) -> (Int, Int) {
-  return ((seconds % 3600) / 60, (seconds % 3600) % 60)
+func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+  return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
 }

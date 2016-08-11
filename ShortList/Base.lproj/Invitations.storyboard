@@ -45,6 +45,10 @@
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -719,29 +723,86 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="c0y-iO-eXh" customClass="CSStickyHeaderFlowLayout">
-                            <size key="itemSize" width="375" height="50"/>
+                            <size key="itemSize" width="598" height="90"/>
                             <size key="headerReferenceSize" width="375" height="65"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" reuseIdentifier="InvitationManagerCollectionViewCell" id="Y8z-s1-YqL" customClass="InvitationManagerCollectionViewCell" customModule="ShortList" customModuleProvider="target">
-                                <rect key="frame" x="113" y="129" width="375" height="50"/>
+                                <rect key="frame" x="1" y="129" width="598" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="598" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="j60-PP-S9J">
+                                            <rect key="frame" x="30" y="16" width="492" height="58"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Walker Steinmeyer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imp-NV-gqU">
+                                                    <rect key="frame" x="0.0" y="0.0" width="492" height="24"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List Member Since: 4/24/2016 5:53 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F80-ap-xC2">
+                                                    <rect key="frame" x="0.0" y="24" width="492" height="16"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDP-ZS-CTv">
+                                                    <rect key="frame" x="0.0" y="40" width="492" height="18"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bry-4l-geQ" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
+                                            <rect key="frame" x="530" y="30" width="60" height="30"/>
+                                            <color key="backgroundColor" red="0.38823529410000002" green="0.61568627450000002" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="vAr-j6-6jI"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                            <state key="normal" title="27.56">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="0.38823529411764707" green="0.61568627450980395" blue="0.83137254901960789" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="bry-4l-geQ" firstAttribute="trailing" secondItem="Y8z-s1-YqL" secondAttribute="trailingMargin" id="4BJ-OR-uLk"/>
+                                    <constraint firstItem="j60-PP-S9J" firstAttribute="centerY" secondItem="Y8z-s1-YqL" secondAttribute="centerY" id="cUS-7y-NT0"/>
+                                    <constraint firstItem="bry-4l-geQ" firstAttribute="centerY" secondItem="Y8z-s1-YqL" secondAttribute="centerY" id="lNd-93-kXm"/>
+                                    <constraint firstItem="bry-4l-geQ" firstAttribute="leading" secondItem="j60-PP-S9J" secondAttribute="trailing" constant="8" id="oH7-kA-PMG"/>
+                                    <constraint firstItem="j60-PP-S9J" firstAttribute="leading" secondItem="Y8z-s1-YqL" secondAttribute="leading" constant="30" id="xEp-Od-dBD"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="detailLabel" destination="F80-ap-xC2" id="lrA-E5-PvE"/>
+                                    <outlet property="nameLabel" destination="imp-NV-gqU" id="kHy-tN-LTr"/>
+                                    <outlet property="scoreButton" destination="bry-4l-geQ" id="naw-Ka-iQp"/>
+                                    <outlet property="timeRemainingLabel" destination="tDP-ZS-CTv" id="1Fn-hR-N0z"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InvitationManagerCollectionViewSectionHeader" id="Y8p-M9-DoH" customClass="InvitationManagerCollectionViewSectionHeader" customModule="ShortList" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="64" width="600" height="65"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eKw-qT-YiB">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eKw-qT-YiB">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="72"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r3G-dL-buy">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>

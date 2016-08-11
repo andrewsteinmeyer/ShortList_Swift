@@ -6,6 +6,10 @@
 //  Copyright © 2016 Andrew Steinmeyer. All rights reserved.
 //
 
+/*!
+ * EventDetail is a temporary object used to collect event details
+ * User sets up an event and the info is sent to server on event creation
+ */
 
 class EventDetails {
   

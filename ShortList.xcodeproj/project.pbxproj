@@ -49,7 +49,6 @@
 		4E430FC01CA16EE7008BC34F /* FetchedResultsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E430FBF1CA16EE7008BC34F /* FetchedResultsCollectionViewController.swift */; };
 		4E430FC21CA17032008BC34F /* FetchedResultsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E430FC11CA17032008BC34F /* FetchedResultsCollectionViewDataSource.swift */; };
 		4E430FC71CA237A9008BC34F /* EventsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E430FC61CA237A9008BC34F /* EventsCollectionViewCell.swift */; };
-		4E4AEE231CCD461500C43A7F /* EventInvitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4AEE221CCD461500C43A7F /* EventInvitation.swift */; };
 		4E4AEE251CCD8D8A00C43A7F /* EventInvitationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4AEE241CCD8D8A00C43A7F /* EventInvitationsViewController.swift */; };
 		4E4AEE271CCDA8F000C43A7F /* Invitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4AEE261CCDA8F000C43A7F /* Invitation.swift */; };
 		4E4C36301CCE3C9600699B72 /* InviteeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4C362F1CCE3C9600699B72 /* InviteeTableViewCell.swift */; };
@@ -337,7 +336,6 @@
 		4E430FBF1CA16EE7008BC34F /* FetchedResultsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsCollectionViewController.swift; sourceTree = "<group>"; };
 		4E430FC11CA17032008BC34F /* FetchedResultsCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		4E430FC61CA237A9008BC34F /* EventsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsCollectionViewCell.swift; sourceTree = "<group>"; };
-		4E4AEE221CCD461500C43A7F /* EventInvitation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInvitation.swift; sourceTree = "<group>"; };
 		4E4AEE241CCD8D8A00C43A7F /* EventInvitationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInvitationsViewController.swift; sourceTree = "<group>"; };
 		4E4AEE261CCDA8F000C43A7F /* Invitation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invitation.swift; sourceTree = "<group>"; };
 		4E4C362F1CCE3C9600699B72 /* InviteeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteeTableViewCell.swift; sourceTree = "<group>"; };
@@ -1046,7 +1044,6 @@
 				4E6313271C1FB2DE00EB78F9 /* User.swift */,
 				4E60A0D71C2F1C7800D66A9A /* Location.swift */,
 				4EC300F41D4BC207003C7FA8 /* EventDetails.swift */,
-				4E4AEE221CCD461500C43A7F /* EventInvitation.swift */,
 				4E719C0E1C407087009989AC /* EventConfiguration.swift */,
 				4E6313301C1FB30400EB78F9 /* ShortList.xcdatamodeld */,
 			);
@@ -1700,7 +1697,6 @@
 				4E5AF22C1C47540300192C40 /* ContactsViewController+Import.swift in Sources */,
 				4EF329F71C80931C0078B69A /* METDatabase.m in Sources */,
 				4EF3299F1C7F53A10078B69A /* Contact.swift in Sources */,
-				4E4AEE231CCD461500C43A7F /* EventInvitation.swift in Sources */,
 				4EA89FBD1C27097900163C57 /* SelectContactsViewController.swift in Sources */,
 				4EF32A341C8093B70078B69A /* README.md in Sources */,
 				4EF32A141C80931C0078B69A /* README.md in Sources */,

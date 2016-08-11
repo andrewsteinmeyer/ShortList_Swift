@@ -11,6 +11,31 @@ import CoreData
 class Invitation: NSManagedObject {
   typealias NamedValues = [String:AnyObject]
   
+  enum Status: String {
+    case Accepted = "accepted"
+    case Declined = "declined"
+    case Timeout  = "timeout"
+    case Active   = "active"
+    case Bailout  = "bailout"
+    case Skipped  = "skipped"
+    case Maybe    = "maybe"
+    case Capacity = "capacity"
+    
+    // NOTE: category order and enum order above must match
+    //       not the best way, but will work until Swift has a way to count enums
+    
+    static let categories = [
+      "accepted",
+      "declined",
+      "timeout",
+      "active",
+      "bailout",
+      "skipped",
+      "maybe",
+      "capacity"
+    ]
+  }
+  
   @NSManaged var userId: String?
   @NSManaged var eventId: String?
   @NSManaged var listId: String?
@@ -70,13 +95,22 @@ class Invitation: NSManagedObject {
     
     // still time on the clock
     if secondsRemaining > 0 {
-      let (m,s) = secondsToMinutesSeconds(secondsRemaining)
+      let (h,m,s) = secondsToHoursMinutesSeconds(secondsRemaining)
+      
+      var timeLeft = "00:00"
+      
+      if h < 1 {
+        timeLeft = "00:"
+      }
+      else {
+        timeLeft = h > 9 ? "\(h):" : "0\(h):"
+      }
       
       switch m {
       case _ where m > 1:
-        readableTimeRemaining = (s < 10) ? "\(m):0\(s)" : "\(m):\(s)"
+        readableTimeRemaining = timeLeft + ( (s < 10) ? "\(m):0\(s)" : "\(m):\(s)" )
       case _ where m < 1:
-        readableTimeRemaining = (s < 10) ? "00:0\(s)" : "00:\(s)"
+        readableTimeRemaining = timeLeft + ( (s < 10) ? "00:0\(s)" : "00:\(s)" )
       default:
         break
       }

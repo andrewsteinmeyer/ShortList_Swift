@@ -25,7 +25,7 @@ class InvitationProgressView: UIView {
   var settingsButton: UIButton!
   var detailsButton: UIButton!
   
-  weak var delegate: CreateInvitationViewController?
+  weak var delegate: InvitationProgressViewDelegate?
   
   enum ButtonType: Int {
     case Settings

@@ -9,7 +9,6 @@
 import UIKit
 
 
-
 class InvitationManagerCollectionViewSectionHeader: UICollectionReusableView {
   
   @IBOutlet weak var totalCountLabel: UILabel!
@@ -18,6 +17,7 @@ class InvitationManagerCollectionViewSectionHeader: UICollectionReusableView {
   @IBOutlet weak var declinedCountLabel: UILabel!
   @IBOutlet weak var skippedCountLabel: UILabel!
   @IBOutlet weak var timeoutCountLabel: UILabel!
+  
   
   var managedObjectContext: NSManagedObjectContext!
   private var eventObserver: ManagedObjectObserver?
@@ -65,10 +65,6 @@ class InvitationManagerCollectionViewSectionHeader: UICollectionReusableView {
   
   private func eventDidChange() {
     updateEventStats()
-    
-    //TODO: Do we need to refresh the view with setNeedsLayout() or does the view update
-    //      due to the ObjectObserver???
-    //      Test this by watching screen and inviting someone on web.
   }
   
   private func updateEventStats() {

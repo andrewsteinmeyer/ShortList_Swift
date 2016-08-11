@@ -206,11 +206,13 @@ static const NSInteger kHeaderZIndex = 1024;
   CGFloat decorationOffset = (indexPath.row + 1) * (self.itemSize.height) + indexPath.row * self.minimumLineSpacing + self.parallaxHeaderReferenceSize.height;
   // TODO:
   // again, this is not the best way, but works for now
-  // section header has a height of 44, all other cells are 60
-  // need to move each decoration view up 16 to account for the smaller section header
-  //decorationOffset -= 16;
-  CGFloat xOffset = self.collectionViewContentSize.width * 0.10;
-  CGFloat lineWidth = self.collectionViewContentSize.width * 0.90;
+  // section header has a height of 65, all other cells are 90
+  // need to move each decoration view up 25 to account for the smaller section header
+  decorationOffset -= 25;
+  
+  // Determine length of decoration line view and use zIndex to place in front
+  CGFloat xOffset = self.collectionViewContentSize.width * 0.05;
+  CGFloat lineWidth = self.collectionViewContentSize.width * 0.95;
   layoutAttributes.frame = CGRectMake(xOffset, decorationOffset, lineWidth, self.minimumLineSpacing);
   layoutAttributes.zIndex = 1000;
   
