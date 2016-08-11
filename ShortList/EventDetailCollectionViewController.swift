@@ -143,7 +143,7 @@ class EventDetailCollectionViewController: UICollectionViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if (segue.identifier == "showInviteeDetails") {
       let indexPath = sender as! NSIndexPath
-      let category = EventInvitation.Status.categories[indexPath.row]
+      let category = Invitation.Status.categories[indexPath.row]
       
       /*
       let guestListVC = segue.destinationViewController as! GuestListTableViewController
@@ -167,7 +167,7 @@ class EventDetailCollectionViewController: UICollectionViewController {
   private func getCountForCategory(category: String) -> Int {
     guard let event = event else { return 0 }
     
-    if let status = EventInvitation.Status(rawValue: category) {
+    if let status = Invitation.Status(rawValue: category) {
       switch status {
       case .Active:
         return Int(event.contactCount!) ?? 0
@@ -194,7 +194,7 @@ class EventDetailCollectionViewController: UICollectionViewController {
   override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     // if event owner, display status categories
     // otherwise, only display names of guests that have accepted an invitation
-    return (isEventOwner ? EventInvitation.Status.categories.count : contacts.count)
+    return (isEventOwner ? Invitation.Status.categories.count : contacts.count)
   }
   
   override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -202,7 +202,7 @@ class EventDetailCollectionViewController: UICollectionViewController {
     if isEventOwner {
       let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.EventDetailCollection.CategoryCellIdentifier, forIndexPath: indexPath) as! StatusCategoryCollectionViewCell
       
-      let category = EventInvitation.Status.categories[indexPath.row]
+      let category = Invitation.Status.categories[indexPath.row]
       let count = getCountForCategory(category)
       
       let data = StatusCategoryCollectionViewCellData(name: category.uppercaseString, count: count)
