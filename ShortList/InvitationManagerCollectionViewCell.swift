@@ -21,19 +21,33 @@ struct EventContactCollectionViewCellData {
   typealias NamedValues = [String:AnyObject]
   
   var name: String!
+  var contactId: String!
   var status: String!
   var score: Int!
   var addedToList: String!
+  var actionUpdated: String!
   var invitation: Invitation?
   
-  init(name: String, status: String, score: Int, addedToList: Double, invitation: Invitation?) {
+  init(name: String, id: String, status: String, score: Int, addedToList: Double?, actionUpdated: Double?, invitation: Invitation?) {
     self.name = name
+    self.contactId = id
     self.status = status
     self.score = score
-    self.addedToList = dateFormatter.stringFromDate(NSDate(timeIntervalSince1970: addedToList))
     self.invitation = invitation
+    
+    if let addedToListTime = addedToList {
+      self.addedToList = dateFormatter.stringFromDate(NSDate(timeIntervalSince1970: addedToListTime))
+    }
+    
+    if let updatedTime = actionUpdated {
+     self.actionUpdated = dateFormatter.stringFromDate(NSDate(timeIntervalSince1970: updatedTime))
+    }
   }
   
+}
+
+protocol InvitationManagerCollectionViewCellDelegate {
+  func invitationManagerSkippedContact(contactId: String)
 }
 
 class InvitationManagerCollectionViewCell : UICollectionViewCell {
@@ -41,6 +55,13 @@ class InvitationManagerCollectionViewCell : UICollectionViewCell {
   @IBOutlet weak var detailLabel: UILabel!
   @IBOutlet weak var timeRemainingLabel: UILabel!
   @IBOutlet weak var scoreButton: DesignableButton!
+  
+  var delegate: InvitationManagerCollectionViewCellDelegate?
+  
+  var originalCenter = CGPoint()
+  var skipOnDragRelease = false
+  
+  var contactId: String?
   
   var managedObjectContext: NSManagedObjectContext!
   private var invitationObserver: ManagedObjectObserver?
@@ -75,6 +96,7 @@ class InvitationManagerCollectionViewCell : UICollectionViewCell {
   }
   
   deinit {
+    // remove observer
     if invitationObserver != nil {
       invitationObserver = nil
     }
@@ -89,6 +111,17 @@ class InvitationManagerCollectionViewCell : UICollectionViewCell {
     
     // clear out initially
     self.timeRemainingLabel.text = ""
+    
+    // add gesture handler
+    addPanGestureRecognizer()
+  }
+  
+  private func addPanGestureRecognizer() {
+    // add a pan recognizer
+    let recognizer = UIPanGestureRecognizer(target: self, action: #selector(InvitationManagerCollectionViewCell.handlePan(_:)))
+    recognizer.delaysTouchesBegan = true
+    recognizer.delegate = self
+    addGestureRecognizer(recognizer)
   }
   
   private func addInviteCountdownObserver() {
@@ -121,41 +154,107 @@ class InvitationManagerCollectionViewCell : UICollectionViewCell {
       return
     }
     
-    //scoreButton.titleLabel?.text = invitation.sc
+    // get status and time updated
+    let status = invitation.status ?? ""
+    let updatedTime = invitation.actionUpdated
+    let readableTime = dateFormatter.stringFromDate(NSDate(timeIntervalSince1970: updatedTime))
+    
+    handleStatusUpdate(status, time: readableTime)
     
     // reload view
-    //self.setNeedsDisplay()
+    self.setNeedsDisplay()
   }
   
+  // populate cell with data
   func setData(data: Any?) {
     if let data = data as? EventContactCollectionViewCellData {
       self.nameLabel.text = data.name
       self.scoreButton.setTitle(String(data.score), forState: .Normal)
       
+      // save contact id
+      self.contactId = data.contactId
+      
       // set invitation
+      // there will not be an invitation until user invites the contact
       invitation = data.invitation
       
-      // if we have an invitation
-      if invitation != nil {
-        if let status = Invitation.Status(rawValue: data.status) {
-          switch status {
-          case .Active:
-            guard let updatedTime = invitation?.actionUpdated else { break }
-            
-            self.detailLabel.text = "Invited: " + dateFormatter.stringFromDate(NSDate(timeIntervalSince1970: updatedTime))
-            break
-          default:
-            break
-          }
-        }
-        
-      }
-      // if contact has not been invited, then show when they were added to the list instead
-      else {
-        self.detailLabel.text = "List Member Since: " + data.addedToList
-      }
+      guard invitation == nil else { return }
+  
+      // no invitation yet so display when user was added to list
+      handleStatusUpdate(data.status, time: data.addedToList)
     }
   }
   
+  func handleStatusUpdate(status: String, time: String) {
+    // update appropriate status message
+    if let status = Invitation.Status(rawValue: status) {
+      switch status {
+      case .Active:
+        self.detailLabel.text = "Invited: \(time)"
+      case .Skipped:
+        self.detailLabel.text = "Skipped: \(time)"
+      default:
+        break
+      }
+    }
+    // default to displaying when user was added to this list
+    else {
+        self.detailLabel.text = "List Member Since: \(time)"
+    }
+  }
   
+  //MARK: - Horizontal pan gesture methods
+  
+  func handlePan(recognizer: UIPanGestureRecognizer) {
+    // 1
+    if recognizer.state == .Began {
+      // when the gesture begins, record the current center location
+      originalCenter = center
+    }
+    // 2
+    if recognizer.state == .Changed {
+      let translation = recognizer.translationInView(self)
+      center = CGPointMake(originalCenter.x + translation.x, originalCenter.y)
+      // has the user dragged the item far enough to initiate a delete/complete?
+      skipOnDragRelease = frame.origin.x < -frame.size.width / 2.0
+    }
+    // 3
+    if recognizer.state == .Ended {
+      // the frame this cell had before user dragged it
+      let originalFrame = CGRect(x: 0, y: frame.origin.y,
+                                 width: bounds.size.width, height: bounds.size.height)
+      
+      // user panned far enough and wants to skip this contact
+      if skipOnDragRelease {
+        guard delegate != nil && contactId != nil else {
+          return
+        }
+        
+        // report back to collection view that we want to skip this contact
+        delegate?.invitationManagerSkippedContact(contactId!)
+        
+        // return cell back to its normal position
+        UIView.animateWithDuration(0.2, animations: {self.frame = originalFrame})
+      }
+      else {
+        // if the item is not being deleted, snap back to the original location
+        UIView.animateWithDuration(0.2, animations: {self.frame = originalFrame})
+      }
+    }
+  }
+}
+
+extension InvitationManagerCollectionViewCell: UIGestureRecognizerDelegate {
+  
+  // do not handle vertical gestures, only horizontal
+  override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+    if let panGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer {
+      let translation = panGestureRecognizer.translationInView(superview!)
+      if fabs(translation.x) > fabs(translation.y) {
+        return true
+      }
+      return false
+    }
+    return false
+  }
 }

@@ -107,6 +107,7 @@ enum Theme {
   case InvitationSettingsButtonColor
   case InvitationCancelButtonColor
   case InvitationInviteButtonColor
+  case InvitationCollectionViewBackgroundColor
   
   // Profile
   case ProfileTableViewHeaderTextColor
@@ -180,6 +181,7 @@ enum Theme {
     case .InvitationSettingsButtonColor:                 return HexColor(Palette.mainThemeColor)
     case .InvitationCancelButtonColor:                   return HexColor(Palette.mainThemeErrorColor)
     case .InvitationInviteButtonColor:                   return HexColor(Palette.inviteActionColor)
+    case .InvitationCollectionViewBackgroundColor:       return HexColor(Palette.mainThemeColor)
       
     // Profile
     case .ProfileTableViewHeaderTextColor:               return HexColor(Palette.mainThemeTextColor)

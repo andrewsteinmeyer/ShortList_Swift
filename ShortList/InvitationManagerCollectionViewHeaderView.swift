@@ -9,6 +9,10 @@
 import UIKit
 
 
+protocol InvitationManagerCollectionViewHeaderViewDelegate: class {
+  func invitationManagerDidStartAutoInvite()
+  func invitationManagerDidCancelAutoInvite()
+}
 
 class InvitationManagerCollectionViewHeaderView: UICollectionReusableView {
   typealias NamedValues = [String:AnyObject]
@@ -17,7 +21,7 @@ class InvitationManagerCollectionViewHeaderView: UICollectionReusableView {
   @IBOutlet weak var eventTitleLabel: UILabel!
   @IBOutlet weak var detailsTextView: UITextView!
   
-  weak var delegate: InvitationManagerDelegate?
+  weak var delegate: InvitationManagerCollectionViewHeaderViewDelegate?
   
   enum AutoInviteStatus: Int {
     case NotStarted

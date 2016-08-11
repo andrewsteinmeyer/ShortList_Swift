@@ -10,10 +10,7 @@
 import CoreData
 import PhoneNumberKit
 
-protocol InvitationManagerDelegate: class {
-  func invitationManagerDidStartAutoInvite()
-  func invitationManagerDidCancelAutoInvite()
-}
+
 
 class InvitationsManagerCollectionViewController: UICollectionViewController {
   typealias NamedValues = [String:AnyObject]
@@ -163,6 +160,9 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
     // Register cell classes
     let headerViewNib = UINib(nibName: Constants.InvitationManagerCollection.HeaderViewIdentifier, bundle: nil)
     self.collectionView?.registerNib(headerViewNib, forSupplementaryViewOfKind: CSStickyHeaderParallaxHeader, withReuseIdentifier: Constants.InvitationManagerCollection.HeaderViewIdentifier)
+    
+    // set color behind cells
+    self.collectionView?.backgroundColor = Theme.InvitationCollectionViewBackgroundColor.toUIColor()
   }
   
   // MARK: - Updating View
@@ -186,9 +186,11 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
         for (_,contact):(String, JSON) in JSONList["contacts"] {
           
           let name = contact["name"].string ?? ""
+          let contactId = contact["_id"].string ?? ""
           let score = contact["score"].int ?? 0
           let status = contact["status"].string ?? ""
-          let added = contact["addedToList"].double ?? 0.0
+          let added = contact["addedToList"].double ?? nil
+          let updated = contact["actionUpdated"].double ?? nil
           let invitationId = contact["invitationId"].string ?? ""
           
           // filter invitations and grab the first match
@@ -210,9 +212,11 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
           
           // build contact
           let newContact: EventContact = ["name": name,
+                                          "id": contactId,
                                           "score": score,
                                           "status": status,
                                           "addedToList": added,
+                                          "actionUpdated": updated,
                                           "invitation": unwrappedInvitation]
           
           // add contact to list
@@ -236,7 +240,6 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
   
   private func eventDidChange() {
     if isViewLoaded() {
-      
       // refresh view if loaded
       updateViewWithModel()
     }
@@ -264,7 +267,7 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
   
   // MARK: - Invitation Actions
   
-  func inviteContacts() {
+  private func inviteContacts() {
     // set invite duration, default to 60 minutes
     let invitationDuration = self.invitationDuration ?? 3600
     
@@ -282,6 +285,25 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
       }
     }
   }
+  
+  private func skipContactInvite(contactId: String) {
+    // skip invite for this contact
+    MeteorEventService.sharedInstance.skipContactInvite([eventId, contactId]) { result, error in
+      dispatch_async(dispatch_get_main_queue()) {
+        
+        if error != nil {
+          if let failureReason = error?.localizedFailureReason {
+            AppDelegate.getAppDelegate().showMessage(failureReason)
+            print("error: \(failureReason)")
+          }
+        } else {
+          print("success: contact skipped")
+        }
+      }
+    }
+  }
+  
+  
 
 }
 
@@ -300,14 +322,21 @@ extension InvitationsManagerCollectionViewController {
   override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.InvitationManagerCollection.InvitationManagerCellIdentifier, forIndexPath: indexPath) as! InvitationManagerCollectionViewCell
     
+    // set delegate
+    cell.delegate = self
+    
+    // extract information
     let contact = contacts[indexPath.row]
     let name = contact["name"] as? String ?? ""
+    let contactId = contact["id"] as? String ?? ""
     let status = contact["status"] as? String ?? ""
     let score = contact["score"] as? Int ?? 0
-    let added = contact["addedToList"] as? Double ?? 0
+    let added = contact["addedToList"] as? Double ?? nil
+    let updated = contact["actionUpdated"] as? Double ?? nil
     let invitation = contact["invitation"] as? Invitation ?? nil
     
-    let data = EventContactCollectionViewCellData(name: name, status: status, score: score, addedToList: added, invitation: invitation)
+    // pass along to populate collection view cell
+    let data = EventContactCollectionViewCellData(name: name, id: contactId, status: status, score: score, addedToList: added, actionUpdated: updated, invitation: invitation)
     cell.setData(data)
     
     return cell
@@ -358,9 +387,9 @@ extension InvitationsManagerCollectionViewController: NSFetchedResultsController
   
 }
 
-// MARK: - Invitation Manager Delegate
+// MARK: - InvitationManagerCollectionViewHeaderDelegate
 
-extension InvitationsManagerCollectionViewController: InvitationManagerDelegate {
+extension InvitationsManagerCollectionViewController: InvitationManagerCollectionViewHeaderViewDelegate {
   
   func invitationManagerDidStartAutoInvite() {
     inviteContacts()
@@ -371,3 +400,13 @@ extension InvitationsManagerCollectionViewController: InvitationManagerDelegate 
   }
   
 }
+
+// MARK: - InvitationManagerCollectionViewHeaderDelegate
+
+extension InvitationsManagerCollectionViewController: InvitationManagerCollectionViewCellDelegate {
+  
+  func invitationManagerSkippedContact(contactId: String) {
+    skipContactInvite(contactId)
+  }
+}
+
