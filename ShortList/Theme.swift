@@ -18,6 +18,8 @@ enum Theme {
     //static let mainThemeErrorColor          = "DE495B"
     //static let mainThemeErrorColor          = "EB4D5C"
     //static let mainThemeButtonTextColor     = "428BCA"
+    //static let tableCellSelectedColor       = "4C9689"
+    //static let tableCellTextSelectedColor   = "FFECDB"
     //static let scannerOutlineColor          = "65A0D6"
     
     static let mainThemeColor               = "639DD4" //light blue
@@ -38,8 +40,6 @@ enum Theme {
     static let tableCellBackgroundColor     = "FFFFFF"
     static let tableCellSelectedColor       = "FFD673"
     static let tableCellTextSelectedColor   = "333333"
-    //static let tableCellSelectedColor       = "4C9689"
-    //static let tableCellTextSelectedColor   = "FFECDB"
     static let tableCellSeparatorColor      = "AAAAAA"
     
     static let emptyDataSetTitleColor       = "C9C9C9"
@@ -52,6 +52,7 @@ enum Theme {
     static let scannerOutlineColor          = "FFD673"
     
     static let inviteActionColor            = "4C9589" // green
+    static let inviteActivityIconColor      = "333333" // dark gray
   }
   
   // Base Table View Cell
@@ -108,6 +109,7 @@ enum Theme {
   case InvitationCancelButtonColor
   case InvitationInviteButtonColor
   case InvitationCollectionViewBackgroundColor
+  case InvitationActivityIconTintColor
   
   // Profile
   case ProfileTableViewHeaderTextColor
@@ -182,6 +184,7 @@ enum Theme {
     case .InvitationCancelButtonColor:                   return HexColor(Palette.mainThemeErrorColor)
     case .InvitationInviteButtonColor:                   return HexColor(Palette.inviteActionColor)
     case .InvitationCollectionViewBackgroundColor:       return HexColor(Palette.mainThemeColor)
+    case .InvitationActivityIconTintColor:               return HexColor(Palette.inviteActivityIconColor)
       
     // Profile
     case .ProfileTableViewHeaderTextColor:               return HexColor(Palette.mainThemeTextColor)

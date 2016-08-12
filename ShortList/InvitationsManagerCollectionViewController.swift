@@ -249,7 +249,7 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
     // set header size and item size
     if let layout = self.collectionViewLayout as? CSStickyHeaderFlowLayout {
       // enable lines between cells
-      layout.enableDecorationView = true
+      //layout.enableDecorationView = true
       layout.minimumLineSpacing = 0.50
       
       // set up sizes for header and items
@@ -303,7 +303,25 @@ class InvitationsManagerCollectionViewController: UICollectionViewController {
     }
   }
   
-  
+  private func sendContactInvite(contactId: String) {
+    // set invite duration, default to 60 minutes
+    let invitationDuration = self.invitationDuration ?? 3600
+    
+    // send invite for this contact
+    MeteorEventService.sharedInstance.inviteContactToEvent([eventId, contactId, invitationDuration]) { result, error in
+      dispatch_async(dispatch_get_main_queue()) {
+        
+        if error != nil {
+          if let failureReason = error?.localizedFailureReason {
+            AppDelegate.getAppDelegate().showMessage(failureReason)
+            print("error: \(failureReason)")
+          }
+        } else {
+          print("success: contact invited")
+        }
+      }
+    }
+  }
 
 }
 
@@ -405,8 +423,13 @@ extension InvitationsManagerCollectionViewController: InvitationManagerCollectio
 
 extension InvitationsManagerCollectionViewController: InvitationManagerCollectionViewCellDelegate {
   
-  func invitationManagerSkippedContact(contactId: String) {
+  func invitationManagerDidSkipContact(contactId: String) {
     skipContactInvite(contactId)
   }
+  
+  func invitationManagerDidInviteContact(contactId: String) {
+    sendContactInvite(contactId)
+  }
+  
 }
 

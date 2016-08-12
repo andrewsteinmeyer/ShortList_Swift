@@ -47,7 +47,8 @@ struct EventContactCollectionViewCellData {
 }
 
 protocol InvitationManagerCollectionViewCellDelegate {
-  func invitationManagerSkippedContact(contactId: String)
+  func invitationManagerDidSkipContact(contactId: String)
+  func invitationManagerDidInviteContact(contactId: String)
 }
 
 class InvitationManagerCollectionViewCell : UICollectionViewCell {
@@ -55,11 +56,13 @@ class InvitationManagerCollectionViewCell : UICollectionViewCell {
   @IBOutlet weak var detailLabel: UILabel!
   @IBOutlet weak var timeRemainingLabel: UILabel!
   @IBOutlet weak var scoreButton: DesignableButton!
+  @IBOutlet weak var activityIcon: UIImageView!
   
   var delegate: InvitationManagerCollectionViewCellDelegate?
   
   var originalCenter = CGPoint()
   var skipOnDragRelease = false
+  var inviteOnDragRelease = false
   
   var contactId: String?
   
@@ -178,10 +181,16 @@ class InvitationManagerCollectionViewCell : UICollectionViewCell {
       // there will not be an invitation until user invites the contact
       invitation = data.invitation
       
+      //TODO: Figure out a better way to handle when an invite has not been sent
+      
+      // handle when no invitation has been sent yet
       guard invitation == nil else { return }
   
-      // no invitation yet so display when user was added to list
-      handleStatusUpdate(data.status, time: data.addedToList)
+      // no invite means nothing has been sent 
+      // or the user skipped the contact
+      let time = (data.status == "skipped") ? data.actionUpdated : data.addedToList
+      
+      handleStatusUpdate(data.status, time: time)
     }
   }
   
@@ -217,6 +226,7 @@ class InvitationManagerCollectionViewCell : UICollectionViewCell {
       center = CGPointMake(originalCenter.x + translation.x, originalCenter.y)
       // has the user dragged the item far enough to initiate a delete/complete?
       skipOnDragRelease = frame.origin.x < -frame.size.width / 2.0
+      inviteOnDragRelease = frame.origin.x > frame.size.width / 2.0
     }
     // 3
     if recognizer.state == .Ended {
@@ -226,21 +236,55 @@ class InvitationManagerCollectionViewCell : UICollectionViewCell {
       
       // user panned far enough and wants to skip this contact
       if skipOnDragRelease {
-        guard delegate != nil && contactId != nil else {
-          return
-        }
-        
-        // report back to collection view that we want to skip this contact
-        delegate?.invitationManagerSkippedContact(contactId!)
-        
-        // return cell back to its normal position
-        UIView.animateWithDuration(0.2, animations: {self.frame = originalFrame})
+        skipContact()
       }
-      else {
-        // if the item is not being deleted, snap back to the original location
-        UIView.animateWithDuration(0.2, animations: {self.frame = originalFrame})
+      // user panned far enough and wants to invite this contact
+      else if inviteOnDragRelease {
+        inviteContact()
       }
+      
+      // snap cell frame back to original position
+      UIView.animateWithDuration(0.2, animations: {self.frame = originalFrame})
     }
+  }
+  
+  private func skipContact() {
+    guard delegate != nil && contactId != nil else {
+      return
+    }
+    
+    // animate in skip icon
+    self.activityIcon.image = UIImage(named: "skip-arrow")
+    let skipImage = activityIcon.image?.imageWithColor(Theme.InvitationActivityIconTintColor.toUIColor())
+    activityIcon.image = skipImage
+    animateViews([activityIcon], toHidden: false)
+  
+    // report back to collection view that we want to skip this contact
+    delegate?.invitationManagerDidSkipContact(contactId!)
+  }
+  
+  private func inviteContact() {
+    guard delegate != nil && contactId != nil else {
+      return
+    }
+    
+    // animate in hour glass
+    self.activityIcon.image = UIImage(named: "sand-timer")
+    let timerImage = activityIcon.image?.imageWithColor(Theme.InvitationActivityIconTintColor.toUIColor())
+    activityIcon.image = timerImage
+    animateViews([activityIcon], toHidden: false)
+    
+    // report back to collection view that we want to invite this contact
+    delegate?.invitationManagerDidInviteContact(contactId!)
+  }
+  
+  
+  // MARK: - Hide/unhide views with animation
+  
+  private func animateViews(views: [UIView], toHidden hidden: Bool) {
+    UIView.animateWithDuration(0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 10, options: UIViewAnimationOptions(), animations: { () -> Void in
+      let _ = views.map { $0.hidden = hidden }
+      }, completion: nil)
   }
 }
 

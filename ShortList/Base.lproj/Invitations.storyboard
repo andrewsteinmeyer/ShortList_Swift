@@ -737,22 +737,22 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="j60-PP-S9J">
-                                            <rect key="frame" x="30" y="16" width="492" height="58"/>
+                                            <rect key="frame" x="50" y="16" width="472" height="58"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Walker Steinmeyer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imp-NV-gqU">
-                                                    <rect key="frame" x="0.0" y="0.0" width="492" height="24"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="472" height="24"/>
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List Member Since: 4/24/2016 5:53 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F80-ap-xC2">
-                                                    <rect key="frame" x="0.0" y="24" width="492" height="16"/>
+                                                    <rect key="frame" x="0.0" y="24" width="472" height="16"/>
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDP-ZS-CTv">
-                                                    <rect key="frame" x="0.0" y="40" width="492" height="18"/>
+                                                    <rect key="frame" x="0.0" y="40" width="472" height="18"/>
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -778,18 +778,28 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </button>
+                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="skip-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="M2w-MT-ikx">
+                                            <rect key="frame" x="15" y="33" width="25" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="Fg9-3e-Nh8"/>
+                                                <constraint firstAttribute="width" constant="25" id="R7R-1s-lxK"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="bry-4l-geQ" firstAttribute="trailing" secondItem="Y8z-s1-YqL" secondAttribute="trailingMargin" id="4BJ-OR-uLk"/>
+                                    <constraint firstItem="M2w-MT-ikx" firstAttribute="leading" secondItem="Y8z-s1-YqL" secondAttribute="leadingMargin" constant="7" id="VOt-qf-nrB"/>
                                     <constraint firstItem="j60-PP-S9J" firstAttribute="centerY" secondItem="Y8z-s1-YqL" secondAttribute="centerY" id="cUS-7y-NT0"/>
+                                    <constraint firstItem="M2w-MT-ikx" firstAttribute="centerY" secondItem="Y8z-s1-YqL" secondAttribute="centerY" id="kzd-Dy-PNt"/>
                                     <constraint firstItem="bry-4l-geQ" firstAttribute="centerY" secondItem="Y8z-s1-YqL" secondAttribute="centerY" id="lNd-93-kXm"/>
                                     <constraint firstItem="bry-4l-geQ" firstAttribute="leading" secondItem="j60-PP-S9J" secondAttribute="trailing" constant="8" id="oH7-kA-PMG"/>
-                                    <constraint firstItem="j60-PP-S9J" firstAttribute="leading" secondItem="Y8z-s1-YqL" secondAttribute="leading" constant="30" id="xEp-Od-dBD"/>
+                                    <constraint firstItem="j60-PP-S9J" firstAttribute="leading" secondItem="Y8z-s1-YqL" secondAttribute="leading" constant="50" id="xEp-Od-dBD"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="activityIcon" destination="M2w-MT-ikx" id="1cu-wL-TpN"/>
                                     <outlet property="detailLabel" destination="F80-ap-xC2" id="lrA-E5-PvE"/>
                                     <outlet property="nameLabel" destination="imp-NV-gqU" id="kHy-tN-LTr"/>
                                     <outlet property="scoreButton" destination="bry-4l-geQ" id="naw-Ka-iQp"/>
@@ -1085,4 +1095,7 @@
             <point key="canvasLocation" x="2475" y="2155"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="skip-arrow" width="27" height="16"/>
+    </resources>
 </document>
