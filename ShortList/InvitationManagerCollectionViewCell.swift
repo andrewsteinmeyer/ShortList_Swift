@@ -46,6 +46,9 @@ struct EventContactCollectionViewCellData {
   
 }
 
+/*!
+ * Protocol used to report Invitation Actions back to delegate
+ */
 protocol InvitationManagerCollectionViewCellDelegate {
   func invitationManagerDidSkipContact(contactId: String)
   func invitationManagerDidInviteContact(contactId: String)
@@ -98,6 +101,8 @@ class InvitationManagerCollectionViewCell : UICollectionViewCell {
     }
   }
   
+  // MARK: - View lifecycle and setup
+  
   deinit {
     // remove observer
     if invitationObserver != nil {
@@ -112,9 +117,8 @@ class InvitationManagerCollectionViewCell : UICollectionViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     
-    // clear out initially
-    self.timeRemainingLabel.text = ""
-    
+    clearInvitationTimer()
+
     // add gesture handler
     addPanGestureRecognizer()
   }
@@ -125,47 +129,6 @@ class InvitationManagerCollectionViewCell : UICollectionViewCell {
     recognizer.delaysTouchesBegan = true
     recognizer.delegate = self
     addGestureRecognizer(recognizer)
-  }
-  
-  private func addInviteCountdownObserver() {
-    // set initial countdown value
-    self.timeRemainingLabel.text = invitation?.readableTimeRemaining
-    
-    //set the KVO
-    invitation?.addObserver(self, forKeyPath: "readableTimeRemaining", options: NSKeyValueObservingOptions.New, context: nil)
-  }
-  
-  override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-    guard let readableTimeRemaining = invitation?.readableTimeRemaining else {
-      return
-    }
-    print("remaining: \(readableTimeRemaining)")
-    
-    // time has updated so refresh time label
-    if keyPath == "readableTimeRemaining" {
-      self.timeRemainingLabel?.text? = readableTimeRemaining
-      self.timeRemainingLabel?.setNeedsLayout()
-    }
-  }
-  
-  private func invitationDidChange() {
-    updateInvitationData()
-  }
-  
-  private func updateInvitationData() {
-    guard let invitation = invitation else {
-      return
-    }
-    
-    // get status and time updated
-    let status = invitation.status ?? ""
-    let updatedTime = invitation.actionUpdated
-    let readableTime = dateFormatter.stringFromDate(NSDate(timeIntervalSince1970: updatedTime))
-    
-    handleStatusUpdate(status, time: readableTime)
-    
-    // reload view
-    self.setNeedsDisplay()
   }
   
   // populate cell with data
@@ -194,25 +157,134 @@ class InvitationManagerCollectionViewCell : UICollectionViewCell {
     }
   }
   
+  // MARK: - Invitation Actions
+  
+  private func skipContact() {
+    guard delegate != nil && contactId != nil else {
+      return
+    }
+    
+    updateActivityIconWithStatus(.Skipped)
+  
+    // report back to collection view that we want to skip this contact
+    delegate?.invitationManagerDidSkipContact(contactId!)
+  }
+  
+  private func inviteContact() {
+    guard delegate != nil && contactId != nil else {
+      return
+    }
+    
+    updateActivityIconWithStatus(.Active)
+    
+    // report back to collection view that we want to invite this contact
+    delegate?.invitationManagerDidInviteContact(contactId!)
+  }
+  
+  // MARK: - Invitation Updates
+  
+  private func invitationDidChange() {
+    updateInvitationData()
+  }
+  
+  private func updateInvitationData() {
+    guard let invitation = invitation else {
+      return
+    }
+    
+    // get status and time updated
+    let status = invitation.status ?? ""
+    let updatedTime = status == "active" ? invitation.insertedOn : invitation.actionUpdated
+    let readableTime = dateFormatter.stringFromDate(NSDate(timeIntervalSince1970: updatedTime))
+    
+    handleStatusUpdate(status, time: readableTime)
+    
+    // refresh collection view cell
+    self.setNeedsDisplay()
+  }
+  
   func handleStatusUpdate(status: String, time: String) {
     // update appropriate status message
     if let status = Invitation.Status(rawValue: status) {
       switch status {
       case .Active:
-        self.detailLabel.text = "Invited: \(time)"
-      case .Skipped:
-        self.detailLabel.text = "Skipped: \(time)"
+        self.detailLabel.text = "\(status.labelMessage): \(time)"
+      case .Accepted, .Skipped, .Declined:
+        self.detailLabel.text = "\(status.labelMessage): \(time)"
+        stopInvitationTimer()
+        updateActivityIconWithStatus(status)
       default:
         break
       }
     }
     // default to displaying when user was added to this list
     else {
-        self.detailLabel.text = "List Member Since: \(time)"
+      self.detailLabel.text = "List Member Since: \(time)"
     }
   }
   
-  //MARK: - Horizontal pan gesture methods
+  func updateActivityIconWithStatus(status: Invitation.Status) {
+    switch status {
+    case .Active:
+      self.activityIcon.image = UIImage(named: "sand-timer")
+      let timerImage = activityIcon.image?.imageWithColor(Theme.InvitationActivityIconTintColor.toUIColor())
+      activityIcon.image = timerImage
+    case .Accepted:
+      self.activityIcon.image = UIImage(named: "invite-accepted")
+      let acceptedImage = activityIcon.image?.imageWithColor(Theme.InvitationActivityIconTintColor.toUIColor())
+      activityIcon.image = acceptedImage
+    case .Skipped:
+      self.activityIcon.image = UIImage(named: "skip-arrow")
+      let skipImage = activityIcon.image?.imageWithColor(Theme.InvitationActivityIconTintColor.toUIColor())
+      activityIcon.image = skipImage
+    case .Declined:
+      self.activityIcon.image = UIImage(named: "invite-declined")
+      let declinedImage = activityIcon.image?.imageWithColor(Theme.InvitationActivityIconTintColor.toUIColor())
+      activityIcon.image = declinedImage
+    default:
+      break
+    }
+    
+    // update activity icon with animation
+    animateViews([activityIcon], toHidden: false)
+  }
+  
+  // MARK: - Invitation Countdown Timer
+  
+  private func addInviteCountdownObserver() {
+    // set initial countdown value
+    self.timeRemainingLabel.text = invitation?.readableTimeRemaining
+    
+    //set the KVO
+    invitation?.addObserver(self, forKeyPath: "readableTimeRemaining", options: NSKeyValueObservingOptions.New, context: nil)
+  }
+  
+  override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    guard let readableTimeRemaining = invitation?.readableTimeRemaining else {
+      return
+    }
+    //print("remaining: \(readableTimeRemaining)")
+    
+    // time has updated so refresh time label
+    if keyPath == "readableTimeRemaining" {
+      self.timeRemainingLabel?.text? = readableTimeRemaining
+      self.timeRemainingLabel?.setNeedsLayout()
+    }
+  }
+  
+  private func stopInvitationTimer() {
+    if let invitation = invitation {
+      invitation.stopCountdown()
+    }
+    
+    clearInvitationTimer()
+  }
+  
+  private func clearInvitationTimer() {
+    self.timeRemainingLabel.text = ""
+  }
+  
+  // MARK: - Horizontal pan gesture methods
   
   func handlePan(recognizer: UIPanGestureRecognizer) {
     // 1
@@ -238,7 +310,7 @@ class InvitationManagerCollectionViewCell : UICollectionViewCell {
       if skipOnDragRelease {
         skipContact()
       }
-      // user panned far enough and wants to invite this contact
+        // user panned far enough and wants to invite this contact
       else if inviteOnDragRelease {
         inviteContact()
       }
@@ -247,37 +319,6 @@ class InvitationManagerCollectionViewCell : UICollectionViewCell {
       UIView.animateWithDuration(0.2, animations: {self.frame = originalFrame})
     }
   }
-  
-  private func skipContact() {
-    guard delegate != nil && contactId != nil else {
-      return
-    }
-    
-    // animate in skip icon
-    self.activityIcon.image = UIImage(named: "skip-arrow")
-    let skipImage = activityIcon.image?.imageWithColor(Theme.InvitationActivityIconTintColor.toUIColor())
-    activityIcon.image = skipImage
-    animateViews([activityIcon], toHidden: false)
-  
-    // report back to collection view that we want to skip this contact
-    delegate?.invitationManagerDidSkipContact(contactId!)
-  }
-  
-  private func inviteContact() {
-    guard delegate != nil && contactId != nil else {
-      return
-    }
-    
-    // animate in hour glass
-    self.activityIcon.image = UIImage(named: "sand-timer")
-    let timerImage = activityIcon.image?.imageWithColor(Theme.InvitationActivityIconTintColor.toUIColor())
-    activityIcon.image = timerImage
-    animateViews([activityIcon], toHidden: false)
-    
-    // report back to collection view that we want to invite this contact
-    delegate?.invitationManagerDidInviteContact(contactId!)
-  }
-  
   
   // MARK: - Hide/unhide views with animation
   

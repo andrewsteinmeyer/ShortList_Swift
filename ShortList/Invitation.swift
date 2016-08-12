@@ -21,6 +21,19 @@ class Invitation: NSManagedObject {
     case Maybe    = "maybe"
     case Capacity = "capacity"
     
+    var labelMessage: String {
+      switch self {
+      case .Accepted: return "Accepted"
+      case .Declined: return "Declined"
+      case .Timeout:  return "Timeout"
+      case .Active:   return "Invited"
+      case .Bailout:  return "Bailout"
+      case .Skipped:  return "Skipped"
+      case .Maybe:    return "Maybe"
+      case .Capacity: return "Capacity"
+      }
+    }
+    
     // NOTE: category order and enum order above must match
     //       not the best way, but will work until Swift has a way to count enums
     

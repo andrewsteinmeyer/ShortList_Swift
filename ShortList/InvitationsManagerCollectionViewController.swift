@@ -388,7 +388,7 @@ extension InvitationsManagerCollectionViewController {
   // MARK: - UICollectionViewDelegate
 
   override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    performSegueWithIdentifier("showInviteeDetails", sender: indexPath)
+    //performSegueWithIdentifier("showInviteeDetails", sender: indexPath)
   }
 
 }
