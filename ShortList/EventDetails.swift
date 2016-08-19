@@ -76,8 +76,7 @@ class EventDetails {
   
   func detailsVerified() -> Bool {
     return (settingsVerified()
-            && date != nil
-            && location != nil)
+            && date != nil)
   }
   
 }

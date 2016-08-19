@@ -79,10 +79,10 @@ class InvitationManagerCollectionViewSectionHeader: UICollectionReusableView {
     acceptedCountLabel.text = String(event.acceptedCount!) ?? "0"
     declinedCountLabel.text = String(event.declinedCount!) ?? "0"
     timeoutCountLabel.text = String(event.timeoutCount!) ?? "0"
-    skippedCountLabel.text = "0"
-    invitedCountLabel.text = "0"
+    skippedCountLabel.text = String(event.skippedCount!) ?? "0"
+    invitedCountLabel.text = String(event.activeCount!) ?? "0"
     
-    // reload view
+    // refresh view
     self.setNeedsDisplay()
   }
   

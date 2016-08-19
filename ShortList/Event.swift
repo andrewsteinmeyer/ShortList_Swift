@@ -17,8 +17,10 @@ class Event: NSManagedObject {
   @NSManaged var list: NamedValues?
   @NSManaged var venue: NamedValues?
   @NSManaged var location: NamedValues?
+  @NSManaged var activeCount: NSNumber?
   @NSManaged var acceptedCount: NSNumber?
   @NSManaged var declinedCount: NSNumber?
+  @NSManaged var skippedCount: NSNumber?
   @NSManaged var timeoutCount: NSNumber?
   @NSManaged var eventConfiguration: NamedValues?
   @NSManaged var insertedOn: NSTimeInterval

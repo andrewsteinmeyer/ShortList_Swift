@@ -124,7 +124,7 @@ class CreateInvitationViewController: UIViewController {
         createEvent()
       }
       else {
-        let message = "Please select a date and location to proceed."
+        let message = "Please select a date to proceed."
         AppDelegate.getAppDelegate().showMessage(message, title: "Invitation Details")
       }
     }

@@ -22,12 +22,12 @@ enum Theme {
     //static let tableCellTextSelectedColor   = "FFECDB"
     //static let scannerOutlineColor          = "65A0D6"
     
-    static let mainThemeColor               = "639DD4" //light blue
-    static let mainThemeTextColor           = "333333" //dark gray
-    static let mainThemeErrorColor          = "D46365" //light red/pink
+    static let mainThemeColor               = "639DD4" // light blue
+    static let mainThemeTextColor           = "333333" // dark gray
+    static let mainThemeErrorColor          = "D46365" // light red/pink
     static let mainThemeButtonTextColor     = "333333"
-    static let mainThemeButtonColor         = "FFD673" //yellow
-    static let mainThemeActionColor         = "D49A63" //orange
+    static let mainThemeButtonColor         = "FFD673" // yellow
+    static let mainThemeActionColor         = "D49A63" // orange
     
     static let secondaryHeaderColor         = "FFD673"
     
@@ -51,7 +51,7 @@ enum Theme {
     
     static let scannerOutlineColor          = "FFD673"
     
-    static let inviteActionColor            = "4C9589" // green
+    static let inviteActionColor            = "4C9589" // light green
     static let inviteActivityIconColor      = "333333" // dark gray
   }
   

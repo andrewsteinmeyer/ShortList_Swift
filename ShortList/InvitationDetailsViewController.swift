@@ -174,7 +174,6 @@ class InvitationDetailsViewController: InvitationViewController {
   }
   
   private func selectVenue() {
-    // present venue modal
     performSegueWithIdentifier("selectVenue", sender: nil)
   }
   

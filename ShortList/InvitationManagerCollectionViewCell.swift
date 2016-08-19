@@ -63,11 +63,14 @@ class InvitationManagerCollectionViewCell : UICollectionViewCell {
   
   var delegate: InvitationManagerCollectionViewCellDelegate?
   
+  var contactId: String?
+  
   var originalCenter = CGPoint()
   var skipOnDragRelease = false
   var inviteOnDragRelease = false
-  
-  var contactId: String?
+  var skipInviteImageView: UIImageView
+  var sendInviteImageView: UIImageView
+  let kUICuesMargin: CGFloat = 10.0, kUICuesWidth: CGFloat = 50.0
   
   var managedObjectContext: NSManagedObjectContext!
   private var invitationObserver: ManagedObjectObserver?
@@ -101,7 +104,25 @@ class InvitationManagerCollectionViewCell : UICollectionViewCell {
     }
   }
   
-  // MARK: - View lifecycle and setup
+  // MARK: - View Lifecycle and Setup
+  
+  required init?(coder aDecoder: NSCoder) {
+    let skipInviteImage = UIImage(named: "invite-trash-large")?.imageWithColor(UIColor.whiteColor())
+    skipInviteImageView = UIImageView(image: skipInviteImage)
+    skipInviteImageView.backgroundColor = UIColor.clearColor()
+    skipInviteImageView.contentMode = .ScaleAspectFit
+    
+    let sendInviteImage = UIImage(named: "invite-send-large")?.imageWithColor(UIColor.whiteColor())
+    sendInviteImageView = UIImageView(image: sendInviteImage)
+    sendInviteImageView.backgroundColor = UIColor.clearColor()
+    sendInviteImageView.contentMode = .ScaleAspectFit
+    
+    super.init(coder: aDecoder)
+    
+    // add swipe views
+    addSubview(skipInviteImageView)
+    addSubview(sendInviteImageView)
+  }
   
   deinit {
     // remove observer
@@ -121,6 +142,17 @@ class InvitationManagerCollectionViewCell : UICollectionViewCell {
 
     // add gesture handler
     addPanGestureRecognizer()
+  }
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    
+    
+    // position gesture helper image cues off screen
+    sendInviteImageView.frame = CGRect(x: -kUICuesWidth - kUICuesMargin, y: 0,
+                             width: kUICuesWidth, height: bounds.size.height)
+    skipInviteImageView.frame = CGRect(x: bounds.size.width + kUICuesMargin, y: 0,
+                              width: kUICuesWidth, height: bounds.size.height)
   }
   
   private func addPanGestureRecognizer() {
@@ -299,6 +331,11 @@ class InvitationManagerCollectionViewCell : UICollectionViewCell {
       // has the user dragged the item far enough to initiate a delete/complete?
       skipOnDragRelease = frame.origin.x < -frame.size.width / 2.0
       inviteOnDragRelease = frame.origin.x > frame.size.width / 2.0
+      
+      // fade the contextual clues
+      let cueAlpha = fabs(frame.origin.x) / (frame.size.width / 2.0)
+      skipInviteImageView.alpha = cueAlpha
+      sendInviteImageView.alpha = cueAlpha
     }
     // 3
     if recognizer.state == .Ended {
