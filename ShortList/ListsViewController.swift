@@ -29,9 +29,8 @@ class ListsViewController: FetchedResultsTableViewController {
     var tempControl = DZNSegmentedControl.init(items: menuItems)
     tempControl.selectedSegmentIndex = 0
     tempControl.backgroundColor = Theme.DZNSegmentBackgroundColor.toUIColor()
-    tempControl.height = 60
+    tempControl.height = 50
     tempControl.showsCount = false
-    //tempControl.font = UIFont(name: "Lato", size: 20)!
     tempControl.delegate = self
     
     // call didChangeSegment when user taps segment control
@@ -42,6 +41,8 @@ class ListsViewController: FetchedResultsTableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    DZNSegmentedControl.appearance().font = UIFont(name: "Lato", size: 18)!
     
     // set CoreData context
     self.managedObjectContext = Meteor.mainQueueManagedObjectContext
@@ -159,6 +160,8 @@ class ListsViewController: FetchedResultsTableViewController {
     
     let textColor = Theme.NavigationBarTintColor.toUIColor()
     self.navigationController?.navigationBar.titleTextAttributes =   ([NSFontAttributeName: UIFont(name: "Lato", size: 23)!, NSForegroundColorAttributeName: textColor])
+    
+    // set font for DZN segment control
   }
   
   func didChangeSegment() {
@@ -167,6 +170,7 @@ class ListsViewController: FetchedResultsTableViewController {
   
   // MARK: - Static functions
   
+  // TODO: Implement when user scans list
   static func presentListsViewController() {
     
   }
@@ -210,7 +214,7 @@ extension ListsViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 extension ListsViewController: DZNSegmentedControlDelegate {
   
   func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
-    return UIBarPosition.Top
+    return UIBarPosition.Any
   }
   
 }

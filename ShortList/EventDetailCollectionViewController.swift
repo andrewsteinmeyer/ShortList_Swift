@@ -8,6 +8,7 @@
 
 import CoreData
 import PhoneNumberKit
+import MapKit
 
 class EventDetailCollectionViewController: UICollectionViewController {
   typealias NamedValues = [String:AnyObject]
@@ -58,6 +59,10 @@ class EventDetailCollectionViewController: UICollectionViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
+    
+    // set navBar to dark gray
+    self.navigationController?.navigationBar.barTintColor = UIColor.darkGrayColor()
+    self.navigationController?.navigationBar.translucent = true
     
     // refresh
     updateViewWithModel()
@@ -128,13 +133,10 @@ class EventDetailCollectionViewController: UICollectionViewController {
   private func reloadLayout() {
     // set header size and item size
     if let layout = self.collectionViewLayout as? CSStickyHeaderFlowLayout {
-      // enable lines between cells
-      layout.enableDecorationView = true
-      layout.minimumLineSpacing = 0.50
       
       layout.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.width, Constants.EventDetailCollection.HeaderViewHeight)
       layout.itemSize = CGSizeMake(self.view.frame.width, layout.itemSize.height)
-      layout.disableStickyHeaders = false
+      layout.disableStickyHeaders = true
     }
   }
   
@@ -229,8 +231,11 @@ class EventDetailCollectionViewController: UICollectionViewController {
     case UICollectionElementKindSectionHeader:
       let cell = self.collectionView?.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: Constants.EventDetailCollection.SectionHeaderIdentifier, forIndexPath: indexPath) as! EventDetailCollectionViewSectionHeader
       
-      // setup cell depending on event ownership
-      cell.toggleIsOwner(isEventOwner)
+      // set event info
+      cell.setEventData(self.event)
+      
+      // set delegate for map view to this view controller
+      cell.eventMapView.delegate = self
       
       return cell
     case CSStickyHeaderParallaxHeader:
@@ -250,5 +255,25 @@ class EventDetailCollectionViewController: UICollectionViewController {
     performSegueWithIdentifier("showInviteeDetails", sender: indexPath)
   }
   
+}
+
+extension EventDetailCollectionViewController: MKMapViewDelegate {
   
+  func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+    if let annotation = annotation as? LocationMapPin {
+      let identifier = "pin"
+      var view: MKPinAnnotationView
+      if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as? MKPinAnnotationView { 
+        dequeuedView.annotation = annotation
+        view = dequeuedView
+      } else {
+        view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        view.canShowCallout = true
+        view.calloutOffset = CGPoint(x: -5, y: 5)
+      }
+      return view
+    }
+    return nil
+  }
+
 }

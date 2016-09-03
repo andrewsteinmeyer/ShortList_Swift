@@ -52,6 +52,7 @@
         <attribute name="insertedOn" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="list" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="longDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="skippedCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="timeoutCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -126,7 +127,7 @@
     <elements>
         <element name="Alert" positionX="-27" positionY="153" width="128" height="165"/>
         <element name="Contact" positionX="-18" positionY="144" width="128" height="135"/>
-        <element name="Event" positionX="0" positionY="135" width="128" height="255"/>
+        <element name="Event" positionX="0" positionY="135" width="128" height="270"/>
         <element name="Invitation" positionX="-27" positionY="180" width="128" height="165"/>
         <element name="List" positionX="-54" positionY="36" width="128" height="150"/>
         <element name="Venue" positionX="-18" positionY="99" width="128" height="105"/>

@@ -116,8 +116,10 @@ class EventsViewController: FetchedResultsCollectionViewController {
           listName = JSONList["name"].string ?? ""
         }
         
-        //TODO - get eventDescription after changing property name from "description" on server
-        // Core data cannot use generic property names because "description" is already used by Core Data
+        // set description
+        if let description = event.valueForKey("longDescription") as? String {
+          eventDescription = description
+        }
         
         // set accepted count
         if let accepted = event.valueForKey("acceptedCount") as? Int {

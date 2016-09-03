@@ -25,6 +25,7 @@ class Event: NSManagedObject {
   @NSManaged var eventConfiguration: NamedValues?
   @NSManaged var insertedOn: NSTimeInterval
   @NSManaged var contactCount: NSNumber?
+  @NSManaged var longDescription: String?
   
   //TODO: removed invitationsSent bc it was crashing due to null converting to NSNull.  Is this not always set on an Event object on server?
 }

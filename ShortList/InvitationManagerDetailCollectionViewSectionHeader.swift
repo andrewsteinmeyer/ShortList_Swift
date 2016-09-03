@@ -18,7 +18,6 @@ class InvitationManagerCollectionViewSectionHeader: UICollectionReusableView {
   @IBOutlet weak var skippedCountLabel: UILabel!
   @IBOutlet weak var timeoutCountLabel: UILabel!
   
-  
   var managedObjectContext: NSManagedObjectContext!
   private var eventObserver: ManagedObjectObserver?
   
@@ -69,11 +68,6 @@ class InvitationManagerCollectionViewSectionHeader: UICollectionReusableView {
   
   private func updateEventStats() {
     guard let event = self.event else { return }
-    
-    //TODO : Set invitedCount, skippedCount
-    // need to aggregate these somehow off of list.contacts
-    // do not want to make a separate call to query each invitationId for each invited Contact
-    // that is too many calls over the wire for a sum.  maybe put invitedCount and skippted count on Event
     
     totalCountLabel.text = String(event.contactCount!) ?? "0"
     acceptedCountLabel.text = String(event.acceptedCount!) ?? "0"
