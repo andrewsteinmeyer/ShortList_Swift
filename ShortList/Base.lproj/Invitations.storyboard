@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Lato-Regular.ttf">
@@ -94,7 +95,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CY5-Rz-fF4">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="437"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="477"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRL-Oe-8Sk" userLabel="Instruction View">
                                                         <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
@@ -115,14 +116,14 @@
                                                             <constraint firstAttribute="trailing" secondItem="Irn-O0-aTj" secondAttribute="trailing" id="vBO-me-1nK"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lXI-Tv-723" userLabel="Progress View" customClass="InvitationProgressView" customModule="ShortList" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="40" width="600" height="50"/>
+                                                    <view contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="lXI-Tv-723" userLabel="Progress View" customClass="InvitationProgressView" customModule="ShortList" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="40" width="600" height="100"/>
                                                         <color key="backgroundColor" red="0.80571289059999995" green="0.80571289059999995" blue="0.80571289059999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     </view>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zVp-q2-U6F" userLabel="Title View">
-                                                        <rect key="frame" x="0.0" y="90" width="600" height="50"/>
+                                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zVp-q2-U6F" userLabel="Title View">
+                                                        <rect key="frame" x="0.0" y="140" width="600" height="40"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Invitation Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvF-YU-rNG">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Invitation Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvF-YU-rNG">
                                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                                 <color key="textColor" red="0.38823529410000002" green="0.61568627450000002" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -138,9 +139,13 @@
                                                         </constraints>
                                                     </view>
                                                     <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PzL-J3-3TB">
-                                                        <rect key="frame" x="0.0" y="140" width="600" height="297"/>
+                                                        <rect key="frame" x="0.0" y="180" width="600" height="297"/>
                                                     </containerView>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="zVp-q2-U6F" firstAttribute="height" secondItem="DRL-Oe-8Sk" secondAttribute="height" id="8HL-xS-rCo"/>
+                                                    <constraint firstItem="lXI-Tv-723" firstAttribute="height" secondItem="DRL-Oe-8Sk" secondAttribute="height" multiplier="2.5:1" id="v0o-0Y-gdv"/>
+                                                </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="the-4Y-Zxn" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="436" width="600" height="50"/>
