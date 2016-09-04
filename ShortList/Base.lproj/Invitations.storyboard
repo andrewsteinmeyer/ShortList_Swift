@@ -88,14 +88,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gF-wp-cDH" customClass="TPKeyboardAvoidingScrollView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gF-wp-cDH" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="byp-ET-vYZ">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="byp-ET-vYZ">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CY5-Rz-fF4">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="477"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CY5-Rz-fF4">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="436"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRL-Oe-8Sk" userLabel="Instruction View">
                                                         <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
@@ -120,7 +120,7 @@
                                                         <rect key="frame" x="0.0" y="40" width="600" height="100"/>
                                                         <color key="backgroundColor" red="0.80571289059999995" green="0.80571289059999995" blue="0.80571289059999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     </view>
-                                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zVp-q2-U6F" userLabel="Title View">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVp-q2-U6F" userLabel="Title View">
                                                         <rect key="frame" x="0.0" y="140" width="600" height="40"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Invitation Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvF-YU-rNG">
@@ -138,13 +138,14 @@
                                                             <constraint firstAttribute="trailing" secondItem="WvF-YU-rNG" secondAttribute="trailing" id="aQd-6X-eNJ"/>
                                                         </constraints>
                                                     </view>
-                                                    <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PzL-J3-3TB">
-                                                        <rect key="frame" x="0.0" y="180" width="600" height="297"/>
+                                                    <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PzL-J3-3TB">
+                                                        <rect key="frame" x="0.0" y="180" width="600" height="256"/>
                                                     </containerView>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="zVp-q2-U6F" firstAttribute="height" secondItem="DRL-Oe-8Sk" secondAttribute="height" id="8HL-xS-rCo"/>
                                                     <constraint firstItem="lXI-Tv-723" firstAttribute="height" secondItem="DRL-Oe-8Sk" secondAttribute="height" multiplier="2.5:1" id="v0o-0Y-gdv"/>
+                                                    <constraint firstItem="PzL-J3-3TB" firstAttribute="height" secondItem="DRL-Oe-8Sk" secondAttribute="height" multiplier="6.4" id="yQM-8u-Wpp"/>
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="the-4Y-Zxn" customClass="DesignableButton" customModule="ShortList" customModuleProvider="target">
