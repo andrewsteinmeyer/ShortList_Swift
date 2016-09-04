@@ -125,8 +125,9 @@
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Invitation Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvF-YU-rNG">
                                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                                                <color key="backgroundColor" white="0.33333333329999998" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                                                <color key="textColor" red="0.38823529410000002" green="0.61568627450000002" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -221,7 +222,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Th1-4h-z4V">
                                 <rect key="frame" x="20" y="24" width="560" height="252"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title (Optional)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sa3-Sd-RYe" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add a title if you're in the mood..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sa3-Sd-RYe" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="40"/>
                                         <color key="tintColor" red="0.83137254900000002" green="0.60392156860000001" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -662,7 +663,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="V9x-2J-s77">
                                         <rect key="frame" x="0.0" y="158" width="560" height="97"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location (Optional)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zmZ-v3-Yfe" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Set a location if you want..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zmZ-v3-Yfe" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="560" height="40"/>
                                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -672,7 +673,7 @@
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Details (Optional)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZAY-2x-qqi" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Any details you want to share?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZAY-2x-qqi" customClass="UIMaterialTextField" customModule="ShortList" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="57" width="560" height="40"/>
                                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
