@@ -94,7 +94,7 @@
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="byp-ET-vYZ">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CY5-Rz-fF4">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CY5-Rz-fF4">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="436"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRL-Oe-8Sk" userLabel="Instruction View">
@@ -138,7 +138,7 @@
                                                             <constraint firstAttribute="trailing" secondItem="WvF-YU-rNG" secondAttribute="trailing" id="aQd-6X-eNJ"/>
                                                         </constraints>
                                                     </view>
-                                                    <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PzL-J3-3TB">
+                                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PzL-J3-3TB">
                                                         <rect key="frame" x="0.0" y="180" width="600" height="256"/>
                                                     </containerView>
                                                 </subviews>
@@ -177,7 +177,7 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="byp-ET-vYZ" secondAttribute="bottom" id="1ye-ZL-ctL"/>
                                     <constraint firstAttribute="trailing" secondItem="byp-ET-vYZ" secondAttribute="trailing" id="YFg-vf-8zI"/>
-                                    <constraint firstItem="byp-ET-vYZ" firstAttribute="top" secondItem="4gF-wp-cDH" secondAttribute="top" id="lpv-md-Wed"/>
+                                    <constraint firstItem="byp-ET-vYZ" firstAttribute="top" secondItem="4gF-wp-cDH" secondAttribute="top" constant="-50" id="lpv-md-Wed"/>
                                     <constraint firstItem="byp-ET-vYZ" firstAttribute="leading" secondItem="4gF-wp-cDH" secondAttribute="leading" id="s6K-m2-znK"/>
                                 </constraints>
                             </scrollView>
