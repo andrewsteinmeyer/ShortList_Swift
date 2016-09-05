@@ -15,6 +15,10 @@ class CreateInvitationViewController: UIViewController {
   @IBOutlet weak var invitationProgressView: InvitationProgressView!
   @IBOutlet weak var containerView: UIView!
   @IBOutlet weak var actionButton: DesignableButton!
+  @IBOutlet weak var scrollView: UIScrollView!
+  @IBOutlet weak var contentView: UIView!
+  
+  var scrollViewInsetsAdjusted = false
   
   // controller being displayed in the containerView
   weak var currentViewController: InvitationViewController?
@@ -107,6 +111,26 @@ class CreateInvitationViewController: UIViewController {
     newViewController.view.translatesAutoresizingMaskIntoConstraints = false
     self.cycleFromViewController(self.currentViewController!, toViewController: newViewController)
     self.currentViewController = newViewController
+  }
+  
+  override func viewDidLayoutSubviews() {
+    // center content view initially
+    if !scrollViewInsetsAdjusted {
+      scrollView.contentInset = UIEdgeInsetsZero
+      let scrollViewBounds = scrollView.bounds
+      
+      var scrollViewInsets = UIEdgeInsetsZero
+      scrollViewInsets.top = scrollViewBounds.size.height/2.0;
+      scrollViewInsets.top -= contentView.bounds.size.height/2.0;
+      
+      scrollViewInsets.bottom = scrollViewBounds.size.height/2.0
+      scrollViewInsets.bottom -= contentView.bounds.size.height/2.0;
+      scrollViewInsets.bottom += 1
+      
+      scrollView.contentInset = scrollViewInsets
+      
+      scrollViewInsetsAdjusted = true
+    }
   }
   
   private func validateFields() {
