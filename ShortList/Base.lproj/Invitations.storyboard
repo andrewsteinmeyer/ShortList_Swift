@@ -199,7 +199,9 @@
                     <connections>
                         <outlet property="actionButton" destination="the-4Y-Zxn" id="RUF-ng-uIn"/>
                         <outlet property="containerView" destination="PzL-J3-3TB" id="0Pz-vj-Sht"/>
+                        <outlet property="contentView" destination="byp-ET-vYZ" id="Mwx-MF-WzZ"/>
                         <outlet property="invitationProgressView" destination="lXI-Tv-723" id="2d5-XS-mUH"/>
+                        <outlet property="scrollView" destination="4gF-wp-cDH" id="DZZ-Cg-bE4"/>
                         <segue destination="pDU-UP-fcp" kind="presentation" identifier="showInvitationsManager" id="Rv5-iq-tKR"/>
                     </connections>
                 </viewController>
