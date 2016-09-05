@@ -408,41 +408,41 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="457"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="vM9-KZ-rWg">
-                                    <rect key="frame" x="0.0" y="8" width="600" height="434"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="vM9-KZ-rWg">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="434"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aad-dP-qi0">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="381"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="o9u-MA-E4F">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="142"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="164"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="1bS-qt-9cD">
-                                                            <rect key="frame" x="0.0" y="0.0" width="600" height="82"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" misplaced="YES" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="1bS-qt-9cD">
+                                                            <rect key="frame" x="0.0" y="0.0" width="600" height="85"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Fishin Crew" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vvs-jf-6qR">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="28"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="29"/>
                                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="23"/>
+                                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="THU, SEP 1, 6:00 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZE-ex-Off">
-                                                                    <rect key="frame" x="0.0" y="30" width="600" height="18"/>
-                                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                                                    <rect key="frame" x="0.0" y="31" width="600" height="20"/>
+                                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="OFFSHORE FISHING TRIP" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="Dgo-yz-NFe">
-                                                                    <rect key="frame" x="0.0" y="50" width="600" height="32"/>
+                                                                    <rect key="frame" x="0.0" y="53" width="600" height="32"/>
                                                                     <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="26"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" misplaced="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="No details were given for this event." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNn-6k-765">
-                                                            <rect key="frame" x="0.0" y="90" width="600" height="52"/>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="No details were given for this event." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNn-6k-765">
+                                                            <rect key="frame" x="0.0" y="93" width="600" height="71"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -454,8 +454,8 @@
                                                         <constraint firstAttribute="trailing" secondItem="1bS-qt-9cD" secondAttribute="trailing" id="wEZ-fV-wRW"/>
                                                     </constraints>
                                                 </stackView>
-                                                <mapView clipsSubviews="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4VS-2X-gIY">
-                                                    <rect key="frame" x="0.0" y="142" width="600" height="239"/>
+                                                <mapView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" mapType="standard" zoomEnabled="NO" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4VS-2X-gIY">
+                                                    <rect key="frame" x="0.0" y="164" width="600" height="217"/>
                                                 </mapView>
                                             </subviews>
                                         </stackView>
@@ -478,7 +478,7 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="4VS-2X-gIY" firstAttribute="height" secondItem="vM9-KZ-rWg" secondAttribute="height" multiplier="0.55" id="E3v-aj-glK"/>
+                                        <constraint firstItem="4VS-2X-gIY" firstAttribute="height" secondItem="vM9-KZ-rWg" secondAttribute="height" multiplier="0.5" id="E3v-aj-glK"/>
                                         <constraint firstAttribute="trailing" secondItem="hKH-mw-L16" secondAttribute="trailing" id="EAs-PT-w4k"/>
                                         <constraint firstItem="hKH-mw-L16" firstAttribute="leading" secondItem="vM9-KZ-rWg" secondAttribute="leading" id="kNL-Eb-aK3"/>
                                     </constraints>
@@ -486,8 +486,8 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstAttribute="bottom" secondItem="vM9-KZ-rWg" secondAttribute="bottom" constant="23" id="Lyn-M0-DQP"/>
                                 <constraint firstAttribute="trailing" secondItem="vM9-KZ-rWg" secondAttribute="trailing" id="STm-fC-04B"/>
-                                <constraint firstItem="vM9-KZ-rWg" firstAttribute="height" secondItem="U62-gD-YaK" secondAttribute="height" multiplier="0.95" id="drh-np-mB8"/>
                                 <constraint firstItem="vM9-KZ-rWg" firstAttribute="top" secondItem="U62-gD-YaK" secondAttribute="top" id="igK-TO-yXQ"/>
                                 <constraint firstItem="vM9-KZ-rWg" firstAttribute="leading" secondItem="U62-gD-YaK" secondAttribute="leading" id="jXf-dd-ysv"/>
                             </constraints>
